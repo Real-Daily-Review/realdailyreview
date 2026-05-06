@@ -1,0 +1,21 @@
+---
+interface Props {
+  perspectives: { label: string; summary: string; source?: string }[];
+}
+const { perspectives } = Astro.props;
+---
+
+{perspectives && perspectives.length > 0 && (
+  <aside class="perspective-box" aria-label="Multiple perspectives">
+    <h3>How different sides see this</h3>
+    {perspectives.map((p) => (
+      <div class="perspective">
+        <span class="perspective-label">{p.label}:</span>
+        {' '}<span>{p.summary}</span>
+        {p.source && (
+          <> &middot; <a href={p.source} rel="nofollow noopener" target="_blank">source</a></>
+        )}
+      </div>
+    ))}
+  </aside>
+)}

@@ -1,0 +1,41 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { SITE } from '@/config';
+---
+
+<BaseLayout title="Terms of Service" description="Terms for using Real Daily Review.">
+  <article class="article-body">
+    <h1>Terms of Service</h1>
+    <p style="color: var(--color-muted);">Last updated: {new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</p>
+
+    <p>
+      By using realdailyreview.com, you agree to these terms. If you don’t, please don’t use the
+      site.
+    </p>
+
+    <h2>Editorial</h2>
+    <p>
+      We work hard to be accurate but news moves fast and we make mistakes. Information is provided
+      "as is" with no warranty. Don’t make legal, financial, medical, or safety-critical decisions
+      based solely on what you read here.
+    </p>
+
+    <h2>Content reuse</h2>
+    <p>
+      Articles are © {SITE.name}. You may quote up to 50 words with attribution and a link back.
+      For longer reuse, contact us.
+    </p>
+
+    <h2>User submissions</h2>
+    <p>
+      Feedback or messages you send us may be used to improve the site, with personally identifying
+      details removed.
+    </p>
+
+    <h2>Limitation of liability</h2>
+    <p>
+      To the maximum extent permitted by law, we’re not liable for any damages arising from your use
+      of the site.
+    </p>
+  </article>
+</BaseLayout>

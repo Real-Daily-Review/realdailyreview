@@ -1,0 +1,42 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { SITE, EDITORIAL_PRINCIPLES } from '@/config';
+---
+
+<BaseLayout title="About" description={`About ${SITE.name}.`}>
+  <article class="article-body">
+    <h1>About Real Daily Review</h1>
+    <p style="font-size: 1.15rem; color: var(--color-muted);">{SITE.tagline}</p>
+
+    <p>
+      Real Daily Review is a daily news brief built for people who want the news without the bloat.
+      Every weekday morning we publish a single short brief plus standalone stories on the day’s
+      biggest events in politics, business, world affairs, tech, and culture.
+    </p>
+
+    <h2>How we work</h2>
+    <p>
+      Stories are drafted by AI from multiple primary and secondary sources, then checked against
+      the principles below. We disclose AI involvement on every article, link every source, and
+      label competing perspectives clearly when a topic is contested.
+    </p>
+
+    <h2>Our editorial principles</h2>
+    <ol>
+      {EDITORIAL_PRINCIPLES.map((p) => <li style="margin-bottom: 0.5rem;">{p}</li>)}
+    </ol>
+
+    <h2>Corrections</h2>
+    <p>
+      If something is wrong, tell us at <a href={`mailto:${SITE.feedbackEmail}`}>{SITE.feedbackEmail}</a>
+      or via <a href="/feedback">the feedback form</a>. We append corrections in-line with date stamps;
+      we never silently delete or edit a published claim away.
+    </p>
+
+    <h2>Contact</h2>
+    <p>
+      General: <a href={`mailto:${SITE.contactEmail}`}>{SITE.contactEmail}</a><br />
+      Feedback: <a href={`mailto:${SITE.feedbackEmail}`}>{SITE.feedbackEmail}</a>
+    </p>
+  </article>
+</BaseLayout>

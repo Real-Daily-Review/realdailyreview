@@ -1,0 +1,58 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import AdSlot from '@/components/AdSlot.astro';
+import NewsletterSignup from '@/components/NewsletterSignup.astro';
+import TipJar from '@/components/TipJar.astro';
+import { getCollection } from 'astro:content';
+import { SITE } from '@/config';
+
+// Pull all non-draft articles, newest first
+const all = (await getCollection('articles', ({ data }) => !data.draft))
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+
+// Pull the newest digest as the lead
+const todaysDigest = all.find((a) => a.data.section === 'digest');
+const otherStories = all.filter((a) => a.slug !== todaysDigest?.slug).slice(0, 12);
+
+const today = new Date().toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' });
+---
+
+<BaseLayout>
+  <section style="margin-bottom: var(--space-xl);">
+    <p style="font-family: var(--font-sans); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--color-accent); font-weight: 600;">
+      The Brief &middot; {today}
+    </p>
+    {todaysDigest ? (
+      <article class="article-card" style="border-bottom-width: 2px; padding-bottom: var(--space-xl);">
+        <h1 style="font-size: clamp(2rem, 5vw, 3rem);"><a href={`/articles/${todaysDigest.slug}`} style="color: var(--color-text); text-decoration: none;">{todaysDigest.data.title}</a></h1>
+        <p class="dek" style="font-size: 1.15rem; margin-top: var(--space-sm);">{todaysDigest.data.description}</p>
+        <p style="font-family: var(--font-sans); font-size: 0.85rem; margin-top: var(--space-sm);"><a href={`/articles/${todaysDigest.slug}`}>Read the full brief &rarr;</a></p>
+      </article>
+    ) : (
+      <article class="article-card">
+        <h1>{SITE.name}</h1>
+        <p class="dek">{SITE.tagline}</p>
+        <p>Today's brief publishes shortly. Subscribe and we'll deliver it at 5am ET tomorrow.</p>
+      </article>
+    )}
+  </section>
+
+  <NewsletterSignup />
+
+  <AdSlot slotId="home-top" format="leaderboard" />
+
+  <h2 style="margin-top: var(--space-xl); border-top: 1px solid var(--color-rule); padding-top: var(--space-lg);">More from today</h2>
+  <ul class="article-list">
+    {otherStories.map((a) => (
+      <li class="article-card">
+        <p class="meta">
+          <span class="section-tag">{a.data.section}</span> &middot; {a.data.pubDate.toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}
+        </p>
+        <h2><a href={`/articles/${a.slug}`}>{a.data.title}</a></h2>
+        <p class="dek">{a.data.description}</p>
+      </li>
+    ))}
+  </ul>
+
+  <TipJar />
+</BaseLayout>

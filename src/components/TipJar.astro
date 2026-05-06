@@ -1,0 +1,18 @@
+---
+import { MONETIZATION } from '@/config';
+---
+
+{MONETIZATION.tipJarEnabled && (
+  <aside class="inline-card">
+    <h3>Like Real Daily Review?</h3>
+    <p>We’re reader-supported. If a brief saved you time, leave a tip.</p>
+    <a
+      href={MONETIZATION.tipJarUrl}
+      rel="nofollow noopener"
+      target="_blank"
+      style="display:inline-block; background:var(--color-accent); color:#fff; padding:0.6rem 1.1rem; border-radius:4px; text-decoration:none; font-weight:600; font-family:var(--font-sans);"
+    >
+      Buy us a coffee &rarr;
+    </a>
+  </aside>
+)}

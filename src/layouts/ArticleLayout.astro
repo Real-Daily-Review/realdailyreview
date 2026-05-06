@@ -1,0 +1,105 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import PerspectiveBox from '@/components/PerspectiveBox.astro';
+import AdSlot from '@/components/AdSlot.astro';
+import NewsletterSignup from '@/components/NewsletterSignup.astro';
+import TipJar from '@/components/TipJar.astro';
+import { SITE } from '@/config';
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  article: CollectionEntry<'articles'>;
+}
+const { article } = Astro.props;
+const { data } = article;
+
+const formattedDate = data.pubDate.toLocaleDateString('en-US', {
+  weekday: 'long',
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+});
+
+// JSON-LD for SEO + Google News eligibility
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'NewsArticle',
+  headline: data.title,
+  description: data.description,
+  datePublished: data.pubDate.toISOString(),
+  dateModified: (data.updatedDate ?? data.pubDate).toISOString(),
+  author: { '@type': 'Organization', name: data.author, url: SITE.url },
+  publisher: {
+    '@type': 'Organization',
+    name: SITE.name,
+    logo: { '@type': 'ImageObject', url: new URL('/logo.png', SITE.url).toString() },
+  },
+  mainEntityOfPage: { '@type': 'WebPage', '@id': new URL(`/articles/${article.slug}`, SITE.url).toString() },
+  articleSection: data.section,
+  keywords: data.tags.join(', '),
+};
+---
+
+<BaseLayout
+  title={data.title}
+  description={data.description}
+  type="article"
+  publishedTime={data.pubDate.toISOString()}
+  modifiedTime={(data.updatedDate ?? data.pubDate).toISOString()}
+>
+  <script slot="head-extra" type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+
+  <article class="article-body">
+    <p class="meta">
+      <span class="section-tag" style="text-transform: uppercase; letter-spacing: 0.08em; font-size: 0.78rem; color: var(--color-accent);">
+        {data.section}
+      </span>
+    </p>
+    <h1>{data.title}</h1>
+    <p style="font-size: 1.15rem; color: var(--color-muted); margin-top: 0.5rem;">{data.description}</p>
+
+    <div class="meta-row">
+      <span>By {data.author}</span>
+      <span>{formattedDate}</span>
+      {data.updatedDate && <span>Updated {data.updatedDate.toLocaleDateString()}</span>}
+    </div>
+
+    {data.aiGenerated && (
+      <p class="ai-disclosure">
+        This article was drafted by AI from multiple sources and {data.reviewedBy ? `reviewed by ${data.reviewedBy}` : 'lightly edited for clarity'}.
+        See <a href="/editorial-policy">our editorial policy</a> for how we work.
+      </p>
+    )}
+
+    {data.perspectives && data.perspectives.length > 0 && (
+      <PerspectiveBox perspectives={data.perspectives} />
+    )}
+
+    <slot />
+
+    <AdSlot slotId="article-mid" format="rectangle" />
+
+    {data.sources && data.sources.length > 0 && (
+      <section class="sources-list">
+        <h4>Sources</h4>
+        <ol>
+          {data.sources.map((s) => (
+            <li>
+              <a href={s.url} rel="nofollow noopener" target="_blank">{s.title}</a>
+              {s.publisher && <span style="color: var(--color-muted)"> &middot; {s.publisher}</span>}
+            </li>
+          ))}
+        </ol>
+      </section>
+    )}
+
+    {data.tags.length > 0 && (
+      <p style="margin-top: 1.5rem; font-family: var(--font-sans); font-size: 0.85rem; color: var(--color-muted);">
+        Tagged: {data.tags.map((t) => <a href={`/tag/${t}`} style="margin-right: 0.5rem;">#{t}</a>)}
+      </p>
+    )}
+
+    <NewsletterSignup />
+    <TipJar />
+  </article>
+</BaseLayout>

@@ -1,0 +1,29 @@
+---
+import { MONETIZATION } from '@/config';
+interface Props {
+  slotId: string;
+  format?: 'rectangle' | 'leaderboard' | 'sidebar';
+}
+const { slotId, format = 'rectangle' } = Astro.props;
+const sizes = {
+  rectangle: { w: 336, h: 280 },
+  leaderboard: { w: 728, h: 90 },
+  sidebar: { w: 300, h: 600 },
+};
+const { w, h } = sizes[format];
+---
+
+{MONETIZATION.adsenseEnabled && MONETIZATION.adsensePublisherId ? (
+  <ins
+    class="adsbygoogle ad-slot"
+    style={`display:block; width:${w}px; max-width:100%; min-height:${h}px;`}
+    data-ad-client={MONETIZATION.adsensePublisherId}
+    data-ad-slot={slotId}
+    data-ad-format="auto"
+    data-full-width-responsive="true"
+  ></ins>
+) : (
+  <div class="ad-slot" aria-hidden="true" style={`min-height:${h}px;`}>
+    Advertisement &middot; placeholder
+  </div>
+)}

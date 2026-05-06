@@ -1,0 +1,42 @@
+---
+import { SITE } from '@/config';
+const year = Math.max(new Date().getFullYear(), SITE.copyrightYearStart);
+---
+
+<footer class="site-footer">
+  <div class="site-footer-inner">
+    <div>
+      <h4>{SITE.name}</h4>
+      <p>{SITE.tagline}</p>
+    </div>
+    <div>
+      <h4>Sections</h4>
+      <ul>
+        <li><a href="/section/politics">Politics</a></li>
+        <li><a href="/section/business">Business</a></li>
+        <li><a href="/section/world">World</a></li>
+        <li><a href="/section/tech">Tech</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>About</h4>
+      <ul>
+        <li><a href="/about">About us</a></li>
+        <li><a href="/editorial-policy">Editorial policy</a></li>
+        <li><a href="/contact">Contact</a></li>
+        <li><a href="/feedback">Feedback</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Legal</h4>
+      <ul>
+        <li><a href="/privacy">Privacy</a></li>
+        <li><a href="/terms">Terms</a></li>
+        <li><a href="/rss.xml">RSS</a></li>
+      </ul>
+    </div>
+  </div>
+  <div style="max-width: var(--max-grid); margin: 2rem auto 0; padding-top: 1rem; border-top: 1px solid var(--color-rule); font-size: 0.78rem; text-align: center;">
+    &copy; {year} {SITE.name}. Built with care; powered in part by AI; reviewed by humans.
+  </div>
+</footer>

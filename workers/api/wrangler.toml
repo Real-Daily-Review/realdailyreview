@@ -1,0 +1,22 @@
+name = "rdr-api"
+main = "src/index.ts"
+compatibility_date = "2026-04-01"
+compatibility_flags = ["nodejs_compat"]
+workers_dev = false
+
+# Custom domain bound after first deploy in Cloudflare dashboard:
+# realdailyreview.com/api/* → rdr-api
+
+[[d1_databases]]
+binding = "DB"
+database_name = "rdr-prod"
+database_id = "REPLACE_AFTER_FIRST_CREATE"
+
+[vars]
+SITE_ORIGIN = "https://realdailyreview.com"
+RATE_LIMIT_PER_MIN = "5"
+
+# Secrets set via:
+#   wrangler secret put TURNSTILE_SECRET
+#   wrangler secret put RESEND_API_KEY
+#   wrangler secret put ADMIN_TOKEN

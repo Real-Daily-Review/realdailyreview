@@ -1,0 +1,41 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const articles = (await getCollection('articles', ({ data }) => !data.draft))
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+
+// Group by YYYY-MM
+const grouped = new Map<string, typeof articles>();
+for (const a of articles) {
+  const key = a.data.pubDate.toISOString().slice(0, 7);
+  if (!grouped.has(key)) grouped.set(key, []);
+  grouped.get(key)!.push(a);
+}
+---
+
+<BaseLayout title="Archive" description="Every Real Daily Review brief, ever published.">
+  <h1>Archive</h1>
+  <p>Every brief we’ve ever published. Newest first.</p>
+
+  {[...grouped.entries()].map(([month, items]) => {
+    const label = new Date(month + '-01').toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
+    return (
+      <section style="margin-top: var(--space-lg);">
+        <h2>{label}</h2>
+        <ul class="article-list">
+          {items.map((a) => (
+            <li class="article-card">
+              <p class="meta">
+                <span class="section-tag">{a.data.section}</span> &middot;
+                {' '}{a.data.pubDate.toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}
+              </p>
+              <h3><a href={`/articles/${a.slug}`}>{a.data.title}</a></h3>
+              <p class="dek">{a.data.description}</p>
+            </li>
+          ))}
+        </ul>
+      </section>
+    );
+  })}
+</BaseLayout>

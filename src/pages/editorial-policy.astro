@@ -1,0 +1,45 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { EDITORIAL_PRINCIPLES } from '@/config';
+---
+
+<BaseLayout title="Editorial policy" description="How we source, draft, and review stories at Real Daily Review.">
+  <article class="article-body">
+    <h1>Editorial policy</h1>
+
+    <h2>Sourcing</h2>
+    <p>
+      Every story aggregates at least two independent reporting sources. We prefer original
+      reporting (wire services, primary documents, on-the-record statements) over re-reporting.
+      Aggregators are used only to find sources, never as the source itself.
+    </p>
+
+    <h2>AI use</h2>
+    <p>
+      Most articles are drafted by an AI system using public sources. The AI is instructed to
+      summarize what reporting establishes, separate it from speculation, and label perspectives
+      explicitly. Drafts are reviewed for accuracy before publication; flagship pieces (lead briefs,
+      explainers) get additional human review.
+    </p>
+
+    <h2>What we won't do</h2>
+    <ul>
+      <li>Fabricate quotes or attribute statements that weren’t made.</li>
+      <li>Invent statistics or numbers — every figure traces to a cited source.</li>
+      <li>Bury corrections. Material errors are corrected with a dated, in-line note.</li>
+      <li>Publish takedown-on-demand pieces or quietly delete published work to settle complaints.</li>
+    </ul>
+
+    <h2>Principles</h2>
+    <ol>
+      {EDITORIAL_PRINCIPLES.map((p) => <li>{p}</li>)}
+    </ol>
+
+    <h2>Disclosure</h2>
+    <p>
+      We carry advertising and affiliate links. Sponsored content (if any) is labeled as such and
+      kept entirely separate from editorial. Affiliate links carry the <code>rel="sponsored"</code>
+      attribute and never determine which products we cover.
+    </p>
+  </article>
+</BaseLayout>

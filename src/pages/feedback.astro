@@ -1,0 +1,56 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Feedback" description="Tell us what's working, what's broken, and what's missing.">
+  <article class="article-body">
+    <h1>Tell us what you think</h1>
+    <p>
+      Spotted an error? Want us to cover something? Hate a layout choice? This goes straight to the
+      desk. Anonymous is fine; if you leave an email we may write back.
+    </p>
+
+    <form class="rdr-form" method="post" action="/api/feedback" data-rdr-form="feedback">
+      <label for="fb-message">Your feedback</label>
+      <textarea id="fb-message" name="message" rows="6" required minlength="5" maxlength="3000" placeholder="What's on your mind?"></textarea>
+
+      <label for="fb-email">Email <span style="color: var(--color-muted)">(optional)</span></label>
+      <input id="fb-email" name="email" type="email" autocomplete="email" placeholder="you@example.com" />
+
+      <label for="fb-category">Category</label>
+      <select id="fb-category" name="category" style="font: inherit; padding: 0.6rem 0.8rem; border: 1px solid var(--color-rule); background: var(--color-surface); color: var(--color-text); border-radius: 4px;">
+        <option value="general">General feedback</option>
+        <option value="correction">Correction / factual error</option>
+        <option value="story-idea">Story idea</option>
+        <option value="bug">Site bug</option>
+        <option value="praise">Praise (we'll take it)</option>
+      </select>
+
+      <input type="text" name="hp" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px" aria-hidden="true" />
+      <div class="cf-turnstile" data-sitekey="0x4AAAAAA_REPLACE_AT_DEPLOY"></div>
+      <button type="submit">Send feedback</button>
+      <p class="form-status" role="status" aria-live="polite"></p>
+    </form>
+  </article>
+</BaseLayout>
+
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+<script>
+  document.querySelectorAll('form[data-rdr-form="feedback"]').forEach((form) => {
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const f = e.currentTarget;
+      const status = f.querySelector('.form-status');
+      const fd = new FormData(f);
+      const body = Object.fromEntries(fd.entries());
+      status.textContent = 'Sending…';
+      status.className = 'form-status';
+      try {
+        const r = await fetch(f.action, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) });
+        const j = await r.json();
+        if (r.ok) { status.textContent = 'Got it. Thanks.'; status.className = 'form-status ok'; f.reset(); }
+        else { status.textContent = j.error || 'Send failed.'; status.className = 'form-status err'; }
+      } catch { status.textContent = 'Network error. Try again.'; status.className = 'form-status err'; }
+    });
+  });
+</script>

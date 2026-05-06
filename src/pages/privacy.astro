@@ -1,0 +1,48 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { SITE } from '@/config';
+---
+
+<BaseLayout title="Privacy Policy" description="How Real Daily Review handles your data.">
+  <article class="article-body">
+    <h1>Privacy Policy</h1>
+    <p style="color: var(--color-muted);">Last updated: {new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</p>
+
+    <h2>Plain-English summary</h2>
+    <p>
+      We collect the absolute minimum to run the site: anonymous traffic stats, your email if you
+      subscribe, and your message if you send feedback. We don’t sell data. We don’t share data with
+      third parties except as needed to run essential services (hosting, email delivery).
+    </p>
+
+    <h2>What we collect</h2>
+    <ul>
+      <li><strong>Analytics:</strong> Cloudflare Web Analytics — privacy-respecting, no cookies, no fingerprinting.</li>
+      <li><strong>Newsletter:</strong> Email address only, supplied by you to subscribe. Held in our email service provider (Resend) for delivery.</li>
+      <li><strong>Feedback form:</strong> The message you send, plus a Turnstile token (anti-spam, no tracking).</li>
+      <li><strong>Server logs:</strong> Standard request logs (IP, timestamp, URL) at our CDN, retained 14 days for security.</li>
+    </ul>
+
+    <h2>What we don’t collect</h2>
+    <ul>
+      <li>No third-party trackers beyond what advertising partners (if active) require.</li>
+      <li>No fingerprinting cookies set by us.</li>
+    </ul>
+
+    <h2>Advertising</h2>
+    <p>
+      If we run ads, ad partners (Google AdSense, Ezoic) may set their own cookies subject to their
+      privacy policies. EU/UK visitors will see a consent banner before any non-essential cookies
+      are set.
+    </p>
+
+    <h2>Your rights</h2>
+    <p>
+      You can unsubscribe from email at any time via the link in every email. To request deletion of
+      any data we hold about you, write to <a href={`mailto:${SITE.contactEmail}`}>{SITE.contactEmail}</a>.
+    </p>
+
+    <h2>Contact</h2>
+    <p>Privacy questions: <a href={`mailto:${SITE.contactEmail}`}>{SITE.contactEmail}</a></p>
+  </article>
+</BaseLayout>

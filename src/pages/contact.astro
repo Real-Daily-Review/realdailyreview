@@ -1,0 +1,17 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { SITE } from '@/config';
+---
+
+<BaseLayout title="Contact" description="Get in touch with Real Daily Review.">
+  <article class="article-body">
+    <h1>Contact</h1>
+    <p>The fastest way to reach us is email.</p>
+    <ul>
+      <li>General: <a href={`mailto:${SITE.contactEmail}`}>{SITE.contactEmail}</a></li>
+      <li>Feedback / corrections: <a href={`mailto:${SITE.feedbackEmail}`}>{SITE.feedbackEmail}</a> or use <a href="/feedback">the feedback form</a></li>
+      <li>Press / partnerships: <a href={`mailto:${SITE.contactEmail}`}>{SITE.contactEmail}</a></li>
+    </ul>
+    <p>We read every message; we can’t always reply individually.</p>
+  </article>
+</BaseLayout>

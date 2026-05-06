@@ -1,0 +1,46 @@
+---
+import { SITE } from '@/config';
+---
+
+<aside class="inline-card">
+  <h3>Get the brief in your inbox</h3>
+  <p>Five minutes, every weekday morning. Free, no spam, unsubscribe in one click.</p>
+  <form class="rdr-form" method="post" action="/api/subscribe" data-rdr-form="subscribe">
+    <label for="newsletter-email">Email address</label>
+    <input
+      id="newsletter-email"
+      name="email"
+      type="email"
+      required
+      autocomplete="email"
+      inputmode="email"
+      placeholder="you@example.com"
+    />
+    <input type="text" name="hp" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px" aria-hidden="true" />
+    <div class="cf-turnstile" data-sitekey="0x4AAAAAA_REPLACE_AT_DEPLOY"></div>
+    <button type="submit">Subscribe</button>
+    <p class="form-status" role="status" aria-live="polite"></p>
+    <p style="font-size:0.75rem; color:var(--color-muted)">By subscribing you agree to our <a href="/privacy">Privacy Policy</a>.</p>
+  </form>
+</aside>
+
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+<script>
+  document.querySelectorAll('form[data-rdr-form="subscribe"]').forEach((form) => {
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const f = e.currentTarget;
+      const status = f.querySelector('.form-status');
+      const fd = new FormData(f);
+      const body = Object.fromEntries(fd.entries());
+      status.textContent = 'Subscribing…';
+      status.className = 'form-status';
+      try {
+        const r = await fetch(f.action, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) });
+        const j = await r.json();
+        if (r.ok) { status.textContent = 'Confirmed. Welcome aboard.'; status.className = 'form-status ok'; f.reset(); }
+        else { status.textContent = j.error || 'Subscription failed.'; status.className = 'form-status err'; }
+      } catch { status.textContent = 'Network error. Try again.'; status.className = 'form-status err'; }
+    });
+  });
+</script>

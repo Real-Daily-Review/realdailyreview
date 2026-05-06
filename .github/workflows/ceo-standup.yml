@@ -1,0 +1,41 @@
+name: CEO daily standup
+
+on:
+  schedule:
+    # 9:00 AM ET (13:00 / 14:00 UTC depending on DST). Run both, dedupe via filename.
+    - cron: '0 13 * * 1-5'
+    - cron: '0 14 * * 1-5'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  standup:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Generate standup report
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: node scripts/standup.mjs
+
+      - name: Commit standup
+        run: |
+          git config user.name "Real Daily Review Bot"
+          git config user.email "bot@realdailyreview.com"
+          if [[ -n "$(git status --porcelain ops/standups/)" ]]; then
+            git add ops/standups/
+            git commit -m "ops: standup $(date -u +%Y-%m-%d)"
+            git push
+          else
+            echo "No standup change to commit."
+          fi

@@ -1,0 +1,21 @@
+---
+import { SITE, NAV } from '@/config';
+
+const { pathname } = Astro.url;
+---
+
+<header class="site-header">
+  <div class="site-header-inner">
+    <a href="/" class="site-title">
+      {SITE.name}
+      <small>{new Date().toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' })}</small>
+    </a>
+    <nav class="site-nav" aria-label="Primary">
+      {NAV.map((item) => (
+        <a href={item.href} class={pathname === item.href ? 'active' : ''}>
+          {item.label}
+        </a>
+      ))}
+    </nav>
+  </div>
+</header>

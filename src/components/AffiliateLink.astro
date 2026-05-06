@@ -1,0 +1,14 @@
+---
+import { MONETIZATION } from '@/config';
+interface Props {
+  href: string;
+  asin?: string;
+  children?: any;
+}
+const { href, asin } = Astro.props;
+let finalHref = href;
+if (asin && MONETIZATION.amazonAssociatesTag) {
+  finalHref = `https://www.amazon.com/dp/${asin}/?tag=${MONETIZATION.amazonAssociatesTag}`;
+}
+---
+<a href={finalHref} rel="sponsored nofollow noopener" target="_blank"><slot /></a>
