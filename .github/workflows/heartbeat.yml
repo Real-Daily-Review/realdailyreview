@@ -108,7 +108,7 @@ jobs:
         run: |
           git config user.name "Real Daily Review Bot"
           git config user.email "bot@realdailyreview.com"
-          git add ops/heartbeat.txt
+          git add ops/heartbeat.txt ops/diagnostics/ 2>/dev/null || true
           if git diff --cached --quiet; then
             echo "no change"
             exit 0
