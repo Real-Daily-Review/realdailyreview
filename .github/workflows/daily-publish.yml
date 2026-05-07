@@ -29,9 +29,10 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
-      - name: Checkout
+      - name: Checkout main
         uses: actions/checkout@v4
         with:
+          ref: main
           token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Set up Node
@@ -53,15 +54,35 @@ jobs:
         if: github.event.inputs.dry_run != 'true'
         run: npm run lint:content
 
-      - name: Commit and push
-        if: github.event.inputs.dry_run != 'true'
+      - name: Write run status (always)
+        if: always()
+        run: |
+          mkdir -p ops/runs
+          STATUS_FILE="ops/runs/$(date -u +%Y-%m-%dT%H-%M-%SZ).json"
+          cat > "$STATUS_FILE" <<EOF
+          {
+            "trigger": "${{ github.event_name }}",
+            "ref": "${{ github.ref }}",
+            "actor": "${{ github.actor }}",
+            "run_id": "${{ github.run_id }}",
+            "started_at": "${{ github.event.repository.updated_at }}",
+            "completed_at": "$(date -u +%Y-%m-%dT%H:%M:%SZ)",
+            "job_status": "${{ job.status }}",
+            "articles_added": $(git status --porcelain src/content/articles/ 2>/dev/null | wc -l)
+          }
+          EOF
+          echo "wrote $STATUS_FILE"
+
+      - name: Commit and push to main
+        if: github.event.inputs.dry_run != 'true' && always()
         run: |
           git config user.name "Real Daily Review Bot"
           git config user.email "bot@realdailyreview.com"
-          if [[ -n "$(git status --porcelain src/content/articles/)" ]]; then
-            git add src/content/articles/
-            git commit -m "content: $(date -u +%Y-%m-%d) auto-publish"
-            git push
-          else
-            echo "No new articles to commit."
+          git add src/content/articles/ ops/runs/ 2>/dev/null || true
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
+            exit 0
           fi
+          git commit -m "content: $(date -u +%Y-%m-%d) auto-publish [run ${{ github.run_id }}]"
+          # Push explicitly to main; we checked out main so HEAD is main
+          git push origin HEAD:main
