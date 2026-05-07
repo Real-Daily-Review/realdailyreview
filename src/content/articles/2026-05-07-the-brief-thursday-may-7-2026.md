@@ -1,100 +1,87 @@
 ---
 title: 'The Brief — Thursday, May 7, 2026'
 description: >-
-  Iran ceasefire diplomacy intensifies; hantavirus evacuations from cruise ship;
-  Epstein note released; Ted Turner dies; Ramaswamy wins Ohio primary; Shell
-  profits surge.
-pubDate: '2026-05-07T11:18:29.151Z'
+  Hantavirus evacuations from MV Hondius, Iran ceasefire diplomacy intensifies,
+  Epstein note released, Ted Turner dies at 87, IS-linked women arrested in
+  Australia.
+pubDate: '2026-05-07T12:13:12.617Z'
 section: digest
 tags:
-  - Iran
-  - ceasefire
   - hantavirus
   - cruise ship
+  - Iran
+  - ceasefire
   - Jeffrey Epstein
   - Ted Turner
   - CNN
-  - Vivek Ramaswamy
-  - Ohio
-  - midterms
-  - Shell
-  - oil prices
-  - Australia
   - Islamic State
+  - Australia
+  - Pakistan
+  - diplomacy
+  - Middle East
 perspectives: []
 sources:
-  - title: Iran considering US proposal as Trump says war will be 'over quickly'
-    url: ''
-    publisher: 'Multiple outlets (center, center-left)'
   - title: Hantavirus-hit cruise ship on way to Canary Islands after three evacuated
     url: ''
     publisher: 'Multiple outlets (center, center-left)'
-  - title: >-
-      Judge releases note that cellmate says he found after Epstein's suspected
-      suicide attempt
+  - title: US judge releases Jeffrey Epstein's purported suicide note
+    url: ''
+    publisher: Multiple outlets (center)
+  - title: Iran considering US proposal as Trump says war will be 'over quickly'
     url: ''
     publisher: Multiple outlets (center)
   - title: Remembering the life and legacy of visionary CNN founder Ted Turner
     url: ''
     publisher: Multiple outlets (center)
   - title: >-
-      Trump-backed Ramaswamy wins Ohio governor primary, setting up a
-      competitive Nov. race
+      Three women linked to Islamic State arrested in Australia on return from
+      Syria
     url: ''
-    publisher: 'Multiple outlets (center-left, center)'
-  - title: Shell latest oil giant to see profits surge due to Iran war impact
-    url: ''
-    publisher: Multiple outlets (center)
+    publisher: 'Multiple outlets (center, center-left)'
 aiGenerated: true
 draft: false
 ---
 # Real Daily Review — The Brief
-### Thursday, May 7, 2026
+## Thursday, May 7, 2026
 
 ---
 
-A U.S.-Iran ceasefire holds its fragile shape as diplomats work to make it permanent, while a hantavirus scare aboard a polar expedition vessel and the death of a broadcasting pioneer round out a morning defined by global uncertainty and domestic political movement.
+Thursday is shaped by overlapping crises at sea and in the Middle East, as a hantavirus outbreak aboard a cruise ship prompts evacuations and diplomatic efforts intensify around a fragile Iran ceasefire.
 
 ---
 
-## Iran Ceasefire Holds as Diplomacy Intensifies
+## Hantavirus Scare Forces Evacuations From Cruise Ship
 
-Secretary of State Rubio confirmed U.S. combat operations in Iran have ended, with the focus now shifting to negotiations. President Trump said any resumed war would be "over quickly," while mediator Pakistan said it is "endeavouring to convert this ceasefire into a permanent end to this war." Iran is reported to be considering a U.S. proposal. The ceasefire remains unratified, and the path to a durable agreement is still unclear.
-
----
-
-## Hantavirus Scare Forces Evacuations From Polar Cruise Ship
-
-Three passengers — including a British man — were evacuated from the MV Hondius and transported to the Netherlands after displaying hantavirus symptoms aboard the vessel, which is now en route to the Canary Islands. Hantavirus is a rare but potentially severe respiratory illness typically transmitted through contact with infected rodents. Health authorities have not yet confirmed a diagnosis, and it is unclear whether additional passengers have been affected.
+Three passengers — including a British national — were evacuated to the Netherlands after displaying hantavirus symptoms aboard the MV Hondius, now en route to the Canary Islands. Hantavirus is a rare but potentially severe respiratory illness typically transmitted through contact with infected rodents. Health authorities are monitoring the situation as the vessel continues its voyage with remaining passengers aboard.
 
 ---
 
-## Note Allegedly Written by Epstein Released by Judge
+## Epstein Purported Suicide Note Released by U.S. Judge
 
-A federal judge has released a handwritten note that a former cellmate claims he found after Jeffrey Epstein's suspected suicide attempt — an incident that reportedly occurred less than a month before Epstein's death in custody. The former cellmate has previously stated the note was written by Epstein himself. The release adds a new layer to long-running questions about the circumstances surrounding Epstein's death, though the note's authenticity has not been independently verified.
-
----
-
-## Ted Turner, CNN Founder, Dies
-
-Ted Turner, the visionary media entrepreneur who built a single Atlanta television station into a cable empire that included CNN, TBS and TNT, died Wednesday. Turner was also a prominent public figure in his own right and was at one point married to actress Jane Fonda. His founding of CNN in 1980 is widely credited with establishing the 24-hour television news cycle. Tributes from across the media and political world followed the announcement of his death.
+A U.S. judge has ordered the release of a document described as Jeffrey Epstein's suicide note, which Epstein's former cellmate claims to have found. The BBC has not independently verified the note's authenticity. The release adds a new dimension to longstanding public and legal scrutiny surrounding Epstein's 2019 death in federal custody, though it resolves none of the core disputed questions about the circumstances of his death.
 
 ---
 
-## Ramaswamy Wins Ohio GOP Primary; Australian Women Return From Syria
+## Iran Weighing U.S. Proposal as Ceasefire Diplomacy Intensifies
 
-Trump-backed Vivek Ramaswamy won the Republican primary for Ohio governor, setting up what analysts expect to be a competitive general election race against Democrat Amy Acton this fall. Democrats haven't won an Ohio governor's race in roughly 20 years, though recent polling suggests the party is in a stronger position heading into the midterms. Separately, nine women and children linked to Islamic State returned to Australia from Syria, landing in Melbourne; a second woman and her child arrived in Sydney.
+Iran says it is assessing the latest U.S. proposal to end the war, while President Trump has warned that attacks will resume if a deal is not reached. Pakistan, acting as a mediator, said it is "endeavouring to convert this ceasefire into a permanent end to this war" and expressed hope that a U.S.-Iran agreement could come soon. Secretary of State Rubio separately confirmed U.S. combat operations in Iran are over, with diplomatic focus now dominant.
 
 ---
 
-## Shell Profits Surge on Iran War Oil Volatility
+## Ted Turner, CNN Founder, Dies at 87
 
-Energy giant Shell reported a sharp rise in profits — up nearly a quarter — driven largely by oil price volatility stemming from the Iran conflict. Shell becomes the latest major oil company to post outsized earnings tied to the war's disruption of global energy markets. The results are likely to intensify scrutiny of energy sector windfalls at a moment when ceasefire negotiations remain unresolved.
+Ted Turner, the entrepreneur who founded CNN and created the world's first 24-hour news network, died Wednesday at the age of 87. Known for his outspoken style and appetite for risk, Turner fundamentally changed how billions of people around the world consumed news. Tributes are being paid across the media industry to a figure widely credited with reshaping the landscape of broadcast journalism.
+
+---
+
+## Three Women Linked to Islamic State Arrested in Australia
+
+Australian authorities arrested three women upon their return from Syria, alleging the women had supported the Islamic State. The arrests came after the women flew home to Australia for the first time in years. The case is the latest in a series of legal actions in Western countries targeting individuals who traveled to IS-held territory during the height of the group's territorial control.
 
 ---
 
 ## What to Watch
 
-The durability of the Iran ceasefire is the central variable of the day — watch for any formal response from Tehran to the U.S. proposal and whether Pakistan's mediation produces a concrete framework. The hantavirus situation aboard the MV Hondius will draw closer attention if additional passengers show symptoms or a diagnosis is confirmed. Ramaswamy's Ohio primary win will sharpen focus on the broader midterm map as both parties assess where competitive races are taking shape.
+Diplomatic activity around the Iran ceasefire will be the central thread to track Thursday, with Pakistan's mediating role and Tehran's formal response to the U.S. proposal both potentially moving quickly. The hantavirus situation aboard the MV Hondius bears watching as health officials assess whether additional passengers face exposure risk. The release of the purported Epstein note is likely to generate further legal and congressional reaction through the day.
 
 ---
