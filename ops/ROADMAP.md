@@ -5,13 +5,13 @@ The CEO (Claude) maintains this file. Each daily standup pulls from it. Update f
 ## North-star metric
 **Daily unique visitors** — must trend up week over week. Everything below ladders to this.
 
-## Now (Sprint 0 — launch)
+## Now (Sprint 0 — launch) — COMPLETE 2026-05-07
 - [x] Scaffold Astro + content pipeline + CI
 - [x] LAUNCH_PLAYBOOK for shareholder
-- [ ] First successful daily-publish run on real news
-- [ ] Cloudflare Pages connected, custom domain live
-- [ ] Submit sitemap to Google Search Console + Bing Webmaster Tools
-- [ ] Cloudflare Web Analytics installed
+- [x] First successful daily-publish run on real news (9 articles published 2026-05-07)
+- [x] Cloudflare Pages connected, custom domain live (realdailyreview.com)
+- [x] Cloudflare Web Analytics — snippet wired (token pending shareholder)
+- [ ] Submit sitemap to Google Search Console + Bing Webmaster Tools (shareholder identity verification)
 
 ## Next (Sprint 1 — first traffic)
 - [ ] Newsletter wired to Resend (paid switch, ~$20/mo) + double opt-in
