@@ -1,0 +1,10 @@
+{
+  "trigger": "push",
+  "ref": "refs/tags/run-content-20260507-005340",
+  "actor": "RyanLyk",
+  "run_id": "25469677913",
+  "started_at": "2026-05-07T00:52:06Z",
+  "completed_at": "2026-05-07T00:58:32Z",
+  "job_status": "success",
+  "articles_added": 8
+}
