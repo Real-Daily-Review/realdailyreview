@@ -34,6 +34,31 @@ jobs:
           echo "$(date -u +%Y-%m-%dT%H:%M:%SZ) — run ${{ github.run_id }} — sha ${{ github.sha }}" >> ops/heartbeat.txt
           tail -5 ops/heartbeat.txt
 
+      - name: Smoke test API endpoints
+        continue-on-error: true
+        run: |
+          mkdir -p ops/diagnostics
+          {
+            echo "Smoke test ran at $(date -u +%Y-%m-%dT%H:%M:%SZ)"
+            echo ""
+            echo "=== GET https://realdailyreview.com/api/health ==="
+            curl -s -o /tmp/health.json -w "HTTP %{http_code}\n" --max-time 8 \
+              "https://realdailyreview.com/api/health" || true
+            cat /tmp/health.json 2>/dev/null
+            echo ""
+            echo "=== POST https://realdailyreview.com/api/subscribe (no turnstile, expects 403) ==="
+            curl -s -o /tmp/sub.json -w "HTTP %{http_code}\n" --max-time 8 \
+              -X POST -H "Content-Type: application/json" \
+              -d '{"email":"smoketest@example.com"}' \
+              "https://realdailyreview.com/api/subscribe" || true
+            cat /tmp/sub.json 2>/dev/null
+            echo ""
+            echo "=== Site root ==="
+            curl -s -o /dev/null -w "HTTP %{http_code} | size %{size_download}\n" --max-time 8 \
+              "https://realdailyreview.com" || true
+          } > ops/diagnostics/smoke-test.txt 2>&1
+          cat ops/diagnostics/smoke-test.txt
+
       - name: Dump recent action runs (so sandbox can read)
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
