@@ -10,7 +10,7 @@ workers_dev = false
 [[d1_databases]]
 binding = "DB"
 database_name = "rdr-prod"
-database_id = "REPLACE_AFTER_FIRST_CREATE"
+database_id = "af854dd0-1da8-4964-9ccc-3fb5e06ceb81"
 
 [vars]
 SITE_ORIGIN = "https://realdailyreview.com"
