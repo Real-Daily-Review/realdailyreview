@@ -73,8 +73,8 @@ jobs:
           EOF
           echo "wrote $STATUS_FILE"
 
-      - name: Commit and push to main
-        if: github.event.inputs.dry_run != 'true' && always()
+      - name: Commit and push to main (with rebase retry)
+        if: github.event.inputs.dry_run != 'true'
         run: |
           git config user.name "Real Daily Review Bot"
           git config user.email "bot@realdailyreview.com"
@@ -84,5 +84,15 @@ jobs:
             exit 0
           fi
           git commit -m "content: $(date -u +%Y-%m-%d) auto-publish [run ${{ github.run_id }}]"
-          # Push explicitly to main; we checked out main so HEAD is main
-          git push origin HEAD:main
+          # Retry up to 5 times with rebase to handle concurrent commits to main
+          for attempt in 1 2 3 4 5; do
+            if git push origin HEAD:main; then
+              echo "push succeeded on attempt $attempt"
+              exit 0
+            fi
+            echo "push attempt $attempt failed; rebasing on latest main and retrying"
+            git fetch origin main
+            git rebase origin/main || { git rebase --abort; sleep 3; }
+          done
+          echo "::error::push failed after 5 attempts"
+          exit 1
