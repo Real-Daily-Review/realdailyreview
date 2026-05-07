@@ -1,4 +1,4 @@
-Latest failed run: 'Deploy API Worker' (#25500782048)
+Latest failed run: 'Deploy API Worker' (#25501179454)
 --- log files ---
 /tmp/logs/0_deploy.txt
 /tmp/logs/deploy/1_Set up job.txt
@@ -8,8 +8,10 @@ Latest failed run: 'Deploy API Worker' (#25500782048)
 /tmp/logs/deploy/20_Post Checkout main.txt
 /tmp/logs/deploy/21_Complete job.txt
 /tmp/logs/deploy/5_Ensure D1 database exists, capture ID (via CF REST API).txt
+/tmp/logs/deploy/8_Deploy worker.txt
 /tmp/logs/deploy/6_Apply schema.txt
 /tmp/logs/deploy/2_Checkout main.txt
+/tmp/logs/deploy/7_Set worker secrets (skip if already set).txt
 
 --- error/failure lines from each step ---
 
@@ -26,350 +28,489 @@ Latest failed run: 'Deploy API Worker' (#25500782048)
 === deploy/4_Install ===
 
 === / ===
-33:2026-05-07T14:04:59.3710475Z [36;1m    print('CREATE FAILED:', json.dumps(d.get('errors') or d), file=sys.stderr)[0m
-40:2026-05-07T14:04:59.3712236Z [36;1m  echo "::error::failed to determine D1 database_id"[0m
+33:2026-05-07T14:12:26.2173398Z [36;1m    print('CREATE FAILED:', json.dumps(d.get('errors') or d), file=sys.stderr)[0m
+40:2026-05-07T14:12:26.2175230Z [36;1m  echo "::error::failed to determine D1 database_id"[0m
 
 === deploy/6_Apply ===
-11:2026-05-07T14:05:01.3969392Z ##[error]Process completed with exit code 1.
+18:2026-05-07T14:12:27.7876667Z Note: if the execution fails to complete, your DB will return to its original state and you can safely retry.
+
+=== / ===
+17:2026-05-07T14:12:28.2293915Z [36;1m  # Use a placeholder that always fails verification; forms will return 403.[0m
+18:2026-05-07T14:12:28.2294400Z [36;1m  # Better than no captcha at all — bots try once, fail, move on.[0m
+21:2026-05-07T14:12:28.2296396Z [36;1m  echo "::warning::TURNSTILE_SECRET not set — forms will reject with 'Captcha failed'. Create a Turnstile widget in CF dashboard and add TURNSTILE_SECRET + TURNSTILE_SITEKEY to GH Actions Secrets."[0m
+39:2026-05-07T14:12:31.5925502Z ##[warning]TURNSTILE_SECRET not set — forms will reject with 'Captcha failed'. Create a Turnstile widget in CF dashboard and add TURNSTILE_SECRET + TURNSTILE_SITEKEY to GH Actions Secrets.
+
+=== deploy/8_Deploy ===
+30:2026-05-07T14:12:35.8438736Z [31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mA request to the Cloudflare API (/zones/0e483a913db9070a2f01144ed97eff54/workers/routes) failed.[0m
+35:2026-05-07T14:12:35.8444401Z   Authentication error [code: 10000]
+48:2026-05-07T14:12:36.7356590Z ##[error]Process completed with exit code 1.
 
 === deploy/system.txt ===
 
 === logs/0_deploy.txt ===
-178:2026-05-07T14:04:59.3710492Z [36;1m    print('CREATE FAILED:', json.dumps(d.get('errors') or d), file=sys.stderr)[0m
-185:2026-05-07T14:04:59.3712238Z [36;1m  echo "::error::failed to determine D1 database_id"[0m
-210:2026-05-07T14:05:01.3969414Z ##[error]Process completed with exit code 1.
+163:2026-05-07T14:12:26.2173400Z [36;1m    print('CREATE FAILED:', json.dumps(d.get('errors') or d), file=sys.stderr)[0m
+170:2026-05-07T14:12:26.2175233Z [36;1m  echo "::error::failed to determine D1 database_id"[0m
+201:2026-05-07T14:12:27.7876698Z Note: if the execution fails to complete, your DB will return to its original state and you can safely retry.
+257:2026-05-07T14:12:28.2293917Z [36;1m  # Use a placeholder that always fails verification; forms will return 403.[0m
+258:2026-05-07T14:12:28.2294403Z [36;1m  # Better than no captcha at all — bots try once, fail, move on.[0m
+261:2026-05-07T14:12:28.2296405Z [36;1m  echo "::warning::TURNSTILE_SECRET not set — forms will reject with 'Captcha failed'. Create a Turnstile widget in CF dashboard and add TURNSTILE_SECRET + TURNSTILE_SITEKEY to GH Actions Secrets."[0m
+279:2026-05-07T14:12:31.5925565Z ##[warning]TURNSTILE_SECRET not set — forms will reject with 'Captcha failed'. Create a Turnstile widget in CF dashboard and add TURNSTILE_SECRET + TURNSTILE_SITEKEY to GH Actions Secrets.
+309:2026-05-07T14:12:35.8438817Z [31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mA request to the Cloudflare API (/zones/0e483a913db9070a2f01144ed97eff54/workers/routes) failed.[0m
+314:2026-05-07T14:12:35.8444407Z   Authentication error [code: 10000]
+327:2026-05-07T14:12:36.7356608Z ##[error]Process completed with exit code 1.
 
 --- last 80 lines of each step log ---
 
 === END OF  ===
-﻿2026-05-07T14:04:43.6143042Z Current runner version: '2.334.0'
-2026-05-07T14:04:43.6222711Z ##[group]Runner Image Provisioner
-2026-05-07T14:04:43.6224130Z Hosted Compute Agent
-2026-05-07T14:04:43.6225039Z Version: 20260213.493
-2026-05-07T14:04:43.6226002Z Commit: 5c115507f6dd24b8de37d8bbe0bb4509d0cc0fa3
-2026-05-07T14:04:43.6227081Z Build Date: 2026-02-13T00:28:41Z
-2026-05-07T14:04:43.6228110Z Worker ID: {64fdee36-8391-41a6-8a59-94ce725491d9}
-2026-05-07T14:04:43.6229255Z Azure Region: centralus
-2026-05-07T14:04:43.6240631Z ##[endgroup]
-2026-05-07T14:04:43.6242829Z ##[group]Operating System
-2026-05-07T14:04:43.6243772Z Ubuntu
-2026-05-07T14:04:43.6244514Z 24.04.4
-2026-05-07T14:04:43.6245369Z LTS
-2026-05-07T14:04:43.6246085Z ##[endgroup]
-2026-05-07T14:04:43.6246879Z ##[group]Runner Image
-2026-05-07T14:04:43.6247868Z Image: ubuntu-24.04
-2026-05-07T14:04:43.6248619Z Version: 20260413.86.1
-2026-05-07T14:04:43.6270795Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20260413.86/images/ubuntu/Ubuntu2404-Readme.md
-2026-05-07T14:04:43.6273635Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20260413.86
-2026-05-07T14:04:43.6275041Z ##[endgroup]
-2026-05-07T14:04:43.6277412Z ##[group]GITHUB_TOKEN Permissions
-2026-05-07T14:04:43.6280791Z Contents: write
-2026-05-07T14:04:43.6281772Z Metadata: read
-2026-05-07T14:04:43.6282506Z ##[endgroup]
-2026-05-07T14:04:43.6285946Z Secret source: Actions
-2026-05-07T14:04:43.6287614Z Prepare workflow directory
-2026-05-07T14:04:43.6957599Z Prepare all required actions
-2026-05-07T14:04:43.7011961Z Getting action download info
-2026-05-07T14:04:44.1660067Z Download action repository 'actions/checkout@v4' (SHA:34e114876b0b11c390a56381ad16ebd13914f8d5)
-2026-05-07T14:04:44.2746041Z Download action repository 'actions/setup-node@v4' (SHA:49933ea5288caeca8642d1e84afbd3f7d6820020)
-2026-05-07T14:04:44.4747718Z Complete job name: deploy
+﻿2026-05-07T14:12:12.9771317Z Current runner version: '2.334.0'
+2026-05-07T14:12:12.9797971Z ##[group]Runner Image Provisioner
+2026-05-07T14:12:12.9798843Z Hosted Compute Agent
+2026-05-07T14:12:12.9799382Z Version: 20260213.493
+2026-05-07T14:12:12.9800085Z Commit: 5c115507f6dd24b8de37d8bbe0bb4509d0cc0fa3
+2026-05-07T14:12:12.9800797Z Build Date: 2026-02-13T00:28:41Z
+2026-05-07T14:12:12.9801642Z Worker ID: {3a75b1f9-a564-4fd2-b3ba-16ca7230b331}
+2026-05-07T14:12:12.9802455Z Azure Region: westus
+2026-05-07T14:12:12.9802993Z ##[endgroup]
+2026-05-07T14:12:12.9804383Z ##[group]Operating System
+2026-05-07T14:12:12.9805104Z Ubuntu
+2026-05-07T14:12:12.9805591Z 24.04.4
+2026-05-07T14:12:12.9806104Z LTS
+2026-05-07T14:12:12.9806596Z ##[endgroup]
+2026-05-07T14:12:12.9807106Z ##[group]Runner Image
+2026-05-07T14:12:12.9807706Z Image: ubuntu-24.04
+2026-05-07T14:12:12.9808216Z Version: 20260413.86.1
+2026-05-07T14:12:12.9809229Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20260413.86/images/ubuntu/Ubuntu2404-Readme.md
+2026-05-07T14:12:12.9810985Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20260413.86
+2026-05-07T14:12:12.9812102Z ##[endgroup]
+2026-05-07T14:12:12.9813580Z ##[group]GITHUB_TOKEN Permissions
+2026-05-07T14:12:12.9815747Z Contents: write
+2026-05-07T14:12:12.9816455Z Metadata: read
+2026-05-07T14:12:12.9816963Z ##[endgroup]
+2026-05-07T14:12:12.9819187Z Secret source: Actions
+2026-05-07T14:12:12.9819985Z Prepare workflow directory
+2026-05-07T14:12:13.0440106Z Prepare all required actions
+2026-05-07T14:12:13.0497255Z Getting action download info
+2026-05-07T14:12:13.7090307Z Download action repository 'actions/checkout@v4' (SHA:34e114876b0b11c390a56381ad16ebd13914f8d5)
+2026-05-07T14:12:13.8195051Z Download action repository 'actions/setup-node@v4' (SHA:49933ea5288caeca8642d1e84afbd3f7d6820020)
+2026-05-07T14:12:14.0211717Z Complete job name: deploy
 
 === END OF  ===
-﻿2026-05-07T14:05:01.4108105Z Post job cleanup.
-2026-05-07T14:05:01.5326158Z [command]/usr/bin/git version
-2026-05-07T14:05:01.5369371Z git version 2.53.0
-2026-05-07T14:05:01.5416549Z Temporarily overriding HOME='/home/runner/work/_temp/5ada6e4c-562f-46fe-9b0f-458d07359328' before making global git config changes
-2026-05-07T14:05:01.5418301Z Adding repository directory to the temporary git global config as a safe directory
-2026-05-07T14:05:01.5423384Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/realdailyreview/realdailyreview
-2026-05-07T14:05:01.5475741Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
-2026-05-07T14:05:01.5517107Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
-2026-05-07T14:05:01.5789053Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
-2026-05-07T14:05:01.5817668Z http.https://github.com/.extraheader
-2026-05-07T14:05:01.5832679Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
-2026-05-07T14:05:01.5870955Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
-2026-05-07T14:05:01.6174857Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
-2026-05-07T14:05:01.6213886Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+﻿2026-05-07T14:12:36.7454795Z Post job cleanup.
+2026-05-07T14:12:36.8483581Z [command]/usr/bin/git version
+2026-05-07T14:12:36.8527695Z git version 2.53.0
+2026-05-07T14:12:36.8577678Z Temporarily overriding HOME='/home/runner/work/_temp/31e33e59-6366-4afb-8fb7-a5ffc2b2482e' before making global git config changes
+2026-05-07T14:12:36.8579581Z Adding repository directory to the temporary git global config as a safe directory
+2026-05-07T14:12:36.8584911Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/realdailyreview/realdailyreview
+2026-05-07T14:12:36.8642259Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-05-07T14:12:36.8684225Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-05-07T14:12:36.8951995Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-05-07T14:12:36.8982097Z http.https://github.com/.extraheader
+2026-05-07T14:12:36.8998836Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2026-05-07T14:12:36.9037474Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-05-07T14:12:36.9285485Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-05-07T14:12:36.9327979Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
 
 === END OF 21_Complete ===
-﻿2026-05-07T14:05:01.6594710Z Cleaning up orphan processes
-2026-05-07T14:05:01.6874687Z ##[warning]Node.js 20 actions are deprecated. The following actions are running on Node.js 20 and may not work as expected: actions/checkout@v4, actions/setup-node@v4. Actions will be forced to run with Node.js 24 by default starting June 2nd, 2026. Node.js 20 will be removed from the runner on September 16th, 2026. Please check if updated versions of these actions are available that support Node.js 24. To opt into Node.js 24 now, set the FORCE_JAVASCRIPT_ACTIONS_TO_NODE24=true environment variable on the runner or in your workflow file. Once Node.js 24 becomes the default, you can temporarily opt out by setting ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION=true. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+﻿2026-05-07T14:12:36.9906825Z Cleaning up orphan processes
+2026-05-07T14:12:37.0310099Z ##[warning]Node.js 20 actions are deprecated. The following actions are running on Node.js 20 and may not work as expected: actions/checkout@v4, actions/setup-node@v4. Actions will be forced to run with Node.js 24 by default starting June 2nd, 2026. Node.js 20 will be removed from the runner on September 16th, 2026. Please check if updated versions of these actions are available that support Node.js 24. To opt into Node.js 24 now, set the FORCE_JAVASCRIPT_ACTIONS_TO_NODE24=true environment variable on the runner or in your workflow file. Once Node.js 24 becomes the default, you can temporarily opt out by setting ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION=true. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
 
 === END OF 2_Checkout ===
-﻿2026-05-07T14:04:44.5472069Z ##[group]Run actions/checkout@v4
-2026-05-07T14:04:44.5472917Z with:
-2026-05-07T14:04:44.5473308Z   ref: main
-2026-05-07T14:04:44.5473966Z   token: ***
-2026-05-07T14:04:44.5475141Z   repository: Real-Daily-Review/realdailyreview
-2026-05-07T14:04:44.5475723Z   ssh-strict: true
-2026-05-07T14:04:44.5476125Z   ssh-user: git
-2026-05-07T14:04:44.5476535Z   persist-credentials: true
-2026-05-07T14:04:44.5476992Z   clean: true
-2026-05-07T14:04:44.5477404Z   sparse-checkout-cone-mode: true
-2026-05-07T14:04:44.5477884Z   fetch-depth: 1
-2026-05-07T14:04:44.5478275Z   fetch-tags: false
-2026-05-07T14:04:44.5478672Z   show-progress: true
-2026-05-07T14:04:44.5479087Z   lfs: false
-2026-05-07T14:04:44.5479462Z   submodules: false
-2026-05-07T14:04:44.5479994Z   set-safe-directory: true
-2026-05-07T14:04:44.5480793Z ##[endgroup]
-2026-05-07T14:04:44.7676798Z Syncing repository: Real-Daily-Review/realdailyreview
-2026-05-07T14:04:44.7680590Z ##[group]Getting Git version info
-2026-05-07T14:04:44.7681927Z Working directory is '/home/runner/work/realdailyreview/realdailyreview'
-2026-05-07T14:04:44.7684020Z [command]/usr/bin/git version
-2026-05-07T14:04:44.7684939Z git version 2.53.0
-2026-05-07T14:04:44.7687920Z ##[endgroup]
-2026-05-07T14:04:44.7694557Z Temporarily overriding HOME='/home/runner/work/_temp/b8f1175a-d0bc-48be-bfe4-404354d9138a' before making global git config changes
-2026-05-07T14:04:44.7696974Z Adding repository directory to the temporary git global config as a safe directory
-2026-05-07T14:04:44.7698947Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/realdailyreview/realdailyreview
-2026-05-07T14:04:44.7702250Z Deleting the contents of '/home/runner/work/realdailyreview/realdailyreview'
-2026-05-07T14:04:44.7704089Z ##[group]Initializing the repository
-2026-05-07T14:04:44.7705346Z [command]/usr/bin/git init /home/runner/work/realdailyreview/realdailyreview
-2026-05-07T14:04:44.7706950Z hint: Using 'master' as the name for the initial branch. This default branch name
-2026-05-07T14:04:44.7708475Z hint: will change to "main" in Git 3.0. To configure the initial branch name
-2026-05-07T14:04:44.7710704Z hint: to use in all of your new repositories, which will suppress this warning,
-2026-05-07T14:04:44.7712170Z hint: call:
-2026-05-07T14:04:44.7712962Z hint:
-2026-05-07T14:04:44.7713770Z hint: 	git config --global init.defaultBranch <name>
-2026-05-07T14:04:44.7714635Z hint:
-2026-05-07T14:04:44.7715450Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
-2026-05-07T14:04:44.7716815Z hint: 'development'. The just-created branch can be renamed via this command:
-2026-05-07T14:04:44.7717866Z hint:
-2026-05-07T14:04:44.7718410Z hint: 	git branch -m <name>
-2026-05-07T14:04:44.7719059Z hint:
-2026-05-07T14:04:44.7720278Z hint: Disable this message with "git config set advice.defaultBranchName false"
-2026-05-07T14:04:44.7721866Z Initialized empty Git repository in /home/runner/work/realdailyreview/realdailyreview/.git/
-2026-05-07T14:04:44.7724375Z [command]/usr/bin/git remote add origin https://github.com/Real-Daily-Review/realdailyreview
-2026-05-07T14:04:44.7726816Z ##[endgroup]
-2026-05-07T14:04:44.7727897Z ##[group]Disabling automatic garbage collection
-2026-05-07T14:04:44.7728822Z [command]/usr/bin/git config --local gc.auto 0
-2026-05-07T14:04:44.7731016Z ##[endgroup]
-2026-05-07T14:04:44.7731657Z ##[group]Setting up auth
-2026-05-07T14:04:44.7732325Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
-2026-05-07T14:04:44.7734297Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
-2026-05-07T14:04:44.7752892Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
-2026-05-07T14:04:44.7814321Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
-2026-05-07T14:04:44.8065712Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
-2026-05-07T14:04:44.8108399Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
-2026-05-07T14:04:44.8393944Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
-2026-05-07T14:04:44.8434253Z ##[endgroup]
-2026-05-07T14:04:44.8435781Z ##[group]Fetching the repository
-2026-05-07T14:04:44.8445196Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +refs/heads/main*:refs/remotes/origin/main* +refs/tags/main*:refs/tags/main*
-2026-05-07T14:04:45.7175270Z From https://github.com/Real-Daily-Review/realdailyreview
-2026-05-07T14:04:45.7177089Z  * [new branch]      main       -> origin/main
-2026-05-07T14:04:45.7241033Z ##[endgroup]
-2026-05-07T14:04:45.7242613Z ##[group]Determining the checkout info
-2026-05-07T14:04:45.7244116Z [command]/usr/bin/git branch --list --remote origin/main
-2026-05-07T14:04:45.7276733Z   origin/main
-2026-05-07T14:04:45.7285499Z ##[endgroup]
-2026-05-07T14:04:45.7291463Z [command]/usr/bin/git sparse-checkout disable
-2026-05-07T14:04:45.7622957Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
-2026-05-07T14:04:45.7693294Z ##[group]Checking out the ref
-2026-05-07T14:04:45.7694879Z [command]/usr/bin/git checkout --progress --force -B main refs/remotes/origin/main
-2026-05-07T14:04:45.8046026Z Switched to a new branch 'main'
-2026-05-07T14:04:45.8055959Z branch 'main' set up to track 'origin/main'.
-2026-05-07T14:04:45.8061245Z ##[endgroup]
-2026-05-07T14:04:45.8119134Z [command]/usr/bin/git log -1 --format=%H
-2026-05-07T14:04:45.8147422Z e5567cefd39656be3d6e47b3627fad9c0554ed61
+﻿2026-05-07T14:12:14.0978704Z ##[group]Run actions/checkout@v4
+2026-05-07T14:12:14.0979670Z with:
+2026-05-07T14:12:14.0980113Z   ref: main
+2026-05-07T14:12:14.0980829Z   token: ***
+2026-05-07T14:12:14.0981838Z   repository: Real-Daily-Review/realdailyreview
+2026-05-07T14:12:14.0982518Z   ssh-strict: true
+2026-05-07T14:12:14.0982971Z   ssh-user: git
+2026-05-07T14:12:14.0983425Z   persist-credentials: true
+2026-05-07T14:12:14.0983941Z   clean: true
+2026-05-07T14:12:14.0984419Z   sparse-checkout-cone-mode: true
+2026-05-07T14:12:14.0984986Z   fetch-depth: 1
+2026-05-07T14:12:14.0985440Z   fetch-tags: false
+2026-05-07T14:12:14.0985934Z   show-progress: true
+2026-05-07T14:12:14.0986408Z   lfs: false
+2026-05-07T14:12:14.0986847Z   submodules: false
+2026-05-07T14:12:14.0987316Z   set-safe-directory: true
+2026-05-07T14:12:14.0988146Z ##[endgroup]
+2026-05-07T14:12:14.2288442Z Syncing repository: Real-Daily-Review/realdailyreview
+2026-05-07T14:12:14.2291818Z ##[group]Getting Git version info
+2026-05-07T14:12:14.2294164Z Working directory is '/home/runner/work/realdailyreview/realdailyreview'
+2026-05-07T14:12:14.2297046Z [command]/usr/bin/git version
+2026-05-07T14:12:14.2298328Z git version 2.53.0
+2026-05-07T14:12:14.2312094Z ##[endgroup]
+2026-05-07T14:12:14.2343290Z Temporarily overriding HOME='/home/runner/work/_temp/48c5cb15-644e-4862-ac9b-f4ec36aaaaeb' before making global git config changes
+2026-05-07T14:12:14.2346662Z Adding repository directory to the temporary git global config as a safe directory
+2026-05-07T14:12:14.2410425Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/realdailyreview/realdailyreview
+2026-05-07T14:12:14.2503375Z Deleting the contents of '/home/runner/work/realdailyreview/realdailyreview'
+2026-05-07T14:12:14.2505522Z ##[group]Initializing the repository
+2026-05-07T14:12:14.2509934Z [command]/usr/bin/git init /home/runner/work/realdailyreview/realdailyreview
+2026-05-07T14:12:15.0132622Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-05-07T14:12:15.0142525Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-05-07T14:12:15.0150064Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-05-07T14:12:15.0157093Z hint: call:
+2026-05-07T14:12:15.0158231Z hint:
+2026-05-07T14:12:15.0159644Z hint: 	git config --global init.defaultBranch <name>
+2026-05-07T14:12:15.0161794Z hint:
+2026-05-07T14:12:15.0163693Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-05-07T14:12:15.0172534Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-05-07T14:12:15.0174914Z hint:
+2026-05-07T14:12:15.0176165Z hint: 	git branch -m <name>
+2026-05-07T14:12:15.0177704Z hint:
+2026-05-07T14:12:15.0179769Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-05-07T14:12:15.0183571Z Initialized empty Git repository in /home/runner/work/realdailyreview/realdailyreview/.git/
+2026-05-07T14:12:15.0198434Z [command]/usr/bin/git remote add origin https://github.com/Real-Daily-Review/realdailyreview
+2026-05-07T14:12:15.0203184Z ##[endgroup]
+2026-05-07T14:12:15.0204805Z ##[group]Disabling automatic garbage collection
+2026-05-07T14:12:15.0206310Z [command]/usr/bin/git config --local gc.auto 0
+2026-05-07T14:12:15.0244845Z ##[endgroup]
+2026-05-07T14:12:15.0249850Z ##[group]Setting up auth
+2026-05-07T14:12:15.0253393Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-05-07T14:12:15.0287059Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-05-07T14:12:15.1776752Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-05-07T14:12:15.1783914Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-05-07T14:12:15.1790644Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-05-07T14:12:15.1795539Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-05-07T14:12:15.1800381Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-05-07T14:12:15.1804766Z ##[endgroup]
+2026-05-07T14:12:15.1806373Z ##[group]Fetching the repository
+2026-05-07T14:12:15.1809795Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +refs/heads/main*:refs/remotes/origin/main* +refs/tags/main*:refs/tags/main*
+2026-05-07T14:12:15.9353988Z From https://github.com/Real-Daily-Review/realdailyreview
+2026-05-07T14:12:15.9355124Z  * [new branch]      main       -> origin/main
+2026-05-07T14:12:15.9383545Z ##[endgroup]
+2026-05-07T14:12:15.9384395Z ##[group]Determining the checkout info
+2026-05-07T14:12:15.9387515Z [command]/usr/bin/git branch --list --remote origin/main
+2026-05-07T14:12:15.9415155Z   origin/main
+2026-05-07T14:12:15.9419708Z ##[endgroup]
+2026-05-07T14:12:15.9424433Z [command]/usr/bin/git sparse-checkout disable
+2026-05-07T14:12:15.9462473Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-05-07T14:12:15.9490613Z ##[group]Checking out the ref
+2026-05-07T14:12:15.9495581Z [command]/usr/bin/git checkout --progress --force -B main refs/remotes/origin/main
+2026-05-07T14:12:15.9585190Z Switched to a new branch 'main'
+2026-05-07T14:12:15.9588504Z branch 'main' set up to track 'origin/main'.
+2026-05-07T14:12:15.9595200Z ##[endgroup]
+2026-05-07T14:12:15.9632040Z [command]/usr/bin/git log -1 --format=%H
+2026-05-07T14:12:15.9654870Z bfd86cb4fad9b87f7673eafbe82b3a3daed27992
 
 === END OF  ===
-﻿2026-05-07T14:04:45.8445645Z ##[group]Run actions/setup-node@v4
-2026-05-07T14:04:45.8446450Z with:
-2026-05-07T14:04:45.8446921Z   node-version: 20
-2026-05-07T14:04:45.8447484Z   always-auth: false
-2026-05-07T14:04:45.8448051Z   check-latest: false
-2026-05-07T14:04:45.8448951Z   token: ***
-2026-05-07T14:04:45.8449442Z ##[endgroup]
-2026-05-07T14:04:46.3727183Z Found in cache @ /opt/hostedtoolcache/node/20.20.2/x64
-2026-05-07T14:04:46.3731353Z ##[group]Environment details
-2026-05-07T14:04:46.9687260Z node: v20.20.2
-2026-05-07T14:04:46.9710722Z npm: 10.8.2
-2026-05-07T14:04:46.9711650Z yarn: 1.22.22
-2026-05-07T14:04:46.9731641Z ##[endgroup]
+﻿2026-05-07T14:12:15.9884831Z ##[group]Run actions/setup-node@v4
+2026-05-07T14:12:15.9885167Z with:
+2026-05-07T14:12:15.9885369Z   node-version: 22
+2026-05-07T14:12:15.9885599Z   always-auth: false
+2026-05-07T14:12:15.9885813Z   check-latest: false
+2026-05-07T14:12:15.9886166Z   token: ***
+2026-05-07T14:12:15.9886367Z ##[endgroup]
+2026-05-07T14:12:16.1867766Z Found in cache @ /opt/hostedtoolcache/node/22.22.2/x64
+2026-05-07T14:12:16.1875884Z ##[group]Environment details
+2026-05-07T14:12:16.5852596Z node: v22.22.2
+2026-05-07T14:12:16.5853593Z npm: 10.9.7
+2026-05-07T14:12:16.5854246Z yarn: 1.22.22
+2026-05-07T14:12:16.5855863Z ##[endgroup]
 
 === END OF 4_Install ===
-﻿2026-05-07T14:04:46.9860941Z ##[group]Run npm install --no-save wrangler@latest
-2026-05-07T14:04:46.9861512Z [36;1mnpm install --no-save wrangler@latest[0m
-2026-05-07T14:04:46.9894845Z shell: /usr/bin/bash -e {0}
-2026-05-07T14:04:46.9895187Z ##[endgroup]
-2026-05-07T14:04:55.6916750Z npm warn EBADENGINE Unsupported engine {
-2026-05-07T14:04:55.6918312Z npm warn EBADENGINE   package: 'wrangler@4.88.0',
-2026-05-07T14:04:55.6919207Z npm warn EBADENGINE   required: { node: '>=22.0.0' },
-2026-05-07T14:04:55.6920433Z npm warn EBADENGINE   current: { node: 'v20.20.2', npm: '10.8.2' }
-2026-05-07T14:04:55.6921208Z npm warn EBADENGINE }
-2026-05-07T14:04:55.6922029Z npm warn EBADENGINE Unsupported engine {
-2026-05-07T14:04:55.6923006Z npm warn EBADENGINE   package: '@cloudflare/kv-asset-handler@0.5.0',
-2026-05-07T14:04:55.6924010Z npm warn EBADENGINE   required: { node: '>=22.0.0' },
-2026-05-07T14:04:55.6925053Z npm warn EBADENGINE   current: { node: 'v20.20.2', npm: '10.8.2' }
-2026-05-07T14:04:55.6925815Z npm warn EBADENGINE }
-2026-05-07T14:04:55.6926670Z npm warn EBADENGINE Unsupported engine {
-2026-05-07T14:04:55.6927514Z npm warn EBADENGINE   package: 'miniflare@4.20260504.0',
-2026-05-07T14:04:55.6928372Z npm warn EBADENGINE   required: { node: '>=22.0.0' },
-2026-05-07T14:04:55.6929262Z npm warn EBADENGINE   current: { node: 'v20.20.2', npm: '10.8.2' }
-2026-05-07T14:04:55.6930196Z npm warn EBADENGINE }
-2026-05-07T14:04:59.3418760Z 
-2026-05-07T14:04:59.3420443Z added 37 packages, and audited 38 packages in 12s
-2026-05-07T14:04:59.3421492Z 
-2026-05-07T14:04:59.3422025Z 7 packages are looking for funding
-2026-05-07T14:04:59.3570674Z   run `npm fund` for details
-2026-05-07T14:04:59.3571414Z 
-2026-05-07T14:04:59.3571936Z found 0 vulnerabilities
+﻿2026-05-07T14:12:16.5969290Z ##[group]Run npm install --no-save wrangler@latest
+2026-05-07T14:12:16.5969768Z [36;1mnpm install --no-save wrangler@latest[0m
+2026-05-07T14:12:16.6003942Z shell: /usr/bin/bash -e {0}
+2026-05-07T14:12:16.6004226Z ##[endgroup]
+2026-05-07T14:12:26.1511403Z 
+2026-05-07T14:12:26.1520887Z added 37 packages, and audited 38 packages in 9s
+2026-05-07T14:12:26.1531943Z 
+2026-05-07T14:12:26.1532498Z 7 packages are looking for funding
+2026-05-07T14:12:26.1533284Z   run `npm fund` for details
+2026-05-07T14:12:26.1533738Z 
+2026-05-07T14:12:26.1534160Z found 0 vulnerabilities
 
 === END OF  ===
-﻿2026-05-07T14:04:59.3698518Z ##[group]Run set -e
-2026-05-07T14:04:59.3698820Z [36;1mset -e[0m
-2026-05-07T14:04:59.3699233Z [36;1mCURRENT_ID=$(grep -E '^database_id\s*=' wrangler.toml | sed 's/.*=\s*"\([^"]*\)".*/\1/' | head -1)[0m
-2026-05-07T14:04:59.3700136Z [36;1mif [ -n "$CURRENT_ID" ] && [ "$CURRENT_ID" != "REPLACE_AFTER_FIRST_CREATE" ]; then[0m
-2026-05-07T14:04:59.3700553Z [36;1m  echo "database_id already set: $CURRENT_ID"[0m
-2026-05-07T14:04:59.3700870Z [36;1m  echo "id=$CURRENT_ID" >> $GITHUB_OUTPUT[0m
-2026-05-07T14:04:59.3701170Z [36;1m  echo "created=false" >> $GITHUB_OUTPUT[0m
-2026-05-07T14:04:59.3701459Z [36;1m  exit 0[0m
-2026-05-07T14:04:59.3701649Z [36;1mfi[0m
-2026-05-07T14:04:59.3702015Z [36;1mAPI_BASE="https://api.cloudflare.com/client/v4/accounts/$CF_ACCOUNT/d1/database"[0m
-2026-05-07T14:04:59.3702432Z [36;1m# Try to find existing[0m
-2026-05-07T14:04:59.3703208Z [36;1mLIST_RESP=$(curl -s -H "Authorization: ***" -H "Content-Type: application/json" "$API_BASE")[0m
-2026-05-07T14:04:59.3703711Z [36;1mID=$(echo "$LIST_RESP" | python3 -c "[0m
-2026-05-07T14:04:59.3704030Z [36;1mimport sys, json[0m
-2026-05-07T14:04:59.3704287Z [36;1md = json.load(sys.stdin)[0m
-2026-05-07T14:04:59.3704523Z [36;1mif not d.get('success'):[0m
-2026-05-07T14:04:59.3704770Z [36;1m    print('', file=sys.stderr)[0m
-2026-05-07T14:04:59.3705032Z [36;1m    sys.exit(0)[0m
-2026-05-07T14:04:59.3705254Z [36;1mfor db in d.get('result', []):[0m
-2026-05-07T14:04:59.3705526Z [36;1m    if db.get('name') == 'rdr-prod':[0m
-2026-05-07T14:04:59.3705796Z [36;1m        print(db['uuid'])[0m
-2026-05-07T14:04:59.3706030Z [36;1m        break[0m
-2026-05-07T14:04:59.3706224Z [36;1m")[0m
-2026-05-07T14:04:59.3706408Z [36;1mCREATED=false[0m
-2026-05-07T14:04:59.3706615Z [36;1mif [ -z "$ID" ]; then[0m
-2026-05-07T14:04:59.3706909Z [36;1m  echo "rdr-prod not found, creating…"[0m
-2026-05-07T14:04:59.3707447Z [36;1m  CREATE_RESP=$(curl -s -X POST -H "Authorization: ***" -H "Content-Type: application/json" \[0m
-2026-05-07T14:04:59.3708171Z [36;1m    -d '{"name":"rdr-prod"}' "$API_BASE")[0m
-2026-05-07T14:04:59.3708496Z [36;1m  ID=$(echo "$CREATE_RESP" | python3 -c "[0m
-2026-05-07T14:04:59.3708756Z [36;1mimport sys, json[0m
-2026-05-07T14:04:59.3708983Z [36;1md = json.load(sys.stdin)[0m
-2026-05-07T14:04:59.3709224Z [36;1mif not d.get('success'):[0m
-2026-05-07T14:04:59.3710475Z [36;1m    print('CREATE FAILED:', json.dumps(d.get('errors') or d), file=sys.stderr)[0m
-2026-05-07T14:04:59.3710904Z [36;1m    sys.exit(1)[0m
-2026-05-07T14:04:59.3711145Z [36;1mprint(d['result']['uuid'])[0m
-2026-05-07T14:04:59.3711377Z [36;1m")[0m
-2026-05-07T14:04:59.3711562Z [36;1m  CREATED=true[0m
-2026-05-07T14:04:59.3711767Z [36;1mfi[0m
-2026-05-07T14:04:59.3711943Z [36;1mif [ -z "$ID" ]; then[0m
-2026-05-07T14:04:59.3712236Z [36;1m  echo "::error::failed to determine D1 database_id"[0m
-2026-05-07T14:04:59.3712561Z [36;1m  echo "list_resp=$LIST_RESP"[0m
-2026-05-07T14:04:59.3712816Z [36;1m  exit 1[0m
-2026-05-07T14:04:59.3713028Z [36;1mfi[0m
-2026-05-07T14:04:59.3713273Z [36;1mecho "rdr-prod database_id=$ID created=$CREATED"[0m
-2026-05-07T14:04:59.3713655Z [36;1msed -i "s/REPLACE_AFTER_FIRST_CREATE/$ID/" wrangler.toml[0m
-2026-05-07T14:04:59.3713995Z [36;1mecho "id=$ID" >> $GITHUB_OUTPUT[0m
-2026-05-07T14:04:59.3714282Z [36;1mecho "created=$CREATED" >> $GITHUB_OUTPUT[0m
-2026-05-07T14:04:59.3737798Z shell: /usr/bin/bash -e {0}
-2026-05-07T14:04:59.3738057Z env:
-2026-05-07T14:04:59.3738405Z   CF_TOKEN: ***
-2026-05-07T14:04:59.3738651Z   CF_ACCOUNT: ***
-2026-05-07T14:04:59.3738842Z ##[endgroup]
-2026-05-07T14:04:59.6605154Z rdr-prod not found, creating…
-2026-05-07T14:05:00.9434688Z rdr-prod database_id=af854dd0-1da8-4964-9ccc-3fb5e06ceb81 created=true
+﻿2026-05-07T14:12:26.2161828Z ##[group]Run set -e
+2026-05-07T14:12:26.2162315Z [36;1mset -e[0m
+2026-05-07T14:12:26.2163072Z [36;1mCURRENT_ID=$(grep -E '^database_id\s*=' wrangler.toml | sed 's/.*=\s*"\([^"]*\)".*/\1/' | head -1)[0m
+2026-05-07T14:12:26.2163819Z [36;1mif [ -n "$CURRENT_ID" ] && [ "$CURRENT_ID" != "REPLACE_AFTER_FIRST_CREATE" ]; then[0m
+2026-05-07T14:12:26.2164277Z [36;1m  echo "database_id already set: $CURRENT_ID"[0m
+2026-05-07T14:12:26.2164609Z [36;1m  echo "id=$CURRENT_ID" >> $GITHUB_OUTPUT[0m
+2026-05-07T14:12:26.2164916Z [36;1m  echo "created=false" >> $GITHUB_OUTPUT[0m
+2026-05-07T14:12:26.2165191Z [36;1m  exit 0[0m
+2026-05-07T14:12:26.2165373Z [36;1mfi[0m
+2026-05-07T14:12:26.2165733Z [36;1mAPI_BASE="https://api.cloudflare.com/client/v4/accounts/$CF_ACCOUNT/d1/database"[0m
+2026-05-07T14:12:26.2166167Z [36;1m# Try to find existing[0m
+2026-05-07T14:12:26.2166812Z [36;1mLIST_RESP=$(curl -s -H "Authorization: ***" -H "Content-Type: application/json" "$API_BASE")[0m
+2026-05-07T14:12:26.2167307Z [36;1mID=$(echo "$LIST_RESP" | python3 -c "[0m
+2026-05-07T14:12:26.2167623Z [36;1mimport sys, json[0m
+2026-05-07T14:12:26.2167864Z [36;1md = json.load(sys.stdin)[0m
+2026-05-07T14:12:26.2168112Z [36;1mif not d.get('success'):[0m
+2026-05-07T14:12:26.2168357Z [36;1m    print('', file=sys.stderr)[0m
+2026-05-07T14:12:26.2168613Z [36;1m    sys.exit(0)[0m
+2026-05-07T14:12:26.2168839Z [36;1mfor db in d.get('result', []):[0m
+2026-05-07T14:12:26.2169105Z [36;1m    if db.get('name') == 'rdr-prod':[0m
+2026-05-07T14:12:26.2169373Z [36;1m        print(db['uuid'])[0m
+2026-05-07T14:12:26.2169607Z [36;1m        break[0m
+2026-05-07T14:12:26.2169798Z [36;1m")[0m
+2026-05-07T14:12:26.2169976Z [36;1mCREATED=false[0m
+2026-05-07T14:12:26.2170187Z [36;1mif [ -z "$ID" ]; then[0m
+2026-05-07T14:12:26.2170464Z [36;1m  echo "rdr-prod not found, creating…"[0m
+2026-05-07T14:12:26.2171030Z [36;1m  CREATE_RESP=$(curl -s -X POST -H "Authorization: ***" -H "Content-Type: application/json" \[0m
+2026-05-07T14:12:26.2171901Z [36;1m    -d '{"name":"rdr-prod"}' "$API_BASE")[0m
+2026-05-07T14:12:26.2172251Z [36;1m  ID=$(echo "$CREATE_RESP" | python3 -c "[0m
+2026-05-07T14:12:26.2172547Z [36;1mimport sys, json[0m
+2026-05-07T14:12:26.2172780Z [36;1md = json.load(sys.stdin)[0m
+2026-05-07T14:12:26.2173032Z [36;1mif not d.get('success'):[0m
+2026-05-07T14:12:26.2173398Z [36;1m    print('CREATE FAILED:', json.dumps(d.get('errors') or d), file=sys.stderr)[0m
+2026-05-07T14:12:26.2173888Z [36;1m    sys.exit(1)[0m
+2026-05-07T14:12:26.2174147Z [36;1mprint(d['result']['uuid'])[0m
+2026-05-07T14:12:26.2174385Z [36;1m")[0m
+2026-05-07T14:12:26.2174563Z [36;1m  CREATED=true[0m
+2026-05-07T14:12:26.2174764Z [36;1mfi[0m
+2026-05-07T14:12:26.2174946Z [36;1mif [ -z "$ID" ]; then[0m
+2026-05-07T14:12:26.2175230Z [36;1m  echo "::error::failed to determine D1 database_id"[0m
+2026-05-07T14:12:26.2175563Z [36;1m  echo "list_resp=$LIST_RESP"[0m
+2026-05-07T14:12:26.2175810Z [36;1m  exit 1[0m
+2026-05-07T14:12:26.2175986Z [36;1mfi[0m
+2026-05-07T14:12:26.2176237Z [36;1mecho "rdr-prod database_id=$ID created=$CREATED"[0m
+2026-05-07T14:12:26.2176839Z [36;1msed -i "s/REPLACE_AFTER_FIRST_CREATE/$ID/" wrangler.toml[0m
+2026-05-07T14:12:26.2177182Z [36;1mecho "id=$ID" >> $GITHUB_OUTPUT[0m
+2026-05-07T14:12:26.2177473Z [36;1mecho "created=$CREATED" >> $GITHUB_OUTPUT[0m
+2026-05-07T14:12:26.2198774Z shell: /usr/bin/bash -e {0}
+2026-05-07T14:12:26.2199032Z env:
+2026-05-07T14:12:26.2199380Z   CF_TOKEN: ***
+2026-05-07T14:12:26.2199615Z   CF_ACCOUNT: ***
+2026-05-07T14:12:26.2199803Z ##[endgroup]
+2026-05-07T14:12:26.2282857Z database_id already set: af854dd0-1da8-4964-9ccc-3fb5e06ceb81
 
 === END OF 6_Apply ===
-﻿2026-05-07T14:05:00.9506992Z ##[group]Run npx wrangler d1 execute rdr-prod --remote --file=schema.sql --yes
-2026-05-07T14:05:00.9507512Z [36;1mnpx wrangler d1 execute rdr-prod --remote --file=schema.sql --yes[0m
-2026-05-07T14:05:00.9530490Z shell: /usr/bin/bash -e {0}
-2026-05-07T14:05:00.9530731Z env:
-2026-05-07T14:05:00.9531180Z   CLOUDFLARE_API_TOKEN: ***
-2026-05-07T14:05:00.9531481Z   CLOUDFLARE_ACCOUNT_ID: ***
-2026-05-07T14:05:00.9531710Z ##[endgroup]
-2026-05-07T14:05:01.3801593Z Wrangler requires at least Node.js v22.0.0. You are using v20.20.2. Please update your version of Node.js.
-2026-05-07T14:05:01.3818712Z 
-2026-05-07T14:05:01.3821404Z Consider using a Node.js version manager such as https://volta.sh/ or https://github.com/nvm-sh/nvm.
-2026-05-07T14:05:01.3969392Z ##[error]Process completed with exit code 1.
+﻿2026-05-07T14:12:26.2328947Z ##[group]Run npx wrangler d1 execute rdr-prod --remote --file=schema.sql --yes
+2026-05-07T14:12:26.2329524Z [36;1mnpx wrangler d1 execute rdr-prod --remote --file=schema.sql --yes[0m
+2026-05-07T14:12:26.2350472Z shell: /usr/bin/bash -e {0}
+2026-05-07T14:12:26.2350709Z env:
+2026-05-07T14:12:26.2351454Z   CLOUDFLARE_API_TOKEN: ***
+2026-05-07T14:12:26.2351809Z   CLOUDFLARE_ACCOUNT_ID: ***
+2026-05-07T14:12:26.2352061Z ##[endgroup]
+2026-05-07T14:12:27.5871947Z 
+2026-05-07T14:12:27.5873008Z  ⛅️ wrangler 4.88.0
+2026-05-07T14:12:27.5901947Z ───────────────────
+2026-05-07T14:12:27.5921979Z Resource location: remote 
+2026-05-07T14:12:27.5922313Z 
+2026-05-07T14:12:27.7749063Z [33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1m⚠️ This process may take some time, during which your D1 database will be unavailable to serve queries.[0m
+2026-05-07T14:12:27.7750686Z 
+2026-05-07T14:12:27.7750999Z 
+2026-05-07T14:12:27.7753041Z 🌀 Executing on remote database rdr-prod (af854dd0-1da8-4964-9ccc-3fb5e06ceb81):
+2026-05-07T14:12:27.7755495Z 🌀 To execute on your local development database, remove the --remote flag from your wrangler command.
+2026-05-07T14:12:27.7876667Z Note: if the execution fails to complete, your DB will return to its original state and you can safely retry.
+2026-05-07T14:12:27.7884995Z ├ Checking if file needs uploading
+2026-05-07T14:12:28.1261836Z │
+2026-05-07T14:12:28.1282383Z 🌀 File already uploaded. Processing.
+2026-05-07T14:12:28.1283464Z 🌀 Starting import...
+2026-05-07T14:12:28.1301958Z 🌀 Processed 8 queries.
+2026-05-07T14:12:28.1322200Z 🚣 Executed 8 queries in 2.14ms (0 rows read, 0 rows written)
+2026-05-07T14:12:28.1337178Z    Database is currently at bookmark 00000002-00000008-00005064-5494d97fb203900439681d18f23ce6d8.
+2026-05-07T14:12:28.1351863Z [
+2026-05-07T14:12:28.1365525Z   {
+2026-05-07T14:12:28.1366099Z     "results": [
+2026-05-07T14:12:28.1366606Z       {
+2026-05-07T14:12:28.1367157Z         "Total queries executed": 8,
+2026-05-07T14:12:28.1367781Z         "Rows read": 0,
+2026-05-07T14:12:28.1368365Z         "Rows written": 0,
+2026-05-07T14:12:28.1369059Z         "Database size (MB)": "0.05"
+2026-05-07T14:12:28.1369668Z       }
+2026-05-07T14:12:28.1370128Z     ],
+2026-05-07T14:12:28.1370581Z     "success": true,
+2026-05-07T14:12:28.1371789Z     "finalBookmark": "00000002-00000008-00005064-5494d97fb203900439681d18f23ce6d8",
+2026-05-07T14:12:28.1372735Z     "meta": {
+2026-05-07T14:12:28.1373248Z       "served_by": "v3-prod",
+2026-05-07T14:12:28.1373907Z       "served_by_region": "WNAM",
+2026-05-07T14:12:28.1374615Z       "served_by_colo": "DFW",
+2026-05-07T14:12:28.1375278Z       "served_by_primary": true,
+2026-05-07T14:12:28.1375908Z       "timings": {
+2026-05-07T14:12:28.1376494Z         "sql_duration_ms": 2.1391
+2026-05-07T14:12:28.1377089Z       },
+2026-05-07T14:12:28.1377590Z       "duration": 2.1391,
+2026-05-07T14:12:28.1378168Z       "changes": 1,
+2026-05-07T14:12:28.1378693Z       "last_row_id": 0,
+2026-05-07T14:12:28.1379237Z       "changed_db": true,
+2026-05-07T14:12:28.1379807Z       "size_after": 53248,
+2026-05-07T14:12:28.1380394Z       "rows_read": 0,
+2026-05-07T14:12:28.1380934Z       "rows_written": 0,
+2026-05-07T14:12:28.1381786Z       "num_tables": 3,
+2026-05-07T14:12:28.1382537Z       "total_attempts": 1
+2026-05-07T14:12:28.1383124Z     }
+2026-05-07T14:12:28.1383564Z   }
+2026-05-07T14:12:28.1383981Z ]
+
+=== END OF  ===
+﻿2026-05-07T14:12:28.2287681Z ##[group]Run set -e
+2026-05-07T14:12:28.2287969Z [36;1mset -e[0m
+2026-05-07T14:12:28.2288568Z [36;1m# ADMIN_TOKEN: derived from GH Actions secret if present, else generated and emitted to logs once[0m
+2026-05-07T14:12:28.2289039Z [36;1mif [ -n "" ]; then[0m
+2026-05-07T14:12:28.2289316Z [36;1m  echo '' | npx wrangler secret put ADMIN_TOKEN[0m
+2026-05-07T14:12:28.2289603Z [36;1melse[0m
+2026-05-07T14:12:28.2289954Z [36;1m  # Generate a strong random; visible only in this run's logs (rotate after first run)[0m
+2026-05-07T14:12:28.2290387Z [36;1m  GEN=$(openssl rand -hex 32)[0m
+2026-05-07T14:12:28.2290699Z [36;1m  echo "$GEN" | npx wrangler secret put ADMIN_TOKEN[0m
+2026-05-07T14:12:28.2291496Z [36;1m  echo "::warning::Generated ADMIN_TOKEN (rotate by setting RDR_ADMIN_TOKEN secret in repo)."[0m
+2026-05-07T14:12:28.2291982Z [36;1m  echo "::add-mask::$GEN"[0m
+2026-05-07T14:12:28.2292217Z [36;1mfi[0m
+2026-05-07T14:12:28.2292555Z [36;1m# TURNSTILE_SECRET: requires user to create a Turnstile widget. Skip if not set.[0m
+2026-05-07T14:12:28.2293002Z [36;1mif [ -n "" ]; then[0m
+2026-05-07T14:12:28.2293293Z [36;1m  echo '' | npx wrangler secret put TURNSTILE_SECRET[0m
+2026-05-07T14:12:28.2293597Z [36;1melse[0m
+2026-05-07T14:12:28.2293915Z [36;1m  # Use a placeholder that always fails verification; forms will return 403.[0m
+2026-05-07T14:12:28.2294400Z [36;1m  # Better than no captcha at all — bots try once, fail, move on.[0m
+2026-05-07T14:12:28.2294890Z [36;1m  # User will replace this once they create a Turnstile widget in CF dashboard.[0m
+2026-05-07T14:12:28.2295457Z [36;1m  echo "PLACEHOLDER_NO_TURNSTILE_SET" | npx wrangler secret put TURNSTILE_SECRET[0m
+2026-05-07T14:12:28.2296396Z [36;1m  echo "::warning::TURNSTILE_SECRET not set — forms will reject with 'Captcha failed'. Create a Turnstile widget in CF dashboard and add TURNSTILE_SECRET + TURNSTILE_SITEKEY to GH Actions Secrets."[0m
+2026-05-07T14:12:28.2297178Z [36;1mfi[0m
+2026-05-07T14:12:28.2317880Z shell: /usr/bin/bash -e {0}
+2026-05-07T14:12:28.2318135Z env:
+2026-05-07T14:12:28.2318695Z   CLOUDFLARE_API_TOKEN: ***
+2026-05-07T14:12:28.2319016Z   CLOUDFLARE_ACCOUNT_ID: ***
+2026-05-07T14:12:28.2319235Z ##[endgroup]
+2026-05-07T14:12:29.2747680Z 
+2026-05-07T14:12:29.2748510Z  ⛅️ wrangler 4.88.0
+2026-05-07T14:12:29.2749397Z ───────────────────
+2026-05-07T14:12:29.3175922Z 🌀 Creating the secret for the Worker "rdr-api" 
+2026-05-07T14:12:29.7642759Z ✨ Success! Uploaded secret ADMIN_TOKEN
+2026-05-07T14:12:29.8613491Z ##[warning]Generated ADMIN_TOKEN (rotate by setting RDR_ADMIN_TOKEN secret in repo).
+2026-05-07T14:12:30.8782108Z 
+2026-05-07T14:12:30.8783326Z  ⛅️ wrangler 4.88.0
+2026-05-07T14:12:30.8784187Z ───────────────────
+2026-05-07T14:12:30.9155374Z 🌀 Creating the secret for the Worker "rdr-api" 
+2026-05-07T14:12:31.5092840Z ✨ Success! Uploaded secret TURNSTILE_SECRET
+2026-05-07T14:12:31.5925502Z ##[warning]TURNSTILE_SECRET not set — forms will reject with 'Captcha failed'. Create a Turnstile widget in CF dashboard and add TURNSTILE_SECRET + TURNSTILE_SITEKEY to GH Actions Secrets.
+
+=== END OF 8_Deploy ===
+﻿2026-05-07T14:12:31.5968988Z ##[group]Run npx wrangler deploy
+2026-05-07T14:12:31.5969296Z [36;1mnpx wrangler deploy[0m
+2026-05-07T14:12:31.5989847Z shell: /usr/bin/bash -e {0}
+2026-05-07T14:12:31.5990091Z env:
+2026-05-07T14:12:31.5990496Z   CLOUDFLARE_API_TOKEN: ***
+2026-05-07T14:12:31.5990807Z   CLOUDFLARE_ACCOUNT_ID: ***
+2026-05-07T14:12:31.5991038Z ##[endgroup]
+2026-05-07T14:12:32.6521905Z 
+2026-05-07T14:12:32.6532445Z  ⛅️ wrangler 4.88.0
+2026-05-07T14:12:32.6552550Z ───────────────────
+2026-05-07T14:12:32.6599043Z 
+2026-05-07T14:12:32.6600741Z Cloudflare collects anonymous telemetry about your usage of Wrangler. Learn more at https://github.com/cloudflare/workers-sdk/tree/main/packages/wrangler/telemetry.md
+2026-05-07T14:12:33.3713484Z [33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mCannot find base config file "astro/tsconfigs/strict"[0m [tsconfig.json]
+2026-05-07T14:12:33.3718986Z 
+2026-05-07T14:12:33.3719380Z     ../../tsconfig.json:2:13:
+2026-05-07T14:12:33.3720602Z [37m      2 │   "extends": [32m"astro/tsconfigs/strict"[37m,
+2026-05-07T14:12:33.3722874Z         ╵              [32m~~~~~~~~~~~~~~~~~~~~~~~~[0m
+2026-05-07T14:12:33.3725967Z 
+2026-05-07T14:12:33.3726168Z 
+2026-05-07T14:12:33.3730766Z Total Upload: 7.97 KiB / gzip: 2.55 KiB
+2026-05-07T14:12:35.3648983Z Worker Startup Time: 4 ms
+2026-05-07T14:12:35.3663459Z Your Worker has access to the following bindings:
+2026-05-07T14:12:35.3664732Z Binding                                                     Resource                  
+2026-05-07T14:12:35.3666534Z env.DB (rdr-prod)                                           D1 Database               
+2026-05-07T14:12:35.3674729Z env.SITE_ORIGIN ("https://realdailyreview.com")             Environment Variable      
+2026-05-07T14:12:35.3676850Z env.RATE_LIMIT_PER_MIN ("5")                                Environment Variable      
+2026-05-07T14:12:35.3678027Z 
+2026-05-07T14:12:35.3679474Z Uploaded rdr-api (2.47 sec)
+2026-05-07T14:12:35.8425452Z 
+2026-05-07T14:12:35.8438736Z [31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mA request to the Cloudflare API (/zones/0e483a913db9070a2f01144ed97eff54/workers/routes) failed.[0m
+2026-05-07T14:12:35.8440919Z 📎 It looks like you are authenticating Wrangler via a custom API token set in an environment variable.
+2026-05-07T14:12:35.8442989Z Please ensure it has the correct permissions for this operation.
+2026-05-07T14:12:35.8443533Z 
+2026-05-07T14:12:35.8443899Z 
+2026-05-07T14:12:35.8444401Z   Authentication error [code: 10000]
+2026-05-07T14:12:35.8445076Z 
+2026-05-07T14:12:35.8445259Z 
+2026-05-07T14:12:35.8454716Z Getting User settings...
+2026-05-07T14:12:36.6932653Z 👋 You are logged in with an User API Token. Unable to retrieve email for this user. Are you missing the `User->User Details->Read` permission?
+2026-05-07T14:12:36.6935326Z ℹ️  The API Token is read from the CLOUDFLARE_API_TOKEN environment variable.
+2026-05-07T14:12:36.6994326Z ┌─────────────────────────────┬──────────────────────────────────┐
+2026-05-07T14:12:36.6995700Z │ Account Name                │ Account ID                       │
+2026-05-07T14:12:36.6997168Z ├─────────────────────────────┼──────────────────────────────────┤
+2026-05-07T14:12:36.6998792Z │ Ryanlyk@gmail.com's Account │ *** │
+2026-05-07T14:12:36.7000069Z └─────────────────────────────┴──────────────────────────────────┘
+2026-05-07T14:12:36.7015892Z 🔓 To see token permissions visit https://dash.cloudflare.com/profile/api-tokens.
+2026-05-07T14:12:36.7021690Z 🪵  Logs were written to "/home/runner/.config/.wrangler/logs/wrangler-2026-05-07_14-12-32_390.log"
+2026-05-07T14:12:36.7356590Z ##[error]Process completed with exit code 1.
 
 === END OF system.txt ===
-2026-05-07T14:04:32.8650000Z Evaluating deploy.if
-2026-05-07T14:04:32.8650000Z Evaluating: success()
-2026-05-07T14:04:32.8650000Z Result: true
-2026-05-07T14:04:32.8700000Z Requested labels: ubuntu-latest
-2026-05-07T14:04:32.8700000Z Job defined at: Real-Daily-Review/realdailyreview/.github/workflows/deploy-worker.yml@refs/heads/main
-2026-05-07T14:04:32.8700000Z Waiting for a runner to pick up this job...
-2026-05-07T14:04:32.9380000Z Job is about to start running on the hosted runner: GitHub Actions 1000000028
-2026-05-07T14:04:32.9390000Z Job is waiting for a hosted runner to come online.
+2026-05-07T14:12:00.9330000Z Requested labels: ubuntu-latest
+2026-05-07T14:12:00.9330000Z Job defined at: Real-Daily-Review/realdailyreview/.github/workflows/deploy-worker.yml@refs/heads/main
+2026-05-07T14:12:00.9330000Z Waiting for a runner to pick up this job...
+2026-05-07T14:12:00.9240000Z Evaluating deploy.if
+2026-05-07T14:12:00.9240000Z Evaluating: success()
+2026-05-07T14:12:00.9240000Z Result: true
+2026-05-07T14:12:00.9470000Z Job is about to start running on the hosted runner: GitHub Actions 1000000034
+2026-05-07T14:12:00.9470000Z Job is waiting for a hosted runner to come online.
 === END OF 0_deploy.txt ===
-2026-05-07T14:04:59.3698823Z [36;1mset -e[0m
-2026-05-07T14:04:59.3699237Z [36;1mCURRENT_ID=$(grep -E '^database_id\s*=' wrangler.toml | sed 's/.*=\s*"\([^"]*\)".*/\1/' | head -1)[0m
-2026-05-07T14:04:59.3700139Z [36;1mif [ -n "$CURRENT_ID" ] && [ "$CURRENT_ID" != "REPLACE_AFTER_FIRST_CREATE" ]; then[0m
-2026-05-07T14:04:59.3700555Z [36;1m  echo "database_id already set: $CURRENT_ID"[0m
-2026-05-07T14:04:59.3700872Z [36;1m  echo "id=$CURRENT_ID" >> $GITHUB_OUTPUT[0m
-2026-05-07T14:04:59.3701173Z [36;1m  echo "created=false" >> $GITHUB_OUTPUT[0m
-2026-05-07T14:04:59.3701461Z [36;1m  exit 0[0m
-2026-05-07T14:04:59.3701651Z [36;1mfi[0m
-2026-05-07T14:04:59.3702017Z [36;1mAPI_BASE="https://api.cloudflare.com/client/v4/accounts/$CF_ACCOUNT/d1/database"[0m
-2026-05-07T14:04:59.3702435Z [36;1m# Try to find existing[0m
-2026-05-07T14:04:59.3703212Z [36;1mLIST_RESP=$(curl -s -H "Authorization: ***" -H "Content-Type: application/json" "$API_BASE")[0m
-2026-05-07T14:04:59.3703746Z [36;1mID=$(echo "$LIST_RESP" | python3 -c "[0m
-2026-05-07T14:04:59.3704033Z [36;1mimport sys, json[0m
-2026-05-07T14:04:59.3704289Z [36;1md = json.load(sys.stdin)[0m
-2026-05-07T14:04:59.3704525Z [36;1mif not d.get('success'):[0m
-2026-05-07T14:04:59.3704772Z [36;1m    print('', file=sys.stderr)[0m
-2026-05-07T14:04:59.3705035Z [36;1m    sys.exit(0)[0m
-2026-05-07T14:04:59.3705256Z [36;1mfor db in d.get('result', []):[0m
-2026-05-07T14:04:59.3705528Z [36;1m    if db.get('name') == 'rdr-prod':[0m
-2026-05-07T14:04:59.3705798Z [36;1m        print(db['uuid'])[0m
-2026-05-07T14:04:59.3706032Z [36;1m        break[0m
-2026-05-07T14:04:59.3706226Z [36;1m")[0m
-2026-05-07T14:04:59.3706410Z [36;1mCREATED=false[0m
-2026-05-07T14:04:59.3706617Z [36;1mif [ -z "$ID" ]; then[0m
-2026-05-07T14:04:59.3706913Z [36;1m  echo "rdr-prod not found, creating…"[0m
-2026-05-07T14:04:59.3707451Z [36;1m  CREATE_RESP=$(curl -s -X POST -H "Authorization: ***" -H "Content-Type: application/json" \[0m
-2026-05-07T14:04:59.3708180Z [36;1m    -d '{"name":"rdr-prod"}' "$API_BASE")[0m
-2026-05-07T14:04:59.3708498Z [36;1m  ID=$(echo "$CREATE_RESP" | python3 -c "[0m
-2026-05-07T14:04:59.3708759Z [36;1mimport sys, json[0m
-2026-05-07T14:04:59.3708986Z [36;1md = json.load(sys.stdin)[0m
-2026-05-07T14:04:59.3709226Z [36;1mif not d.get('success'):[0m
-2026-05-07T14:04:59.3710492Z [36;1m    print('CREATE FAILED:', json.dumps(d.get('errors') or d), file=sys.stderr)[0m
-2026-05-07T14:04:59.3710907Z [36;1m    sys.exit(1)[0m
-2026-05-07T14:04:59.3711147Z [36;1mprint(d['result']['uuid'])[0m
-2026-05-07T14:04:59.3711379Z [36;1m")[0m
-2026-05-07T14:04:59.3711564Z [36;1m  CREATED=true[0m
-2026-05-07T14:04:59.3711769Z [36;1mfi[0m
-2026-05-07T14:04:59.3711945Z [36;1mif [ -z "$ID" ]; then[0m
-2026-05-07T14:04:59.3712238Z [36;1m  echo "::error::failed to determine D1 database_id"[0m
-2026-05-07T14:04:59.3712563Z [36;1m  echo "list_resp=$LIST_RESP"[0m
-2026-05-07T14:04:59.3712818Z [36;1m  exit 1[0m
-2026-05-07T14:04:59.3713035Z [36;1mfi[0m
-2026-05-07T14:04:59.3713276Z [36;1mecho "rdr-prod database_id=$ID created=$CREATED"[0m
-2026-05-07T14:04:59.3713667Z [36;1msed -i "s/REPLACE_AFTER_FIRST_CREATE/$ID/" wrangler.toml[0m
-2026-05-07T14:04:59.3713998Z [36;1mecho "id=$ID" >> $GITHUB_OUTPUT[0m
-2026-05-07T14:04:59.3714285Z [36;1mecho "created=$CREATED" >> $GITHUB_OUTPUT[0m
-2026-05-07T14:04:59.3737805Z shell: /usr/bin/bash -e {0}
-2026-05-07T14:04:59.3738060Z env:
-2026-05-07T14:04:59.3738415Z   CF_TOKEN: ***
-2026-05-07T14:04:59.3738653Z   CF_ACCOUNT: ***
-2026-05-07T14:04:59.3738844Z ##[endgroup]
-2026-05-07T14:04:59.6605201Z rdr-prod not found, creating…
-2026-05-07T14:05:00.9434734Z rdr-prod database_id=af854dd0-1da8-4964-9ccc-3fb5e06ceb81 created=true
-2026-05-07T14:05:00.9507004Z ##[group]Run npx wrangler d1 execute rdr-prod --remote --file=schema.sql --yes
-2026-05-07T14:05:00.9507515Z [36;1mnpx wrangler d1 execute rdr-prod --remote --file=schema.sql --yes[0m
-2026-05-07T14:05:00.9530498Z shell: /usr/bin/bash -e {0}
-2026-05-07T14:05:00.9530733Z env:
-2026-05-07T14:05:00.9531182Z   CLOUDFLARE_API_TOKEN: ***
-2026-05-07T14:05:00.9531483Z   CLOUDFLARE_ACCOUNT_ID: ***
-2026-05-07T14:05:00.9531712Z ##[endgroup]
-2026-05-07T14:05:01.3801637Z Wrangler requires at least Node.js v22.0.0. You are using v20.20.2. Please update your version of Node.js.
-2026-05-07T14:05:01.3818746Z 
-2026-05-07T14:05:01.3821431Z Consider using a Node.js version manager such as https://volta.sh/ or https://github.com/nvm-sh/nvm.
-2026-05-07T14:05:01.3969414Z ##[error]Process completed with exit code 1.
-2026-05-07T14:05:01.4108129Z Post job cleanup.
-2026-05-07T14:05:01.5326206Z [command]/usr/bin/git version
-2026-05-07T14:05:01.5369405Z git version 2.53.0
-2026-05-07T14:05:01.5416576Z Temporarily overriding HOME='/home/runner/work/_temp/5ada6e4c-562f-46fe-9b0f-458d07359328' before making global git config changes
-2026-05-07T14:05:01.5418317Z Adding repository directory to the temporary git global config as a safe directory
-2026-05-07T14:05:01.5423402Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/realdailyreview/realdailyreview
-2026-05-07T14:05:01.5475767Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
-2026-05-07T14:05:01.5517136Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
-2026-05-07T14:05:01.5789090Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
-2026-05-07T14:05:01.5817788Z http.https://github.com/.extraheader
-2026-05-07T14:05:01.5832703Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
-2026-05-07T14:05:01.5870980Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
-2026-05-07T14:05:01.6174897Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
-2026-05-07T14:05:01.6213940Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
-2026-05-07T14:05:01.6594726Z Cleaning up orphan processes
-2026-05-07T14:05:01.6874718Z ##[warning]Node.js 20 actions are deprecated. The following actions are running on Node.js 20 and may not work as expected: actions/checkout@v4, actions/setup-node@v4. Actions will be forced to run with Node.js 24 by default starting June 2nd, 2026. Node.js 20 will be removed from the runner on September 16th, 2026. Please check if updated versions of these actions are available that support Node.js 24. To opt into Node.js 24 now, set the FORCE_JAVASCRIPT_ACTIONS_TO_NODE24=true environment variable on the runner or in your workflow file. Once Node.js 24 becomes the default, you can temporarily opt out by setting ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION=true. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+2026-05-07T14:12:28.2318138Z env:
+2026-05-07T14:12:28.2318698Z   CLOUDFLARE_API_TOKEN: ***
+2026-05-07T14:12:28.2319019Z   CLOUDFLARE_ACCOUNT_ID: ***
+2026-05-07T14:12:28.2319237Z ##[endgroup]
+2026-05-07T14:12:29.2747704Z 
+2026-05-07T14:12:29.2748520Z  ⛅️ wrangler 4.88.0
+2026-05-07T14:12:29.2749407Z ───────────────────
+2026-05-07T14:12:29.3175960Z 🌀 Creating the secret for the Worker "rdr-api" 
+2026-05-07T14:12:29.7642801Z ✨ Success! Uploaded secret ADMIN_TOKEN
+2026-05-07T14:12:29.8613537Z ##[warning]Generated ADMIN_TOKEN (rotate by setting RDR_ADMIN_TOKEN secret in repo).
+2026-05-07T14:12:30.8782174Z 
+2026-05-07T14:12:30.8783341Z  ⛅️ wrangler 4.88.0
+2026-05-07T14:12:30.8784196Z ───────────────────
+2026-05-07T14:12:30.9155436Z 🌀 Creating the secret for the Worker "rdr-api" 
+2026-05-07T14:12:31.5092881Z ✨ Success! Uploaded secret TURNSTILE_SECRET
+2026-05-07T14:12:31.5925565Z ##[warning]TURNSTILE_SECRET not set — forms will reject with 'Captcha failed'. Create a Turnstile widget in CF dashboard and add TURNSTILE_SECRET + TURNSTILE_SITEKEY to GH Actions Secrets.
+2026-05-07T14:12:31.5968998Z ##[group]Run npx wrangler deploy
+2026-05-07T14:12:31.5969299Z [36;1mnpx wrangler deploy[0m
+2026-05-07T14:12:31.5989853Z shell: /usr/bin/bash -e {0}
+2026-05-07T14:12:31.5990094Z env:
+2026-05-07T14:12:31.5990498Z   CLOUDFLARE_API_TOKEN: ***
+2026-05-07T14:12:31.5990809Z   CLOUDFLARE_ACCOUNT_ID: ***
+2026-05-07T14:12:31.5991041Z ##[endgroup]
+2026-05-07T14:12:32.6521951Z 
+2026-05-07T14:12:32.6532465Z  ⛅️ wrangler 4.88.0
+2026-05-07T14:12:32.6552567Z ───────────────────
+2026-05-07T14:12:32.6599059Z 
+2026-05-07T14:12:32.6600759Z Cloudflare collects anonymous telemetry about your usage of Wrangler. Learn more at https://github.com/cloudflare/workers-sdk/tree/main/packages/wrangler/telemetry.md
+2026-05-07T14:12:33.3713528Z [33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mCannot find base config file "astro/tsconfigs/strict"[0m [tsconfig.json]
+2026-05-07T14:12:33.3719000Z 
+2026-05-07T14:12:33.3719388Z     ../../tsconfig.json:2:13:
+2026-05-07T14:12:33.3720839Z [37m      2 │   "extends": [32m"astro/tsconfigs/strict"[37m,
+2026-05-07T14:12:33.3722886Z         ╵              [32m~~~~~~~~~~~~~~~~~~~~~~~~[0m
+2026-05-07T14:12:33.3725978Z 
+2026-05-07T14:12:33.3726171Z 
+2026-05-07T14:12:33.3730779Z Total Upload: 7.97 KiB / gzip: 2.55 KiB
+2026-05-07T14:12:35.3649023Z Worker Startup Time: 4 ms
+2026-05-07T14:12:35.3663484Z Your Worker has access to the following bindings:
+2026-05-07T14:12:35.3664743Z Binding                                                     Resource                  
+2026-05-07T14:12:35.3666547Z env.DB (rdr-prod)                                           D1 Database               
+2026-05-07T14:12:35.3674742Z env.SITE_ORIGIN ("https://realdailyreview.com")             Environment Variable      
+2026-05-07T14:12:35.3676861Z env.RATE_LIMIT_PER_MIN ("5")                                Environment Variable      
+2026-05-07T14:12:35.3678037Z 
+2026-05-07T14:12:35.3679484Z Uploaded rdr-api (2.47 sec)
+2026-05-07T14:12:35.8425502Z 
+2026-05-07T14:12:35.8438817Z [31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mA request to the Cloudflare API (/zones/0e483a913db9070a2f01144ed97eff54/workers/routes) failed.[0m
+2026-05-07T14:12:35.8440933Z 📎 It looks like you are authenticating Wrangler via a custom API token set in an environment variable.
+2026-05-07T14:12:35.8443001Z Please ensure it has the correct permissions for this operation.
+2026-05-07T14:12:35.8443554Z 
+2026-05-07T14:12:35.8443905Z 
+2026-05-07T14:12:35.8444407Z   Authentication error [code: 10000]
+2026-05-07T14:12:35.8445082Z 
+2026-05-07T14:12:35.8445263Z 
+2026-05-07T14:12:35.8454729Z Getting User settings...
+2026-05-07T14:12:36.6932700Z 👋 You are logged in with an User API Token. Unable to retrieve email for this user. Are you missing the `User->User Details->Read` permission?
+2026-05-07T14:12:36.6935340Z ℹ️  The API Token is read from the CLOUDFLARE_API_TOKEN environment variable.
+2026-05-07T14:12:36.6994341Z ┌─────────────────────────────┬──────────────────────────────────┐
+2026-05-07T14:12:36.6995762Z │ Account Name                │ Account ID                       │
+2026-05-07T14:12:36.6997189Z ├─────────────────────────────┼──────────────────────────────────┤
+2026-05-07T14:12:36.6998815Z │ Ryanlyk@gmail.com's Account │ *** │
+2026-05-07T14:12:36.7000080Z └─────────────────────────────┴──────────────────────────────────┘
+2026-05-07T14:12:36.7015908Z 🔓 To see token permissions visit https://dash.cloudflare.com/profile/api-tokens.
+2026-05-07T14:12:36.7021704Z 🪵  Logs were written to "/home/runner/.config/.wrangler/logs/wrangler-2026-05-07_14-12-32_390.log"
+2026-05-07T14:12:36.7356608Z ##[error]Process completed with exit code 1.
+2026-05-07T14:12:36.7454806Z Post job cleanup.
+2026-05-07T14:12:36.8483622Z [command]/usr/bin/git version
+2026-05-07T14:12:36.8527728Z git version 2.53.0
+2026-05-07T14:12:36.8577704Z Temporarily overriding HOME='/home/runner/work/_temp/31e33e59-6366-4afb-8fb7-a5ffc2b2482e' before making global git config changes
+2026-05-07T14:12:36.8579588Z Adding repository directory to the temporary git global config as a safe directory
+2026-05-07T14:12:36.8584921Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/realdailyreview/realdailyreview
+2026-05-07T14:12:36.8642293Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-05-07T14:12:36.8684257Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-05-07T14:12:36.8952041Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-05-07T14:12:36.8982209Z http.https://github.com/.extraheader
+2026-05-07T14:12:36.8998860Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2026-05-07T14:12:36.9037504Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-05-07T14:12:36.9285527Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-05-07T14:12:36.9328022Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-05-07T14:12:36.9906841Z Cleaning up orphan processes
+2026-05-07T14:12:37.0310127Z ##[warning]Node.js 20 actions are deprecated. The following actions are running on Node.js 20 and may not work as expected: actions/checkout@v4, actions/setup-node@v4. Actions will be forced to run with Node.js 24 by default starting June 2nd, 2026. Node.js 20 will be removed from the runner on September 16th, 2026. Please check if updated versions of these actions are available that support Node.js 24. To opt into Node.js 24 now, set the FORCE_JAVASCRIPT_ACTIONS_TO_NODE24=true environment variable on the runner or in your workflow file. Once Node.js 24 becomes the default, you can temporarily opt out by setting ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION=true. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
