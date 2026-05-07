@@ -11,6 +11,10 @@ node_modules/
 *.pem
 *.key
 
+# CEO sandbox-readable credentials — read by Claude in cowork sessions, never push
+.local/
+*.token
+
 # logs
 npm-debug.log*
 yarn-debug.log*
