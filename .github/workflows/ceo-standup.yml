@@ -1,41 +1,75 @@
-name: CEO daily standup
+name: CEO standup (4x/day)
+
+# Cloud-based, runs every 6 hours — no dependency on user's computer.
+# Each run: pulls roadmap + queue + recent commits, marks done items,
+# generates 1-3 new tasks if queue is thin, commits a per-slot checkpoint.
 
 on:
   schedule:
-    # 9:00 AM ET (13:00 / 14:00 UTC depending on DST). Run both, dedupe via filename.
-    - cron: '0 13 * * 1-5'
-    - cron: '0 14 * * 1-5'
+    # 04:00 UTC (12am ET — overnight planner)
+    - cron: '0 4 * * *'
+    # 13:00 UTC (9am ET — morning kick-off)
+    - cron: '0 13 * * *'
+    # 18:00 UTC (2pm ET — midday checkpoint)
+    - cron: '0 18 * * *'
+    # 23:00 UTC (7pm ET — evening review)
+    - cron: '0 23 * * *'
   workflow_dispatch:
+    inputs:
+      slot_label:
+        description: 'Override slot label (morning/midday/evening/overnight)'
+        required: false
+        default: 'manual'
 
 permissions:
   contents: write
+  actions: read
+
+concurrency:
+  group: standup
+  cancel-in-progress: false
 
 jobs:
   standup:
     runs-on: ubuntu-latest
-    timeout-minutes: 5
+    timeout-minutes: 6
     steps:
-      - name: Checkout
+      - name: Checkout main
         uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 50
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Set up Node
         uses: actions/setup-node@v4
         with:
           node-version: '20'
 
-      - name: Generate standup report
+      - name: Install minimal deps
+        run: npm install gray-matter@^4 @anthropic-ai/sdk@^0.30 --no-save --no-audit --no-fund
+
+      - name: Run CEO operator
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
-        run: node scripts/standup.mjs
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+          SLOT_OVERRIDE: ${{ github.event.inputs.slot_label }}
+        run: node scripts/ceo-standup.mjs
 
-      - name: Commit standup
+      - name: Commit standup + queue updates (rebase retry)
         run: |
           git config user.name "Real Daily Review Bot"
           git config user.email "bot@realdailyreview.com"
-          if [[ -n "$(git status --porcelain ops/standups/)" ]]; then
-            git add ops/standups/
-            git commit -m "ops: standup $(date -u +%Y-%m-%d)"
-            git push
-          else
-            echo "No standup change to commit."
+          git add ops/ 2>/dev/null || true
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
+            exit 0
           fi
+          git commit -m "ops: standup $(date -u +%Y-%m-%dT%H:%MZ) [run ${{ github.run_id }}]"
+          for attempt in 1 2 3 4 5; do
+            if git push origin HEAD:main; then exit 0; fi
+            git fetch origin main
+            git rebase origin/main || { git rebase --abort; sleep 2; }
+          done
+          exit 1

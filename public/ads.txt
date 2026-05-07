@@ -1,0 +1,6 @@
+# Authorized Digital Sellers — required by AdSense and most ad networks for verification.
+# Format: <domain>, <publisher_id>, <relationship>, <cert_authority_id>
+# Add your real entries once approved by AdSense / Ezoic / etc.
+#
+# Example:
+# google.com, pub-XXXXXXXXXXXXXXXX, DIRECT, f08c47fec0942fa0
