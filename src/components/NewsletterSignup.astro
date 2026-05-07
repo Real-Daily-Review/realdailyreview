@@ -1,5 +1,5 @@
 ---
-import { SITE } from '@/config';
+import { SITE, TURNSTILE } from '@/config';
 ---
 
 <aside class="inline-card">
@@ -26,7 +26,7 @@ import { SITE } from '@/config';
       placeholder="+1 555-555-5555"
     />
     <input type="text" name="hp" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px" aria-hidden="true" />
-    <div class="cf-turnstile" data-sitekey="0x4AAAAAA_REPLACE_AT_DEPLOY"></div>
+    <div class="cf-turnstile" data-sitekey={TURNSTILE.siteKey} data-callback="onTurnstileSubscribe"></div>
     <button type="submit">Subscribe</button>
     <p class="form-status" role="status" aria-live="polite"></p>
     <p style="font-size:0.75rem; color:var(--color-muted)">By subscribing you agree to our <a href="/privacy">Privacy Policy</a>.</p>
@@ -44,6 +44,9 @@ import { SITE } from '@/config';
       const body = Object.fromEntries(fd.entries());
       status.textContent = 'Subscribing…';
       status.className = 'form-status';
+      // Pull turnstile token from the hidden cf-turnstile-response input
+      const tokenInput = f.querySelector('input[name="cf-turnstile-response"]');
+      if (tokenInput) body['cf-turnstile-response'] = tokenInput.value;
       try {
         const r = await fetch(f.action, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) });
         const j = await r.json();

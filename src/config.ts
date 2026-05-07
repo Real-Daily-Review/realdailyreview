@@ -45,6 +45,12 @@ export const ANALYTICS = {
   cloudflareWebAnalyticsToken: '', // fill in after enabling in CF dashboard, e.g. 'a1b2c3d4e5f6...'
 } as const;
 
+// Cloudflare Turnstile — bot protection for forms.
+// Site key is public by design; the secret lives in Cloudflare Worker secrets.
+export const TURNSTILE = {
+  siteKey: '0x4AAAAAADK2HDIDOujAYkxI',
+} as const;
+
 // Editorial guardrails surfaced on /about and /editorial-policy.
 export const EDITORIAL_PRINCIPLES = [
   'Brevity over bloat — every story summarized in under 200 words.',
