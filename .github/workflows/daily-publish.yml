@@ -5,6 +5,11 @@ on:
     # 5:15 AM ET = 9:15 UTC (winter) / 10:15 UTC (DST). Run both — script is idempotent enough.
     - cron: '15 9 * * 1-5'
     - cron: '15 10 * * 1-5'
+  # CEO ad-hoc trigger: pushing a tag matching run-content-* fires the workflow.
+  # Useful from environments that can't reach api.github.com but can push.
+  push:
+    tags:
+      - 'run-content-*'
   workflow_dispatch:
     inputs:
       dry_run:
