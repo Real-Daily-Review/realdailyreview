@@ -15,7 +15,7 @@ Active items the CEO operator works through. Auto-managed by ceo-standup.yml.
 - [x] (monetization) ~~Apply to Ezoic~~ — REJECTED 2026-05-07 (250k MAU minimum). Pivot below.
 - [ ] (monetization) [NEEDS-SHAREHOLDER] Apply to Ezoic Incubator — free, gets us into pipeline pre-traffic
 - [x] (monetization) Skimlinks wired — publisher 302708X1790722 active in BaseLayout (2026-05-07)
-- [ ] (monetization) [NEEDS-SHAREHOLDER] Claim Buy Me a Coffee handle 'realdailyreview'
+- [x] (monetization) Buy Me a Coffee handle 'realdailyreview' claimed + brand profile uploaded (2026-05-07)
 - [ ] (monetization) [NEEDS-SHAREHOLDER] Apply to Google AdSense (target date: 2026-05-20, after 14 days of content)
 - [ ] (content) Backfill 7 days of historical digests for SEO depth — generate dated articles for 2026-04-30 through 2026-05-05
 - [ ] (growth) [NEEDS-SHAREHOLDER] Create social accounts: Bluesky, X, Mastodon, Threads, Reddit
