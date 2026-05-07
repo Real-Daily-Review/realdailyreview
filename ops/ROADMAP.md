@@ -14,12 +14,17 @@ The CEO (Claude) maintains this file. Each daily standup pulls from it. Update f
 - [ ] Submit sitemap to Google Search Console + Bing Webmaster Tools (shareholder identity verification)
 
 ## Next (Sprint 1 — first traffic)
+- [x] Cron: bumped from 1 publish/day to 3 (5:15am / 11:30am / 5:30pm ET) — shipped 2026-05-07
+- [x] Newsletter form: phone collection (optional) + worker schema + E.164 normalization — shipped 2026-05-07
+- [ ] **OpenGraph image generator** — CF Worker renders SVG→PNG title cards on demand. Free, no API. Shareholder priority #1 on images.
+- [ ] **AI hero images on flagship pieces** — Stability AI or OpenAI gpt-image-1 for the daily digest only (~$0.04/image × 22 weekdays = ~$1/mo). Lower priority than OG cards.
+- [ ] **Social posting Worker** — fires on every push to articles, posts to Bluesky + X + Mastodon (free APIs). Reddit deferred (manual to start).
+  - BLOCKED on shareholder creating accounts: X handle, Bluesky handle, Mastodon instance choice
 - [ ] Newsletter wired to Resend (paid switch, ~$20/mo) + double opt-in
+- [ ] SMS sender via Twilio for breaking-news alerts to phone subscribers
 - [ ] Backfill: have content pipeline write the last 7 days of digests retroactively (for SEO depth on launch)
 - [ ] Submit to Google News Publisher Center
-- [ ] Reddit social presence: scope out which subs welcome links; manual posts to start
-- [ ] Bluesky + X accounts; auto-post via Cloudflare Worker on publish
-- [ ] OpenGraph image generator (Worker that renders title cards)
+- [ ] Submit sitemap to Google Search Console + Bing Webmaster Tools (shareholder identity verification)
 - [ ] Cookie consent banner for EU/UK visitors
 
 ## Soon (Sprint 2 — monetize)

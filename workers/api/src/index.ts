@@ -101,6 +101,18 @@ function clean(s: unknown, max: number): string | null {
   return t;
 }
 
+// Validate and normalize a phone to E.164 (best-effort — strict client-side prompt is "+1 555 555 5555").
+function normalizePhone(s: unknown): string | null {
+  if (typeof s !== 'string') return null;
+  const digits = s.replace(/[^\d+]/g, '');
+  if (!digits) return null;
+  // E.164: + then 8-15 digits. Accept 10-digit US without +1 by prepending.
+  if (/^\+\d{8,15}$/.test(digits)) return digits;
+  if (/^\d{10}$/.test(digits)) return '+1' + digits;
+  if (/^1\d{10}$/.test(digits)) return '+' + digits;
+  return null;
+}
+
 async function handleSubscribe(req: Request, env: Env, ipHash: string, uaHash: string): Promise<Response> {
   const body = await readJson(req);
   if (!body) return jsonResponse({ error: 'Bad request.' }, { status: 400 }, env, req);
@@ -111,6 +123,9 @@ async function handleSubscribe(req: Request, env: Env, ipHash: string, uaHash: s
   const email = typeof body.email === 'string' ? body.email.toLowerCase().trim() : '';
   if (!isValidEmail(email)) return jsonResponse({ error: 'Invalid email.' }, { status: 400 }, env, req);
 
+  // Phone is optional — silently drop if invalid rather than rejecting the whole submission.
+  const phone = body.phone ? normalizePhone(body.phone) : null;
+
   const turnstile = typeof body['cf-turnstile-response'] === 'string'
     ? (body['cf-turnstile-response'] as string)
     : (typeof body.turnstile === 'string' ? (body.turnstile as string) : '');
@@ -118,12 +133,14 @@ async function handleSubscribe(req: Request, env: Env, ipHash: string, uaHash: s
   const ok = await verifyTurnstile(turnstile, ip, env.TURNSTILE_SECRET);
   if (!ok) return jsonResponse({ error: 'Captcha failed.' }, { status: 403 }, env, req);
 
-  // Upsert pending; idempotent on duplicate
+  // Upsert pending; idempotent on duplicate. Update phone if provided this time.
   await env.DB.prepare(
-    `INSERT INTO subscribers (email, status, source, ip_hash, ua_hash)
-     VALUES (?, 'pending', 'web-form', ?, ?)
-     ON CONFLICT(email) DO UPDATE SET status = subscribers.status`
-  ).bind(email, ipHash, uaHash).run();
+    `INSERT INTO subscribers (email, phone, status, source, ip_hash, ua_hash)
+     VALUES (?, ?, 'pending', 'web-form', ?, ?)
+     ON CONFLICT(email) DO UPDATE SET
+       phone = COALESCE(excluded.phone, subscribers.phone),
+       status = subscribers.status`
+  ).bind(email, phone, ipHash, uaHash).run();
 
   // TODO: send double-opt-in via Resend once RESEND_API_KEY is set.
   // For now, mark confirmed since we have no email-sending in Phase 0.

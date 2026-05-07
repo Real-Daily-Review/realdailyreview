@@ -16,6 +16,15 @@ import { SITE } from '@/config';
       inputmode="email"
       placeholder="you@example.com"
     />
+    <label for="newsletter-phone" style="margin-top: 0.25rem;">Phone <span style="color: var(--color-muted); font-weight: normal;">(optional, for breaking-news SMS)</span></label>
+    <input
+      id="newsletter-phone"
+      name="phone"
+      type="tel"
+      autocomplete="tel"
+      inputmode="tel"
+      placeholder="+1 555-555-5555"
+    />
     <input type="text" name="hp" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px" aria-hidden="true" />
     <div class="cf-turnstile" data-sitekey="0x4AAAAAA_REPLACE_AT_DEPLOY"></div>
     <button type="submit">Subscribe</button>

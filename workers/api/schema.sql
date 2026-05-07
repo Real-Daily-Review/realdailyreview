@@ -4,6 +4,9 @@
 CREATE TABLE IF NOT EXISTS subscribers (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
   email TEXT NOT NULL UNIQUE,
+  phone TEXT,                        -- E.164 format, optional, for SMS breaking news
+  phone_verified INTEGER NOT NULL DEFAULT 0,  -- 1 once user confirms via SMS opt-in
+  phone_unsubscribed_at INTEGER,
   status TEXT NOT NULL DEFAULT 'pending' CHECK (status IN ('pending','confirmed','unsubscribed')),
   source TEXT,
   created_at INTEGER NOT NULL DEFAULT (strftime('%s','now')),
