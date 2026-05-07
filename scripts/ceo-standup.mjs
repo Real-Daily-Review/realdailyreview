@@ -225,22 +225,55 @@ async function main() {
   const commits = await recentCommits(30);
   const runs = await loadActionRunsViaApi();
 
-  // Detect tasks we can mark done from commit messages
-  // Heuristic: if a queue item's text appears (substring) in any recent commit subject, mark done
-  const commitText = commits.map((c) => c.subject).join('\n').toLowerCase();
+  // Detect completed tasks via AI judgment instead of word-matching.
+  // Word-matching produces false positives (e.g., "deploy" appears in many unrelated commits).
+  // We pass the queue + recent commits + recent standup highlights and ask Anthropic
+  // to identify which queue items are CLEARLY done based on the evidence.
   const newlyDone = [];
-  const updatedItems = queueItems.map((i) => {
-    if (!i.done) {
-      // Match by checking if 3+ significant words from the task overlap with commits
-      const words = i.text.toLowerCase().split(/\W+/).filter((w) => w.length >= 5).slice(0, 8);
-      const hits = words.filter((w) => commitText.includes(w)).length;
-      if (hits >= 3) {
-        newlyDone.push(i.text);
-        return { ...i, done: true };
-      }
+  let updatedItems = [...queueItems];
+  const activeForCheck = queueItems.filter((i) => !i.done);
+  if (activeForCheck.length > 0 && commits.length > 0) {
+    try {
+      const client = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY });
+      const checkPrompt = `For each queue item below, decide if it has been COMPLETED based on recent commits. Be strict: only mark done if a commit clearly implements that specific task. Word overlap alone is NOT enough.
+
+Examples:
+- Commit "deploy: tweak workflow" does NOT complete "Deploy API Worker for forms" (different deploy targets).
+- Commit "feat: cross-poster worker for X+Bluesky" DOES complete "Social cross-poster Worker".
+
+Output ONLY a JSON array of indices (0-based) of items to mark done. Empty array if nothing qualifies. No prose. Example output: [2, 5] or []
+
+QUEUE ITEMS:
+${activeForCheck.map((i, idx) => `${idx}: ${i.text}`).join('\n')}
+
+RECENT COMMITS (last 30):
+${commits.slice(0, 30).map((c) => `- ${c.subject}`).join('\n')}`;
+
+      const r = await client.messages.create({
+        model: 'claude-haiku-4-5-20251001',
+        max_tokens: 200,
+        temperature: 0,
+        messages: [{ role: 'user', content: checkPrompt }],
+      });
+      const text = r.content.filter((b) => b.type === 'text').map((b) => b.text).join('').trim();
+      const m = text.match(/\[[\d,\s]*\]/);
+      const indices = m ? JSON.parse(m[0]) : [];
+      const doneSet = new Set(indices);
+      let activeIdx = 0;
+      updatedItems = queueItems.map((i) => {
+        if (i.done) return i;
+        const isThisOne = doneSet.has(activeIdx);
+        activeIdx++;
+        if (isThisOne) {
+          newlyDone.push(i.text);
+          return { ...i, done: true };
+        }
+        return i;
+      });
+    } catch (err) {
+      console.warn('AI completion detection failed; leaving queue as-is:', err.message);
     }
-    return i;
-  });
+  }
 
   // Refill queue if needed
   const activeAfterMarkingCount = updatedItems.filter((i) => !i.done).length;

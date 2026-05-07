@@ -5,7 +5,7 @@ _Last updated: 2026-05-07T13:53:36.654Z (morning)_
 Active items the CEO operator works through. Auto-managed by ceo-standup.yml.
 
 - [ ] (dev) OG image generator — Cloudflare Worker that renders 1200x630 PNG from article slug, no API cost
-- [x] (dev) Deploy API Worker (subscribe + feedback) — needs CLOUDFLARE_API_TOKEN in .local/credentials
+- [ ] (dev) Deploy API Worker (subscribe + feedback) — needs CLOUDFLARE_API_TOKEN in .local/credentials
 - [ ] (growth) [NEEDS-SHAREHOLDER] Submit sitemap to Google Search Console — domain verification via DNS TXT record
 - [ ] (growth) [NEEDS-SHAREHOLDER] Submit sitemap to Bing Webmaster Tools — same flow
 - [ ] (monetization) Apply to Ezoic auto-approve at low traffic threshold — requires only the live domain, no min traffic
