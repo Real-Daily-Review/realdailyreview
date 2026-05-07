@@ -1,0 +1,361 @@
+Latest failed run: 'Deploy API Worker' (#25500537717)
+--- log files ---
+/tmp/logs/0_deploy.txt
+/tmp/logs/deploy/1_Set up job.txt
+/tmp/logs/deploy/3_Set up Node.txt
+/tmp/logs/deploy/system.txt
+/tmp/logs/deploy/4_Install wrangler.txt
+/tmp/logs/deploy/20_Post Checkout main.txt
+/tmp/logs/deploy/21_Complete job.txt
+/tmp/logs/deploy/5_Ensure D1 database exists, capture ID.txt
+/tmp/logs/deploy/2_Checkout main.txt
+
+--- error/failure lines from each step ---
+
+=== / ===
+
+=== / ===
+
+=== deploy/21_Complete ===
+
+=== deploy/2_Checkout ===
+
+=== / ===
+
+=== deploy/4_Install ===
+
+=== / ===
+28:2026-05-07T14:00:39.8021530Z [36;1m  echo "::error::failed to determine D1 database_id"[0m
+52:2026-05-07T14:00:40.4249810Z     raise JSONDecodeError("Expecting value", s, err.value) from None
+53:2026-05-07T14:00:40.4250977Z json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+54:2026-05-07T14:00:40.8707459Z ##[error]Process completed with exit code 1.
+
+=== deploy/system.txt ===
+
+=== logs/0_deploy.txt ===
+173:2026-05-07T14:00:39.8021533Z [36;1m  echo "::error::failed to determine D1 database_id"[0m
+197:2026-05-07T14:00:40.4249836Z     raise JSONDecodeError("Expecting value", s, err.value) from None
+198:2026-05-07T14:00:40.4250983Z json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+199:2026-05-07T14:00:40.8707889Z ##[error]Process completed with exit code 1.
+
+--- last 80 lines of each step log ---
+
+=== END OF  ===
+﻿2026-05-07T14:00:26.7722250Z Current runner version: '2.334.0'
+2026-05-07T14:00:26.7758845Z ##[group]Runner Image Provisioner
+2026-05-07T14:00:26.7760911Z Hosted Compute Agent
+2026-05-07T14:00:26.7761799Z Version: 20260213.493
+2026-05-07T14:00:26.7762875Z Commit: 5c115507f6dd24b8de37d8bbe0bb4509d0cc0fa3
+2026-05-07T14:00:26.7764011Z Build Date: 2026-02-13T00:28:41Z
+2026-05-07T14:00:26.7765033Z Worker ID: {33be4316-b2f1-4ab8-8a33-4513ebe048b9}
+2026-05-07T14:00:26.7766296Z Azure Region: eastus
+2026-05-07T14:00:26.7767162Z ##[endgroup]
+2026-05-07T14:00:26.7769819Z ##[group]Operating System
+2026-05-07T14:00:26.7770778Z Ubuntu
+2026-05-07T14:00:26.7771574Z 24.04.4
+2026-05-07T14:00:26.7772379Z LTS
+2026-05-07T14:00:26.7773137Z ##[endgroup]
+2026-05-07T14:00:26.7773970Z ##[group]Runner Image
+2026-05-07T14:00:26.7774971Z Image: ubuntu-24.04
+2026-05-07T14:00:26.7775788Z Version: 20260413.86.1
+2026-05-07T14:00:26.7777391Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20260413.86/images/ubuntu/Ubuntu2404-Readme.md
+2026-05-07T14:00:26.7781263Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20260413.86
+2026-05-07T14:00:26.7783018Z ##[endgroup]
+2026-05-07T14:00:26.7784825Z ##[group]GITHUB_TOKEN Permissions
+2026-05-07T14:00:26.7787714Z Contents: write
+2026-05-07T14:00:26.7788824Z Metadata: read
+2026-05-07T14:00:26.7789928Z ##[endgroup]
+2026-05-07T14:00:26.7792868Z Secret source: Actions
+2026-05-07T14:00:26.7794370Z Prepare workflow directory
+2026-05-07T14:00:26.8744170Z Prepare all required actions
+2026-05-07T14:00:26.8800813Z Getting action download info
+2026-05-07T14:00:27.4682116Z Download action repository 'actions/checkout@v4' (SHA:34e114876b0b11c390a56381ad16ebd13914f8d5)
+2026-05-07T14:00:27.6053259Z Download action repository 'actions/setup-node@v4' (SHA:49933ea5288caeca8642d1e84afbd3f7d6820020)
+2026-05-07T14:00:27.8007700Z Complete job name: deploy
+
+=== END OF  ===
+﻿2026-05-07T14:00:40.8848665Z Post job cleanup.
+2026-05-07T14:00:40.9883322Z [command]/usr/bin/git version
+2026-05-07T14:00:40.9926467Z git version 2.53.0
+2026-05-07T14:00:40.9977239Z Temporarily overriding HOME='/home/runner/work/_temp/124b7527-a5cc-4454-9c37-76ceb4146aee' before making global git config changes
+2026-05-07T14:00:40.9979386Z Adding repository directory to the temporary git global config as a safe directory
+2026-05-07T14:00:40.9995027Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/realdailyreview/realdailyreview
+2026-05-07T14:00:41.0035271Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-05-07T14:00:41.0074029Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-05-07T14:00:41.0322319Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-05-07T14:00:41.0347312Z http.https://github.com/.extraheader
+2026-05-07T14:00:41.0362635Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2026-05-07T14:00:41.0396440Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-05-07T14:00:41.0652150Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-05-07T14:00:41.0686995Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+
+=== END OF 21_Complete ===
+﻿2026-05-07T14:00:41.1043265Z Cleaning up orphan processes
+2026-05-07T14:00:41.1302033Z ##[warning]Node.js 20 actions are deprecated. The following actions are running on Node.js 20 and may not work as expected: actions/checkout@v4, actions/setup-node@v4. Actions will be forced to run with Node.js 24 by default starting June 2nd, 2026. Node.js 20 will be removed from the runner on September 16th, 2026. Please check if updated versions of these actions are available that support Node.js 24. To opt into Node.js 24 now, set the FORCE_JAVASCRIPT_ACTIONS_TO_NODE24=true environment variable on the runner or in your workflow file. Once Node.js 24 becomes the default, you can temporarily opt out by setting ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION=true. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+
+=== END OF 2_Checkout ===
+﻿2026-05-07T14:00:27.8766264Z ##[group]Run actions/checkout@v4
+2026-05-07T14:00:27.8767138Z with:
+2026-05-07T14:00:27.8767530Z   ref: main
+2026-05-07T14:00:27.8768158Z   token: ***
+2026-05-07T14:00:27.8768623Z   repository: Real-Daily-Review/realdailyreview
+2026-05-07T14:00:27.8769421Z   ssh-strict: true
+2026-05-07T14:00:27.8769844Z   ssh-user: git
+2026-05-07T14:00:27.8770260Z   persist-credentials: true
+2026-05-07T14:00:27.8770728Z   clean: true
+2026-05-07T14:00:27.8771148Z   sparse-checkout-cone-mode: true
+2026-05-07T14:00:27.8771646Z   fetch-depth: 1
+2026-05-07T14:00:27.8772057Z   fetch-tags: false
+2026-05-07T14:00:27.8772477Z   show-progress: true
+2026-05-07T14:00:27.8772894Z   lfs: false
+2026-05-07T14:00:27.8773279Z   submodules: false
+2026-05-07T14:00:27.8773702Z   set-safe-directory: true
+2026-05-07T14:00:27.8774405Z ##[endgroup]
+2026-05-07T14:00:27.9992412Z Syncing repository: Real-Daily-Review/realdailyreview
+2026-05-07T14:00:27.9995177Z ##[group]Getting Git version info
+2026-05-07T14:00:27.9996503Z Working directory is '/home/runner/work/realdailyreview/realdailyreview'
+2026-05-07T14:00:27.9998307Z [command]/usr/bin/git version
+2026-05-07T14:00:28.0040019Z git version 2.53.0
+2026-05-07T14:00:28.0070458Z ##[endgroup]
+2026-05-07T14:00:28.0096196Z Temporarily overriding HOME='/home/runner/work/_temp/d2a4febe-ec9a-4fde-9b2a-d0dbb13e8cf3' before making global git config changes
+2026-05-07T14:00:28.0099283Z Adding repository directory to the temporary git global config as a safe directory
+2026-05-07T14:00:28.0109780Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/realdailyreview/realdailyreview
+2026-05-07T14:00:28.0147887Z Deleting the contents of '/home/runner/work/realdailyreview/realdailyreview'
+2026-05-07T14:00:28.0149647Z ##[group]Initializing the repository
+2026-05-07T14:00:28.0150433Z [command]/usr/bin/git init /home/runner/work/realdailyreview/realdailyreview
+2026-05-07T14:00:28.0248253Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-05-07T14:00:28.0260461Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-05-07T14:00:28.0262523Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-05-07T14:00:28.0268584Z hint: call:
+2026-05-07T14:00:28.0269906Z hint:
+2026-05-07T14:00:28.0271063Z hint: 	git config --global init.defaultBranch <name>
+2026-05-07T14:00:28.0272323Z hint:
+2026-05-07T14:00:28.0273381Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-05-07T14:00:28.0275069Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-05-07T14:00:28.0276440Z hint:
+2026-05-07T14:00:28.0277368Z hint: 	git branch -m <name>
+2026-05-07T14:00:28.0278533Z hint:
+2026-05-07T14:00:28.0280415Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-05-07T14:00:28.0282731Z Initialized empty Git repository in /home/runner/work/realdailyreview/realdailyreview/.git/
+2026-05-07T14:00:28.0286642Z [command]/usr/bin/git remote add origin https://github.com/Real-Daily-Review/realdailyreview
+2026-05-07T14:00:28.0318066Z ##[endgroup]
+2026-05-07T14:00:28.0319743Z ##[group]Disabling automatic garbage collection
+2026-05-07T14:00:28.0321041Z [command]/usr/bin/git config --local gc.auto 0
+2026-05-07T14:00:28.0345284Z ##[endgroup]
+2026-05-07T14:00:28.0346786Z ##[group]Setting up auth
+2026-05-07T14:00:28.0353615Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-05-07T14:00:28.0389643Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-05-07T14:00:28.0698666Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-05-07T14:00:28.0735479Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-05-07T14:00:28.0973093Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-05-07T14:00:28.1014148Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-05-07T14:00:28.1257387Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-05-07T14:00:28.1300652Z ##[endgroup]
+2026-05-07T14:00:28.1302412Z ##[group]Fetching the repository
+2026-05-07T14:00:28.1307327Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +refs/heads/main*:refs/remotes/origin/main* +refs/tags/main*:refs/tags/main*
+2026-05-07T14:00:28.4896974Z From https://github.com/Real-Daily-Review/realdailyreview
+2026-05-07T14:00:28.4905782Z  * [new branch]      main       -> origin/main
+2026-05-07T14:00:28.4934264Z ##[endgroup]
+2026-05-07T14:00:28.4936506Z ##[group]Determining the checkout info
+2026-05-07T14:00:28.4941927Z [command]/usr/bin/git branch --list --remote origin/main
+2026-05-07T14:00:28.4968592Z   origin/main
+2026-05-07T14:00:28.4975332Z ##[endgroup]
+2026-05-07T14:00:28.4979558Z [command]/usr/bin/git sparse-checkout disable
+2026-05-07T14:00:28.5018608Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-05-07T14:00:28.5048489Z ##[group]Checking out the ref
+2026-05-07T14:00:28.5052416Z [command]/usr/bin/git checkout --progress --force -B main refs/remotes/origin/main
+2026-05-07T14:00:28.5141517Z Switched to a new branch 'main'
+2026-05-07T14:00:28.5145306Z branch 'main' set up to track 'origin/main'.
+2026-05-07T14:00:28.5163715Z ##[endgroup]
+2026-05-07T14:00:28.5190613Z [command]/usr/bin/git log -1 --format=%H
+2026-05-07T14:00:28.5215390Z c9da66798a4443a8e72074586d93869f10962e1d
+
+=== END OF  ===
+﻿2026-05-07T14:00:28.5684411Z ##[group]Run actions/setup-node@v4
+2026-05-07T14:00:28.5685555Z with:
+2026-05-07T14:00:28.5686282Z   node-version: 20
+2026-05-07T14:00:28.5687107Z   always-auth: false
+2026-05-07T14:00:28.5688236Z   check-latest: false
+2026-05-07T14:00:28.5689610Z   token: ***
+2026-05-07T14:00:28.5690512Z ##[endgroup]
+2026-05-07T14:00:29.0762784Z Found in cache @ /opt/hostedtoolcache/node/20.20.2/x64
+2026-05-07T14:00:29.0769687Z ##[group]Environment details
+2026-05-07T14:00:29.6890280Z node: v20.20.2
+2026-05-07T14:00:29.6892126Z npm: 10.8.2
+2026-05-07T14:00:29.6897180Z yarn: 1.22.22
+2026-05-07T14:00:29.6899306Z ##[endgroup]
+
+=== END OF 4_Install ===
+﻿2026-05-07T14:00:29.7027272Z ##[group]Run npm install --no-save wrangler@latest
+2026-05-07T14:00:29.7028039Z [36;1mnpm install --no-save wrangler@latest[0m
+2026-05-07T14:00:29.7063964Z shell: /usr/bin/bash -e {0}
+2026-05-07T14:00:29.7064480Z ##[endgroup]
+2026-05-07T14:00:36.6021081Z npm warn EBADENGINE Unsupported engine {
+2026-05-07T14:00:36.6022825Z npm warn EBADENGINE   package: 'wrangler@4.88.0',
+2026-05-07T14:00:36.6024184Z npm warn EBADENGINE   required: { node: '>=22.0.0' },
+2026-05-07T14:00:36.6025449Z npm warn EBADENGINE   current: { node: 'v20.20.2', npm: '10.8.2' }
+2026-05-07T14:00:36.6026534Z npm warn EBADENGINE }
+2026-05-07T14:00:36.6027574Z npm warn EBADENGINE Unsupported engine {
+2026-05-07T14:00:36.6028910Z npm warn EBADENGINE   package: '@cloudflare/kv-asset-handler@0.5.0',
+2026-05-07T14:00:36.6030499Z npm warn EBADENGINE   required: { node: '>=22.0.0' },
+2026-05-07T14:00:36.6031729Z npm warn EBADENGINE   current: { node: 'v20.20.2', npm: '10.8.2' }
+2026-05-07T14:00:36.6032765Z npm warn EBADENGINE }
+2026-05-07T14:00:36.6033685Z npm warn EBADENGINE Unsupported engine {
+2026-05-07T14:00:36.6034751Z npm warn EBADENGINE   package: 'miniflare@4.20260504.0',
+2026-05-07T14:00:36.6035809Z npm warn EBADENGINE   required: { node: '>=22.0.0' },
+2026-05-07T14:00:36.6036905Z npm warn EBADENGINE   current: { node: 'v20.20.2', npm: '10.8.2' }
+2026-05-07T14:00:36.6037829Z npm warn EBADENGINE }
+2026-05-07T14:00:39.7751000Z 
+2026-05-07T14:00:39.7839601Z added 37 packages, and audited 38 packages in 10s
+2026-05-07T14:00:39.7859801Z 
+2026-05-07T14:00:39.7869617Z 7 packages are looking for funding
+2026-05-07T14:00:39.7870584Z   run `npm fund` for details
+2026-05-07T14:00:39.7871293Z 
+2026-05-07T14:00:39.7871756Z found 0 vulnerabilities
+
+=== END OF  ===
+﻿2026-05-07T14:00:39.8011258Z ##[group]Run set -e
+2026-05-07T14:00:39.8011552Z [36;1mset -e[0m
+2026-05-07T14:00:39.8011960Z [36;1mCURRENT_ID=$(grep -E '^database_id\s*=' wrangler.toml | sed 's/.*=\s*"\([^"]*\)".*/\1/' | head -1)[0m
+2026-05-07T14:00:39.8012552Z [36;1mif [ -n "$CURRENT_ID" ] && [ "$CURRENT_ID" != "REPLACE_AFTER_FIRST_CREATE" ]; then[0m
+2026-05-07T14:00:39.8012967Z [36;1m  echo "database_id already set: $CURRENT_ID"[0m
+2026-05-07T14:00:39.8013289Z [36;1m  echo "id=$CURRENT_ID" >> $GITHUB_OUTPUT[0m
+2026-05-07T14:00:39.8013586Z [36;1m  echo "created=false" >> $GITHUB_OUTPUT[0m
+2026-05-07T14:00:39.8013890Z [36;1m  exit 0[0m
+2026-05-07T14:00:39.8014067Z [36;1mfi[0m
+2026-05-07T14:00:39.8014377Z [36;1m# List databases first; if rdr-prod exists, capture its ID. Else create.[0m
+2026-05-07T14:00:39.8014831Z [36;1mEXISTING=$(npx wrangler d1 list --json 2>/dev/null \[0m
+2026-05-07T14:00:39.8015673Z [36;1m  | python3 -c "import sys,json; rs=json.load(sys.stdin); [print(r['uuid']) for r in rs if r['name']=='rdr-prod']" \[0m
+2026-05-07T14:00:39.8016214Z [36;1m  | head -1)[0m
+2026-05-07T14:00:39.8016428Z [36;1mif [ -n "$EXISTING" ]; then[0m
+2026-05-07T14:00:39.8016672Z [36;1m  ID="$EXISTING"[0m
+2026-05-07T14:00:39.8016904Z [36;1m  echo "Found existing rdr-prod: $ID"[0m
+2026-05-07T14:00:39.8017175Z [36;1melse[0m
+2026-05-07T14:00:39.8017440Z [36;1m  CREATE_OUTPUT=$(npx wrangler d1 create rdr-prod 2>&1)[0m
+2026-05-07T14:00:39.8017759Z [36;1m  echo "$CREATE_OUTPUT"[0m
+2026-05-07T14:00:39.8018173Z [36;1m  ID=$(echo "$CREATE_OUTPUT" | grep -oE 'database_id = "[^"]+"' | head -1 | sed 's/.*"\(.*\)".*/\1/')[0m
+2026-05-07T14:00:39.8018603Z [36;1m  if [ -z "$ID" ]; then[0m
+2026-05-07T14:00:39.8018863Z [36;1m    # fallback: parse uuid pattern[0m
+2026-05-07T14:00:39.8019978Z [36;1m    ID=$(echo "$CREATE_OUTPUT" | grep -oE '[0-9a-f-]{36}' | head -1)[0m
+2026-05-07T14:00:39.8020335Z [36;1m  fi[0m
+2026-05-07T14:00:39.8020539Z [36;1m  echo "Created rdr-prod: $ID"[0m
+2026-05-07T14:00:39.8021058Z [36;1mfi[0m
+2026-05-07T14:00:39.8021244Z [36;1mif [ -z "$ID" ]; then[0m
+2026-05-07T14:00:39.8021530Z [36;1m  echo "::error::failed to determine D1 database_id"[0m
+2026-05-07T14:00:39.8021823Z [36;1m  exit 1[0m
+2026-05-07T14:00:39.8022000Z [36;1mfi[0m
+2026-05-07T14:00:39.8022242Z [36;1m# Update wrangler.toml — replace the placeholder[0m
+2026-05-07T14:00:39.8022622Z [36;1msed -i "s/REPLACE_AFTER_FIRST_CREATE/$ID/" wrangler.toml[0m
+2026-05-07T14:00:39.8022960Z [36;1mecho "id=$ID" >> $GITHUB_OUTPUT[0m
+2026-05-07T14:00:39.8023240Z [36;1mecho "created=true" >> $GITHUB_OUTPUT[0m
+2026-05-07T14:00:39.8045399Z shell: /usr/bin/bash -e {0}
+2026-05-07T14:00:39.8045646Z env:
+2026-05-07T14:00:39.8046092Z   CLOUDFLARE_API_TOKEN: ***
+2026-05-07T14:00:39.8046393Z   CLOUDFLARE_ACCOUNT_ID: ***
+2026-05-07T14:00:39.8046615Z ##[endgroup]
+2026-05-07T14:00:40.4119738Z Traceback (most recent call last):
+2026-05-07T14:00:40.4121963Z   File "<string>", line 1, in <module>
+2026-05-07T14:00:40.4122991Z   File "/usr/lib/python3.12/json/__init__.py", line 293, in load
+2026-05-07T14:00:40.4128736Z     return loads(fp.read(),
+2026-05-07T14:00:40.4129852Z            ^^^^^^^^^^^^^^^^
+2026-05-07T14:00:40.4130777Z   File "/usr/lib/python3.12/json/__init__.py", line 346, in loads
+2026-05-07T14:00:40.4149912Z     return _default_decoder.decode(s)
+2026-05-07T14:00:40.4169901Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-05-07T14:00:40.4182405Z   File "/usr/lib/python3.12/json/decoder.py", line 337, in decode
+2026-05-07T14:00:40.4190191Z     obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+2026-05-07T14:00:40.4209840Z                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-05-07T14:00:40.4229961Z   File "/usr/lib/python3.12/json/decoder.py", line 355, in raw_decode
+2026-05-07T14:00:40.4249810Z     raise JSONDecodeError("Expecting value", s, err.value) from None
+2026-05-07T14:00:40.4250977Z json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+2026-05-07T14:00:40.8707459Z ##[error]Process completed with exit code 1.
+
+=== END OF system.txt ===
+2026-05-07T14:00:14.6040000Z Evaluating deploy.if
+2026-05-07T14:00:14.6040000Z Evaluating: success()
+2026-05-07T14:00:14.6040000Z Result: true
+2026-05-07T14:00:14.6070000Z Requested labels: ubuntu-latest
+2026-05-07T14:00:14.6070000Z Job defined at: Real-Daily-Review/realdailyreview/.github/workflows/deploy-worker.yml@refs/heads/main
+2026-05-07T14:00:14.6070000Z Waiting for a runner to pick up this job...
+2026-05-07T14:00:14.8960000Z Job is about to start running on the hosted runner: GitHub Actions 1000000023
+2026-05-07T14:00:14.8960000Z Job is waiting for a hosted runner to come online.
+=== END OF 0_deploy.txt ===
+2026-05-07T14:00:36.6035817Z npm warn EBADENGINE   required: { node: '>=22.0.0' },
+2026-05-07T14:00:36.6036914Z npm warn EBADENGINE   current: { node: 'v20.20.2', npm: '10.8.2' }
+2026-05-07T14:00:36.6037840Z npm warn EBADENGINE }
+2026-05-07T14:00:39.7751053Z 
+2026-05-07T14:00:39.7839619Z added 37 packages, and audited 38 packages in 10s
+2026-05-07T14:00:39.7859817Z 
+2026-05-07T14:00:39.7869630Z 7 packages are looking for funding
+2026-05-07T14:00:39.7870589Z   run `npm fund` for details
+2026-05-07T14:00:39.7871298Z 
+2026-05-07T14:00:39.7871762Z found 0 vulnerabilities
+2026-05-07T14:00:39.8011269Z ##[group]Run set -e
+2026-05-07T14:00:39.8011555Z [36;1mset -e[0m
+2026-05-07T14:00:39.8011964Z [36;1mCURRENT_ID=$(grep -E '^database_id\s*=' wrangler.toml | sed 's/.*=\s*"\([^"]*\)".*/\1/' | head -1)[0m
+2026-05-07T14:00:39.8012555Z [36;1mif [ -n "$CURRENT_ID" ] && [ "$CURRENT_ID" != "REPLACE_AFTER_FIRST_CREATE" ]; then[0m
+2026-05-07T14:00:39.8012970Z [36;1m  echo "database_id already set: $CURRENT_ID"[0m
+2026-05-07T14:00:39.8013291Z [36;1m  echo "id=$CURRENT_ID" >> $GITHUB_OUTPUT[0m
+2026-05-07T14:00:39.8013589Z [36;1m  echo "created=false" >> $GITHUB_OUTPUT[0m
+2026-05-07T14:00:39.8013893Z [36;1m  exit 0[0m
+2026-05-07T14:00:39.8014070Z [36;1mfi[0m
+2026-05-07T14:00:39.8014380Z [36;1m# List databases first; if rdr-prod exists, capture its ID. Else create.[0m
+2026-05-07T14:00:39.8014835Z [36;1mEXISTING=$(npx wrangler d1 list --json 2>/dev/null \[0m
+2026-05-07T14:00:39.8015721Z [36;1m  | python3 -c "import sys,json; rs=json.load(sys.stdin); [print(r['uuid']) for r in rs if r['name']=='rdr-prod']" \[0m
+2026-05-07T14:00:39.8016218Z [36;1m  | head -1)[0m
+2026-05-07T14:00:39.8016431Z [36;1mif [ -n "$EXISTING" ]; then[0m
+2026-05-07T14:00:39.8016674Z [36;1m  ID="$EXISTING"[0m
+2026-05-07T14:00:39.8016907Z [36;1m  echo "Found existing rdr-prod: $ID"[0m
+2026-05-07T14:00:39.8017178Z [36;1melse[0m
+2026-05-07T14:00:39.8017443Z [36;1m  CREATE_OUTPUT=$(npx wrangler d1 create rdr-prod 2>&1)[0m
+2026-05-07T14:00:39.8017762Z [36;1m  echo "$CREATE_OUTPUT"[0m
+2026-05-07T14:00:39.8018176Z [36;1m  ID=$(echo "$CREATE_OUTPUT" | grep -oE 'database_id = "[^"]+"' | head -1 | sed 's/.*"\(.*\)".*/\1/')[0m
+2026-05-07T14:00:39.8018606Z [36;1m  if [ -z "$ID" ]; then[0m
+2026-05-07T14:00:39.8018865Z [36;1m    # fallback: parse uuid pattern[0m
+2026-05-07T14:00:39.8019986Z [36;1m    ID=$(echo "$CREATE_OUTPUT" | grep -oE '[0-9a-f-]{36}' | head -1)[0m
+2026-05-07T14:00:39.8020338Z [36;1m  fi[0m
+2026-05-07T14:00:39.8020542Z [36;1m  echo "Created rdr-prod: $ID"[0m
+2026-05-07T14:00:39.8021066Z [36;1mfi[0m
+2026-05-07T14:00:39.8021248Z [36;1mif [ -z "$ID" ]; then[0m
+2026-05-07T14:00:39.8021533Z [36;1m  echo "::error::failed to determine D1 database_id"[0m
+2026-05-07T14:00:39.8021825Z [36;1m  exit 1[0m
+2026-05-07T14:00:39.8022003Z [36;1mfi[0m
+2026-05-07T14:00:39.8022246Z [36;1m# Update wrangler.toml — replace the placeholder[0m
+2026-05-07T14:00:39.8022625Z [36;1msed -i "s/REPLACE_AFTER_FIRST_CREATE/$ID/" wrangler.toml[0m
+2026-05-07T14:00:39.8022963Z [36;1mecho "id=$ID" >> $GITHUB_OUTPUT[0m
+2026-05-07T14:00:39.8023243Z [36;1mecho "created=true" >> $GITHUB_OUTPUT[0m
+2026-05-07T14:00:39.8045406Z shell: /usr/bin/bash -e {0}
+2026-05-07T14:00:39.8045648Z env:
+2026-05-07T14:00:39.8046095Z   CLOUDFLARE_API_TOKEN: ***
+2026-05-07T14:00:39.8046396Z   CLOUDFLARE_ACCOUNT_ID: ***
+2026-05-07T14:00:39.8046618Z ##[endgroup]
+2026-05-07T14:00:40.4119776Z Traceback (most recent call last):
+2026-05-07T14:00:40.4121974Z   File "<string>", line 1, in <module>
+2026-05-07T14:00:40.4123016Z   File "/usr/lib/python3.12/json/__init__.py", line 293, in load
+2026-05-07T14:00:40.4128749Z     return loads(fp.read(),
+2026-05-07T14:00:40.4129861Z            ^^^^^^^^^^^^^^^^
+2026-05-07T14:00:40.4130785Z   File "/usr/lib/python3.12/json/__init__.py", line 346, in loads
+2026-05-07T14:00:40.4149927Z     return _default_decoder.decode(s)
+2026-05-07T14:00:40.4169916Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-05-07T14:00:40.4182419Z   File "/usr/lib/python3.12/json/decoder.py", line 337, in decode
+2026-05-07T14:00:40.4190204Z     obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+2026-05-07T14:00:40.4209855Z                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-05-07T14:00:40.4229975Z   File "/usr/lib/python3.12/json/decoder.py", line 355, in raw_decode
+2026-05-07T14:00:40.4249836Z     raise JSONDecodeError("Expecting value", s, err.value) from None
+2026-05-07T14:00:40.4250983Z json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+2026-05-07T14:00:40.8707889Z ##[error]Process completed with exit code 1.
+2026-05-07T14:00:40.8848676Z Post job cleanup.
+2026-05-07T14:00:40.9883358Z [command]/usr/bin/git version
+2026-05-07T14:00:40.9926493Z git version 2.53.0
+2026-05-07T14:00:40.9977263Z Temporarily overriding HOME='/home/runner/work/_temp/124b7527-a5cc-4454-9c37-76ceb4146aee' before making global git config changes
+2026-05-07T14:00:40.9979397Z Adding repository directory to the temporary git global config as a safe directory
+2026-05-07T14:00:40.9995041Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/realdailyreview/realdailyreview
+2026-05-07T14:00:41.0035285Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-05-07T14:00:41.0074046Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-05-07T14:00:41.0322342Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-05-07T14:00:41.0347406Z http.https://github.com/.extraheader
+2026-05-07T14:00:41.0362651Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2026-05-07T14:00:41.0396454Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-05-07T14:00:41.0652172Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-05-07T14:00:41.0687017Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-05-07T14:00:41.1043279Z Cleaning up orphan processes
+2026-05-07T14:00:41.1302050Z ##[warning]Node.js 20 actions are deprecated. The following actions are running on Node.js 20 and may not work as expected: actions/checkout@v4, actions/setup-node@v4. Actions will be forced to run with Node.js 24 by default starting June 2nd, 2026. Node.js 20 will be removed from the runner on September 16th, 2026. Please check if updated versions of these actions are available that support Node.js 24. To opt into Node.js 24 now, set the FORCE_JAVASCRIPT_ACTIONS_TO_NODE24=true environment variable on the runner or in your workflow file. Once Node.js 24 becomes the default, you can temporarily opt out by setting ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION=true. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
