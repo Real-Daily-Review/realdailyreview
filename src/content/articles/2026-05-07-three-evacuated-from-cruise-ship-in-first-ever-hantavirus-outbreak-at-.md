@@ -1,48 +1,49 @@
 ---
 title: Three Evacuated From Cruise Ship in First-Ever Hantavirus Outbreak at Sea
 description: >-
-  Two confirmed and one suspected hantavirus case prompt evacuations from MV
-  Hondius. Nearly 150 passengers remain isolated aboard as ship heads to Canary
-  Islands.
-pubDate: '2026-05-07T00:53:58.264Z'
+  Two confirmed and one suspected hantavirus case evacuated from MV Hondius.
+  Ship with 150 aboard heads to Canary Islands after departing Cape Verde.
+pubDate: '2026-05-07T11:18:29.151Z'
 section: world
 tags:
   - hantavirus
   - cruise ship
-  - outbreak
   - health
+  - outbreak
 perspectives: []
 sources:
-  - title: Hantavirus-hit cruise ship leaves Cape Verde after three evacuated
+  - title: >-
+      BBC World: Hantavirus-hit cruise ship on way to Canary Islands after three
+      evacuated
     url: >-
       https://www.bbc.com/news/articles/c5y093d5n9ko?at_medium=RSS&at_campaign=rss
-    publisher: BBC World
-  - title: What's next for those aboard hantavirus cruise ship?
-    url: 'https://www.cbsnews.com/video/whats-next-aboard-hantavirus-cruise-ship/'
-    publisher: CBS News
+    publisher: BBC
   - title: >-
-      Cruise ship with hantavirus outbreak heads to Canary Islands after 3
-      people evacuated
+      PBS NewsHour: Cruise ship with hantavirus outbreak heads to Canary Islands
+      after 3 people evacuated
     url: >-
       https://www.pbs.org/newshour/health/cruise-ship-with-hantavirus-outbreak-heads-to-canary-islands-after-3-people-evacuated
     publisher: PBS NewsHour
-  - title: Argentina investigates link to deadly hantavirus outbreak on cruise ship
+  - title: >-
+      The Guardian: Three evacuated from hantavirus-hit ship as Spain says
+      vessel can dock
     url: >-
-      https://www.aljazeera.com/news/2026/5/6/argentina-investigates-link-to-deadly-hantavirus-outbreak-on-cruise-ship?traffic_source=rss
-    publisher: Al Jazeera English
+      https://www.theguardian.com/world/2026/may/06/cruise-ship-hantavirus-strain-andes-spread-humans-south-africa
+    publisher: The Guardian
+  - title: 'CBS News: What''s next for those aboard hantavirus cruise ship?'
+    url: 'https://www.cbsnews.com/video/whats-next-aboard-hantavirus-cruise-ship/'
+    publisher: CBS News
 aiGenerated: true
 draft: false
 ---
-# Hantavirus Outbreak Prompts Evacuations From Cruise Ship
+# Cruise Ship With Hantavirus Outbreak Heads to Canary Islands After Evacuations
 
-Three passengers have been evacuated from the MV Hondius after a deadly hantavirus outbreak—the first ever recorded on a cruise ship, according to CBS News.
+Three people have been evacuated from the MV Hondius after displaying symptoms of hantavirus, marking the first recorded outbreak of the deadly virus on a cruise ship.
 
-Two of the evacuees have confirmed hantavirus infections, while one is suspected of infection, according to PBS NewsHour. The three were transported to the Netherlands for treatment after the ship departed Cape Verde on Wednesday. A British man was among those evacuated, according to BBC World.
+Two patients with confirmed hantavirus and one suspected of infection were removed Wednesday from the vessel, according to the U.N. health agency (PBS NewsHour). Among those evacuated was Martin Anstee, 56, a British expedition guide (The Guardian). The ship departed Cape Verde with nearly 150 people remaining on board—including 17 Americans—isolated in their cabins, and is now heading to Spain's Canary Islands, where authorities have approved docking (PBS NewsHour).
 
-Nearly 150 people remain aboard the vessel, including 17 Americans, isolated in their cabins as the ship heads to Spain's Canary Islands, PBS NewsHour reports. Investigators are racing to control the outbreak, which has also been linked to three deaths reported in South America, according to Al Jazeera.
+The Guardian reports that seven confirmed or suspected cases of hantavirus have been identified on the ship, with three passengers having died. The MV Hondius departed southern Argentina in March carrying 149 people from 23 countries.
 
-Hantavirus is a rare but potentially deadly pathogen typically transmitted through contact with infected rodents or their droppings. The outbreak aboard a cruise ship represents an unusual setting for the disease, which is not typically associated with maritime transmission.
+Hantavirus is a rare but potentially fatal infection. Investigators are racing to control the outbreak and determine how transmission occurred aboard the vessel, according to CBS News.
 
-Health authorities have not yet disclosed how the virus spread among passengers or crew, or the total number of confirmed cases aboard the vessel beyond the three evacuees.
-
-Watch for updates on passenger health screenings and the ship's arrival in the Canary Islands, where further medical assessments may occur.
+Watch for updates on the ship's arrival in the Canary Islands and any additional cases identified among the remaining passengers and crew.
