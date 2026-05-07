@@ -1,3 +1,8 @@
+=== FAILED: Deploy API Worker #1 (failure) ===
+URL: https://github.com/Real-Daily-Review/realdailyreview/actions/runs/25500537717
+Started: 2026-05-07T14:00:13Z
+Head SHA: c9da6679
+
 === FAILED: Daily content publish #3 (failure) ===
 URL: https://github.com/Real-Daily-Review/realdailyreview/actions/runs/25469378875
 Started: 2026-05-07T00:43:51Z
@@ -7,9 +12,4 @@ Head SHA: 78b68f5d
 URL: https://github.com/Real-Daily-Review/realdailyreview/actions/runs/25469231977
 Started: 2026-05-07T00:39:15Z
 Head SHA: 131a4e40
-
-=== FAILED: Daily content publish #1 (failure) ===
-URL: https://github.com/Real-Daily-Review/realdailyreview/actions/runs/25469101219
-Started: 2026-05-07T00:35:07Z
-Head SHA: aadd01d7
 

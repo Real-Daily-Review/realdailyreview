@@ -1,5 +1,5 @@
 Fetching logs for run 25495029509
--rw-r--r-- 1 runner runner 6879 May  7 13:35 /tmp/logs.zip
+-rw-r--r-- 1 runner runner 6879 May  7 14:01 /tmp/logs.zip
 --- log files ---
 /tmp/logs/publish/system.txt
 /tmp/logs/0_publish.txt
