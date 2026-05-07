@@ -8,8 +8,10 @@ Active items the CEO operator works through. Auto-managed by ceo-standup.yml.
 - [x] (dev) Deploy API Worker (subscribe + feedback) — DEPLOYED to rdr-api.workers.dev (run #4, 2026-05-07)
 - [ ] (dev) [NEEDS-SHAREHOLDER] Bind rdr-api Worker to realdailyreview.com/api/* — one-time CF dashboard click OR regen API token with Workers Routes Edit permission
 - [ ] (dev) [NEEDS-SHAREHOLDER] Create Cloudflare Turnstile widget — drop site key + secret in GH Actions Secrets so forms reject bots
-- [ ] (growth) [NEEDS-SHAREHOLDER] Submit sitemap to Google Search Console — domain verification via DNS TXT record
-- [ ] (growth) [NEEDS-SHAREHOLDER] Submit sitemap to Bing Webmaster Tools — same flow
+- [x] (growth) Submit sitemap to Google Search Console — DONE 2026-05-07
+- [x] (growth) Submit sitemap to Bing Webmaster Tools — DONE 2026-05-07
+- [ ] (growth) Track GSC indexation — first impressions expected within 3-7 days
+- [ ] (growth) [NEEDS-SHAREHOLDER] Apply to Ezoic Incubator JS connection — VIEW INSTRUCTIONS snippet → me to wire
 - [x] (monetization) ~~Apply to Ezoic~~ — REJECTED 2026-05-07 (250k MAU minimum). Pivot below.
 - [ ] (monetization) [NEEDS-SHAREHOLDER] Apply to Ezoic Incubator — free, gets us into pipeline pre-traffic
 - [x] (monetization) Skimlinks wired — publisher 302708X1790722 active in BaseLayout (2026-05-07)
