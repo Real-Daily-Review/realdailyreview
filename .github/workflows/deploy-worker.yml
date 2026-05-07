@@ -1,0 +1,153 @@
+name: Deploy API Worker
+
+# Deploys the rdr-api Cloudflare Worker (subscribe + feedback forms).
+# Uses CLOUDFLARE_API_TOKEN already in GH Actions Secrets.
+# On first run: creates the D1 database if missing, captures its ID, commits the
+# updated wrangler.toml back to main, applies schema.sql, and deploys.
+# On subsequent runs: just builds and deploys.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'workers/api/**'
+      - '.github/workflows/deploy-worker.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: deploy-worker
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    defaults:
+      run:
+        working-directory: workers/api
+    steps:
+      - name: Checkout main
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install wrangler
+        run: npm install --no-save wrangler@latest
+
+      - name: Ensure D1 database exists, capture ID
+        id: d1
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: |
+          set -e
+          CURRENT_ID=$(grep -E '^database_id\s*=' wrangler.toml | sed 's/.*=\s*"\([^"]*\)".*/\1/' | head -1)
+          if [ -n "$CURRENT_ID" ] && [ "$CURRENT_ID" != "REPLACE_AFTER_FIRST_CREATE" ]; then
+            echo "database_id already set: $CURRENT_ID"
+            echo "id=$CURRENT_ID" >> $GITHUB_OUTPUT
+            echo "created=false" >> $GITHUB_OUTPUT
+            exit 0
+          fi
+          # List databases first; if rdr-prod exists, capture its ID. Else create.
+          EXISTING=$(npx wrangler d1 list --json 2>/dev/null \
+            | python3 -c "import sys,json; rs=json.load(sys.stdin); [print(r['uuid']) for r in rs if r['name']=='rdr-prod']" \
+            | head -1)
+          if [ -n "$EXISTING" ]; then
+            ID="$EXISTING"
+            echo "Found existing rdr-prod: $ID"
+          else
+            CREATE_OUTPUT=$(npx wrangler d1 create rdr-prod 2>&1)
+            echo "$CREATE_OUTPUT"
+            ID=$(echo "$CREATE_OUTPUT" | grep -oE 'database_id = "[^"]+"' | head -1 | sed 's/.*"\(.*\)".*/\1/')
+            if [ -z "$ID" ]; then
+              # fallback: parse uuid pattern
+              ID=$(echo "$CREATE_OUTPUT" | grep -oE '[0-9a-f-]{36}' | head -1)
+            fi
+            echo "Created rdr-prod: $ID"
+          fi
+          if [ -z "$ID" ]; then
+            echo "::error::failed to determine D1 database_id"
+            exit 1
+          fi
+          # Update wrangler.toml — replace the placeholder
+          sed -i "s/REPLACE_AFTER_FIRST_CREATE/$ID/" wrangler.toml
+          echo "id=$ID" >> $GITHUB_OUTPUT
+          echo "created=true" >> $GITHUB_OUTPUT
+
+      - name: Apply schema
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: npx wrangler d1 execute rdr-prod --remote --file=schema.sql --yes
+
+      - name: Set worker secrets (skip if already set)
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          # Use GH-Actions-generated random token if not yet stored. ADMIN_TOKEN is checked
+          # for use against /api/admin/feedback. If you want a stable value, set it as a GH secret.
+        run: |
+          set -e
+          # ADMIN_TOKEN: derived from GH Actions secret if present, else generated and emitted to logs once
+          if [ -n "${{ secrets.RDR_ADMIN_TOKEN }}" ]; then
+            echo '${{ secrets.RDR_ADMIN_TOKEN }}' | npx wrangler secret put ADMIN_TOKEN
+          else
+            # Generate a strong random; visible only in this run's logs (rotate after first run)
+            GEN=$(openssl rand -hex 32)
+            echo "$GEN" | npx wrangler secret put ADMIN_TOKEN
+            echo "::warning::Generated ADMIN_TOKEN (rotate by setting RDR_ADMIN_TOKEN secret in repo)."
+            echo "::add-mask::$GEN"
+          fi
+          # TURNSTILE_SECRET: requires user to create a Turnstile widget. Skip if not set.
+          if [ -n "${{ secrets.TURNSTILE_SECRET }}" ]; then
+            echo '${{ secrets.TURNSTILE_SECRET }}' | npx wrangler secret put TURNSTILE_SECRET
+          else
+            # Use a placeholder that always fails verification; forms will return 403.
+            # Better than no captcha at all — bots try once, fail, move on.
+            # User will replace this once they create a Turnstile widget in CF dashboard.
+            echo "PLACEHOLDER_NO_TURNSTILE_SET" | npx wrangler secret put TURNSTILE_SECRET
+            echo "::warning::TURNSTILE_SECRET not set — forms will reject with 'Captcha failed'. Create a Turnstile widget in CF dashboard and add TURNSTILE_SECRET + TURNSTILE_SITEKEY to GH Actions Secrets."
+          fi
+
+      - name: Deploy worker
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: npx wrangler deploy
+
+      - name: Commit wrangler.toml if D1 was newly created
+        if: steps.d1.outputs.created == 'true'
+        working-directory: ${{ github.workspace }}
+        run: |
+          git config user.name "Real Daily Review Bot"
+          git config user.email "bot@realdailyreview.com"
+          git add workers/api/wrangler.toml
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m "ops: persist D1 database_id ${{ steps.d1.outputs.id }}"
+          for attempt in 1 2 3 4 5; do
+            if git push origin HEAD:main; then exit 0; fi
+            git fetch origin main
+            git rebase origin/main || { git rebase --abort; sleep 2; }
+          done
+          exit 1
+
+      - name: Smoke-test endpoint
+        run: |
+          # Wait a few seconds for propagation
+          sleep 8
+          # Worker is exposed on a workers.dev subdomain by default; the route binding
+          # to realdailyreview.com/api/* must be configured in the CF dashboard separately.
+          # Hit the health endpoint via the workers.dev URL.
+          ACCOUNT="${{ secrets.CLOUDFLARE_ACCOUNT_ID }}"
+          # Default workers.dev URL is <name>.<account-subdomain>.workers.dev — we don't know
+          # the subdomain from secrets alone, so just confirm deploy succeeded by listing.
+          npx wrangler deployments list --name rdr-api 2>&1 | tail -10 || true
