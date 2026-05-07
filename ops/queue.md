@@ -12,7 +12,7 @@ Active items the CEO operator works through. Auto-managed by ceo-standup.yml.
 - [ ] (growth) [NEEDS-SHAREHOLDER] Submit sitemap to Bing Webmaster Tools — same flow
 - [x] (monetization) ~~Apply to Ezoic~~ — REJECTED 2026-05-07 (250k MAU minimum). Pivot below.
 - [ ] (monetization) [NEEDS-SHAREHOLDER] Apply to Ezoic Incubator — free, gets us into pipeline pre-traffic
-- [ ] (monetization) [NEEDS-SHAREHOLDER] Apply to Skimlinks — auto-approves, no traffic min, wire JS in BaseLayout
+- [x] (monetization) Skimlinks wired — publisher 302708X1790722 active in BaseLayout (2026-05-07)
 - [ ] (monetization) [NEEDS-SHAREHOLDER] Claim Buy Me a Coffee handle 'realdailyreview'
 - [ ] (monetization) [NEEDS-SHAREHOLDER] Apply to Google AdSense (target date: 2026-05-20, after 14 days of content)
 - [ ] (content) Backfill 7 days of historical digests for SEO depth — generate dated articles for 2026-04-30 through 2026-05-05

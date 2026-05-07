@@ -36,6 +36,10 @@ export const MONETIZATION = {
   tipJarEnabled: true,
   tipJarUrl: 'https://buymeacoffee.com/realdailyreview',
   newsletterSponsorEnabled: false,
+  // Skimlinks: auto-affiliates every commerce link in articles via JS.
+  // Public publisher ID, safe to commit. Site-locked to realdailyreview.com.
+  skimlinksEnabled: true,
+  skimlinksPublisherId: '302708X1790722',
 } as const;
 
 // Cloudflare Web Analytics — privacy-respecting, no cookies, no fingerprinting.
