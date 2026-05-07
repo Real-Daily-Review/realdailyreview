@@ -11,17 +11,27 @@
 - Phone collection in subscribe form — opens SMS sponsorship lane
 - ads.txt placeholder at `public/ads.txt` — required by AdSense
 
-## Approval timeline (realistic)
+## Approval timeline (realistic, REVISED 2026-05-07)
 
 | Channel | Earliest apply | Realistic green-light | First $ |
 |---|---|---|---|
-| **Ezoic** | Now (today) | 1–3 days | Day 3-7 |
+| **Ezoic** | ~~Now~~ — REJECTED 2026-05-07, requires 250k MAU. Apply to Incubator (free) for early-stage track. | 90+ days at current trajectory | Day 90+ |
+| **Ezoic Incubator** | Today (free) | 5-10 days | When traffic justifies |
 | **Buy Me a Coffee** | Now | Same day | Whenever 1st reader tips |
-| **Amazon Associates** | After 5 articles linked | 1-3 days | After 3 qualifying sales in 180d |
-| **Skimlinks** | Now (auto-approve) | Same day | Within hours of first commerce-link click |
+| **Skimlinks** | Now (auto-approve, no min traffic) | Same day | Within hours of first commerce-link click |
+| **Monumetric** | At 10k pageviews/mo (~$99 setup fee) | 1-2 weeks | When threshold hit |
 | **Google AdSense** | After 14 days of content + privacy/about/contact (already have) | Day 14-21 | Day 21-30 |
+| **Amazon Associates** | After 5 articles linked | 1-3 days | After 3 qualifying sales in 180d |
+| **Mediavine Journey** | 10k sessions/mo (no setup fee) | When threshold hit | When threshold hit |
 | **Newsletter sponsors** | When list ≥ 1k confirmed | Likely 60-90 days | Day 90+ |
 | **Direct sponsorships** | When DAU ≥ 5k | Likely 90+ days | Day 90+ |
+
+**Revised path to first $ (no Ezoic):**
+1. **Skimlinks today** — auto-approves, 1 line of JS in BaseLayout, every commerce link earns. Can ship in next push.
+2. **Apply to Ezoic Incubator** — free, low priority but gets us into their pipeline before traffic.
+3. **AdSense Day 14** — primary ad revenue path.
+4. **Buy Me a Coffee tips** — already wired. Need shareholder to claim handle.
+5. **Mediavine Journey at 10k sessions/mo** — better RPM than AdSense once we hit it.
 
 ## Revenue math — what does 30-day profitability look like?
 
