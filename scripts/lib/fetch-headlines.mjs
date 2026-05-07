@@ -129,3 +129,32 @@ export function topPerSection(clusters, n = 4) {
   }
   return by;
 }
+
+// Compare a cluster's headline against all previously-published article titles
+// in the lookback window. Returns true if substantially similar to any of them.
+export function clusterMatchesExistingTitles(cluster, existingTitles, threshold = 0.30) {
+  if (!existingTitles || existingTitles.length === 0) return false;
+  for (const title of existingTitles) {
+    if (titleSimilarity(cluster.title, title) >= threshold) return true;
+    // Also check each item in the cluster
+    for (const item of cluster.items) {
+      if (titleSimilarity(item.title, title) >= threshold) return true;
+    }
+  }
+  return false;
+}
+
+function titleSimilarity(a, b) {
+  const A = sigWords(a);
+  const B = sigWords(b);
+  if (!A.size || !B.size) return 0;
+  let inter = 0, longMatches = 0;
+  for (const w of A) {
+    if (B.has(w)) {
+      inter++;
+      if (w.length >= 6) longMatches++;
+    }
+  }
+  if (longMatches >= 2) return 0.9;
+  return inter / (A.size + B.size - inter);
+}

@@ -10,9 +10,31 @@
 //   - Any single article failure does not abort the digest or other articles.
 //   - All errors logged; exit code is 1 only if zero articles were written.
 
-import { fetchAllHeadlines, clusterStories, rankClusters, topPerSection } from './lib/fetch-headlines.mjs';
+import { promises as fs } from 'node:fs';
+import path from 'node:path';
+import matter from 'gray-matter';
+import { fetchAllHeadlines, clusterStories, rankClusters, topPerSection, clusterMatchesExistingTitles } from './lib/fetch-headlines.mjs';
 import { draftStandaloneArticle, draftDigest } from './lib/anthropic.mjs';
 import { writeArticle } from './lib/publish.mjs';
+
+// Read titles of articles published in the last `hours` hours so we can dedup.
+async function recentlyPublishedTitles(hours = 36) {
+  const dir = path.resolve('src/content/articles');
+  const cutoff = Date.now() - hours * 3600 * 1000;
+  const files = await fs.readdir(dir).catch(() => []);
+  const titles = [];
+  for (const f of files) {
+    if (!f.endsWith('.md')) continue;
+    try {
+      const raw = await fs.readFile(path.join(dir, f), 'utf8');
+      const { data } = matter(raw);
+      if (Date.parse(data.pubDate) >= cutoff) {
+        titles.push(data.title);
+      }
+    } catch {}
+  }
+  return titles;
+}
 
 const DRY_RUN = process.env.DRY_RUN === '1';
 const MAX_STANDALONE_PER_SECTION = Number(process.env.PER_SECTION ?? 2);
@@ -40,8 +62,20 @@ async function main() {
   const clusters = rankClusters(clusterStories(headlines));
   console.log(`[generate-daily] ${clusters.length} clusters; top scored cluster: "${clusters[0].title}" (sources=${clusters[0].sourceCount})`);
 
+  // Pull recently-published titles for dedup (avoid re-publishing same story across daily cron runs)
+  const recentTitles = await recentlyPublishedTitles(36);
+  console.log(`[generate-daily] ${recentTitles.length} titles published in last 36h to dedup against`);
+
+  // Filter out clusters that match an already-published story
+  const fresh = clusters.filter((c) => {
+    const dup = clusterMatchesExistingTitles(c, recentTitles);
+    if (dup) console.log(`  - skipping (already covered): "${c.title}"`);
+    return !dup;
+  });
+  console.log(`[generate-daily] ${fresh.length} clusters after dedup (was ${clusters.length})`);
+
   // Top per section, only clusters with at least 2 independent sources
-  const bySection = topPerSection(clusters.filter((c) => c.sourceCount >= 2), MAX_STANDALONE_PER_SECTION);
+  const bySection = topPerSection(fresh.filter((c) => c.sourceCount >= 2), MAX_STANDALONE_PER_SECTION);
 
   if (DRY_RUN) {
     console.log('\n=== DRY RUN — would write the following ===');
@@ -80,17 +114,28 @@ async function main() {
     }
   }
 
-  // 2. Generate the digest from the top scored clusters
-  try {
-    console.log('[generate-daily] drafting digest…');
-    const { body, meta, usage } = await draftDigest(clusters.slice(0, 12), dateLabel);
-    meta.section = 'digest';
-    const { slug } = await writeArticle({ body, meta, pubDate: today });
-    written++;
-    totalTokens += bytesUsed(usage);
-    console.log(`  ✓ wrote digest ${slug}`);
-  } catch (err) {
-    console.warn(`  ✗ digest skipped: ${err.message}`);
+  // 2. Generate the digest from the top scored clusters — but only on the morning run.
+  // Subsequent runs (midday/evening) just publish standalones; one digest per day.
+  const utcHour = today.getUTCHours();
+  const isMorningRun = utcHour < 13; // before 9am ET-ish
+  const todayDigestExists = recentTitles.some((t) => /the brief/i.test(t) && t.includes(today.toISOString().slice(0,10).replace(/-/g,'') === today.toISOString().slice(0,10).replace(/-/g,'') ? '' : ''));
+  // Safer dedup: just check if any digest-like title exists in the last 18 hours
+  const digestSeenRecently = (await recentlyPublishedTitles(18)).some((t) => /^the brief/i.test(t));
+
+  if (isMorningRun && !digestSeenRecently) {
+    try {
+      console.log('[generate-daily] drafting digest (morning run)…');
+      const { body, meta, usage } = await draftDigest(fresh.slice(0, 12), dateLabel);
+      meta.section = 'digest';
+      const { slug } = await writeArticle({ body, meta, pubDate: today });
+      written++;
+      totalTokens += bytesUsed(usage);
+      console.log(`  ✓ wrote digest ${slug}`);
+    } catch (err) {
+      console.warn(`  ✗ digest skipped: ${err.message}`);
+    }
+  } else {
+    console.log(`[generate-daily] skipping digest (utcHour=${utcHour}, digestSeenRecently=${digestSeenRecently}) — only morning run produces a digest`);
   }
 
   const elapsed = ((Date.now() - startedAt.getTime()) / 1000).toFixed(1);
