@@ -36,6 +36,18 @@ const ogImageUrl = new URL(ogImage, Astro.site).toString();
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="generator" content={Astro.generator} />
+
+    {MONETIZATION.ezoicIncubatorEnabled && (
+      <Fragment>
+        {/* Ezoic Privacy / Consent (must load FIRST per Ezoic docs) */}
+        <script is:inline data-cfasync="false" src="https://cmp.gatekeeperconsent.com/min.js"></script>
+        <script is:inline data-cfasync="false" src="https://the.gatekeeperconsent.com/cmp.min.js"></script>
+        {/* Ezoic Header Script */}
+        <script is:inline async src="//www.ezojs.com/ezoic/sa.min.js"></script>
+        <script is:inline set:html={`window.ezstandalone=window.ezstandalone||{};ezstandalone.cmd=ezstandalone.cmd||[];`} />
+        <script is:inline src="//ezoicanalytics.com/analytics.js"></script>
+      </Fragment>
+    )}
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="alternate" type="application/rss+xml" title={`${SITE.name} — RSS`} href="/rss.xml" />
     <link rel="canonical" href={canonical} />

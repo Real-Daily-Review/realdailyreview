@@ -40,6 +40,10 @@ export const MONETIZATION = {
   // Public publisher ID, safe to commit. Site-locked to realdailyreview.com.
   skimlinksEnabled: true,
   skimlinksPublisherId: '302708X1790722',
+  // Ezoic Incubator: JS-driven ad delivery + consent mgmt. Per-site account
+  // configured in Ezoic dashboard; no publisher ID needed in code, just the
+  // shared scripts. Their ads.txt manager is wired via /public/_redirects.
+  ezoicIncubatorEnabled: true,
 } as const;
 
 // Cloudflare Web Analytics — privacy-respecting, no cookies, no fingerprinting.

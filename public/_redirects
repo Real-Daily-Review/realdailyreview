@@ -1,0 +1,7 @@
+# Cloudflare Pages redirects — proxy /ads.txt to Ezoic's managed ads.txt manager.
+# This lets Ezoic auto-update authorized seller list as new partners come online.
+# 19390 is the Ezoic ads.txt manager publisher slot per Ezoic docs.
+
+/ads.txt  https://srv.adstxtmanager.com/19390/realdailyreview.com  302
+
+# Add other redirects here as needed.
