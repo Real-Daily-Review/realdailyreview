@@ -1,0 +1,46 @@
+name: Heartbeat
+
+# Diagnostic workflow — every push to main writes a timestamped heartbeat file.
+# Used to verify Actions is firing. Safe to delete once daily-publish is reliable.
+
+on:
+  push:
+    branches: [main]
+    paths-ignore:
+      - 'ops/heartbeat.txt'
+      - 'ops/runs/**'
+      - 'src/content/articles/**'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: heartbeat
+  cancel-in-progress: false
+
+jobs:
+  beat:
+    runs-on: ubuntu-latest
+    timeout-minutes: 2
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Update heartbeat
+        run: |
+          mkdir -p ops
+          echo "$(date -u +%Y-%m-%dT%H:%M:%SZ) — run ${{ github.run_id }} — sha ${{ github.sha }}" >> ops/heartbeat.txt
+          tail -5 ops/heartbeat.txt
+      - name: Commit & push
+        run: |
+          git config user.name "Real Daily Review Bot"
+          git config user.email "bot@realdailyreview.com"
+          git add ops/heartbeat.txt
+          if git diff --cached --quiet; then
+            echo "no change"
+            exit 0
+          fi
+          git commit -m "ops: heartbeat $(date -u +%H:%M:%SZ)"
+          git push origin HEAD:main
