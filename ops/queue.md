@@ -5,7 +5,9 @@ _Last updated: 2026-05-07T13:56:29.364Z (morning)_
 Active items the CEO operator works through. Auto-managed by ceo-standup.yml.
 
 - [ ] (dev) OG image generator — Cloudflare Worker that renders 1200x630 PNG from article slug, no API cost
-- [ ] (dev) Deploy API Worker (subscribe + feedback) — needs CLOUDFLARE_API_TOKEN in .local/credentials
+- [x] (dev) Deploy API Worker (subscribe + feedback) — DEPLOYED to rdr-api.workers.dev (run #4, 2026-05-07)
+- [ ] (dev) [NEEDS-SHAREHOLDER] Bind rdr-api Worker to realdailyreview.com/api/* — one-time CF dashboard click OR regen API token with Workers Routes Edit permission
+- [ ] (dev) [NEEDS-SHAREHOLDER] Create Cloudflare Turnstile widget — drop site key + secret in GH Actions Secrets so forms reject bots
 - [ ] (growth) [NEEDS-SHAREHOLDER] Submit sitemap to Google Search Console — domain verification via DNS TXT record
 - [ ] (growth) [NEEDS-SHAREHOLDER] Submit sitemap to Bing Webmaster Tools — same flow
 - [ ] (monetization) Apply to Ezoic auto-approve at low traffic threshold — requires only the live domain, no min traffic
