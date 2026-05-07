@@ -2,10 +2,15 @@ name = "rdr-api"
 main = "src/index.ts"
 compatibility_date = "2026-04-01"
 compatibility_flags = ["nodejs_compat"]
+
+# Disable workers.dev subdomain — only reachable via our route below
 workers_dev = false
 
-# Custom domain bound after first deploy in Cloudflare dashboard:
-# realdailyreview.com/api/* → rdr-api
+# Bind /api/* on apex + www to this Worker. Pages still serves everything else.
+routes = [
+  { pattern = "realdailyreview.com/api/*", zone_id = "0e483a913db9070a2f01144ed97eff54" },
+  { pattern = "www.realdailyreview.com/api/*", zone_id = "0e483a913db9070a2f01144ed97eff54" },
+]
 
 [[d1_databases]]
 binding = "DB"
