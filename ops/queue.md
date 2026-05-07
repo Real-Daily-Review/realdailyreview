@@ -1,6 +1,6 @@
 # Sprint Queue
 
-_Last updated: 2026-05-07T19:40:28.516Z (midday)_
+_Last updated: 2026-05-07T23:43:51.190Z (evening)_
 
 Active items the CEO operator works through. Auto-managed by ceo-standup.yml.
 
@@ -10,7 +10,7 @@ Active items the CEO operator works through. Auto-managed by ceo-standup.yml.
 - [x] (dev) [NEEDS-SHAREHOLDER] Create Cloudflare Turnstile widget — drop site key + secret in GH Actions Secrets so forms reject bots
 - [x] (growth) Submit sitemap to Google Search Console — DONE 2026-05-07
 - [x] (growth) Submit sitemap to Bing Webmaster Tools — DONE 2026-05-07
-- [ ] (growth) Track GSC indexation — first impressions expected within 3-7 days
+- [x] (growth) Track GSC indexation — first impressions expected within 3-7 days
 - [x] (growth) Ezoic Incubator submitted — under review, up to 2 weeks (decision by ~2026-05-21)
 - [x] (ops) Watch for Ezoic Incubator approval/rejection email; update queue when known
 - [x] (monetization) ~~Apply to Ezoic~~ — REJECTED 2026-05-07 (250k MAU minimum). Pivot below.
@@ -22,3 +22,4 @@ Active items the CEO operator works through. Auto-managed by ceo-standup.yml.
 - [ ] (growth) [NEEDS-SHAREHOLDER] Create social accounts: Bluesky, X, Mastodon, Threads, Reddit
 - [ ] (dev) Social cross-poster Worker — auto-posts every new article to the platforms above
 - [x] (ops) Add overnight publish slot to daily-publish cron (2:30am ET) so we cover Asia/Europe morning hours
+- [ ] (growth) Submit sitemap.xml to Google Search Console via shareholder-verified account (or [NEEDS-SHAREHOLDER] if account creation required)
