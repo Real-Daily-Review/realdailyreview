@@ -208,10 +208,15 @@ async function main() {
   const now = nowUtc();
   const slot = slotForUtcHour(now.getUTCHours(), process.env.SLOT_OVERRIDE);
   const stamp = ymd(now);
-  const standupFile = path.join(STANDUPS_DIR, `${stamp}-${slot}.md`);
+  const isManualRun = !!process.env.SLOT_OVERRIDE || (process.env.GITHUB_EVENT_NAME === 'push');
+  // Manual tag-pushed runs append a timestamp to the filename so they don't
+  // collide with the cron-scheduled slot file. Cron runs use the slot name.
+  const standupFile = isManualRun
+    ? path.join(STANDUPS_DIR, `${stamp}-${slot}-${now.toISOString().slice(11, 16).replace(':', '')}.md`)
+    : path.join(STANDUPS_DIR, `${stamp}-${slot}.md`);
 
   // Don't double-write the same slot if cron fires twice within the slot window
-  if (await fs.stat(standupFile).catch(() => null)) {
+  if (!isManualRun && await fs.stat(standupFile).catch(() => null)) {
     console.log(`Standup ${stamp}-${slot} already exists — exiting.`);
     return;
   }
