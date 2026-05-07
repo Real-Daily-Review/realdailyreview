@@ -1,13 +1,15 @@
-name: Build & deploy to Cloudflare Pages
+name: Build & deploy to Cloudflare Pages (manual fallback)
+
+# Cloudflare Pages' git integration is the canonical deployer for this repo —
+# it deploys automatically on push without using GitHub Actions credits.
+# This workflow exists as a manual fallback in case Cloudflare's integration
+# breaks. Trigger it from the Actions tab when needed.
 
 on:
-  push:
-    branches: [main]
   workflow_dispatch:
 
 permissions:
   contents: read
-  deployments: write
 
 concurrency:
   group: deploy-${{ github.ref }}
@@ -35,9 +37,11 @@ jobs:
           NODE_ENV: production
         run: npm run build
 
+      - name: Install wrangler
+        run: npm install -g wrangler@latest
+
       - name: Deploy to Cloudflare Pages
-        uses: cloudflare/wrangler-action@v3
-        with:
-          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: pages deploy dist --project-name=realdailyreview --branch=main
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: wrangler pages deploy dist --project-name=realdailyreview --branch=main
