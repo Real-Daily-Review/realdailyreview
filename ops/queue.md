@@ -11,7 +11,8 @@ Active items the CEO operator works through. Auto-managed by ceo-standup.yml.
 - [x] (growth) Submit sitemap to Google Search Console — DONE 2026-05-07
 - [x] (growth) Submit sitemap to Bing Webmaster Tools — DONE 2026-05-07
 - [ ] (growth) Track GSC indexation — first impressions expected within 3-7 days
-- [ ] (growth) [NEEDS-SHAREHOLDER] Apply to Ezoic Incubator JS connection — VIEW INSTRUCTIONS snippet → me to wire
+- [x] (growth) Ezoic Incubator submitted — under review, up to 2 weeks (decision by ~2026-05-21)
+- [ ] (ops) Watch for Ezoic Incubator approval/rejection email; update queue when known
 - [x] (monetization) ~~Apply to Ezoic~~ — REJECTED 2026-05-07 (250k MAU minimum). Pivot below.
 - [ ] (monetization) [NEEDS-SHAREHOLDER] Apply to Ezoic Incubator — free, gets us into pipeline pre-traffic
 - [x] (monetization) Skimlinks wired — publisher 302708X1790722 active in BaseLayout (2026-05-07)
