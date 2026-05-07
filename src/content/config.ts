@@ -32,7 +32,8 @@ const articles = defineCollection({
       .array(
         z.object({
           title: z.string(),
-          url: z.string().url(),
+          // URL optional — digest articles cite multi-outlet aggregations that don't have a single canonical URL.
+          url: z.string().url().optional().or(z.literal('')),
           publisher: z.string().optional(),
         })
       )

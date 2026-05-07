@@ -85,7 +85,11 @@ const jsonLd = {
         <ol>
           {data.sources.map((s) => (
             <li>
-              <a href={s.url} rel="nofollow noopener" target="_blank">{s.title}</a>
+              {s.url ? (
+                <a href={s.url} rel="nofollow noopener" target="_blank">{s.title}</a>
+              ) : (
+                <span>{s.title}</span>
+              )}
               {s.publisher && <span style="color: var(--color-muted)"> &middot; {s.publisher}</span>}
             </li>
           ))}

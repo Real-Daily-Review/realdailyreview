@@ -73,7 +73,7 @@ Then output a JSON block (between <json>…</json>) with:
 - title: e.g. "The Brief — Tuesday, May 6, 2026"
 - description: 150-220 chars, what's covered today
 - tags: array of topic tags
-- sources: array of {title, url, publisher} pulling from all source items below
+- sources: array of {title, url, publisher} — pull each from the SOURCES list below verbatim. The 'url' field MUST be the URL from the source item; do NOT leave it blank or set it to "Multiple outlets". Use the highest-weight source from each cluster.
 - perspectives: empty array (digest, not single-issue)
 
 TOP STORIES:
