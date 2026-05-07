@@ -14,6 +14,9 @@ on:
     - cron: '0 18 * * *'
     # 23:00 UTC (7pm ET — evening review)
     - cron: '0 23 * * *'
+  push:
+    tags:
+      - 'run-standup-*'
   workflow_dispatch:
     inputs:
       slot_label:
