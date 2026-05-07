@@ -38,6 +38,13 @@ export const MONETIZATION = {
   newsletterSponsorEnabled: false,
 } as const;
 
+// Cloudflare Web Analytics — privacy-respecting, no cookies, no fingerprinting.
+// Token is the public site token from Cloudflare → Analytics → Web Analytics → site settings.
+// (Public — safe to commit. Not a secret.)
+export const ANALYTICS = {
+  cloudflareWebAnalyticsToken: '', // fill in after enabling in CF dashboard, e.g. 'a1b2c3d4e5f6...'
+} as const;
+
 // Editorial guardrails surfaced on /about and /editorial-policy.
 export const EDITORIAL_PRINCIPLES = [
   'Brevity over bloat — every story summarized in under 200 words.',

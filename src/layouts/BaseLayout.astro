@@ -1,5 +1,5 @@
 ---
-import { SITE } from '@/config';
+import { SITE, ANALYTICS } from '@/config';
 import Header from '@/components/Header.astro';
 import Footer from '@/components/Footer.astro';
 import '@/styles/global.css';
@@ -74,5 +74,12 @@ const ogImageUrl = new URL(ogImage, Astro.site).toString();
       <slot />
     </main>
     <Footer />
+    {ANALYTICS.cloudflareWebAnalyticsToken && (
+      <script
+        defer
+        src="https://static.cloudflareinsights.com/beacon.min.js"
+        data-cf-beacon={`{"token": "${ANALYTICS.cloudflareWebAnalyticsToken}"}`}
+      ></script>
+    )}
   </body>
 </html>

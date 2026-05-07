@@ -1,16 +1,15 @@
 name: Heartbeat
 
-# Diagnostic workflow — every push to main writes a timestamped heartbeat file.
-# Used to verify Actions is firing. Safe to delete once daily-publish is reliable.
+# Manual diagnostic workflow — dumps recent action runs + last failed
+# daily-publish log into ops/diagnostics/. Useful from environments that
+# can't reach api.github.com directly. Trigger via workflow_dispatch or
+# by pushing a tag matching diag-*.
 
 on:
-  push:
-    branches: [main]
-    paths-ignore:
-      - 'ops/heartbeat.txt'
-      - 'ops/runs/**'
-      - 'src/content/articles/**'
   workflow_dispatch:
+  push:
+    tags:
+      - 'diag-*'
 
 permissions:
   contents: write
