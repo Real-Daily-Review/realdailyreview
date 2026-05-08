@@ -1,6 +1,6 @@
 # Sprint Queue
 
-_Last updated: 2026-05-08T05:54:08.650Z (overnight)_
+_Last updated: 2026-05-08T06:00:00.000Z (auto-build)_
 
 Active items the CEO operator works through. Auto-managed by ceo-standup.yml.
 
@@ -20,5 +20,5 @@ Active items the CEO operator works through. Auto-managed by ceo-standup.yml.
 - [ ] (monetization) [NEEDS-SHAREHOLDER] Apply to Google AdSense (target date: 2026-05-20, after 14 days of content)
 - [ ] (content) Backfill 7 days of historical digests for SEO depth — generate dated articles for 2026-04-30 through 2026-05-05
 - [ ] (growth) [NEEDS-SHAREHOLDER] Create social accounts: Bluesky, X, Mastodon, Threads, Reddit
-- [ ] (dev) Social cross-poster Worker — auto-posts every new article to the platforms above
+- [x] (dev) Social cross-poster Worker — SHIPPED 2026-05-08. Script at scripts/lib/social-post.mjs. Wiring docs at ops/SOCIAL_POSTER.md. BLOCKED on shareholder creating social accounts + adding GH secrets.
 - [x] (ops) Add overnight publish slot to daily-publish cron (2:30am ET) so we cover Asia/Europe morning hours
