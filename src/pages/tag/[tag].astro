@@ -1,0 +1,60 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  const slugifyTag = (s: string) =>
+    s.toLowerCase()
+      .normalize('NFKD')
+      .replace(/[̀-ͯ]/g, '')
+      .replace(/[^a-z0-9]+/g, '-')
+      .replace(/^-+|-+$/g, '')
+      .replace(/-+/g, '-');
+
+  const all = await getCollection('articles', ({ data }) => !data.draft);
+  const byTag = new Map<string, { display: string; articles: typeof all }>();
+  for (const article of all) {
+    for (const t of article.data.tags || []) {
+      const slug = slugifyTag(t);
+      if (!slug) continue;
+      if (!byTag.has(slug)) byTag.set(slug, { display: t.toLowerCase(), articles: [] });
+      byTag.get(slug)!.articles.push(article);
+    }
+  }
+  return [...byTag.entries()].map(([slug, { display, articles }]) => ({
+    params: { tag: slug },
+    props: {
+      tag: slug,
+      display,
+      articles: articles.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()),
+    },
+  }));
+}
+
+const { tag, display, articles } = Astro.props;
+const titleCase = (display as string).replace(/-/g, ' ').replace(/\b\w/g, (c: string) => c.toUpperCase());
+---
+
+<BaseLayout
+  title={`#${tag}`}
+  description={`Every Real Daily Review story tagged ${titleCase}. ${articles.length} ${articles.length === 1 ? 'article' : 'articles'} so far.`}
+>
+  <p class="meta" style="font-family: var(--font-sans); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--color-accent);">Tagged</p>
+  <h1>#{titleCase}</h1>
+  <p style="color: var(--color-muted);">
+    {articles.length} {articles.length === 1 ? 'story' : 'stories'} tagged <code>{tag}</code>. Newest first.
+  </p>
+
+  <ul class="article-list" style="margin-top: var(--space-lg);">
+    {articles.map((a) => (
+      <li class="article-card">
+        <p class="meta">
+          <span class="section-tag">{a.data.section}</span> &middot;
+          {' '}{a.data.pubDate.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}
+        </p>
+        <h2><a href={`/articles/${a.slug}`}>{a.data.title}</a></h2>
+        <p class="dek">{a.data.description}</p>
+      </li>
+    ))}
+  </ul>
+</BaseLayout>

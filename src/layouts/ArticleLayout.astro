@@ -32,11 +32,23 @@ const jsonLd = {
   publisher: {
     '@type': 'Organization',
     name: SITE.name,
-    logo: { '@type': 'ImageObject', url: new URL('/logo.png', SITE.url).toString() },
+    logo: { '@type': 'ImageObject', url: new URL('/og-default.png', SITE.url).toString() },
   },
   mainEntityOfPage: { '@type': 'WebPage', '@id': new URL(`/articles/${article.slug}`, SITE.url).toString() },
   articleSection: data.section,
   keywords: data.tags.join(', '),
+  image: [new URL('/og-default.png', SITE.url).toString()],
+};
+
+// Breadcrumb structured data → renders rich-snippet trail in Google search results
+const breadcrumbLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: SITE.url },
+    { '@type': 'ListItem', position: 2, name: data.section.charAt(0).toUpperCase() + data.section.slice(1), item: new URL(`/section/${data.section}`, SITE.url).toString() },
+    { '@type': 'ListItem', position: 3, name: data.title, item: new URL(`/articles/${article.slug}`, SITE.url).toString() },
+  ],
 };
 ---
 
@@ -48,6 +60,7 @@ const jsonLd = {
   modifiedTime={(data.updatedDate ?? data.pubDate).toISOString()}
 >
   <script slot="head-extra" type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+  <script slot="head-extra" type="application/ld+json" set:html={JSON.stringify(breadcrumbLd)} />
 
   <article class="article-body">
     <p class="meta">
@@ -99,7 +112,10 @@ const jsonLd = {
 
     {data.tags.length > 0 && (
       <p style="margin-top: 1.5rem; font-family: var(--font-sans); font-size: 0.85rem; color: var(--color-muted);">
-        Tagged: {data.tags.map((t) => <a href={`/tag/${t}`} style="margin-right: 0.5rem;">#{t}</a>)}
+        Tagged: {data.tags.map((t) => {
+          const slug = t.toLowerCase().normalize('NFKD').replace(/[̀-ͯ]/g, '').replace(/[^\p{L}\p{N}]+/gu, '-').replace(/^-+|-+$/g, '').replace(/-+/g, '-');
+          return <a href={`/tag/${slug}`} style="margin-right: 0.5rem;">#{t}</a>;
+        })}
       </p>
     )}
 

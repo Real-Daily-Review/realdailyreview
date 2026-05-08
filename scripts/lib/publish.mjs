@@ -28,17 +28,32 @@ function safeBody(body) {
   });
 }
 
+function slugifyTag(s) {
+  return String(s)
+    .toLowerCase()
+    .normalize('NFKD')
+    .replace(/[̀-ͯ]/g, '')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '')
+    .replace(/-+/g, '-');
+}
+
 export async function writeArticle({ body, meta, pubDate = new Date(), aiGenerated = true }) {
   const stamp = dateStamp(pubDate);
   const slug = `${stamp}-${slugify(meta.title, { lower: true, strict: true }).slice(0, 70)}`;
   const filename = path.join(ARTICLES_DIR, `${slug}.md`);
+
+  // Normalize tags: lowercase, slugified, deduped, max 8.
+  const cleanTags = Array.from(
+    new Set((meta.tags || []).map(slugifyTag).filter(Boolean))
+  ).slice(0, 8);
 
   const frontmatter = {
     title: meta.title,
     description: meta.description,
     pubDate: pubDate.toISOString(),
     section: meta.section || 'world',
-    tags: meta.tags || [],
+    tags: cleanTags,
     perspectives: meta.perspectives || [],
     sources: (meta.sources || []).slice(0, 8),
     aiGenerated,

@@ -14,6 +14,21 @@ const all = (await getCollection('articles', ({ data }) => !data.draft))
 const todaysDigest = all.find((a) => a.data.section === 'digest');
 const otherStories = all.filter((a) => a.slug !== todaysDigest?.slug).slice(0, 12);
 
+// Top tags by article count for the trending-topics widget
+const tagCounts = new Map<string, { display: string; count: number }>();
+for (const article of all) {
+  for (const t of article.data.tags || []) {
+    const slug = t.toLowerCase().normalize('NFKD').replace(/[̀-ͯ]/g, '').replace(/[^\p{L}\p{N}]+/gu, '-').replace(/^-+|-+$/g, '').replace(/-+/g, '-');
+    if (!slug) continue;
+    const entry = tagCounts.get(slug) ?? { display: t.toLowerCase(), count: 0 };
+    entry.count++;
+    tagCounts.set(slug, entry);
+  }
+}
+const topTags = [...tagCounts.entries()]
+  .sort((a, b) => b[1].count - a[1].count)
+  .slice(0, 18);
+
 const today = new Date().toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' });
 ---
 
@@ -53,6 +68,25 @@ const today = new Date().toLocaleDateString('en-US', { weekday: 'long', month: '
       </li>
     ))}
   </ul>
+
+  {topTags.length > 0 && (
+    <section style="margin-top: var(--space-xl); border-top: 1px solid var(--color-rule); padding-top: var(--space-lg);">
+      <h2 style="margin-bottom: var(--space-md);">Trending topics</h2>
+      <p style="color: var(--color-muted); font-family: var(--font-sans); font-size: 0.85rem; margin-bottom: var(--space-md);">
+        Browse stories by topic. Tag depth grows daily as we publish.
+      </p>
+      <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
+        {topTags.map(([slug, { display, count }]) => (
+          <a
+            href={`/tag/${slug}`}
+            style="display: inline-block; padding: 0.4rem 0.8rem; background: var(--color-tag-bg); border-radius: 999px; font-family: var(--font-sans); font-size: 0.8rem; color: var(--color-text); text-decoration: none;"
+          >
+            {display} <span style="color: var(--color-muted)">· {count}</span>
+          </a>
+        ))}
+      </div>
+    </section>
+  )}
 
   <TipJar />
 </BaseLayout>
