@@ -1,12 +1,25 @@
 [
   {
-    "id": 25558877237,
+    "id": 25559012091,
     "name": "Heartbeat",
     "status": "in_progress",
     "conclusion": null,
     "event": "push",
+    "created_at": "2026-05-08T13:44:31Z",
+    "updated_at": "2026-05-08T13:44:43Z",
+    "run_number": 17,
+    "head_branch": "diag-20260508-134428",
+    "head_sha": "3ffdf21a",
+    "html_url": "https://github.com/Real-Daily-Review/realdailyreview/actions/runs/25559012091"
+  },
+  {
+    "id": 25558877237,
+    "name": "Heartbeat",
+    "status": "completed",
+    "conclusion": "success",
+    "event": "push",
     "created_at": "2026-05-08T13:41:47Z",
-    "updated_at": "2026-05-08T13:41:51Z",
+    "updated_at": "2026-05-08T13:41:59Z",
     "run_number": 16,
     "head_branch": "diag-20260508-134143",
     "head_sha": "300b181f",
@@ -28,11 +41,11 @@
   {
     "id": 25558722179,
     "name": "Competitor watch",
-    "status": "in_progress",
-    "conclusion": null,
+    "status": "completed",
+    "conclusion": "success",
     "event": "push",
     "created_at": "2026-05-08T13:38:30Z",
-    "updated_at": "2026-05-08T13:38:33Z",
+    "updated_at": "2026-05-08T13:43:36Z",
     "run_number": 1,
     "head_branch": "competitor-watch-20260508-133826",
     "head_sha": "c9c20742",
@@ -115,18 +128,5 @@
     "head_branch": "main",
     "head_sha": "80fc89ee",
     "html_url": "https://github.com/Real-Daily-Review/realdailyreview/actions/runs/25539498638"
-  },
-  {
-    "id": 25535870598,
-    "name": "Daily content publish",
-    "status": "completed",
-    "conclusion": "cancelled",
-    "event": "schedule",
-    "created_at": "2026-05-08T03:58:51Z",
-    "updated_at": "2026-05-08T04:09:19Z",
-    "run_number": 12,
-    "head_branch": "main",
-    "head_sha": "80fc89ee",
-    "html_url": "https://github.com/Real-Daily-Review/realdailyreview/actions/runs/25535870598"
   }
 ]
