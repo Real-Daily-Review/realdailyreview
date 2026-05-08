@@ -1,0 +1,62 @@
+name: Competitor watch
+
+# Daily deep-dive on competing daily-news sites. Pulls homepage HTML +
+# RSS for ~10 competitors, asks Anthropic to compare against us, writes
+# ops/competitive/YYYY-MM-DD.md, appends [BUILD-NOW] actions to queue.md
+# so feature-build.yml picks them up on its next cron.
+
+on:
+  schedule:
+    # 02:00 UTC daily (10pm ET previous day) — runs while everyone sleeps,
+    # ready when feature-build kicks off at 06:30 UTC
+    - cron: '0 2 * * *'
+  push:
+    tags:
+      - 'competitor-watch-*'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: competitor-watch
+  cancel-in-progress: false
+
+jobs:
+  watch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout main
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Set up Node 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+
+      - name: Install deps
+        run: npm install rss-parser@^3 @anthropic-ai/sdk@^0.30 --no-save --no-audit --no-fund
+
+      - name: Run competitor watch
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: node scripts/competitor-watch.mjs
+
+      - name: Commit report + queue updates
+        run: |
+          git config user.name "Real Daily Review Bot"
+          git config user.email "bot@realdailyreview.com"
+          git add ops/competitive/ ops/queue.md 2>/dev/null || true
+          if git diff --cached --quiet; then echo "no change"; exit 0; fi
+          git commit -m "ops: competitor watch $(date -u +%Y-%m-%d) [run ${{ github.run_id }}]"
+          for attempt in 1 2 3 4 5; do
+            if git push origin HEAD:main; then exit 0; fi
+            git fetch origin main
+            git rebase origin/main || { git rebase --abort; sleep 2; }
+          done
+          exit 1
