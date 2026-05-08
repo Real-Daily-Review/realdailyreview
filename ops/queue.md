@@ -22,3 +22,6 @@ Active items the CEO operator works through. Auto-managed by ceo-standup.yml.
 - [ ] (growth) [NEEDS-SHAREHOLDER] Create social accounts: Bluesky, X, Mastodon, Threads, Reddit
 - [ ] (dev) Social cross-poster Worker — auto-posts every new article to the platforms above
 - [x] (ops) Add overnight publish slot to daily-publish cron (2:30am ET) so we cover Asia/Europe morning hours
+- [ ] (growth) Auto-generate /feed.xml as a valid RSS 2.0 feed pulling from existing articles (title, URL, pubDate, description). Submit to Feedly + Feedspot indexes on deploy.  _from competitor-watch 2026-05-08_
+- [ ] (dev) Add a "Next brief in Xh Xm" live countdown banner in the site header, calculated against the next scheduled cron publish time. Add a "Brief #N of 5 today" label on each article.  _from competitor-watch 2026-05-08_
+- [ ] (monetization) Add per-article estimated read time ("~2 min read") rendered statically at build/publish time using word_count / 200, plus a visible article-view counter ("X reads today") for social proof.  _from competitor-watch 2026-05-08_

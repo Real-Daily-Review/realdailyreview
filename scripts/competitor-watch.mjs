@@ -197,11 +197,22 @@ Keep total under 800 words. Be specific. No fluff.`;
 }
 
 function extractActionsFromReport(report) {
-  // Pull out lines starting with "- [BUILD-NOW]" and convert to queue items
+  // Match any line that contains [BUILD-NOW] (with or without bold/list markers).
+  // Strip leading list markers, bold markers, and the [BUILD-NOW] tag itself.
   const out = [];
   for (const line of report.split('\n')) {
-    const m = line.match(/^[-*]\s+\[BUILD-NOW\]\s+(.+)$/);
-    if (m) out.push(m[1].trim());
+    if (!/\[BUILD-NOW\]/i.test(line)) continue;
+    let cleaned = line
+      .replace(/^[-*]\s+/, '')           // leading list marker
+      .replace(/\*\*\[BUILD-NOW\]\*\*\s*/i, '')
+      .replace(/\[BUILD-NOW\]\s*/i, '')
+      .replace(/^\*\*([^*]+)\*\*/, '$1') // remove leading bold
+      .replace(/^`([^`]+)`/, '$1')       // remove leading inline-code
+      .trim();
+    // Skip header lines like "## Concrete actions [BUILD-NOW]"
+    if (/^#+\s/.test(cleaned)) continue;
+    if (cleaned.length < 12) continue;
+    out.push(cleaned);
   }
   return out;
 }
