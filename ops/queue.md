@@ -1,6 +1,6 @@
 # Sprint Queue
 
-_Last updated: 2026-05-07T23:43:51.190Z (evening)_
+_Last updated: 2026-05-08T05:54:08.650Z (overnight)_
 
 Active items the CEO operator works through. Auto-managed by ceo-standup.yml.
 
@@ -22,4 +22,5 @@ Active items the CEO operator works through. Auto-managed by ceo-standup.yml.
 - [ ] (growth) [NEEDS-SHAREHOLDER] Create social accounts: Bluesky, X, Mastodon, Threads, Reddit
 - [ ] (dev) Social cross-poster Worker — auto-posts every new article to the platforms above
 - [x] (ops) Add overnight publish slot to daily-publish cron (2:30am ET) so we cover Asia/Europe morning hours
-- [ ] (growth) Submit sitemap.xml to Google Search Console via shareholder-verified account (or [NEEDS-SHAREHOLDER] if account creation required)
+- [x] (growth) Submit sitemap.xml to Google Search Console via shareholder-verified account (or [NEEDS-SHAREHOLDER] if account creation required)
+- [ ] (growth) Submit sitemap.xml to Google Search Console (shareholder identity verification required; [NEEDS-SHAREHOLDER] to authenticate domain ownership via DNS TXT record or HTML file upload)
