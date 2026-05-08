@@ -305,14 +305,9 @@ async function main() {
     return;
   }
 
-  // Pick the first eligible item.
-  const task = eligible[0].text;
-  console.log(`[feature-build] picking up: ${task}`);
-
   const roadmap = await readIfExists(ROADMAP_FILE);
   const recentStandups = await readRecentStandups(4);
   const repoFiles = await listRepoFiles();
-  // Bundle a curated set: layouts, key components, key pages, config, content schema.
   const interesting = repoFiles.filter((f) =>
     /^src\/(layouts|components|config|content\/config|pages\/(about|index|archive|tag|section)|styles\/global)/.test(f) ||
     /^scripts\/lib\/(publish|fetch-headlines|sources)\.mjs$/.test(f) ||
@@ -321,19 +316,38 @@ async function main() {
   const context = await bundleContextFiles(interesting, 80_000);
   console.log(`[feature-build] context: ${context.length} files, ${repoFiles.length} repo files total`);
 
-  console.log('[feature-build] calling Anthropic for plan…');
-  const { plan, usage } = await planFeature({
-    task,
-    queue: queueRaw,
-    roadmap,
-    recentStandups,
-    contextFiles: context,
-  });
+  // Try up to 3 eligible items in order. If one fails validation, move on.
+  let plan = null, task = null, usage = null, totalUsage = { input_tokens: 0, output_tokens: 0 };
+  for (const candidate of eligible.slice(0, 3)) {
+    console.log(`[feature-build] trying: ${candidate.text}`);
+    try {
+      const res = await planFeature({
+        task: candidate.text,
+        queue: queueRaw,
+        roadmap,
+        recentStandups,
+        contextFiles: context,
+      });
+      validatePlan(res.plan);
+      plan = res.plan;
+      task = candidate.text;
+      usage = res.usage;
+      totalUsage.input_tokens += usage.input_tokens || 0;
+      totalUsage.output_tokens += usage.output_tokens || 0;
+      console.log(`[feature-build] ✓ plan validated for: ${task}`);
+      break;
+    } catch (err) {
+      console.warn(`[feature-build] candidate failed: ${err.message}`);
+      totalUsage.input_tokens += err.usage?.input_tokens || 0;
+      totalUsage.output_tokens += err.usage?.output_tokens || 0;
+    }
+  }
+  if (!plan) {
+    console.log('[feature-build] no candidate produced a valid plan; exiting');
+    return;
+  }
   console.log(`[feature-build] plan summary: ${plan.summary}`);
   console.log(`[feature-build] branch=${plan.branch_name} files=${plan.files.length} ~lines=${plan.lines_changed_estimate}`);
-
-  validatePlan(plan);
-  console.log('[feature-build] plan validated');
 
   // Create branch from current main
   const headRef = sh('git rev-parse HEAD').trim();
@@ -396,7 +410,7 @@ async function main() {
     console.log(`[feature-build] PR left for human review (path or size requires it)`);
   }
 
-  console.log(`[feature-build] DONE. cost ~${(usage.input_tokens + usage.output_tokens)} tokens`);
+  console.log(`[feature-build] DONE. cost ~${totalUsage.input_tokens + totalUsage.output_tokens} tokens`);
 }
 
 main().catch((err) => { console.error(err); process.exit(1); });
