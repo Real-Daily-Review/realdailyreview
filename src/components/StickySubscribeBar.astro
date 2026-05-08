@@ -1,0 +1,162 @@
+---
+import { TURNSTILE } from '@/config';
+---
+
+<div id="rdr-sticky-sub" class="rdr-sticky-sub" hidden>
+  <div class="rdr-sticky-sub-inner">
+    <span class="rdr-sticky-sub-text">
+      <strong>Get the brief in your inbox.</strong> Five minutes, weekday mornings. Free.
+    </span>
+    <form id="rdr-sticky-sub-form" class="rdr-sticky-sub-form" action="/api/subscribe" method="post">
+      <input type="email" name="email" required placeholder="you@example.com" autocomplete="email" inputmode="email" />
+      <input type="text" name="hp" tabindex="-1" autocomplete="off" aria-hidden="true" />
+      <input type="hidden" name="cf-turnstile-response" id="rdr-sticky-sub-token" />
+      <button type="submit">Subscribe</button>
+    </form>
+    <button id="rdr-sticky-sub-close" class="rdr-sticky-sub-close" aria-label="Dismiss">×</button>
+  </div>
+</div>
+
+<style>
+  .rdr-sticky-sub {
+    position: fixed;
+    left: 0; right: 0; bottom: 0;
+    background: var(--color-text);
+    color: var(--color-bg);
+    padding: 0.75rem 1rem;
+    z-index: 1000;
+    box-shadow: 0 -4px 24px rgba(0,0,0,0.15);
+    font-family: var(--font-sans);
+    font-size: 0.9rem;
+    animation: rdr-sticky-sub-in 0.4s ease-out;
+  }
+  @keyframes rdr-sticky-sub-in {
+    from { transform: translateY(100%); }
+    to { transform: translateY(0); }
+  }
+  .rdr-sticky-sub-inner {
+    max-width: var(--max-grid);
+    margin: 0 auto;
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .rdr-sticky-sub-text { flex: 1 1 240px; }
+  .rdr-sticky-sub-text strong { color: var(--color-bg); }
+  .rdr-sticky-sub-form { display: flex; gap: 0.5rem; flex: 0 1 auto; }
+  .rdr-sticky-sub-form input[type="email"] {
+    padding: 0.45rem 0.7rem;
+    border: 1px solid var(--color-rule);
+    border-radius: 4px;
+    font: inherit;
+    background: var(--color-bg);
+    color: var(--color-text);
+    min-width: 180px;
+  }
+  .rdr-sticky-sub-form input[type="text"] {
+    position: absolute; left: -9999px;
+  }
+  .rdr-sticky-sub-form button {
+    background: var(--color-accent);
+    color: #fff;
+    border: 0;
+    padding: 0.45rem 1rem;
+    border-radius: 4px;
+    font: inherit;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  .rdr-sticky-sub-form button:hover { background: var(--color-link-hover); }
+  .rdr-sticky-sub-close {
+    background: transparent;
+    color: var(--color-bg);
+    border: 0;
+    font-size: 1.4rem;
+    cursor: pointer;
+    padding: 0 0.5rem;
+    line-height: 1;
+    opacity: 0.6;
+  }
+  .rdr-sticky-sub-close:hover { opacity: 1; }
+  @media (max-width: 600px) {
+    .rdr-sticky-sub-form { width: 100%; }
+    .rdr-sticky-sub-form input[type="email"] { flex: 1; min-width: 0; }
+  }
+</style>
+
+<script is:inline define:vars={{ siteKey: TURNSTILE.siteKey }}>
+  (function () {
+    var DISMISS_KEY = 'rdr-sticky-sub-dismissed';
+    var SUBSCRIBED_KEY = 'rdr-sticky-sub-subscribed';
+    var SHOW_DELAY_MS = 12000;     // wait 12s before showing
+    var SCROLL_TRIGGER_PX = 800;   // OR show once user has scrolled 800px
+
+    var bar = document.getElementById('rdr-sticky-sub');
+    if (!bar) return;
+    if (localStorage.getItem(DISMISS_KEY) || localStorage.getItem(SUBSCRIBED_KEY)) return;
+
+    var shown = false;
+    function show() {
+      if (shown) return;
+      shown = true;
+      bar.hidden = false;
+    }
+    setTimeout(show, SHOW_DELAY_MS);
+    var onScroll = function () {
+      if (window.scrollY > SCROLL_TRIGGER_PX) {
+        show();
+        window.removeEventListener('scroll', onScroll);
+      }
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+
+    document.getElementById('rdr-sticky-sub-close').addEventListener('click', function () {
+      bar.hidden = true;
+      localStorage.setItem(DISMISS_KEY, String(Date.now()));
+    });
+
+    var form = document.getElementById('rdr-sticky-sub-form');
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var emailEl = form.querySelector('input[name="email"]');
+      var hpEl = form.querySelector('input[name="hp"]');
+      var tokenEl = document.getElementById('rdr-sticky-sub-token');
+      // Render an invisible Turnstile widget on first submit attempt
+      if (window.turnstile && !tokenEl.value) {
+        var holder = document.createElement('div');
+        holder.style.display = 'none';
+        document.body.appendChild(holder);
+        window.turnstile.render(holder, {
+          sitekey: siteKey,
+          size: 'invisible',
+          callback: function (token) {
+            tokenEl.value = token;
+            submitNow();
+          }
+        });
+        return;
+      }
+      submitNow();
+
+      function submitNow() {
+        fetch('/api/subscribe', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            email: emailEl.value,
+            hp: hpEl.value,
+            'cf-turnstile-response': tokenEl.value,
+          }),
+        }).then(function (r) {
+          if (r.ok) {
+            localStorage.setItem(SUBSCRIBED_KEY, String(Date.now()));
+            bar.innerHTML = '<div class="rdr-sticky-sub-inner"><span style="margin:0 auto;font-weight:600">Subscribed. See you tomorrow morning.</span></div>';
+            setTimeout(function () { bar.hidden = true; }, 4000);
+          }
+        });
+      }
+    });
+  })();
+</script>
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js?onload=onTurnstileLoad" async defer></script>

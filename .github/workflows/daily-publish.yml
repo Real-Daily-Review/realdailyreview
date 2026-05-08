@@ -2,23 +2,33 @@ name: Daily content publish
 
 on:
   schedule:
-    # Five publish cycles per day (every day, not just weekdays — 24/7 ops).
-    # Cron in UTC; covers Asia, Europe, Americas mornings.
-    # Overnight (2:30 AM ET = 6:30/7:30 UTC): catches Asian morning + late-breaking news
+    # 8 publish cycles per day, every day. Cron in UTC.
+    # Each pair is morning/DST-shifted variant; the dedup against last-36h
+    # titles prevents duplicate work when adjacent slots both fire.
+    # 02:30 / 03:30 UTC — late evening US, Europe morning prep
+    - cron: '30 2 * * *'
+    - cron: '30 3 * * *'
+    # 06:30 / 07:30 UTC — overnight catch (Asia morning, Europe early)
     - cron: '30 6 * * *'
     - cron: '30 7 * * *'
-    # Morning brief (5:15 AM ET = 9:15/10:15 UTC):
+    # 09:15 / 10:15 UTC — US morning brief
     - cron: '15 9 * * *'
     - cron: '15 10 * * *'
-    # Midday update (11:30 AM ET = 15:30/16:30 UTC):
+    # 12:00 / 13:00 UTC — late US morning
+    - cron: '0 12 * * *'
+    - cron: '0 13 * * *'
+    # 15:30 / 16:30 UTC — US midday
     - cron: '30 15 * * *'
     - cron: '30 16 * * *'
-    # Afternoon update (3:00 PM ET = 19:00/20:00 UTC):
+    # 19:00 / 20:00 UTC — US afternoon
     - cron: '0 19 * * *'
     - cron: '0 20 * * *'
-    # Evening recap (7:30 PM ET = 23:30/00:30 UTC):
-    - cron: '30 23 * * *'
+    # 22:00 / 23:00 UTC — evening recap
+    - cron: '0 22 * * *'
+    - cron: '0 23 * * *'
+    # 00:30 / 01:30 UTC — late night / Asia early
     - cron: '30 0 * * *'
+    - cron: '30 1 * * *'
   # CEO ad-hoc trigger: pushing a tag matching run-content-* fires the workflow.
   # Useful from environments that can't reach api.github.com but can push.
   push:

@@ -1,0 +1,48 @@
+name: Growth agent (Ravi Sharma)
+
+# Daily social-copy drafting + growth recommendations.
+
+on:
+  schedule:
+    # 14:00 UTC daily (10am ET) — after morning content publishes
+    - cron: '0 14 * * *'
+  push:
+    tags:
+      - 'growth-*'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: growth-agent
+  cancel-in-progress: false
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          token: ${{ secrets.GITHUB_TOKEN }}
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - run: npm install gray-matter@^4 @anthropic-ai/sdk@^0.30 --no-save --no-audit --no-fund
+      - env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: node scripts/growth-agent.mjs
+      - run: |
+          git config user.name "Ravi Sharma (Growth)"
+          git config user.email "ravi@realdailyreview.com"
+          git add ops/social-drafts/ ops/activity/ 2>/dev/null || true
+          if git diff --cached --quiet; then echo "no change"; exit 0; fi
+          git commit -m "growth: $(date -u +%Y-%m-%d) social drafts [run ${{ github.run_id }}]"
+          for attempt in 1 2 3 4 5; do
+            if git push origin HEAD:main; then exit 0; fi
+            git fetch origin main
+            git rebase origin/main || { git rebase --abort; sleep 2; }
+          done
+          exit 1

@@ -1,0 +1,48 @@
+name: Revenue agent (Mei Tanaka)
+
+# Daily revenue audit. Surfaces [BUILD-NOW] actions to the queue.
+
+on:
+  schedule:
+    # 21:00 UTC daily (5pm ET) — end of business day audit
+    - cron: '0 21 * * *'
+  push:
+    tags:
+      - 'revenue-*'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: revenue-agent
+  cancel-in-progress: false
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          token: ${{ secrets.GITHUB_TOKEN }}
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - run: npm install gray-matter@^4 @anthropic-ai/sdk@^0.30 --no-save --no-audit --no-fund
+      - env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: node scripts/revenue-agent.mjs
+      - run: |
+          git config user.name "Mei Tanaka (Revenue)"
+          git config user.email "mei@realdailyreview.com"
+          git add ops/revenue/ ops/activity/ ops/queue.md 2>/dev/null || true
+          if git diff --cached --quiet; then echo "no change"; exit 0; fi
+          git commit -m "revenue: $(date -u +%Y-%m-%d) audit [run ${{ github.run_id }}]"
+          for attempt in 1 2 3 4 5; do
+            if git push origin HEAD:main; then exit 0; fi
+            git fetch origin main
+            git rebase origin/main || { git rebase --abort; sleep 2; }
+          done
+          exit 1
