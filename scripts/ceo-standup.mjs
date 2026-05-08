@@ -132,7 +132,8 @@ Constraints on each task:
 - Concrete, single-purpose, completable in <1 day of autonomous work
 - Tagged with one of: (dev) (content) (growth) (monetization) (ops)
 - If the task requires a human (account creation, ID verification, payment auth), prefix with "[NEEDS-SHAREHOLDER]"
-- Don't repeat anything already in the existing queue or already shipped per recent standups
+- DEDUP: do not spawn a task that overlaps with anything in the existing queue OR anything mentioned as "shipped" or "done" in recent standups. Read carefully — same goal worded differently is still a duplicate. When in doubt, skip.
+- Avoid re-proposing items the queue marked done (e.g., GSC submission, Bing submission, Skimlinks wiring, BMaC, Ezoic Incubator submission, Worker deploy, Turnstile setup) — those are settled.
 
 Output ONLY the new task lines, one per line, no preamble. Format: "- [ ] (tag) Concrete task description"
 

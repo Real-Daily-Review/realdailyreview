@@ -22,5 +22,3 @@ Active items the CEO operator works through. Auto-managed by ceo-standup.yml.
 - [ ] (growth) [NEEDS-SHAREHOLDER] Create social accounts: Bluesky, X, Mastodon, Threads, Reddit
 - [ ] (dev) Social cross-poster Worker — auto-posts every new article to the platforms above
 - [x] (ops) Add overnight publish slot to daily-publish cron (2:30am ET) so we cover Asia/Europe morning hours
-- [x] (growth) Submit sitemap.xml to Google Search Console via shareholder-verified account (or [NEEDS-SHAREHOLDER] if account creation required)
-- [ ] (growth) Submit sitemap.xml to Google Search Console (shareholder identity verification required; [NEEDS-SHAREHOLDER] to authenticate domain ownership via DNS TXT record or HTML file upload)
