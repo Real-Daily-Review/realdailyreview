@@ -1,12 +1,38 @@
 [
   {
-    "id": 25558082847,
+    "id": 25558768924,
     "name": "Heartbeat",
     "status": "in_progress",
     "conclusion": null,
     "event": "push",
+    "created_at": "2026-05-08T13:39:31Z",
+    "updated_at": "2026-05-08T13:39:35Z",
+    "run_number": 15,
+    "head_branch": "diag-20260508-133927",
+    "head_sha": "c9c20742",
+    "html_url": "https://github.com/Real-Daily-Review/realdailyreview/actions/runs/25558768924"
+  },
+  {
+    "id": 25558722179,
+    "name": "Competitor watch",
+    "status": "in_progress",
+    "conclusion": null,
+    "event": "push",
+    "created_at": "2026-05-08T13:38:30Z",
+    "updated_at": "2026-05-08T13:38:33Z",
+    "run_number": 1,
+    "head_branch": "competitor-watch-20260508-133826",
+    "head_sha": "c9c20742",
+    "html_url": "https://github.com/Real-Daily-Review/realdailyreview/actions/runs/25558722179"
+  },
+  {
+    "id": 25558082847,
+    "name": "Heartbeat",
+    "status": "completed",
+    "conclusion": "success",
+    "event": "push",
     "created_at": "2026-05-08T13:25:01Z",
-    "updated_at": "2026-05-08T13:25:05Z",
+    "updated_at": "2026-05-08T13:25:19Z",
     "run_number": 14,
     "head_branch": "diag-20260508-132457",
     "head_sha": "47bd0f8b",
@@ -102,31 +128,5 @@
     "head_branch": "main",
     "head_sha": "bf006336",
     "html_url": "https://github.com/Real-Daily-Review/realdailyreview/actions/runs/25529118617"
-  },
-  {
-    "id": 25528199434,
-    "name": "CEO standup (4x/day)",
-    "status": "completed",
-    "conclusion": "success",
-    "event": "schedule",
-    "created_at": "2026-05-07T23:43:27Z",
-    "updated_at": "2026-05-07T23:44:04Z",
-    "run_number": 5,
-    "head_branch": "main",
-    "head_sha": "ce302ce0",
-    "html_url": "https://github.com/Real-Daily-Review/realdailyreview/actions/runs/25528199434"
-  },
-  {
-    "id": 25521755845,
-    "name": "Daily content publish",
-    "status": "completed",
-    "conclusion": "success",
-    "event": "schedule",
-    "created_at": "2026-05-07T20:59:05Z",
-    "updated_at": "2026-05-07T21:03:42Z",
-    "run_number": 10,
-    "head_branch": "main",
-    "head_sha": "79cec1b1",
-    "html_url": "https://github.com/Real-Daily-Review/realdailyreview/actions/runs/25521755845"
   }
 ]
