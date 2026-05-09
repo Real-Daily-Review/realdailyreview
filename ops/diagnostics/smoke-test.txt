@@ -1,10 +1,10 @@
-Smoke test ran at 2026-05-08T13:55:27Z
+Smoke test ran at 2026-05-09T14:22:43Z
 
 === GET https://realdailyreview.com/api/health ===
 HTTP 200
-{"ok":true,"time":"2026-05-08T13:55:27.930Z"}
+{"ok":true,"time":"2026-05-09T14:22:43.961Z"}
 === POST https://realdailyreview.com/api/subscribe (no turnstile, expects 403) ===
 HTTP 403
 {"error":"Captcha failed."}
 === Site root ===
-HTTP 200 | size 19252
+HTTP 200 | size 24538
