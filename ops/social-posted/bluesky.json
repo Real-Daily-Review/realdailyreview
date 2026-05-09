@@ -8,7 +8,10 @@
     "2026-05-09-hungarys-new-pm-magyar-set-for-swearing-in-after-orban-defeat",
     "2026-05-09-us-adds-115000-jobs-in-april-beating-expectations",
     "2026-05-09-us-adds-115000-jobs-in-april-beating-forecasts-for-second-month",
-    "2026-05-09-us-sanctions-chinese-middle-eastern-entities-for-aiding-iran"
+    "2026-05-09-us-sanctions-chinese-middle-eastern-entities-for-aiding-iran",
+    "2026-05-09-australias-one-nation-wins-first-lower-house-seat-in-historic-by-elect",
+    "2026-05-09-nvidia-commits-dollar40b-to-ai-equity-investments-in-2026",
+    "2026-05-09-us-jobs-report-beats-expectations-despite-economic-red-flags"
   ],
   "posts": [
     {
@@ -17,6 +20,27 @@
       "strategy": "ai-hook",
       "hook": "The U.S. just sanctioned 11 entities across China, the UAE, and Belarus for feeding Iran satellite imagery used to target American forces.",
       "posted_at": "2026-05-09T15:30:34.891Z"
+    },
+    {
+      "slug": "2026-05-09-australias-one-nation-wins-first-lower-house-seat-in-historic-by-elect",
+      "uri": "at://did:plc:p7bwmjqjgn3ldehylmu2cydk/app.bsky.feed.post/3mlgxngr3y72s",
+      "strategy": "ai-hook",
+      "hook": "One Nation just won its first lower house seat in Australia—a watershed moment for the right-wing populist party that's been knocking on parliament's door for years.\nhttps://example.com",
+      "posted_at": "2026-05-09T19:20:08.299Z"
+    },
+    {
+      "slug": "2026-05-09-nvidia-commits-dollar40b-to-ai-equity-investments-in-2026",
+      "uri": "at://did:plc:p7bwmjqjgn3ldehylmu2cydk/app.bsky.feed.post/3mlgxnlznf32h",
+      "strategy": "ai-hook",
+      "hook": "Nvidia is now a $40B venture investor, not just a chip seller—and it's betting on its future customers.",
+      "posted_at": "2026-05-09T19:20:13.815Z"
+    },
+    {
+      "slug": "2026-05-09-us-jobs-report-beats-expectations-despite-economic-red-flags",
+      "uri": "at://did:plc:p7bwmjqjgn3ldehylmu2cydk/app.bsky.feed.post/3mlgxnr3ukk2i",
+      "strategy": "ai-hook",
+      "hook": "The jobs report doubled expectations—but economists are spotting warning signs underneath the headline number.",
+      "posted_at": "2026-05-09T19:20:19.138Z"
     }
   ]
 }
