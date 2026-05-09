@@ -1,0 +1,75 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+import { SITE } from '@/config';
+
+const all = await getCollection('articles', ({ data }) => !data.draft);
+const totalArticles = all.length;
+const launch = new Date('2026-05-06');
+const daysLive = Math.max(1, Math.floor((Date.now() - launch.getTime()) / (24 * 3600 * 1000)));
+const last24 = all.filter((a) => Date.now() - a.data.pubDate.valueOf() < 24 * 3600 * 1000).length;
+
+const sectionCounts = new Map<string, number>();
+for (const a of all) sectionCounts.set(a.data.section, (sectionCounts.get(a.data.section) ?? 0) + 1);
+const sections = [...sectionCounts.entries()].sort((a, b) => b[1] - a[1]);
+
+const tagCount = new Set(all.flatMap((a) => a.data.tags || [])).size;
+---
+
+<BaseLayout title="Open metrics" description="How Real Daily Review is doing — published in the open.">
+  <article class="article-body">
+    <p class="meta" style="font-family: var(--font-sans); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--color-accent);">Open metrics</p>
+    <h1>How we're doing</h1>
+    <p style="color: var(--color-muted); font-size: 1.1rem;">Published in the open. Updated every build.</p>
+
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 1rem; margin: 2rem 0;">
+      <div style="background: var(--color-surface); border: 1px solid var(--color-rule); padding: 1.2rem; border-radius: 8px;">
+        <p style="font-family: var(--font-sans); font-size: 0.78rem; color: var(--color-muted); text-transform: uppercase; letter-spacing: 0.08em; margin: 0;">Articles published</p>
+        <p style="font-size: 2.4rem; font-weight: 800; margin: 0.3rem 0 0;">{totalArticles.toLocaleString()}</p>
+      </div>
+      <div style="background: var(--color-surface); border: 1px solid var(--color-rule); padding: 1.2rem; border-radius: 8px;">
+        <p style="font-family: var(--font-sans); font-size: 0.78rem; color: var(--color-muted); text-transform: uppercase; letter-spacing: 0.08em; margin: 0;">Last 24 hours</p>
+        <p style="font-size: 2.4rem; font-weight: 800; margin: 0.3rem 0 0;">{last24}</p>
+      </div>
+      <div style="background: var(--color-surface); border: 1px solid var(--color-rule); padding: 1.2rem; border-radius: 8px;">
+        <p style="font-family: var(--font-sans); font-size: 0.78rem; color: var(--color-muted); text-transform: uppercase; letter-spacing: 0.08em; margin: 0;">Days live</p>
+        <p style="font-size: 2.4rem; font-weight: 800; margin: 0.3rem 0 0;">{daysLive}</p>
+      </div>
+      <div style="background: var(--color-surface); border: 1px solid var(--color-rule); padding: 1.2rem; border-radius: 8px;">
+        <p style="font-family: var(--font-sans); font-size: 0.78rem; color: var(--color-muted); text-transform: uppercase; letter-spacing: 0.08em; margin: 0;">Topics covered</p>
+        <p style="font-size: 2.4rem; font-weight: 800; margin: 0.3rem 0 0;">{tagCount}</p>
+      </div>
+    </div>
+
+    <h2>What we publish, by section</h2>
+    <ul style="font-family: var(--font-sans); font-size: 0.95rem;">
+      {sections.map(([sec, n]) => (
+        <li>
+          <a href={`/section/${sec}`}>{sec}</a> &mdash; {n} {n === 1 ? 'article' : 'articles'}
+        </li>
+      ))}
+    </ul>
+
+    <h2>How it's made</h2>
+    <p>
+      Articles are drafted by AI from multiple primary sources, deduplicated against the last 36 hours,
+      and published 8 times a day, 7 days a week, on a fully automated cron. Every story cites at least
+      two outlets. Contested stories label perspectives explicitly. We disclose AI involvement on every
+      article and keep this page open as accountability.
+    </p>
+
+    <h2>Where to follow us</h2>
+    <ul style="font-family: var(--font-sans); font-size: 0.95rem;">
+      <li><a href="/rss.xml">RSS — all stories</a></li>
+      <li><a href="/section/politics/rss.xml">RSS — Politics</a></li>
+      <li><a href="/section/business/rss.xml">RSS — Business</a></li>
+      <li><a href="/section/world/rss.xml">RSS — World</a></li>
+      <li><a href="/section/tech/rss.xml">RSS — Tech</a></li>
+    </ul>
+
+    <p style="margin-top: 2rem;">
+      Subscribe to the daily email at <a href="/">the home page</a>. We send one short morning brief
+      every weekday at 5:30am ET.
+    </p>
+  </article>
+</BaseLayout>

@@ -5,6 +5,7 @@ import AdSlot from '@/components/AdSlot.astro';
 import NewsletterSignup from '@/components/NewsletterSignup.astro';
 import TipJar from '@/components/TipJar.astro';
 import ReadingTime from '@/components/ReadingTime.astro';
+import ShareButtons from '@/components/ShareButtons.astro';
 import { SITE } from '@/config';
 import type { CollectionEntry } from 'astro:content';
 
@@ -121,6 +122,7 @@ const breadcrumbLd = {
       </p>
     )}
 
+    <ShareButtons title={data.title} slug={article.slug} />
     <NewsletterSignup />
     <TipJar />
   </article>

@@ -1,0 +1,41 @@
+---
+import { SITE } from '@/config';
+interface Props { title: string; slug: string; }
+const { title, slug } = Astro.props;
+const url = `${SITE.url}/articles/${slug}`;
+const enc = (s: string) => encodeURIComponent(s);
+const shareTitle = title.length > 240 ? title.slice(0, 237) + '…' : title;
+---
+
+<div class="rdr-share">
+  <span class="rdr-share-label">Share:</span>
+  <a class="rdr-share-btn" href={`https://bsky.app/intent/compose?text=${enc(shareTitle + ' ' + url)}`} rel="noopener" target="_blank" aria-label="Share on Bluesky">Bluesky</a>
+  <a class="rdr-share-btn" href={`https://twitter.com/intent/tweet?text=${enc(shareTitle)}&url=${enc(url)}`} rel="noopener" target="_blank" aria-label="Share on X">X</a>
+  <a class="rdr-share-btn" href={`https://reddit.com/submit?title=${enc(shareTitle)}&url=${enc(url)}`} rel="noopener" target="_blank" aria-label="Share on Reddit">Reddit</a>
+  <a class="rdr-share-btn" href={`https://news.ycombinator.com/submitlink?u=${enc(url)}&t=${enc(shareTitle)}`} rel="noopener" target="_blank" aria-label="Share on Hacker News">HN</a>
+  <a class="rdr-share-btn" href={`mailto:?subject=${enc(shareTitle)}&body=${enc(shareTitle + '\n\n' + url)}`} aria-label="Share via email">Email</a>
+  <button class="rdr-share-btn rdr-share-copy" type="button" data-url={url} aria-label="Copy link">Copy link</button>
+</div>
+
+<style>
+  .rdr-share {
+    display: flex; flex-wrap: wrap; align-items: center; gap: 0.4rem;
+    font-family: var(--font-sans); font-size: 0.82rem;
+    margin: var(--space-md) 0;
+    padding: var(--space-sm) 0; border-top: 1px solid var(--color-rule); border-bottom: 1px solid var(--color-rule);
+  }
+  .rdr-share-label { color: var(--color-muted); margin-right: 0.5rem; }
+  .rdr-share-btn {
+    display: inline-block; padding: 0.3rem 0.7rem; border-radius: 999px;
+    background: var(--color-tag-bg); color: var(--color-text); text-decoration: none; border: 0;
+    font: inherit; cursor: pointer;
+  }
+  .rdr-share-btn:hover { background: var(--color-accent); color: #fff; }
+</style>
+<script>
+  document.querySelectorAll('.rdr-share-copy').forEach((b) => {
+    b.addEventListener('click', async () => {
+      try { await navigator.clipboard.writeText(b.dataset.url); b.textContent = 'Copied!'; setTimeout(() => { b.textContent = 'Copy link'; }, 1500); } catch {}
+    });
+  });
+</script>
