@@ -1,4 +1,4 @@
-# Last forced redeploy: 2026-05-09T14:19Z (Resend wiring)
+# Last forced redeploy: 2026-05-09T14:26Z (sync ADMIN_TOKEN)
 name = "rdr-api"
 main = "src/index.ts"
 compatibility_date = "2026-04-01"
