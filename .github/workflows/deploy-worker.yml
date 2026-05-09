@@ -124,11 +124,17 @@ jobs:
           if [ -n "${{ secrets.TURNSTILE_SECRET }}" ]; then
             echo '${{ secrets.TURNSTILE_SECRET }}' | npx wrangler secret put TURNSTILE_SECRET
           else
-            # Use a placeholder that always fails verification; forms will return 403.
-            # Better than no captcha at all — bots try once, fail, move on.
-            # User will replace this once they create a Turnstile widget in CF dashboard.
             echo "PLACEHOLDER_NO_TURNSTILE_SET" | npx wrangler secret put TURNSTILE_SECRET
-            echo "::warning::TURNSTILE_SECRET not set — forms will reject with 'Captcha failed'. Create a Turnstile widget in CF dashboard and add TURNSTILE_SECRET + TURNSTILE_SITEKEY to GH Actions Secrets."
+            echo "::warning::TURNSTILE_SECRET not set"
+          fi
+          # RESEND_API_KEY: enables welcome emails on signup. Skip if not set.
+          if [ -n "${{ secrets.RESEND_API_KEY }}" ]; then
+            echo '${{ secrets.RESEND_API_KEY }}' | npx wrangler secret put RESEND_API_KEY
+            echo "RESEND_API_KEY set on Worker."
+          fi
+          # RESEND_FROM: email From: header.
+          if [ -n "${{ secrets.RESEND_FROM }}" ]; then
+            echo '${{ secrets.RESEND_FROM }}' | npx wrangler secret put RESEND_FROM
           fi
 
       - name: Deploy worker
