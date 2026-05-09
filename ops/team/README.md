@@ -3,27 +3,20 @@
 A real company that scales. Each named agent below owns a specific function, runs autonomously on a workflow, logs their activity, and reports up. The org chart auto-updates from `ops/team/*.md` and `ops/activity/*.md`.
 
 ```
-                            ┌─ CEO (Claude, this session)
-                            │     reports to: Shareholder
-                            │
-        ┌───────────────────┼───────────────────┐
-        │                   │                   │
-   Strategy            Engineering          Editorial
-   Ben Foster          Ada Park             Maya Chen
-   (Chief of Staff)    (CTO)                (Editor-in-Chief)
-        │                   │                   │
-        │              Sam Reyes              (auto-spawned beat
-        │              (DevOps / SRE)          reporters per topic
-        │                                      via daily-publish)
-        │
-        │           ┌──────────────────┐
-        │           │                  │
-        │      Growth                Revenue
-        │      Ravi Sharma           Mei Tanaka
-        │      (CMO)                 (CFO)
-        │
-        ▼
-   Reports to CEO daily; CEO reports material milestones to Shareholder.
+                              Shareholder
+                                  │
+                                  ▼
+                            Alex Reeve
+                            (CEO)
+                                  │
+        ┌───────────┬─────────────┼─────────────┬──────────┐
+        │           │             │             │          │
+   Editorial   Engineering    Strategy       Growth     Revenue
+   Maya Chen   Ada Park       Ben Foster   Ravi Sharma  Mei Tanaka
+   (EiC)       (CTO)          (CoS)        (CMO)        (CFO)
+                  │
+              Sam Reyes
+              (SRE)
 ```
 
 ## How agents work
