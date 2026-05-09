@@ -1,108 +1,296 @@
-Latest failed run: 'Autonomous feature builder' (#25596280546)
+Latest failed run: 'Growth agent (Ravi Sharma)' (#25603801769)
 --- log files ---
-/tmp/logs/build/system.txt
-/tmp/logs/0_build.txt
+/tmp/logs/run/12_Post Run actions_checkout@v4.txt
+/tmp/logs/run/1_Set up job.txt
+/tmp/logs/run/system.txt
+/tmp/logs/run/2_Run actions_checkout@v4.txt
+/tmp/logs/run/4_Run npm install gray-matter@^4 @anthropic-ai_sdk@^0.30 --no-save --no-audit --no-fund.txt
+/tmp/logs/run/13_Complete job.txt
+/tmp/logs/run/3_Run actions_setup-node@v4.txt
+/tmp/logs/run/5_Run node scripts_growth-agent.mjs.txt
+/tmp/logs/0_run.txt
 
 --- error/failure lines from each step ---
 
-=== build/system.txt ===
+=== / ===
 
-=== logs/0_build.txt ===
-160:2026-05-09T08:17:48.5020484Z [feature-build] candidate failed: Model did not return <json> block. Response head: Looking at this task, I need to build an OG image generator that:
-167:2026-05-09T08:20:22.1361632Z [feature-build] candidate failed: Model did not return <json> block. Response head: Looking at the task, I need to create 6 days of historical article content (2026-04-30 through 2026-05-05) for SEO depth. The constraint is max 8 files, so I'll create 6 digest articles (one per day) plus a few section articles to add depth. I'll write these as static markdown files in `src/content/articles/`.
-461:2026-05-09T08:22:07.7595959Z 08:22:07   ├─ /tag/terrorism.html (+1ms)
-504:2026-05-09T08:22:09.0306343Z Error: GH API POST /repos/Real-Daily-Review/realdailyreview/pulls → 403: {"message":"GitHub Actions is not permitted to create or approve pull requests.","documentation_url":"https://docs.github.com/rest/pulls/pulls#create-a-pull-request","status":"403"}
-508:2026-05-09T08:22:09.0845281Z ##[error]Process completed with exit code 1.
+=== run/13_Complete ===
+
+=== / ===
+
+=== run/2_Run ===
+
+=== run/3_Run ===
+
+=== / ===
+
+=== / ===
+8:2026-05-09T14:43:13.9573510Z Error: Model did not return JSON block
+12:2026-05-09T14:43:13.9665246Z ##[error]Process completed with exit code 1.
+
+=== run/system.txt ===
+
+=== logs/0_run.txt ===
+134:2026-05-09T14:43:13.9573545Z Error: Model did not return JSON block
+138:2026-05-09T14:43:13.9665261Z ##[error]Process completed with exit code 1.
 
 --- last 80 lines of each step log ---
 
+=== END OF  ===
+﻿2026-05-09T14:43:13.9845959Z Post job cleanup.
+2026-05-09T14:43:14.0843045Z [command]/usr/bin/git version
+2026-05-09T14:43:14.0883580Z git version 2.53.0
+2026-05-09T14:43:14.0932677Z Temporarily overriding HOME='/home/runner/work/_temp/7c477163-e78f-4d54-8ba5-46563bcb4e7b' before making global git config changes
+2026-05-09T14:43:14.0934698Z Adding repository directory to the temporary git global config as a safe directory
+2026-05-09T14:43:14.0940057Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/realdailyreview/realdailyreview
+2026-05-09T14:43:14.0999796Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-05-09T14:43:14.1037110Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-05-09T14:43:14.1278712Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-05-09T14:43:14.1303998Z http.https://github.com/.extraheader
+2026-05-09T14:43:14.1318968Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2026-05-09T14:43:14.1353291Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-05-09T14:43:14.1590870Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-05-09T14:43:14.1619583Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+
+=== END OF 13_Complete ===
+﻿2026-05-09T14:43:14.1953381Z Cleaning up orphan processes
+2026-05-09T14:43:14.2227607Z ##[warning]Node.js 20 actions are deprecated. The following actions are running on Node.js 20 and may not work as expected: actions/checkout@v4, actions/setup-node@v4. Actions will be forced to run with Node.js 24 by default starting June 2nd, 2026. Node.js 20 will be removed from the runner on September 16th, 2026. Please check if updated versions of these actions are available that support Node.js 24. To opt into Node.js 24 now, set the FORCE_JAVASCRIPT_ACTIONS_TO_NODE24=true environment variable on the runner or in your workflow file. Once Node.js 24 becomes the default, you can temporarily opt out by setting ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION=true. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+
+=== END OF  ===
+﻿2026-05-09T14:42:43.9285021Z Current runner version: '2.334.0'
+2026-05-09T14:42:43.9320561Z ##[group]Runner Image Provisioner
+2026-05-09T14:42:43.9321942Z Hosted Compute Agent
+2026-05-09T14:42:43.9322820Z Version: 20260213.493
+2026-05-09T14:42:43.9323795Z Commit: 5c115507f6dd24b8de37d8bbe0bb4509d0cc0fa3
+2026-05-09T14:42:43.9324953Z Build Date: 2026-02-13T00:28:41Z
+2026-05-09T14:42:43.9326364Z Worker ID: {58dcfc4b-71f4-49ec-8839-46d6d5574659}
+2026-05-09T14:42:43.9327526Z Azure Region: eastus2
+2026-05-09T14:42:43.9328470Z ##[endgroup]
+2026-05-09T14:42:43.9330736Z ##[group]Operating System
+2026-05-09T14:42:43.9331710Z Ubuntu
+2026-05-09T14:42:43.9332566Z 24.04.4
+2026-05-09T14:42:43.9333336Z LTS
+2026-05-09T14:42:43.9334241Z ##[endgroup]
+2026-05-09T14:42:43.9335211Z ##[group]Runner Image
+2026-05-09T14:42:43.9336673Z Image: ubuntu-24.04
+2026-05-09T14:42:43.9337646Z Version: 20260413.86.1
+2026-05-09T14:42:43.9340401Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20260413.86/images/ubuntu/Ubuntu2404-Readme.md
+2026-05-09T14:42:43.9343236Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20260413.86
+2026-05-09T14:42:43.9345009Z ##[endgroup]
+2026-05-09T14:42:43.9347070Z ##[group]GITHUB_TOKEN Permissions
+2026-05-09T14:42:43.9358537Z Contents: write
+2026-05-09T14:42:43.9359413Z Metadata: read
+2026-05-09T14:42:43.9360217Z ##[endgroup]
+2026-05-09T14:42:43.9363315Z Secret source: Actions
+2026-05-09T14:42:43.9364431Z Prepare workflow directory
+2026-05-09T14:42:44.0003165Z Prepare all required actions
+2026-05-09T14:42:44.0058958Z Getting action download info
+2026-05-09T14:42:44.4122481Z Download action repository 'actions/checkout@v4' (SHA:34e114876b0b11c390a56381ad16ebd13914f8d5)
+2026-05-09T14:42:44.5649347Z Download action repository 'actions/setup-node@v4' (SHA:49933ea5288caeca8642d1e84afbd3f7d6820020)
+2026-05-09T14:42:44.7700721Z Complete job name: run
+
+=== END OF 2_Run ===
+﻿2026-05-09T14:42:44.8352101Z ##[group]Run actions/checkout@v4
+2026-05-09T14:42:44.8352959Z with:
+2026-05-09T14:42:44.8353337Z   ref: main
+2026-05-09T14:42:44.8353915Z   token: ***
+2026-05-09T14:42:44.8354360Z   repository: Real-Daily-Review/realdailyreview
+2026-05-09T14:42:44.8354930Z   ssh-strict: true
+2026-05-09T14:42:44.8355335Z   ssh-user: git
+2026-05-09T14:42:44.8355737Z   persist-credentials: true
+2026-05-09T14:42:44.8356671Z   clean: true
+2026-05-09T14:42:44.8357107Z   sparse-checkout-cone-mode: true
+2026-05-09T14:42:44.8357602Z   fetch-depth: 1
+2026-05-09T14:42:44.8358000Z   fetch-tags: false
+2026-05-09T14:42:44.8358394Z   show-progress: true
+2026-05-09T14:42:44.8358805Z   lfs: false
+2026-05-09T14:42:44.8359171Z   submodules: false
+2026-05-09T14:42:44.8359569Z   set-safe-directory: true
+2026-05-09T14:42:44.8360728Z ##[endgroup]
+2026-05-09T14:42:45.0054071Z Syncing repository: Real-Daily-Review/realdailyreview
+2026-05-09T14:42:45.0055845Z ##[group]Getting Git version info
+2026-05-09T14:42:45.0057368Z Working directory is '/home/runner/work/realdailyreview/realdailyreview'
+2026-05-09T14:42:45.0059423Z [command]/usr/bin/git version
+2026-05-09T14:42:45.0060647Z git version 2.53.0
+2026-05-09T14:42:45.0178837Z ##[endgroup]
+2026-05-09T14:42:45.0185408Z Temporarily overriding HOME='/home/runner/work/_temp/2c4f73c0-b110-4014-8b79-2060917e442b' before making global git config changes
+2026-05-09T14:42:45.0188189Z Adding repository directory to the temporary git global config as a safe directory
+2026-05-09T14:42:45.0190491Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/realdailyreview/realdailyreview
+2026-05-09T14:42:45.0193347Z Deleting the contents of '/home/runner/work/realdailyreview/realdailyreview'
+2026-05-09T14:42:45.0194560Z ##[group]Initializing the repository
+2026-05-09T14:42:45.0195641Z [command]/usr/bin/git init /home/runner/work/realdailyreview/realdailyreview
+2026-05-09T14:42:45.0410670Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-05-09T14:42:45.0412799Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-05-09T14:42:45.0414892Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-05-09T14:42:45.0417420Z hint: call:
+2026-05-09T14:42:45.0418306Z hint:
+2026-05-09T14:42:45.0419303Z hint: 	git config --global init.defaultBranch <name>
+2026-05-09T14:42:45.0420900Z hint:
+2026-05-09T14:42:45.0422255Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-05-09T14:42:45.0424148Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-05-09T14:42:45.0425699Z hint:
+2026-05-09T14:42:45.0426892Z hint: 	git branch -m <name>
+2026-05-09T14:42:45.0427816Z hint:
+2026-05-09T14:42:45.0428978Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-05-09T14:42:45.0431401Z Initialized empty Git repository in /home/runner/work/realdailyreview/realdailyreview/.git/
+2026-05-09T14:42:45.0434730Z [command]/usr/bin/git remote add origin https://github.com/Real-Daily-Review/realdailyreview
+2026-05-09T14:42:45.0438574Z ##[endgroup]
+2026-05-09T14:42:45.0440123Z ##[group]Disabling automatic garbage collection
+2026-05-09T14:42:45.0441668Z [command]/usr/bin/git config --local gc.auto 0
+2026-05-09T14:42:45.0444764Z ##[endgroup]
+2026-05-09T14:42:45.0446324Z ##[group]Setting up auth
+2026-05-09T14:42:45.0447785Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-05-09T14:42:45.0467038Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-05-09T14:42:45.0780894Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-05-09T14:42:45.0815267Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-05-09T14:42:45.1054751Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-05-09T14:42:45.1089394Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-05-09T14:42:45.1331763Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-05-09T14:42:45.1376700Z ##[endgroup]
+2026-05-09T14:42:45.1378362Z ##[group]Fetching the repository
+2026-05-09T14:42:45.1387948Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +refs/heads/main*:refs/remotes/origin/main* +refs/tags/main*:refs/tags/main*
+2026-05-09T14:42:45.4577794Z From https://github.com/Real-Daily-Review/realdailyreview
+2026-05-09T14:42:45.4581738Z  * [new branch]      main       -> origin/main
+2026-05-09T14:42:45.4641062Z ##[endgroup]
+2026-05-09T14:42:45.4642705Z ##[group]Determining the checkout info
+2026-05-09T14:42:45.4644248Z [command]/usr/bin/git branch --list --remote origin/main
+2026-05-09T14:42:45.4686834Z   origin/main
+2026-05-09T14:42:45.4698745Z ##[endgroup]
+2026-05-09T14:42:45.4699747Z [command]/usr/bin/git sparse-checkout disable
+2026-05-09T14:42:45.4761189Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-05-09T14:42:45.4814139Z ##[group]Checking out the ref
+2026-05-09T14:42:45.4815712Z [command]/usr/bin/git checkout --progress --force -B main refs/remotes/origin/main
+2026-05-09T14:42:45.4993303Z Switched to a new branch 'main'
+2026-05-09T14:42:45.4996921Z branch 'main' set up to track 'origin/main'.
+2026-05-09T14:42:45.5004343Z ##[endgroup]
+2026-05-09T14:42:45.5043574Z [command]/usr/bin/git log -1 --format=%H
+2026-05-09T14:42:45.5068390Z d7955b6aa36d2559c507cec4375da13e74fa850e
+
+=== END OF 3_Run ===
+﻿2026-05-09T14:42:45.5359893Z ##[group]Run actions/setup-node@v4
+2026-05-09T14:42:45.5360673Z with:
+2026-05-09T14:42:45.5361094Z   node-version: 20
+2026-05-09T14:42:45.5361604Z   always-auth: false
+2026-05-09T14:42:45.5362147Z   check-latest: false
+2026-05-09T14:42:45.5362943Z   token: ***
+2026-05-09T14:42:45.5363375Z ##[endgroup]
+2026-05-09T14:42:45.7366569Z Found in cache @ /opt/hostedtoolcache/node/20.20.2/x64
+2026-05-09T14:42:45.7372195Z ##[group]Environment details
+2026-05-09T14:42:48.0684197Z node: v20.20.2
+2026-05-09T14:42:48.0685609Z npm: 10.8.2
+2026-05-09T14:42:48.0686910Z yarn: 1.22.22
+2026-05-09T14:42:48.0688915Z ##[endgroup]
+
+=== END OF  ===
+﻿2026-05-09T14:42:48.0810444Z ##[group]Run npm install gray-matter@^4 @anthropic-ai/sdk@^0.30 --no-save --no-audit --no-fund
+2026-05-09T14:42:48.0811241Z [36;1mnpm install gray-matter@^4 @anthropic-ai/sdk@^0.30 --no-save --no-audit --no-fund[0m
+2026-05-09T14:42:48.0845919Z shell: /usr/bin/bash -e {0}
+2026-05-09T14:42:48.0846571Z ##[endgroup]
+2026-05-09T14:42:52.8357366Z npm warn deprecated node-domexception@1.0.0: Use your platform's native DOMException instead
+2026-05-09T14:42:56.6377008Z 
+2026-05-09T14:42:56.6378183Z added 404 packages in 8s
+
+=== END OF  ===
+﻿2026-05-09T14:42:56.6756978Z ##[group]Run node scripts/growth-agent.mjs
+2026-05-09T14:42:56.6757569Z [36;1mnode scripts/growth-agent.mjs[0m
+2026-05-09T14:42:56.6786933Z shell: /usr/bin/bash -e {0}
+2026-05-09T14:42:56.6787309Z env:
+2026-05-09T14:42:56.6788574Z   ANTHROPIC_API_KEY: ***
+2026-05-09T14:42:56.6788925Z ##[endgroup]
+2026-05-09T14:42:57.0398238Z [ravi-sharma] drafting social copy for 37 articles…
+2026-05-09T14:43:13.9573510Z Error: Model did not return JSON block
+2026-05-09T14:43:13.9574710Z     at draftSocialPosts (file:///home/runner/work/realdailyreview/realdailyreview/scripts/growth-agent.mjs:82:17)
+2026-05-09T14:43:13.9576199Z     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2026-05-09T14:43:13.9577564Z     at async main (file:///home/runner/work/realdailyreview/realdailyreview/scripts/growth-agent.mjs:120:29)
+2026-05-09T14:43:13.9665246Z ##[error]Process completed with exit code 1.
+
 === END OF system.txt ===
-2026-05-09T08:15:40.5110000Z Job is waiting for a hosted runner to come online.
-2026-05-09T08:15:40.5100000Z Requested labels: ubuntu-latest
-2026-05-09T08:15:40.5100000Z Job defined at: Real-Daily-Review/realdailyreview/.github/workflows/feature-build.yml@refs/heads/main
-2026-05-09T08:15:40.5100000Z Waiting for a runner to pick up this job...
-2026-05-09T08:15:40.5110000Z Job is about to start running on the hosted runner: GitHub Actions 1000000081
-2026-05-09T08:15:40.5090000Z Evaluating build.if
-2026-05-09T08:15:40.5090000Z Evaluating: success()
-2026-05-09T08:15:40.5090000Z Result: true
-=== END OF 0_build.txt ===
-2026-05-09T08:22:07.7417433Z 08:22:07   ├─ /tag/impeachment.html (+1ms)
-2026-05-09T08:22:07.7428673Z 08:22:07   ├─ /tag/constitutional-court.html (+1ms)
-2026-05-09T08:22:07.7439614Z 08:22:07   ├─ /tag/airlines.html (+1ms)
-2026-05-09T08:22:07.7450362Z 08:22:07   ├─ /tag/bankruptcy.html (+1ms)
-2026-05-09T08:22:07.7461211Z 08:22:07   ├─ /tag/aviation.html (+1ms)
-2026-05-09T08:22:07.7472655Z 08:22:07   ├─ /tag/liquidation.html (+1ms)
-2026-05-09T08:22:07.7484782Z 08:22:07   ├─ /tag/uk-politics.html (+1ms)
-2026-05-09T08:22:07.7495814Z 08:22:07   ├─ /tag/labour-party.html (+1ms)
-2026-05-09T08:22:07.7506961Z 08:22:07   ├─ /tag/local-elections.html (+1ms)
-2026-05-09T08:22:07.7517921Z 08:22:07   ├─ /tag/keir-starmer.html (+1ms)
-2026-05-09T08:22:07.7528613Z 08:22:07   ├─ /tag/cyberattack.html (+1ms)
-2026-05-09T08:22:07.7539201Z 08:22:07   ├─ /tag/doge.html (+1ms)
-2026-05-09T08:22:07.7550780Z 08:22:07   ├─ /tag/fema.html (+1ms)
-2026-05-09T08:22:07.7562617Z 08:22:07   ├─ /tag/disaster-relief.html (+1ms)
-2026-05-09T08:22:07.7573888Z 08:22:07   ├─ /tag/federal-courts.html (+1ms)
-2026-05-09T08:22:07.7584843Z 08:22:07   ├─ /tag/isis.html (+1ms)
-2026-05-09T08:22:07.7595959Z 08:22:07   ├─ /tag/terrorism.html (+1ms)
-2026-05-09T08:22:07.7607755Z 08:22:07   ├─ /tag/legal.html (+1ms)
-2026-05-09T08:22:07.7618524Z 08:22:07   ├─ /tag/hemp.html (+1ms)
-2026-05-09T08:22:07.7629358Z 08:22:07   ├─ /tag/drug-policy.html (+1ms)
-2026-05-09T08:22:07.7640779Z 08:22:07   ├─ /tag/trump-administration.html (+1ms)
-2026-05-09T08:22:07.7674909Z 08:22:07   ├─ /tag/thc.html (+3ms)
-2026-05-09T08:22:07.7687415Z 08:22:07   ├─ /tag/federal-policy.html (+1ms)
-2026-05-09T08:22:07.7697918Z 08:22:07   ├─ /tag/us-military.html (+1ms)
-2026-05-09T08:22:07.7708541Z 08:22:07   ├─ /tag/strait-of-hormuz.html (+1ms)
-2026-05-09T08:22:07.7719953Z 08:22:07   ├─ /tag/child-support.html (+1ms)
-2026-05-09T08:22:07.7730377Z 08:22:07   ├─ /tag/passport-revocation.html (+1ms)
-2026-05-09T08:22:07.7741304Z 08:22:07   ├─ /tag/enforcement.html (+1ms)
-2026-05-09T08:22:07.7752719Z 08:22:07   ├─ /tag/virginia.html (+1ms)
-2026-05-09T08:22:07.7763926Z 08:22:07   ├─ /tag/democrats.html (+1ms)
-2026-05-09T08:22:07.7775055Z 08:22:07   ├─ /tag/midterms.html (+1ms)
-2026-05-09T08:22:07.7797265Z 08:22:07   ├─ /tag/exports.html (+1ms)
-2026-05-09T08:22:07.7837296Z 08:22:07   ├─ /tag/david-attenborough.html (+4ms)
-2026-05-09T08:22:07.7863045Z 08:22:07   ├─ /tag/bbc.html (+2ms)
-2026-05-09T08:22:07.7888008Z 08:22:07   ├─ /tag/nature.html (+4ms)
-2026-05-09T08:22:07.7910425Z 08:22:07   ├─ /tag/milestone.html (+2ms)
-2026-05-09T08:22:07.7951408Z 08:22:07   ├─ /tag/spain.html (+1ms)
-2026-05-09T08:22:07.7952638Z 08:22:07   ├─ /tag/evacuation.html (+1ms)
-2026-05-09T08:22:07.7980864Z 08:22:07   ├─ /tag/public-health.html (+2ms)
-2026-05-09T08:22:07.7994429Z 08:22:07   ├─ /tag/mv-hondius.html (+1ms)
-2026-05-09T08:22:07.7995376Z 08:22:07   ├─ /tag/canada.html (+1ms)
-2026-05-09T08:22:07.8010300Z 08:22:07   ├─ /tag/mass-shooting.html (+1ms)
-2026-05-09T08:22:07.8020204Z 08:22:07   ├─ /tag/fda.html (+2ms)
-2026-05-09T08:22:07.8034959Z 08:22:07   ├─ /tag/makary.html (+1ms)
-2026-05-09T08:22:07.8060003Z 08:22:07   ├─ /tag/leadership.html (+1ms)
-2026-05-09T08:22:07.8074641Z 08:22:07   ├─ /tag/jobs.html (+1ms)
-2026-05-09T08:22:07.8089117Z 08:22:07   ├─ /tag/labor-market.html (+1ms)
-2026-05-09T08:22:07.8103777Z 08:22:07   ├─ /tag/economy.html (+1ms)
-2026-05-09T08:22:07.8127331Z 08:22:07   └─ /tag/employment.html (+1ms)
-2026-05-09T08:22:07.8131150Z 08:22:07 ▶ src/pages/terms.astro
-2026-05-09T08:22:07.8157070Z 08:22:07   └─ /terms.html (+2ms)
-2026-05-09T08:22:07.8177198Z 08:22:07 ▶ src/pages/index.astro
-2026-05-09T08:22:07.8187524Z 08:22:07   └─ /index.html (+3ms)
-2026-05-09T08:22:07.8188263Z 08:22:07 ✓ Completed in 688ms.
-2026-05-09T08:22:07.8188629Z 
-2026-05-09T08:22:07.9202397Z 08:22:07 [@astrojs/sitemap] `sitemap-index.xml` created at `dist`
-2026-05-09T08:22:07.9203533Z 08:22:07 [build] 277 page(s) built in 3.87s
-2026-05-09T08:22:07.9211381Z 08:22:07 [build] Complete!
-2026-05-09T08:22:08.8367773Z [feature-build] pushed branch auto-build-20260509-0700-social-crossposter
-2026-05-09T08:22:09.0306343Z Error: GH API POST /repos/Real-Daily-Review/realdailyreview/pulls → 403: {"message":"GitHub Actions is not permitted to create or approve pull requests.","documentation_url":"https://docs.github.com/rest/pulls/pulls#create-a-pull-request","status":"403"}
-2026-05-09T08:22:09.0309522Z     at ghApi (file:///home/runner/work/realdailyreview/realdailyreview/scripts/feature-build.mjs:273:11)
-2026-05-09T08:22:09.0316805Z     at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
-2026-05-09T08:22:09.0318305Z     at async main (file:///home/runner/work/realdailyreview/realdailyreview/scripts/feature-build.mjs:394:14)
-2026-05-09T08:22:09.0845281Z ##[error]Process completed with exit code 1.
-2026-05-09T08:22:09.0957687Z Post job cleanup.
-2026-05-09T08:22:09.1974773Z [command]/usr/bin/git version
-2026-05-09T08:22:09.2016070Z git version 2.53.0
-2026-05-09T08:22:09.2065499Z Temporarily overriding HOME='/home/runner/work/_temp/df0e02b8-76fa-4525-9b07-0f784cf01232' before making global git config changes
-2026-05-09T08:22:09.2067774Z Adding repository directory to the temporary git global config as a safe directory
-2026-05-09T08:22:09.2072860Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/realdailyreview/realdailyreview
-2026-05-09T08:22:09.2121591Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
-2026-05-09T08:22:09.2160254Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
-2026-05-09T08:22:09.2403413Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
-2026-05-09T08:22:09.2431009Z http.https://github.com/.extraheader
-2026-05-09T08:22:09.2444804Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
-2026-05-09T08:22:09.2481667Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
-2026-05-09T08:22:09.2722189Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
-2026-05-09T08:22:09.2760554Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
-2026-05-09T08:22:09.3151154Z Cleaning up orphan processes
-2026-05-09T08:22:09.3725504Z ##[warning]Node.js 20 actions are deprecated. The following actions are running on Node.js 20 and may not work as expected: actions/checkout@v4, actions/setup-node@v4. Actions will be forced to run with Node.js 24 by default starting June 2nd, 2026. Node.js 20 will be removed from the runner on September 16th, 2026. Please check if updated versions of these actions are available that support Node.js 24. To opt into Node.js 24 now, set the FORCE_JAVASCRIPT_ACTIONS_TO_NODE24=true environment variable on the runner or in your workflow file. Once Node.js 24 becomes the default, you can temporarily opt out by setting ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION=true. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+2026-05-09T14:42:33.5950000Z Evaluating run.if
+2026-05-09T14:42:33.5950000Z Evaluating: success()
+2026-05-09T14:42:33.5950000Z Result: true
+2026-05-09T14:42:33.5950000Z Requested labels: ubuntu-latest
+2026-05-09T14:42:33.5950000Z Job defined at: Real-Daily-Review/realdailyreview/.github/workflows/growth-agent.yml@refs/heads/main
+2026-05-09T14:42:33.5950000Z Waiting for a runner to pick up this job...
+2026-05-09T14:42:34.0840000Z Job is waiting for a hosted runner to come online.
+2026-05-09T14:42:34.0850000Z Job is about to start running on the hosted runner: GitHub Actions 1000000110
+=== END OF 0_run.txt ===
+2026-05-09T14:42:45.0434758Z [command]/usr/bin/git remote add origin https://github.com/Real-Daily-Review/realdailyreview
+2026-05-09T14:42:45.0438594Z ##[endgroup]
+2026-05-09T14:42:45.0440140Z ##[group]Disabling automatic garbage collection
+2026-05-09T14:42:45.0441685Z [command]/usr/bin/git config --local gc.auto 0
+2026-05-09T14:42:45.0444780Z ##[endgroup]
+2026-05-09T14:42:45.0446338Z ##[group]Setting up auth
+2026-05-09T14:42:45.0447802Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-05-09T14:42:45.0467066Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-05-09T14:42:45.0780938Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-05-09T14:42:45.0815651Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-05-09T14:42:45.1054792Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-05-09T14:42:45.1089425Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-05-09T14:42:45.1331803Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-05-09T14:42:45.1376730Z ##[endgroup]
+2026-05-09T14:42:45.1378381Z ##[group]Fetching the repository
+2026-05-09T14:42:45.1387977Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +refs/heads/main*:refs/remotes/origin/main* +refs/tags/main*:refs/tags/main*
+2026-05-09T14:42:45.4577916Z From https://github.com/Real-Daily-Review/realdailyreview
+2026-05-09T14:42:45.4581774Z  * [new branch]      main       -> origin/main
+2026-05-09T14:42:45.4641100Z ##[endgroup]
+2026-05-09T14:42:45.4642777Z ##[group]Determining the checkout info
+2026-05-09T14:42:45.4644272Z [command]/usr/bin/git branch --list --remote origin/main
+2026-05-09T14:42:45.4686866Z   origin/main
+2026-05-09T14:42:45.4698769Z ##[endgroup]
+2026-05-09T14:42:45.4699764Z [command]/usr/bin/git sparse-checkout disable
+2026-05-09T14:42:45.4761217Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-05-09T14:42:45.4814165Z ##[group]Checking out the ref
+2026-05-09T14:42:45.4815725Z [command]/usr/bin/git checkout --progress --force -B main refs/remotes/origin/main
+2026-05-09T14:42:45.4993375Z Switched to a new branch 'main'
+2026-05-09T14:42:45.4996949Z branch 'main' set up to track 'origin/main'.
+2026-05-09T14:42:45.5004374Z ##[endgroup]
+2026-05-09T14:42:45.5043621Z [command]/usr/bin/git log -1 --format=%H
+2026-05-09T14:42:45.5068422Z d7955b6aa36d2559c507cec4375da13e74fa850e
+2026-05-09T14:42:45.5359930Z ##[group]Run actions/setup-node@v4
+2026-05-09T14:42:45.5360677Z with:
+2026-05-09T14:42:45.5361097Z   node-version: 20
+2026-05-09T14:42:45.5361607Z   always-auth: false
+2026-05-09T14:42:45.5362149Z   check-latest: false
+2026-05-09T14:42:45.5362946Z   token: ***
+2026-05-09T14:42:45.5363377Z ##[endgroup]
+2026-05-09T14:42:45.7366652Z Found in cache @ /opt/hostedtoolcache/node/20.20.2/x64
+2026-05-09T14:42:45.7372221Z ##[group]Environment details
+2026-05-09T14:42:48.0684262Z node: v20.20.2
+2026-05-09T14:42:48.0685628Z npm: 10.8.2
+2026-05-09T14:42:48.0686926Z yarn: 1.22.22
+2026-05-09T14:42:48.0688933Z ##[endgroup]
+2026-05-09T14:42:48.0810461Z ##[group]Run npm install gray-matter@^4 @anthropic-ai/sdk@^0.30 --no-save --no-audit --no-fund
+2026-05-09T14:42:48.0811246Z [36;1mnpm install gray-matter@^4 @anthropic-ai/sdk@^0.30 --no-save --no-audit --no-fund[0m
+2026-05-09T14:42:48.0845937Z shell: /usr/bin/bash -e {0}
+2026-05-09T14:42:48.0846578Z ##[endgroup]
+2026-05-09T14:42:52.8357425Z npm warn deprecated node-domexception@1.0.0: Use your platform's native DOMException instead
+2026-05-09T14:42:56.6377073Z 
+2026-05-09T14:42:56.6378199Z added 404 packages in 8s
+2026-05-09T14:42:56.6757000Z ##[group]Run node scripts/growth-agent.mjs
+2026-05-09T14:42:56.6757576Z [36;1mnode scripts/growth-agent.mjs[0m
+2026-05-09T14:42:56.6786947Z shell: /usr/bin/bash -e {0}
+2026-05-09T14:42:56.6787328Z env:
+2026-05-09T14:42:56.6788581Z   ANTHROPIC_API_KEY: ***
+2026-05-09T14:42:56.6788937Z ##[endgroup]
+2026-05-09T14:42:57.0398286Z [ravi-sharma] drafting social copy for 37 articles…
+2026-05-09T14:43:13.9573545Z Error: Model did not return JSON block
+2026-05-09T14:43:13.9574715Z     at draftSocialPosts (file:///home/runner/work/realdailyreview/realdailyreview/scripts/growth-agent.mjs:82:17)
+2026-05-09T14:43:13.9576206Z     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2026-05-09T14:43:13.9577577Z     at async main (file:///home/runner/work/realdailyreview/realdailyreview/scripts/growth-agent.mjs:120:29)
+2026-05-09T14:43:13.9665261Z ##[error]Process completed with exit code 1.
+2026-05-09T14:43:13.9845969Z Post job cleanup.
+2026-05-09T14:43:14.0843080Z [command]/usr/bin/git version
+2026-05-09T14:43:14.0883593Z git version 2.53.0
+2026-05-09T14:43:14.0932693Z Temporarily overriding HOME='/home/runner/work/_temp/7c477163-e78f-4d54-8ba5-46563bcb4e7b' before making global git config changes
+2026-05-09T14:43:14.0934708Z Adding repository directory to the temporary git global config as a safe directory
+2026-05-09T14:43:14.0940069Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/realdailyreview/realdailyreview
+2026-05-09T14:43:14.0999810Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-05-09T14:43:14.1037127Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-05-09T14:43:14.1278734Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-05-09T14:43:14.1304079Z http.https://github.com/.extraheader
+2026-05-09T14:43:14.1318982Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2026-05-09T14:43:14.1353307Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-05-09T14:43:14.1590887Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-05-09T14:43:14.1619599Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-05-09T14:43:14.1953394Z Cleaning up orphan processes
+2026-05-09T14:43:14.2227625Z ##[warning]Node.js 20 actions are deprecated. The following actions are running on Node.js 20 and may not work as expected: actions/checkout@v4, actions/setup-node@v4. Actions will be forced to run with Node.js 24 by default starting June 2nd, 2026. Node.js 20 will be removed from the runner on September 16th, 2026. Please check if updated versions of these actions are available that support Node.js 24. To opt into Node.js 24 now, set the FORCE_JAVASCRIPT_ACTIONS_TO_NODE24=true environment variable on the runner or in your workflow file. Once Node.js 24 becomes the default, you can temporarily opt out by setting ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION=true. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/

@@ -1,3 +1,8 @@
+=== FAILED: Growth agent (Ravi Sharma) #2 (failure) ===
+URL: https://github.com/Real-Daily-Review/realdailyreview/actions/runs/25603801769
+Started: 2026-05-09T14:42:32Z
+Head SHA: d7955b6a
+
 === FAILED: Autonomous feature builder #3 (failure) ===
 URL: https://github.com/Real-Daily-Review/realdailyreview/actions/runs/25596280546
 Started: 2026-05-09T08:15:39Z
@@ -7,9 +12,4 @@ Head SHA: 6c995dd8
 URL: https://github.com/Real-Daily-Review/realdailyreview/actions/runs/25588195066
 Started: 2026-05-09T01:46:13Z
 Head SHA: 04027b24
-
-=== FAILED: Autonomous feature builder #1 (failure) ===
-URL: https://github.com/Real-Daily-Review/realdailyreview/actions/runs/25559024911
-Started: 2026-05-08T13:44:48Z
-Head SHA: 3ffdf21a
 
