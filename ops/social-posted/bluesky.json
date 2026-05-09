@@ -7,6 +7,16 @@
     "2026-05-09-australia-debates-repatriating-is-linked-families-amid-security-concer",
     "2026-05-09-hungarys-new-pm-magyar-set-for-swearing-in-after-orban-defeat",
     "2026-05-09-us-adds-115000-jobs-in-april-beating-expectations",
-    "2026-05-09-us-adds-115000-jobs-in-april-beating-forecasts-for-second-month"
+    "2026-05-09-us-adds-115000-jobs-in-april-beating-forecasts-for-second-month",
+    "2026-05-09-us-sanctions-chinese-middle-eastern-entities-for-aiding-iran"
+  ],
+  "posts": [
+    {
+      "slug": "2026-05-09-us-sanctions-chinese-middle-eastern-entities-for-aiding-iran",
+      "uri": "at://did:plc:p7bwmjqjgn3ldehylmu2cydk/app.bsky.feed.post/3mlgksxeyg42l",
+      "strategy": "ai-hook",
+      "hook": "The U.S. just sanctioned 11 entities across China, the UAE, and Belarus for feeding Iran satellite imagery used to target American forces.",
+      "posted_at": "2026-05-09T15:30:34.891Z"
+    }
   ]
 }
