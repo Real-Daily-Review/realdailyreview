@@ -1,46 +1,43 @@
-name: Bluesky cross-poster
+name: Bluesky engagement tracker
 
-# Posts every new article to Bluesky. Inert until BLUESKY_HANDLE +
-# BLUESKY_APP_PASSWORD secrets are set. Bluesky has no phone-verification
-# requirement so signup is ~30 seconds.
+# Pulls likes/reposts/replies for every post we've shipped, aggregates by
+# hook strategy, writes to ops/social-posted/bluesky-engagement.json.
+# Hook prompt iterations can read this to bias toward what works.
 
 on:
   schedule:
-    # Every 2 hours so we catch each publish window
-    - cron: '15 */2 * * *'
+    - cron: '0 */6 * * *'  # every 6h
   push:
     tags:
-      - 'bsky-*'
+      - 'bsky-eng-*'
   workflow_dispatch:
 
 permissions:
   contents: write
 
 concurrency:
-  group: bluesky-poster
-  cancel-in-progress: false
+  group: bluesky-engagement
+  cancel-in-progress: true
 
 jobs:
-  post:
+  track:
     runs-on: ubuntu-latest
-    timeout-minutes: 4
+    timeout-minutes: 5
     steps:
       - uses: actions/checkout@v4
         with: { ref: main, token: '${{ secrets.GITHUB_TOKEN }}' }
       - uses: actions/setup-node@v4
         with: { node-version: '20' }
-      - run: npm install gray-matter@^4 @anthropic-ai/sdk@^0.30 --no-save --no-audit --no-fund
       - env:
           BLUESKY_HANDLE: ${{ secrets.BLUESKY_HANDLE }}
           BLUESKY_APP_PASSWORD: ${{ secrets.BLUESKY_APP_PASSWORD }}
-          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
-        run: node scripts/bluesky-poster.mjs
+        run: node scripts/bluesky-engagement.mjs
       - run: |
           git config user.name "Ravi Sharma (Growth)"
           git config user.email "ravi@realdailyreview.com"
-          git add ops/social-posted/ 2>/dev/null || true
+          git add ops/social-posted/bluesky-engagement.json 2>/dev/null || true
           if git diff --cached --quiet; then echo "no change"; exit 0; fi
-          git commit -m "social: bluesky cross-post $(date -u +%Y-%m-%dT%H:%MZ)"
+          git commit -m "growth: bluesky engagement snapshot $(date -u +%Y-%m-%dT%H:%MZ)"
           for attempt in 1 2 3 4 5; do
             if git push origin HEAD:main; then exit 0; fi
             git fetch origin main

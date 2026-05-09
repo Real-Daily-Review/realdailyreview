@@ -14,12 +14,14 @@
 import { promises as fs } from 'node:fs';
 import path from 'node:path';
 import matter from 'gray-matter';
+import Anthropic from '@anthropic-ai/sdk';
 
 const ARTICLES_DIR = path.resolve('src/content/articles');
 const POSTED_FILE = path.resolve('ops/social-posted/bluesky.json');
 const SITE_URL = 'https://realdailyreview.com';
 const LOOKBACK_HOURS = 6;
 const MAX_POSTS_PER_RUN = 4;
+const MAX_CHARS = 290; // Bluesky cap is 300; leave buffer for URL byte calc
 
 async function readPosted() {
   try { return JSON.parse(await fs.readFile(POSTED_FILE, 'utf8')); } catch { return { slugs: [] }; }
@@ -53,14 +55,78 @@ async function bskyAuth(handle, password) {
   return await r.json();  // {accessJwt, did, ...}
 }
 
-function buildPost(article) {
+// Fallback when AI hook fails — beats nothing.
+function fallbackPost(article) {
   const url = `${SITE_URL}/articles/${article.slug}`;
   const title = article.data.title;
-  const desc = article.data.description;
-  // Bluesky cap is 300 chars. Use title + URL; add desc if it fits.
   let text = `${title}\n${url}`;
-  if (text.length + desc.length + 2 < 290) text = `${title}\n\n${desc}\n${url}`;
-  return text.length > 300 ? text.slice(0, 297) + '…' : text;
+  return text.length > MAX_CHARS ? text.slice(0, MAX_CHARS - 3) + '…\n' + url : text;
+}
+
+// AI-drafted hook with curiosity gap, specific stakes/numbers, no hashtags.
+// Cost per post: ~$0.0005 in Haiku. Worth it for click-through gains.
+async function aiHook({ client, article, body }) {
+  const url = `${SITE_URL}/articles/${article.slug}`;
+  const prompt = `Write a Bluesky post (max ${MAX_CHARS - url.length - 2} chars BEFORE we append the URL on its own line) for the news article below. Goal: make a skeptical, news-savvy reader want to click. Apply ONE of these proven hook styles, picking whichever fits the story best:
+
+1. Sharp stake — lead with the specific number, name, or consequence ("$45B raise from a 14-month-old lab" / "First conviction under the new statute")
+2. Contrast / conflict — set up two sides ("Trump says X. Critics say Y.")
+3. Curiosity gap — name the surprising detail without resolving it ("The note was sealed for five years. Today a judge unsealed it.")
+4. Why-this-matters — quick stake for the reader ("If you fly Spirit, here's what just happened.")
+
+HARD rules:
+- No hashtags. No emoji. No "you won't believe", "this changes everything", or other clickbait phrases.
+- One sentence, two max. Tight. Punchy.
+- Use a specific name, number, or place where the source supports it.
+- Don't paraphrase the title verbatim — give us the angle the headline didn't.
+- Output ONLY the hook text. NO preamble, NO URL, NO quotes around it.
+
+ARTICLE TITLE: ${article.data.title}
+SECTION: ${article.data.section}
+DESCRIPTION: ${article.data.description}
+BODY (first 700 chars):
+${(body || '').replace(/<[^>]+>/g, '').slice(0, 700)}`;
+
+  const r = await client.messages.create({
+    model: 'claude-haiku-4-5-20251001',
+    max_tokens: 220,
+    temperature: 0.6,
+    messages: [{ role: 'user', content: prompt }],
+  });
+  const text = r.content.filter((b) => b.type === 'text').map((b) => b.text).join('').trim()
+    .replace(/^["']|["']$/g, '')   // strip wrapping quotes if any
+    .replace(/^\*+|\*+$/g, '')      // strip stray markdown
+    .replace(/\n{2,}/g, '\n');
+  return text;
+}
+
+function assembleWithUrl(hook, url) {
+  let text = `${hook}\n${url}`;
+  if (text.length > MAX_CHARS) {
+    const allowed = MAX_CHARS - url.length - 2;
+    text = `${hook.slice(0, allowed - 1).trim()}…\n${url}`;
+  }
+  return text;
+}
+
+async function buildPost({ client, article }) {
+  const url = `${SITE_URL}/articles/${article.slug}`;
+  // Read body for richer hook context
+  let body = '';
+  try {
+    const raw = await fs.readFile(path.join(ARTICLES_DIR, article.slug + '.md'), 'utf8');
+    const parsed = matter(raw);
+    body = parsed.content;
+  } catch {}
+  if (!client) return { text: fallbackPost(article), strategy: 'fallback-no-client' };
+  try {
+    const hook = await aiHook({ client, article, body });
+    if (!hook || hook.length < 12) return { text: fallbackPost(article), strategy: 'fallback-empty-hook' };
+    return { text: assembleWithUrl(hook, url), strategy: 'ai-hook', hook };
+  } catch (err) {
+    console.warn(`[bluesky] aiHook failed for ${article.slug}: ${err.message}`);
+    return { text: fallbackPost(article), strategy: 'fallback-ai-error' };
+  }
 }
 
 function parseFacets(text) {
@@ -141,31 +207,41 @@ async function main() {
     return;
   }
 
+  const aiClient = process.env.ANTHROPIC_API_KEY
+    ? new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY })
+    : null;
+
   let posts = 0;
   const failures = [];
+  const sent = [];
   for (const a of candidates.slice(0, MAX_POSTS_PER_RUN)) {
-    const text = buildPost(a);
+    const built = await buildPost({ client: aiClient, article: a });
     try {
-      const res = await bskyPost({ session, text });
-      console.log(`[bluesky] posted ${a.slug} → ${res.uri}`);
+      const res = await bskyPost({ session, text: built.text });
+      console.log(`[bluesky] posted ${a.slug} (${built.strategy}) → ${res.uri}`);
       posted.slugs.push(a.slug);
+      sent.push({ slug: a.slug, uri: res.uri, strategy: built.strategy, hook: built.hook || null, posted_at: new Date().toISOString() });
       posts++;
-      await new Promise((r) => setTimeout(r, 4000));
+      await new Promise((r) => setTimeout(r, 4500));
     } catch (err) {
       console.warn(`[bluesky] failed ${a.slug}: ${err.message}`);
       failures.push({ slug: a.slug, error: err.message });
     }
   }
   posted.slugs = posted.slugs.slice(-500);
+  // Append per-post log so we can later tie engagement back to which hook strategy was used.
+  posted.posts = (posted.posts || []).concat(sent).slice(-200);
   await writePosted(posted);
   await writeStatus({
     outcome: 'sent',
     candidates: candidates.length,
     posted: posts,
+    used_ai_hooks: !!aiClient,
     failures,
+    sent,
     ...presence,
   });
-  console.log(`[bluesky] posted ${posts}/${candidates.length}`);
+  console.log(`[bluesky] posted ${posts}/${candidates.length} (ai=${!!aiClient})`);
 }
 
 main().catch((err) => { console.error(err); process.exit(1); });
