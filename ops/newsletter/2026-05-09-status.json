@@ -1,0 +1,9 @@
+{
+  "outcome": "skipped",
+  "reason": "RESEND_API_KEY not set",
+  "has_resend_api_key": false,
+  "has_admin_token": true,
+  "resend_from": "Real Daily Review <brief@realdailyreview.com>",
+  "site_host": "realdailyreview.com",
+  "written_at": "2026-05-09T14:30:11.211Z"
+}
