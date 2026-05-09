@@ -1,0 +1,43 @@
+name: Mastodon cross-poster
+
+on:
+  schedule:
+    - cron: '45 */2 * * *'   # every 2 hours, offset 45 min from Bluesky to spread load
+  push:
+    tags:
+      - 'masto-*'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: mastodon-poster
+  cancel-in-progress: false
+
+jobs:
+  post:
+    runs-on: ubuntu-latest
+    timeout-minutes: 4
+    steps:
+      - uses: actions/checkout@v4
+        with: { ref: main, token: '${{ secrets.GITHUB_TOKEN }}' }
+      - uses: actions/setup-node@v4
+        with: { node-version: '20' }
+      - run: npm install gray-matter@^4 --no-save --no-audit --no-fund
+      - env:
+          MASTODON_INSTANCE: ${{ secrets.MASTODON_INSTANCE }}
+          MASTODON_ACCESS_TOKEN: ${{ secrets.MASTODON_ACCESS_TOKEN }}
+        run: node scripts/mastodon-poster.mjs
+      - run: |
+          git config user.name "Ravi Sharma (Growth)"
+          git config user.email "ravi@realdailyreview.com"
+          git add ops/social-posted/ 2>/dev/null || true
+          if git diff --cached --quiet; then echo "no change"; exit 0; fi
+          git commit -m "social: mastodon cross-post $(date -u +%Y-%m-%dT%H:%MZ)"
+          for attempt in 1 2 3 4 5; do
+            if git push origin HEAD:main; then exit 0; fi
+            git fetch origin main
+            git rebase origin/main || { git rebase --abort; sleep 2; }
+          done
+          exit 1

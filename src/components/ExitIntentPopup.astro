@@ -1,0 +1,131 @@
+---
+import { TURNSTILE } from '@/config';
+---
+
+<div id="rdr-exit" class="rdr-exit" hidden>
+  <div class="rdr-exit-card" role="dialog" aria-modal="true" aria-labelledby="rdr-exit-title">
+    <button class="rdr-exit-close" aria-label="Dismiss" id="rdr-exit-close">×</button>
+    <p class="rdr-exit-eyebrow">Before you go —</p>
+    <h2 id="rdr-exit-title">Get the brief in your inbox.</h2>
+    <p class="rdr-exit-sub">Five minutes, weekday mornings. Free, no spam, unsubscribe anytime.</p>
+    <form id="rdr-exit-form" class="rdr-exit-form" method="post" action="/api/subscribe">
+      <input type="email" name="email" required autocomplete="email" inputmode="email" placeholder="you@example.com" />
+      <input type="text" name="hp" tabindex="-1" autocomplete="off" aria-hidden="true" />
+      <input type="hidden" name="cf-turnstile-response" id="rdr-exit-token" />
+      <button type="submit">Subscribe</button>
+    </form>
+    <p class="rdr-exit-status" role="status" aria-live="polite"></p>
+    <p class="rdr-exit-foot">No, thanks — <a href="#" id="rdr-exit-no">close this</a></p>
+  </div>
+</div>
+
+<style>
+  .rdr-exit {
+    position: fixed; inset: 0; z-index: 1100;
+    display: flex; align-items: center; justify-content: center;
+    background: rgba(20, 19, 15, 0.55);
+    animation: rdr-exit-fade 0.18s ease-out;
+  }
+  @keyframes rdr-exit-fade { from { opacity: 0 } to { opacity: 1 } }
+  .rdr-exit-card {
+    background: var(--color-bg);
+    color: var(--color-text);
+    border-radius: 12px;
+    padding: 2rem 2.2rem 1.6rem;
+    max-width: 420px; width: calc(100% - 2rem);
+    font-family: var(--font-sans);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.25);
+    position: relative;
+  }
+  .rdr-exit-eyebrow {
+    margin: 0 0 0.4rem; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.1em;
+    color: var(--color-accent); font-weight: 600;
+  }
+  .rdr-exit-card h2 {
+    font-family: var(--font-serif); font-size: 1.45rem; font-weight: 800; margin: 0 0 0.5rem;
+  }
+  .rdr-exit-sub { font-size: 0.95rem; color: var(--color-muted); margin: 0 0 1.1rem; }
+  .rdr-exit-form { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+  .rdr-exit-form input[type="email"] {
+    flex: 1; padding: 0.65rem 0.85rem; min-width: 200px;
+    border: 1px solid var(--color-rule); border-radius: 4px; font: inherit;
+    background: var(--color-surface); color: var(--color-text);
+  }
+  .rdr-exit-form input[type="text"] { position: absolute; left: -9999px; }
+  .rdr-exit-form button {
+    background: var(--color-accent); color: #fff; border: 0;
+    padding: 0.65rem 1.2rem; border-radius: 4px; cursor: pointer;
+    font: inherit; font-weight: 600;
+  }
+  .rdr-exit-form button:hover { background: var(--color-link-hover); }
+  .rdr-exit-status { font-size: 0.85rem; color: var(--color-muted); margin: 0.6rem 0 0; min-height: 1em; }
+  .rdr-exit-status.ok { color: #1a6b1a; }
+  .rdr-exit-status.err { color: var(--color-warn); }
+  .rdr-exit-foot { font-size: 0.78rem; color: var(--color-muted); margin: 0.9rem 0 0; }
+  .rdr-exit-foot a { color: var(--color-muted); }
+  .rdr-exit-close {
+    position: absolute; top: 0.7rem; right: 0.9rem;
+    background: transparent; border: 0; font-size: 1.5rem; cursor: pointer;
+    color: var(--color-muted); line-height: 1;
+  }
+  .rdr-exit-close:hover { color: var(--color-text); }
+</style>
+
+<script is:inline define:vars={{ siteKey: TURNSTILE.siteKey }}>
+  (function () {
+    var SHOWN = 'rdr-exit-shown';
+    var SUBSCRIBED = 'rdr-sticky-sub-subscribed';  // share with sticky-bar so we don't double-prompt
+    if (localStorage.getItem(SHOWN) || localStorage.getItem(SUBSCRIBED)) return;
+    if (window.matchMedia && window.matchMedia('(max-width: 700px)').matches) return; // mobile users get sticky bar instead
+    var modal = document.getElementById('rdr-exit');
+    var fired = false;
+    function show() {
+      if (fired) return;
+      fired = true;
+      localStorage.setItem(SHOWN, String(Date.now()));
+      modal.hidden = false;
+    }
+    document.addEventListener('mouseout', function (e) {
+      if (e.clientY <= 0 && !e.relatedTarget) show();
+    });
+    setTimeout(show, 90_000); // also fire after 90s if no exit-intent
+    document.getElementById('rdr-exit-close').addEventListener('click', function () { modal.hidden = true; });
+    document.getElementById('rdr-exit-no').addEventListener('click', function (e) { e.preventDefault(); modal.hidden = true; });
+
+    var form = document.getElementById('rdr-exit-form');
+    var status = document.querySelector('.rdr-exit-status');
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var email = form.querySelector('input[name="email"]').value;
+      var hp = form.querySelector('input[name="hp"]').value;
+      var tokenInput = document.getElementById('rdr-exit-token');
+      function submitNow() {
+        status.textContent = 'Subscribing…'; status.className = 'rdr-exit-status';
+        fetch('/api/subscribe', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email: email, hp: hp, 'cf-turnstile-response': tokenInput.value }),
+        }).then(function (r) { return r.json().then(function (j) { return { r: r, j: j }; }); })
+          .then(function (x) {
+            if (x.r.ok) {
+              status.textContent = 'Subscribed. Check your inbox.';
+              status.className = 'rdr-exit-status ok';
+              localStorage.setItem(SUBSCRIBED, String(Date.now()));
+              setTimeout(function () { modal.hidden = true; }, 2400);
+            } else {
+              status.textContent = (x.j && x.j.error) || 'Try again in a moment.';
+              status.className = 'rdr-exit-status err';
+            }
+          })
+          .catch(function () { status.textContent = 'Network error. Try again.'; status.className = 'rdr-exit-status err'; });
+      }
+      if (window.turnstile && !tokenInput.value) {
+        var holder = document.createElement('div'); holder.style.display = 'none'; document.body.appendChild(holder);
+        window.turnstile.render(holder, {
+          sitekey: siteKey, size: 'invisible',
+          callback: function (token) { tokenInput.value = token; submitNow(); }
+        });
+      } else { submitNow(); }
+    });
+  })();
+</script>
