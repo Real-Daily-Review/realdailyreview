@@ -26,7 +26,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with: { ref: main, token: '${{ secrets.GITHUB_TOKEN }}' }
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v6
         with: { node-version: '20' }
       - env:
           BLUESKY_HANDLE: ${{ secrets.BLUESKY_HANDLE }}
