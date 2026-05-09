@@ -26,6 +26,8 @@ import { TURNSTILE } from '@/config';
     background: rgba(20, 19, 15, 0.55);
     animation: rdr-exit-fade 0.18s ease-out;
   }
+  /* class-set display:flex overrides [hidden]'s default display:none — restore it */
+  .rdr-exit[hidden] { display: none !important; }
   @keyframes rdr-exit-fade { from { opacity: 0 } to { opacity: 1 } }
   .rdr-exit-card {
     background: var(--color-bg);
@@ -89,8 +91,16 @@ import { TURNSTILE } from '@/config';
       if (e.clientY <= 0 && !e.relatedTarget) show();
     });
     setTimeout(show, 90_000); // also fire after 90s if no exit-intent
-    document.getElementById('rdr-exit-close').addEventListener('click', function () { modal.hidden = true; });
-    document.getElementById('rdr-exit-no').addEventListener('click', function (e) { e.preventDefault(); modal.hidden = true; });
+    function dismiss() {
+      modal.setAttribute('hidden', '');
+      modal.style.display = 'none';  // belt + suspenders
+    }
+    document.getElementById('rdr-exit-close').addEventListener('click', dismiss);
+    document.getElementById('rdr-exit-no').addEventListener('click', function (e) { e.preventDefault(); dismiss(); });
+    // Click outside the card (on the dim backdrop) also dismisses
+    modal.addEventListener('click', function (e) { if (e.target === modal) dismiss(); });
+    // Escape key
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !modal.hidden) dismiss(); });
 
     var form = document.getElementById('rdr-exit-form');
     var status = document.querySelector('.rdr-exit-status');
