@@ -1,0 +1,41 @@
+{
+  "fetched_at": "2026-05-09T18:41:15.156Z",
+  "total_posts_tracked": 1,
+  "by_strategy": {
+    "ai-hook": {
+      "posts": 1,
+      "total_likes": 0,
+      "total_reposts": 0,
+      "total_replies": 0,
+      "avg_likes": 0,
+      "avg_reposts": 0,
+      "avg_replies": 0
+    }
+  },
+  "top10": [
+    {
+      "slug": "2026-05-09-us-sanctions-chinese-middle-eastern-entities-for-aiding-iran",
+      "uri": "at://did:plc:p7bwmjqjgn3ldehylmu2cydk/app.bsky.feed.post/3mlgksxeyg42l",
+      "strategy": "ai-hook",
+      "hook": "The U.S. just sanctioned 11 entities across China, the UAE, and Belarus for feeding Iran satellite imagery used to target American forces.",
+      "posted_at": "2026-05-09T15:30:34.891Z",
+      "likeCount": 0,
+      "repostCount": 0,
+      "replyCount": 0,
+      "indexedAt": "2026-05-09T15:30:34.971Z"
+    }
+  ],
+  "posts": [
+    {
+      "slug": "2026-05-09-us-sanctions-chinese-middle-eastern-entities-for-aiding-iran",
+      "uri": "at://did:plc:p7bwmjqjgn3ldehylmu2cydk/app.bsky.feed.post/3mlgksxeyg42l",
+      "strategy": "ai-hook",
+      "hook": "The U.S. just sanctioned 11 entities across China, the UAE, and Belarus for feeding Iran satellite imagery used to target American forces.",
+      "posted_at": "2026-05-09T15:30:34.891Z",
+      "likeCount": 0,
+      "repostCount": 0,
+      "replyCount": 0,
+      "indexedAt": "2026-05-09T15:30:34.971Z"
+    }
+  ]
+}
