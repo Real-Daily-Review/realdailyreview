@@ -1,6 +1,6 @@
 # Sprint Queue
 
-_Last updated: 2026-05-09T06:12:39.366Z (overnight)_
+_Last updated: 2026-05-09T16:57:33.008Z (midday)_
 
 Active items the CEO operator works through. Auto-managed by ceo-standup.yml.
 
@@ -20,11 +20,11 @@ Active items the CEO operator works through. Auto-managed by ceo-standup.yml.
 - [ ] (monetization) [NEEDS-SHAREHOLDER] Apply to Google AdSense (target date: 2026-05-20, after 14 days of content)
 - [ ] (content) Backfill 7 days of historical digests for SEO depth — generate dated articles for 2026-04-30 through 2026-05-05
 - [ ] (growth) [NEEDS-SHAREHOLDER] Create social accounts: Bluesky, X, Mastodon, Threads, Reddit
-- [ ] (dev) Social cross-poster Worker — auto-posts every new article to the platforms above
+- [x] (dev) Social cross-poster Worker — auto-posts every new article to the platforms above
 - [x] (ops) Add overnight publish slot to daily-publish cron (2:30am ET) so we cover Asia/Europe morning hours
 - [x] (growth) Auto-generate /feed.xml as a valid RSS 2.0 feed pulling from existing articles (title, URL, pubDate, description). Submit to Feedly + Feedspot indexes on deploy.  _from competitor-watch 2026-05-08_
-- [ ] (dev) Add a "Next brief in Xh Xm" live countdown banner in the site header, calculated against the next scheduled cron publish time. Add a "Brief #N of 5 today" label on each article.  _from competitor-watch 2026-05-08_
-- [ ] (monetization) Add per-article estimated read time ("~2 min read") rendered statically at build/publish time using word_count / 200, plus a visible article-view counter ("X reads today") for social proof.  _from competitor-watch 2026-05-08_
+- [x] (dev) Add a "Next brief in Xh Xm" live countdown banner in the site header, calculated against the next scheduled cron publish time. Add a "Brief #N of 5 today" label on each article.  _from competitor-watch 2026-05-08_
+- [x] (monetization) Add per-article estimated read time ("~2 min read") rendered statically at build/publish time using word_count / 200, plus a visible article-view counter ("X reads today") for social proof.  _from competitor-watch 2026-05-08_
 - [ ] (growth) Generate and serve a valid RSS 2.0 feed at `/feed.xml` pulling the 20 most recent articles (title, link, pubDate, description). Submit URL to Google News Publisher Center and Feedly's index endpoint via HTTP POST on deploy. Estimated build time: 2–4 hrs.  _from competitor-watch 2026-05-09_
 - [ ] (dev) Inject per-article structured metadata: `<meta name="description">`, Open Graph (`og:title`, `og:description`, `og:image`, `og:published_time`), and `Article` JSON-LD schema on every article page. Pull values from existing article fields. Estimated build time: 3–5 hrs; zero dependencies.  _from competitor-watch 2026-05-09_
 - [ ] (growth) Add a cron job that fires after each 5×/day publish cycle, formats the new article's headline + URL into a 240-char string, and POSTs to the X API (free Basic tier, no payment required for write access at low volume) and optionally appends to a Buffer-compatible queue file. Tag posts `#news #AI`. Estimated build time: 2–3 hrs.  _from competitor-watch 2026-05-09_
