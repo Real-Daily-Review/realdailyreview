@@ -78,6 +78,12 @@ jobs:
         if: github.event.inputs.dry_run != 'true'
         run: npm run lint:content
 
+      - name: Generate per-article OG images
+        if: github.event.inputs.dry_run != 'true'
+        run: |
+          sudo apt-get update -qq && sudo apt-get install -y -qq imagemagick
+          node scripts/gen-og-images.mjs
+
       - name: Write run status (always)
         if: always()
         run: |
@@ -102,7 +108,7 @@ jobs:
         run: |
           git config user.name "Real Daily Review Bot"
           git config user.email "bot@realdailyreview.com"
-          git add src/content/articles/ ops/runs/ 2>/dev/null || true
+          git add src/content/articles/ ops/runs/ public/og/ 2>/dev/null || true
           if git diff --cached --quiet; then
             echo "No changes to commit."
             exit 0

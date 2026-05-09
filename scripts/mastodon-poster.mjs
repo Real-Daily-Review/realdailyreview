@@ -18,7 +18,7 @@ const ARTICLES_DIR = path.resolve('src/content/articles');
 const POSTED_FILE = path.resolve('ops/social-posted/mastodon.json');
 const SITE_URL = 'https://realdailyreview.com';
 const LOOKBACK_HOURS = 6;
-const MAX_POSTS_PER_RUN = 4;
+const MAX_POSTS_PER_RUN = 1;  // one per cron tick — staggered cadence like a real outlet
 
 async function readPosted() {
   try { return JSON.parse(await fs.readFile(POSTED_FILE, 'utf8')); } catch { return { slugs: [] }; }

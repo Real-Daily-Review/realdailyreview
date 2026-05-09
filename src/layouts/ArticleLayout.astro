@@ -22,6 +22,11 @@ const formattedDate = data.pubDate.toLocaleDateString('en-US', {
   day: 'numeric',
 });
 
+// Per-article OG image (gen-og-images.mjs creates these at build time);
+// falls back to brand default if missing.
+const ogImagePath = `/og/${article.slug}.png`;
+const ogImageAbsoluteUrl = new URL(ogImagePath, SITE.url).toString();
+
 // JSON-LD for SEO + Google News eligibility
 const jsonLd = {
   '@context': 'https://schema.org',
@@ -39,7 +44,7 @@ const jsonLd = {
   mainEntityOfPage: { '@type': 'WebPage', '@id': new URL(`/articles/${article.slug}`, SITE.url).toString() },
   articleSection: data.section,
   keywords: data.tags.join(', '),
-  image: [new URL('/og-default.png', SITE.url).toString()],
+  image: [ogImageAbsoluteUrl],
 };
 
 // Breadcrumb structured data → renders rich-snippet trail in Google search results
@@ -60,6 +65,7 @@ const breadcrumbLd = {
   type="article"
   publishedTime={data.pubDate.toISOString()}
   modifiedTime={(data.updatedDate ?? data.pubDate).toISOString()}
+  ogImage={ogImagePath}
 >
   <script slot="head-extra" type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
   <script slot="head-extra" type="application/ld+json" set:html={JSON.stringify(breadcrumbLd)} />

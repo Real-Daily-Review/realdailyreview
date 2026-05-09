@@ -20,8 +20,11 @@ const ARTICLES_DIR = path.resolve('src/content/articles');
 const POSTED_FILE = path.resolve('ops/social-posted/bluesky.json');
 const SITE_URL = 'https://realdailyreview.com';
 const LOOKBACK_HOURS = 6;
-const MAX_POSTS_PER_RUN = 4;
-const MAX_CHARS = 290; // Bluesky cap is 300; leave buffer for URL byte calc
+// One post per cron run — staggers cadence like a real outlet (AP/Reuters/BBC).
+// Cron fires every 2h, so we trickle ~12 posts/day across the timezone windows
+// instead of dumping 4 at once and tripping the "spam bot" pattern.
+const MAX_POSTS_PER_RUN = 1;
+const MAX_CHARS = 290;
 
 async function readPosted() {
   try { return JSON.parse(await fs.readFile(POSTED_FILE, 'utf8')); } catch { return { slugs: [] }; }
@@ -148,23 +151,77 @@ function parseFacets(text) {
   return facets;
 }
 
-async function bskyPost({ session, text }) {
+// Fetch og:image, og:title, og:description from a URL.
+async function fetchOgMeta(url) {
+  try {
+    const r = await fetch(url, { headers: { 'User-Agent': 'RealDailyReviewBot/1.0' } });
+    if (!r.ok) return null;
+    const html = await r.text();
+    const get = (prop) => {
+      const m = html.match(new RegExp(`<meta[^>]+property=["']${prop}["'][^>]+content=["']([^"']+)["']`, 'i'))
+        || html.match(new RegExp(`<meta[^>]+content=["']([^"']+)["'][^>]+property=["']${prop}["']`, 'i'))
+        || html.match(new RegExp(`<meta[^>]+name=["']${prop}["'][^>]+content=["']([^"']+)["']`, 'i'));
+      return m ? m[1].replace(/&amp;/g, '&').replace(/&quot;/g, '"').replace(/&#39;/g, "'") : null;
+    };
+    return {
+      title: get('og:title') || get('twitter:title'),
+      description: get('og:description') || get('twitter:description') || get('description'),
+      image: get('og:image') || get('twitter:image'),
+    };
+  } catch { return null; }
+}
+
+// Upload a binary blob (image) to Bluesky to use as embed thumbnail.
+async function bskyUploadBlob({ session, imageUrl }) {
+  if (!imageUrl) return null;
+  try {
+    const imgRes = await fetch(imageUrl);
+    if (!imgRes.ok) return null;
+    const buf = await imgRes.arrayBuffer();
+    if (buf.byteLength > 1_000_000) return null; // bsky cap ~1MB
+    const mime = imgRes.headers.get('content-type') || 'image/png';
+    const r = await fetch('https://bsky.social/xrpc/com.atproto.repo.uploadBlob', {
+      method: 'POST',
+      headers: { Authorization: `Bearer ${session.accessJwt}`, 'Content-Type': mime },
+      body: Buffer.from(buf),
+    });
+    if (!r.ok) return null;
+    const j = await r.json();
+    return j.blob;
+  } catch { return null; }
+}
+
+async function bskyPost({ session, text, embed }) {
+  const record = {
+    $type: 'app.bsky.feed.post',
+    text,
+    createdAt: new Date().toISOString(),
+    facets: parseFacets(text),
+  };
+  if (embed) record.embed = embed;
   const r = await fetch('https://bsky.social/xrpc/com.atproto.repo.createRecord', {
     method: 'POST',
     headers: { Authorization: `Bearer ${session.accessJwt}`, 'Content-Type': 'application/json' },
     body: JSON.stringify({
       repo: session.did,
       collection: 'app.bsky.feed.post',
-      record: {
-        $type: 'app.bsky.feed.post',
-        text,
-        createdAt: new Date().toISOString(),
-        facets: parseFacets(text),
-      },
+      record,
     }),
   });
   if (!r.ok) throw new Error(`bsky post ${r.status}: ${await r.text()}`);
   return await r.json();
+}
+
+// Build an external embed (the rich link card with image) for an article URL.
+async function buildExternalEmbed({ session, articleUrl, fallbackTitle, fallbackDesc }) {
+  const og = await fetchOgMeta(articleUrl);
+  const title = (og && og.title) || fallbackTitle;
+  const description = (og && og.description) || fallbackDesc;
+  const imageUrl = og && og.image && /^https?:/.test(og.image) ? og.image : null;
+  const thumbBlob = await bskyUploadBlob({ session, imageUrl });
+  const external = { uri: articleUrl, title: title.slice(0, 300), description: description.slice(0, 1000) };
+  if (thumbBlob) external.thumb = thumbBlob;
+  return { $type: 'app.bsky.embed.external', external };
 }
 
 async function writeStatus(status) {
@@ -216,11 +273,26 @@ async function main() {
   const sent = [];
   for (const a of candidates.slice(0, MAX_POSTS_PER_RUN)) {
     const built = await buildPost({ client: aiClient, article: a });
+    const articleUrl = `${SITE_URL}/articles/${a.slug}`;
+    let embed = null;
     try {
-      const res = await bskyPost({ session, text: built.text });
-      console.log(`[bluesky] posted ${a.slug} (${built.strategy}) → ${res.uri}`);
+      embed = await buildExternalEmbed({
+        session, articleUrl,
+        fallbackTitle: a.data.title,
+        fallbackDesc: a.data.description,
+      });
+    } catch (err) {
+      console.warn(`[bluesky] embed build failed for ${a.slug}: ${err.message}`);
+    }
+    try {
+      const res = await bskyPost({ session, text: built.text, embed });
+      console.log(`[bluesky] posted ${a.slug} (${built.strategy}, embed=${!!embed?.external?.thumb}) → ${res.uri}`);
       posted.slugs.push(a.slug);
-      sent.push({ slug: a.slug, uri: res.uri, strategy: built.strategy, hook: built.hook || null, posted_at: new Date().toISOString() });
+      sent.push({
+        slug: a.slug, uri: res.uri, strategy: built.strategy, hook: built.hook || null,
+        had_embed: !!embed, had_image: !!embed?.external?.thumb,
+        posted_at: new Date().toISOString(),
+      });
       posts++;
       await new Promise((r) => setTimeout(r, 4500));
     } catch (err) {
