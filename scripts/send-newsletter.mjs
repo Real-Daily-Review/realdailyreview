@@ -104,27 +104,53 @@ async function sendOne({ apiKey, from, to, subject, html }) {
   return { ok: r.ok, status: r.status, body: r.ok ? null : await r.text() };
 }
 
+async function writeStatus(status) {
+  await fs.mkdir(NEWSLETTER_DIR, { recursive: true });
+  const today = new Date().toISOString().slice(0, 10);
+  const file = path.join(NEWSLETTER_DIR, `${today}-status.json`);
+  await fs.writeFile(file, JSON.stringify({ ...status, written_at: new Date().toISOString() }, null, 2), 'utf8');
+}
+
 async function main() {
   await fs.mkdir(NEWSLETTER_DIR, { recursive: true });
   const apiKey = process.env.RESEND_API_KEY;
   const from = process.env.RESEND_FROM || 'Real Daily Review <brief@realdailyreview.com>';
   const adminToken = process.env.ADMIN_TOKEN;
 
+  // Write a status file no matter which path we take so the cause of skip is observable.
+  const presence = {
+    has_resend_api_key: !!apiKey,
+    has_admin_token: !!adminToken,
+    resend_from: from,
+    site_host: SITE_HOST,
+  };
+
   if (!apiKey) {
-    console.log('[newsletter] RESEND_API_KEY not set — skipping. Subscribe form still collects emails.');
+    console.log('[newsletter] RESEND_API_KEY not set — skipping');
+    await writeStatus({ outcome: 'skipped', reason: 'RESEND_API_KEY not set', ...presence });
     return;
   }
   if (!adminToken) {
     console.log('[newsletter] ADMIN_TOKEN not set — cannot fetch subscribers');
+    await writeStatus({ outcome: 'skipped', reason: 'ADMIN_TOKEN not set', ...presence });
     return;
   }
   const digest = await todaysDigest();
   if (!digest) {
     console.log('[newsletter] no digest article today yet — skipping');
+    await writeStatus({ outcome: 'skipped', reason: 'no digest article today', ...presence });
     return;
   }
   const standalones = await recentStandalones(6);
-  const subs = await fetchSubscribers(adminToken);
+
+  let subs;
+  try {
+    subs = await fetchSubscribers(adminToken);
+  } catch (err) {
+    console.error('[newsletter] fetchSubscribers failed:', err.message);
+    await writeStatus({ outcome: 'failed', reason: 'admin endpoint unreachable', error: err.message, ...presence });
+    return;
+  }
   console.log(`[newsletter] ${subs.length} confirmed subscribers; sending today's digest…`);
 
   const html = renderEmail({ digest, standalones });
@@ -135,7 +161,6 @@ async function main() {
     const res = await sendOne({ apiKey, from, to: s.email, subject, html });
     results.push({ email: s.email, ...res });
     if (res.ok) succeeded++; else failed++;
-    // Resend free tier is 100/day; respect rate
     await new Promise((r) => setTimeout(r, 700));
   }
   const log = {
@@ -146,8 +171,11 @@ async function main() {
     succeeded,
     failed,
     failures: results.filter((r) => !r.ok).slice(0, 20),
+    outcome: 'sent',
+    ...presence,
   };
   await fs.writeFile(path.join(NEWSLETTER_DIR, `${log.date}.json`), JSON.stringify(log, null, 2), 'utf8');
+  await writeStatus(log);
   console.log(`[newsletter] sent ${succeeded}/${subs.length}; ${failed} failures logged`);
 }
 
