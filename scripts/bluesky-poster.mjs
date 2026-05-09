@@ -101,11 +101,21 @@ async function bskyPost({ session, text }) {
   return await r.json();
 }
 
+async function writeStatus(status) {
+  await fs.mkdir(path.dirname(POSTED_FILE), { recursive: true });
+  const today = new Date().toISOString().slice(0, 10);
+  const file = path.resolve('ops/social-posted', `bluesky-status-${today}.json`);
+  await fs.writeFile(file, JSON.stringify({ ...status, written_at: new Date().toISOString() }, null, 2), 'utf8');
+}
+
 async function main() {
   const handle = process.env.BLUESKY_HANDLE;
   const password = process.env.BLUESKY_APP_PASSWORD;
+  const presence = { has_handle: !!handle, has_password: !!password, handle: handle || null };
+
   if (!handle || !password) {
     console.log('[bluesky] BLUESKY_HANDLE or BLUESKY_APP_PASSWORD not set — skipping');
+    await writeStatus({ outcome: 'skipped', reason: 'secrets missing', ...presence });
     return;
   }
   const posted = await readPosted();
@@ -113,10 +123,26 @@ async function main() {
   const candidates = recent.filter((a) => !posted.slugs.includes(a.slug));
   if (candidates.length === 0) {
     console.log('[bluesky] nothing new to post');
+    await writeStatus({
+      outcome: 'no-candidates',
+      reason: `${recent.length} articles in last ${LOOKBACK_HOURS}h; all already posted`,
+      already_posted_count: posted.slugs.length,
+      ...presence,
+    });
     return;
   }
-  const session = await bskyAuth(handle, password);
+
+  let session;
+  try {
+    session = await bskyAuth(handle, password);
+  } catch (err) {
+    console.error('[bluesky] auth failed:', err.message);
+    await writeStatus({ outcome: 'auth-failed', error: err.message, ...presence });
+    return;
+  }
+
   let posts = 0;
+  const failures = [];
   for (const a of candidates.slice(0, MAX_POSTS_PER_RUN)) {
     const text = buildPost(a);
     try {
@@ -124,13 +150,21 @@ async function main() {
       console.log(`[bluesky] posted ${a.slug} → ${res.uri}`);
       posted.slugs.push(a.slug);
       posts++;
-      await new Promise((r) => setTimeout(r, 4000)); // rate respect
+      await new Promise((r) => setTimeout(r, 4000));
     } catch (err) {
       console.warn(`[bluesky] failed ${a.slug}: ${err.message}`);
+      failures.push({ slug: a.slug, error: err.message });
     }
   }
   posted.slugs = posted.slugs.slice(-500);
   await writePosted(posted);
+  await writeStatus({
+    outcome: 'sent',
+    candidates: candidates.length,
+    posted: posts,
+    failures,
+    ...presence,
+  });
   console.log(`[bluesky] posted ${posts}/${candidates.length}`);
 }
 
