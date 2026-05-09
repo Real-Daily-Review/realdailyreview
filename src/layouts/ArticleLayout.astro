@@ -4,6 +4,7 @@ import PerspectiveBox from '@/components/PerspectiveBox.astro';
 import AdSlot from '@/components/AdSlot.astro';
 import NewsletterSignup from '@/components/NewsletterSignup.astro';
 import TipJar from '@/components/TipJar.astro';
+import ReadingTime from '@/components/ReadingTime.astro';
 import { SITE } from '@/config';
 import type { CollectionEntry } from 'astro:content';
 
@@ -11,7 +12,7 @@ interface Props {
   article: CollectionEntry<'articles'>;
 }
 const { article } = Astro.props;
-const { data } = article;
+const { data, body } = article;
 
 const formattedDate = data.pubDate.toLocaleDateString('en-US', {
   weekday: 'long',
@@ -74,6 +75,7 @@ const breadcrumbLd = {
     <div class="meta-row">
       <span>By {data.author}</span>
       <span>{formattedDate}</span>
+      <ReadingTime body={body} />
       {data.updatedDate && <span>Updated {data.updatedDate.toLocaleDateString()}</span>}
     </div>
 

@@ -7,9 +7,10 @@ name: Competitor watch
 
 on:
   schedule:
-    # 02:00 UTC daily (10pm ET previous day) — runs while everyone sleeps,
-    # ready when feature-build kicks off at 06:30 UTC
-    - cron: '0 2 * * *'
+    # 2x/day — morning analysis + afternoon update. Each run can spawn
+    # new [BUILD-NOW] queue items that feature-build picks up next cron.
+    - cron: '0 2 * * *'   # 02:00 UTC (10pm ET previous day)
+    - cron: '0 14 * * *'  # 14:00 UTC (10am ET)
   push:
     tags:
       - 'competitor-watch-*'

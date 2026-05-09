@@ -1,0 +1,64 @@
+<div id="rdr-countdown" class="rdr-countdown" hidden>
+  <span class="rdr-countdown-pulse" aria-hidden="true"></span>
+  <span class="rdr-countdown-text">Next brief in <span id="rdr-countdown-clock">—</span></span>
+</div>
+
+<style>
+  .rdr-countdown {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: var(--font-sans);
+    font-size: 0.78rem;
+    color: var(--color-muted);
+    padding: 0.25rem 0.6rem;
+    border-radius: 999px;
+    background: var(--color-tag-bg);
+  }
+  .rdr-countdown-pulse {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--color-accent);
+    animation: rdr-countdown-pulse 1.6s ease-in-out infinite;
+  }
+  @keyframes rdr-countdown-pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+  }
+</style>
+
+<script is:inline>
+(function () {
+  // Slot times in UTC (matches daily-publish cron). 8 slots/day; pick the next one.
+  const SLOTS_UTC = [2.5, 6.5, 9.25, 12, 15.5, 19, 22, 0.5]; // hours past midnight UTC
+  function nextSlotIso() {
+    const now = new Date();
+    const todayMid = Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate());
+    const nowH = (now.getTime() - todayMid) / 3.6e6;
+    for (const slot of SLOTS_UTC) {
+      if (slot > nowH) return new Date(todayMid + slot * 3.6e6);
+    }
+    return new Date(todayMid + 24 * 3.6e6 + SLOTS_UTC[0] * 3.6e6);
+  }
+  function fmt(diffMs) {
+    if (diffMs <= 0) return 'any minute';
+    const m = Math.floor(diffMs / 60000);
+    const h = Math.floor(m / 60);
+    if (h >= 1) return h + 'h ' + (m % 60) + 'm';
+    return m + 'm';
+  }
+  const el = document.getElementById('rdr-countdown');
+  const clock = document.getElementById('rdr-countdown-clock');
+  if (!el || !clock) return;
+  el.hidden = false;
+  const target = nextSlotIso();
+  function tick() {
+    const diff = target.getTime() - Date.now();
+    if (diff <= 0) { clock.textContent = 'any minute'; return; }
+    clock.textContent = fmt(diff);
+  }
+  tick();
+  setInterval(tick, 60_000);
+})();
+</script>

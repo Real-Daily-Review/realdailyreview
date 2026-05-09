@@ -6,14 +6,13 @@ name: CEO standup (4x/day)
 
 on:
   schedule:
-    # 04:00 UTC (12am ET — overnight planner)
-    - cron: '0 4 * * *'
-    # 13:00 UTC (9am ET — morning kick-off)
-    - cron: '0 13 * * *'
-    # 18:00 UTC (2pm ET — midday checkpoint)
-    - cron: '0 18 * * *'
-    # 23:00 UTC (7pm ET — evening review)
-    - cron: '0 23 * * *'
+    # 6x/day — every 4 hours.
+    - cron: '0 0 * * *'   # 00:00 UTC
+    - cron: '0 4 * * *'   # 04:00 UTC
+    - cron: '0 8 * * *'   # 08:00 UTC
+    - cron: '0 12 * * *'  # 12:00 UTC
+    - cron: '0 16 * * *'  # 16:00 UTC
+    - cron: '0 20 * * *'  # 20:00 UTC
   push:
     tags:
       - 'run-standup-*'

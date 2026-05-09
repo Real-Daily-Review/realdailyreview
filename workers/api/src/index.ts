@@ -188,6 +188,37 @@ async function handleAdminFeedback(req: Request, env: Env): Promise<Response> {
   return jsonResponse({ feedback: r.results }, {}, env, req);
 }
 
+async function handleAdminStats(req: Request, env: Env): Promise<Response> {
+  const auth = req.headers.get('authorization') ?? '';
+  if (!auth.startsWith('Bearer ') || auth.slice(7) !== env.ADMIN_TOKEN) {
+    return jsonResponse({ error: 'unauthorized' }, { status: 401 }, env, req);
+  }
+  const subStats = await env.DB.prepare(`SELECT status, COUNT(*) as n FROM subscribers GROUP BY status`).all();
+  const fbCount = await env.DB.prepare(`SELECT COUNT(*) as n FROM feedback`).first<{ n: number }>();
+  const phoneCount = await env.DB.prepare(`SELECT COUNT(*) as n FROM subscribers WHERE phone IS NOT NULL`).first<{ n: number }>();
+  const last24h = await env.DB.prepare(
+    `SELECT COUNT(*) as n FROM subscribers WHERE created_at >= strftime('%s','now','-1 day')`
+  ).first<{ n: number }>();
+  return jsonResponse({
+    subscribers_by_status: subStats.results,
+    subscribers_with_phone: phoneCount?.n ?? 0,
+    subscribers_added_last_24h: last24h?.n ?? 0,
+    feedback_total: fbCount?.n ?? 0,
+    fetched_at: new Date().toISOString(),
+  }, {}, env, req);
+}
+
+async function handleAdminSubscribers(req: Request, env: Env): Promise<Response> {
+  const auth = req.headers.get('authorization') ?? '';
+  if (!auth.startsWith('Bearer ') || auth.slice(7) !== env.ADMIN_TOKEN) {
+    return jsonResponse({ error: 'unauthorized' }, { status: 401 }, env, req);
+  }
+  const r = await env.DB.prepare(
+    `SELECT id, email, phone, status, source, created_at, confirmed_at FROM subscribers WHERE status='confirmed' ORDER BY created_at DESC LIMIT 1000`
+  ).all();
+  return jsonResponse({ subscribers: r.results, count: r.results.length }, {}, env, req);
+}
+
 export default {
   async fetch(req: Request, env: Env): Promise<Response> {
     const url = new URL(req.url);
@@ -211,6 +242,8 @@ export default {
     if (req.method === 'POST' && url.pathname === '/api/subscribe') return handleSubscribe(req, env, ipHash, uaHash);
     if (req.method === 'POST' && url.pathname === '/api/feedback') return handleFeedback(req, env, ipHash, uaHash);
     if (req.method === 'GET' && url.pathname === '/api/admin/feedback') return handleAdminFeedback(req, env);
+    if (req.method === 'GET' && url.pathname === '/api/admin/stats') return handleAdminStats(req, env);
+    if (req.method === 'GET' && url.pathname === '/api/admin/subscribers') return handleAdminSubscribers(req, env);
 
     if (req.method === 'GET' && url.pathname === '/api/health') {
       return jsonResponse({ ok: true, time: new Date().toISOString() }, {}, env, req);

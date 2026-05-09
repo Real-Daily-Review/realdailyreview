@@ -8,10 +8,11 @@ name: Autonomous feature builder
 
 on:
   schedule:
-    # 06:30 UTC (2:30 AM ET — overnight build window)
-    - cron: '30 6 * * *'
-    # 19:30 UTC (3:30 PM ET — afternoon build window)
-    - cron: '30 19 * * *'
+    # 4x/day so queue items don't stall. Each run picks one item.
+    - cron: '0 5 * * *'   # 05:00 UTC (1am ET)
+    - cron: '0 11 * * *'  # 11:00 UTC (7am ET)
+    - cron: '0 17 * * *'  # 17:00 UTC (1pm ET)
+    - cron: '0 23 * * *'  # 23:00 UTC (7pm ET)
   push:
     tags:
       - 'build-feature-*'

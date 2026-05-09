@@ -1,5 +1,6 @@
 ---
 import { SITE, NAV } from '@/config';
+import NextBriefCountdown from './NextBriefCountdown.astro';
 
 const { pathname } = Astro.url;
 ---
@@ -16,6 +17,7 @@ const { pathname } = Astro.url;
           {item.label}
         </a>
       ))}
+      <NextBriefCountdown />
     </nav>
   </div>
 </header>

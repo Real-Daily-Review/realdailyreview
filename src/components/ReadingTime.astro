@@ -1,0 +1,10 @@
+---
+interface Props { body: string; }
+const { body } = Astro.props;
+const wordCount = body.replace(/<[^>]+>/g, ' ').split(/\s+/).filter(Boolean).length;
+const minutes = Math.max(1, Math.round(wordCount / 220));
+---
+
+<span style="font-family: var(--font-sans); font-size: 0.85rem; color: var(--color-muted);">
+  ~{minutes} min read · {wordCount.toLocaleString()} words
+</span>
