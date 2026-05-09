@@ -19,6 +19,7 @@ interface Env {
   DB: D1Database;
   TURNSTILE_SECRET: string;
   RESEND_API_KEY?: string;
+  RESEND_FROM?: string;
   ADMIN_TOKEN: string;
   SITE_ORIGIN: string;
   RATE_LIMIT_PER_MIN: string;
@@ -142,11 +143,33 @@ async function handleSubscribe(req: Request, env: Env, ipHash: string, uaHash: s
        status = subscribers.status`
   ).bind(email, phone, ipHash, uaHash).run();
 
-  // TODO: send double-opt-in via Resend once RESEND_API_KEY is set.
-  // For now, mark confirmed since we have no email-sending in Phase 0.
+  // Mark confirmed and send a welcome email if Resend is wired.
   await env.DB.prepare(`UPDATE subscribers SET status='confirmed', confirmed_at=strftime('%s','now') WHERE email=? AND status='pending'`).bind(email).run();
+  if (env.RESEND_API_KEY && env.RESEND_FROM) {
+    sendWelcomeEmail(env, email).catch((err) => console.warn('welcome email failed:', err));
+  }
 
   return jsonResponse({ ok: true }, {}, env, req);
+}
+
+async function sendWelcomeEmail(env: Env, email: string): Promise<void> {
+  const r = await fetch('https://api.resend.com/emails', {
+    method: 'POST',
+    headers: { Authorization: `Bearer ${env.RESEND_API_KEY}`, 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      from: env.RESEND_FROM,
+      to: [email],
+      subject: 'Welcome to Real Daily Review',
+      html: `<div style="font-family:Georgia,serif;max-width:580px;margin:0 auto;padding:24px;color:#1a1a1a">
+        <h1 style="font-size:22px;margin:0 0 16px">Welcome to Real Daily Review</h1>
+        <p style="font-size:16px;line-height:1.6">You're confirmed. Every weekday morning we send one short brief plus the day's biggest stories — five minutes, no spin, sources cited.</p>
+        <p style="font-size:16px;line-height:1.6">Tomorrow morning's brief lands in your inbox at 5:30am ET.</p>
+        <p style="font-size:14px;color:#5b5b5b;margin-top:32px">— The Real Daily Review desk<br/><a href="https://realdailyreview.com" style="color:#8a1538">realdailyreview.com</a></p>
+        <p style="font-size:11px;color:#999;margin-top:32px;border-top:1px solid #eee;padding-top:12px">You signed up at realdailyreview.com. <a href="https://realdailyreview.com/api/unsubscribe?e=${encodeURIComponent(email)}" style="color:#999">Unsubscribe</a></p>
+      </div>`,
+    }),
+  });
+  if (!r.ok) throw new Error(`Resend ${r.status}: ${await r.text()}`);
 }
 
 async function handleFeedback(req: Request, env: Env, ipHash: string, uaHash: string): Promise<Response> {
