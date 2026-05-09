@@ -1,9 +1,22 @@
 {
-  "outcome": "no-candidates",
-  "reason": "3 articles in last 6h; all already posted",
-  "already_posted_count": 12,
+  "outcome": "sent",
+  "candidates": 3,
+  "posted": 1,
+  "used_ai_hooks": true,
+  "failures": [],
+  "sent": [
+    {
+      "slug": "2026-05-09-bobby-cox-hall-of-fame-braves-manager-dies-at-84",
+      "uri": "at://did:plc:p7bwmjqjgn3ldehylmu2cydk/app.bsky.feed.post/3mlhe2ymb5w2s",
+      "strategy": "ai-hook",
+      "hook": "Bobby Cox, who managed the Braves to their only World Series title in 1995, has died at 84. His teams dominated the National League for a decade but won just once.",
+      "had_embed": true,
+      "had_image": true,
+      "posted_at": "2026-05-09T23:02:28.428Z"
+    }
+  ],
   "has_handle": true,
   "has_password": true,
   "handle": "realdailyreview.bsky.social",
-  "written_at": "2026-05-09T21:00:29.644Z"
+  "written_at": "2026-05-09T23:02:32.931Z"
 }

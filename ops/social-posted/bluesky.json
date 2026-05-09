@@ -11,7 +11,8 @@
     "2026-05-09-us-sanctions-chinese-middle-eastern-entities-for-aiding-iran",
     "2026-05-09-australias-one-nation-wins-first-lower-house-seat-in-historic-by-elect",
     "2026-05-09-nvidia-commits-dollar40b-to-ai-equity-investments-in-2026",
-    "2026-05-09-us-jobs-report-beats-expectations-despite-economic-red-flags"
+    "2026-05-09-us-jobs-report-beats-expectations-despite-economic-red-flags",
+    "2026-05-09-bobby-cox-hall-of-fame-braves-manager-dies-at-84"
   ],
   "posts": [
     {
@@ -41,6 +42,15 @@
       "strategy": "ai-hook",
       "hook": "The jobs report doubled expectations—but economists are spotting warning signs underneath the headline number.",
       "posted_at": "2026-05-09T19:20:19.138Z"
+    },
+    {
+      "slug": "2026-05-09-bobby-cox-hall-of-fame-braves-manager-dies-at-84",
+      "uri": "at://did:plc:p7bwmjqjgn3ldehylmu2cydk/app.bsky.feed.post/3mlhe2ymb5w2s",
+      "strategy": "ai-hook",
+      "hook": "Bobby Cox, who managed the Braves to their only World Series title in 1995, has died at 84. His teams dominated the National League for a decade but won just once.",
+      "had_embed": true,
+      "had_image": true,
+      "posted_at": "2026-05-09T23:02:28.428Z"
     }
   ]
 }
