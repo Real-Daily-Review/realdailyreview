@@ -10,6 +10,5 @@
   "has_resend_api_key": true,
   "has_admin_token": true,
   "resend_from": "Real Daily Review <brief@realdailyreview.com>",
-  "site_host": "realdailyreview.com",
-  "written_at": "2026-05-09T14:34:36.048Z"
+  "site_host": "realdailyreview.com"
 }
