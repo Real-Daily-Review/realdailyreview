@@ -1,20 +1,9 @@
 {
-  "outcome": "sent",
-  "candidates": 1,
-  "posted": 1,
-  "used_ai_hooks": true,
-  "failures": [],
-  "sent": [
-    {
-      "slug": "2026-05-09-us-sanctions-chinese-middle-eastern-entities-for-aiding-iran",
-      "uri": "at://did:plc:p7bwmjqjgn3ldehylmu2cydk/app.bsky.feed.post/3mlgksxeyg42l",
-      "strategy": "ai-hook",
-      "hook": "The U.S. just sanctioned 11 entities across China, the UAE, and Belarus for feeding Iran satellite imagery used to target American forces.",
-      "posted_at": "2026-05-09T15:30:34.891Z"
-    }
-  ],
+  "outcome": "no-candidates",
+  "reason": "4 articles in last 6h; all already posted",
+  "already_posted_count": 9,
   "has_handle": true,
   "has_password": true,
   "handle": "realdailyreview.bsky.social",
-  "written_at": "2026-05-09T15:30:39.393Z"
+  "written_at": "2026-05-09T17:09:48.515Z"
 }
