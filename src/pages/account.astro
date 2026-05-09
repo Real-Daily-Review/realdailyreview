@@ -1,0 +1,144 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { TURNSTILE } from '@/config';
+---
+
+<BaseLayout title="Your account" description="Sign in to manage your Real Daily Review preferences.">
+  <article class="article-body">
+    <p class="meta" style="font-family: var(--font-sans); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--color-accent);">Account</p>
+
+    <div id="rdr-acct-loading"><h1>Loading…</h1></div>
+
+    <div id="rdr-acct-signedout" hidden>
+      <h1>Sign in</h1>
+      <p style="color: var(--color-muted);">Enter your email and we'll send you a magic link. No passwords.</p>
+      <form id="rdr-signin-form" class="rdr-form">
+        <label for="signin-email">Email address</label>
+        <input id="signin-email" type="email" name="email" required autocomplete="email" inputmode="email" placeholder="you@example.com" />
+        <input type="hidden" name="cf-turnstile-response" id="signin-token" />
+        <button type="submit">Send magic link</button>
+        <p class="form-status" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+
+    <div id="rdr-acct-signedin" hidden>
+      <h1>Your account</h1>
+      <p style="color: var(--color-muted);">Signed in as <strong id="rdr-acct-email"></strong> · <a href="#" id="rdr-signout">sign out</a></p>
+
+      <h2 style="margin-top: var(--space-lg);">Preferences</h2>
+      <form id="rdr-prefs-form" class="rdr-form">
+        <fieldset style="border: 1px solid var(--color-rule); padding: var(--space-md); border-radius: 6px;">
+          <legend style="padding: 0 .5rem; font-family: var(--font-sans); font-size: 0.85rem; color: var(--color-muted);">Topics I want</legend>
+          <label style="display: flex; gap: 0.5rem; align-items: center; margin: 0.25rem 0;"><input type="checkbox" name="section" value="politics" /> Politics</label>
+          <label style="display: flex; gap: 0.5rem; align-items: center; margin: 0.25rem 0;"><input type="checkbox" name="section" value="business" /> Business</label>
+          <label style="display: flex; gap: 0.5rem; align-items: center; margin: 0.25rem 0;"><input type="checkbox" name="section" value="world" /> World</label>
+          <label style="display: flex; gap: 0.5rem; align-items: center; margin: 0.25rem 0;"><input type="checkbox" name="section" value="tech" /> Tech</label>
+          <label style="display: flex; gap: 0.5rem; align-items: center; margin: 0.25rem 0;"><input type="checkbox" name="section" value="culture" /> Culture</label>
+          <label style="display: flex; gap: 0.5rem; align-items: center; margin: 0.25rem 0;"><input type="checkbox" name="section" value="explainer" /> Explainers</label>
+        </fieldset>
+
+        <label for="prefs-freq">Email frequency</label>
+        <select id="prefs-freq" name="frequency" style="font: inherit; padding: 0.6rem 0.8rem; border: 1px solid var(--color-rule); background: var(--color-surface); color: var(--color-text); border-radius: 4px;">
+          <option value="daily">Daily — every weekday morning</option>
+          <option value="weekly">Weekly recap — Friday mornings</option>
+          <option value="breaking">Breaking news only — when something material moves</option>
+        </select>
+
+        <button type="submit">Save preferences</button>
+        <p class="form-status" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+  </article>
+</BaseLayout>
+
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+<script is:inline define:vars={{ siteKey: TURNSTILE.siteKey }}>
+  (async function () {
+    const loading = document.getElementById('rdr-acct-loading');
+    const out = document.getElementById('rdr-acct-signedout');
+    const inn = document.getElementById('rdr-acct-signedin');
+
+    function setURL(query) {
+      const u = new URL(location.href);
+      if (query) u.search = query; else u.search = '';
+      history.replaceState(null, '', u.toString());
+    }
+
+    // Read URL flags from /auth?error=...
+    const params = new URLSearchParams(location.search);
+    if (params.get('error')) {
+      // surface error in signed-out state
+      out.hidden = false; loading.hidden = true;
+      const status = out.querySelector('.form-status');
+      status.textContent = params.get('error') === 'invalid-or-expired'
+        ? 'That link is invalid or expired. Try requesting a new one.'
+        : 'Sign-in error: ' + params.get('error');
+      status.className = 'form-status err';
+      setURL('');
+      return;
+    }
+
+    const me = await fetch('/api/me', { credentials: 'include' }).then((r) => r.json()).catch(() => ({ signed_in: false }));
+    loading.hidden = true;
+
+    if (!me.signed_in) {
+      out.hidden = false;
+      const form = document.getElementById('rdr-signin-form');
+      const status = form.querySelector('.form-status');
+      const tokenEl = document.getElementById('signin-token');
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        const email = form.email.value;
+        function submitNow() {
+          status.textContent = 'Sending…'; status.className = 'form-status';
+          fetch('/api/auth/request', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email: email, 'cf-turnstile-response': tokenEl.value }),
+          }).then((r) => r.json().then((j) => ({ r, j })))
+            .then(({ r, j }) => {
+              if (r.ok) { status.textContent = 'Check your inbox for a sign-in link.'; status.className = 'form-status ok'; }
+              else { status.textContent = j.error || 'Something went wrong.'; status.className = 'form-status err'; }
+            })
+            .catch(() => { status.textContent = 'Network error.'; status.className = 'form-status err'; });
+        }
+        if (window.turnstile && !tokenEl.value) {
+          const holder = document.createElement('div'); holder.style.display = 'none'; document.body.appendChild(holder);
+          window.turnstile.render(holder, { sitekey: siteKey, size: 'invisible', callback: (t) => { tokenEl.value = t; submitNow(); } });
+        } else { submitNow(); }
+      });
+      return;
+    }
+
+    inn.hidden = false;
+    document.getElementById('rdr-acct-email').textContent = me.email;
+
+    // Hydrate preferences
+    const prefs = me.preferences || {};
+    const sections = new Set(prefs.sections || ['politics','business','world','tech']);
+    document.querySelectorAll('input[name="section"]').forEach((cb) => { cb.checked = sections.has(cb.value); });
+    if (prefs.frequency) document.getElementById('prefs-freq').value = prefs.frequency;
+
+    // Save preferences
+    const prefForm = document.getElementById('rdr-prefs-form');
+    const prefStatus = prefForm.querySelector('.form-status');
+    prefForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+      const checked = [...prefForm.querySelectorAll('input[name="section"]:checked')].map((c) => c.value);
+      const freq = prefForm.frequency.value;
+      prefStatus.textContent = 'Saving…'; prefStatus.className = 'form-status';
+      fetch('/api/preferences', {
+        method: 'POST',
+        credentials: 'include',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ sections: checked, frequency: freq, timezone: Intl.DateTimeFormat().resolvedOptions().timeZone }),
+      }).then((r) => r.ok ? (prefStatus.textContent = 'Saved.', prefStatus.className = 'form-status ok')
+                         : (prefStatus.textContent = 'Save failed.', prefStatus.className = 'form-status err'));
+    });
+
+    document.getElementById('rdr-signout').addEventListener('click', function (e) {
+      e.preventDefault();
+      fetch('/api/auth/signout', { method: 'POST', credentials: 'include' }).then(() => location.reload());
+    });
+  })();
+</script>

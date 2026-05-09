@@ -3,6 +3,7 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
 import AdSlot from '@/components/AdSlot.astro';
 import NewsletterSignup from '@/components/NewsletterSignup.astro';
 import TipJar from '@/components/TipJar.astro';
+import ArticleCard from '@/components/ArticleCard.astro';
 import { getCollection } from 'astro:content';
 import { SITE } from '@/config';
 
@@ -38,11 +39,7 @@ const today = new Date().toLocaleDateString('en-US', { weekday: 'long', month: '
       The Brief &middot; {today}
     </p>
     {todaysDigest ? (
-      <article class="article-card" style="border-bottom-width: 2px; padding-bottom: var(--space-xl);">
-        <h1 style="font-size: clamp(2rem, 5vw, 3rem);"><a href={`/articles/${todaysDigest.slug}`} style="color: var(--color-text); text-decoration: none;">{todaysDigest.data.title}</a></h1>
-        <p class="dek" style="font-size: 1.15rem; margin-top: var(--space-sm);">{todaysDigest.data.description}</p>
-        <p style="font-family: var(--font-sans); font-size: 0.85rem; margin-top: var(--space-sm);"><a href={`/articles/${todaysDigest.slug}`}>Read the full brief &rarr;</a></p>
-      </article>
+      <ArticleCard article={todaysDigest} size="lead" />
     ) : (
       <article class="article-card">
         <h1>{SITE.name}</h1>
@@ -57,17 +54,9 @@ const today = new Date().toLocaleDateString('en-US', { weekday: 'long', month: '
   <AdSlot slotId="home-top" format="leaderboard" />
 
   <h2 style="margin-top: var(--space-xl); border-top: 1px solid var(--color-rule); padding-top: var(--space-lg);">More from today</h2>
-  <ul class="article-list">
-    {otherStories.map((a) => (
-      <li class="article-card">
-        <p class="meta">
-          <span class="section-tag">{a.data.section}</span> &middot; {a.data.pubDate.toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}
-        </p>
-        <h2><a href={`/articles/${a.slug}`}>{a.data.title}</a></h2>
-        <p class="dek">{a.data.description}</p>
-      </li>
-    ))}
-  </ul>
+  <div>
+    {otherStories.map((a) => <ArticleCard article={a} />)}
+  </div>
 
   {topTags.length > 0 && (
     <section style="margin-top: var(--space-xl); border-top: 1px solid var(--color-rule); padding-top: var(--space-lg);">

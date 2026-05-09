@@ -231,6 +231,152 @@ async function handleAdminStats(req: Request, env: Env): Promise<Response> {
   }, {}, env, req);
 }
 
+// ---------- Auth (magic-link) ----------
+
+function randomToken(bytes = 32): string {
+  const buf = new Uint8Array(bytes);
+  crypto.getRandomValues(buf);
+  return Array.from(buf).map((b) => b.toString(16).padStart(2, '0')).join('');
+}
+
+function getCookie(req: Request, name: string): string | null {
+  const h = req.headers.get('cookie') || '';
+  for (const part of h.split(/;\s*/)) {
+    const i = part.indexOf('=');
+    if (i > 0 && part.slice(0, i) === name) return decodeURIComponent(part.slice(i + 1));
+  }
+  return null;
+}
+
+async function currentSession(req: Request, env: Env): Promise<{ email: string } | null> {
+  const sessionToken = getCookie(req, 'rdr_session');
+  if (!sessionToken) return null;
+  const row = await env.DB.prepare(
+    `SELECT email, expires_at FROM user_sessions WHERE session_token=? LIMIT 1`
+  ).bind(sessionToken).first<{ email: string; expires_at: number }>();
+  if (!row) return null;
+  if (row.expires_at < Math.floor(Date.now() / 1000)) return null;
+  await env.DB.prepare(`UPDATE user_sessions SET last_seen_at=strftime('%s','now') WHERE session_token=?`).bind(sessionToken).run();
+  return { email: row.email };
+}
+
+async function handleAuthRequest(req: Request, env: Env, ipHash: string): Promise<Response> {
+  const body = await readJson(req);
+  if (!body) return jsonResponse({ error: 'Bad request.' }, { status: 400 }, env, req);
+  const email = typeof body.email === 'string' ? body.email.toLowerCase().trim() : '';
+  if (!isValidEmail(email)) return jsonResponse({ error: 'Invalid email.' }, { status: 400 }, env, req);
+
+  // Optional Turnstile if present
+  const turnstile = typeof body['cf-turnstile-response'] === 'string' ? body['cf-turnstile-response'] : '';
+  if (env.TURNSTILE_SECRET && env.TURNSTILE_SECRET !== 'PLACEHOLDER_NO_TURNSTILE_SET' && turnstile) {
+    const ok = await verifyTurnstile(turnstile, req.headers.get('cf-connecting-ip') ?? '', env.TURNSTILE_SECRET);
+    if (!ok) return jsonResponse({ error: 'Captcha failed.' }, { status: 403 }, env, req);
+  }
+
+  const token = randomToken(32);
+  const expiresAt = Math.floor(Date.now() / 1000) + 30 * 60; // 30 minutes
+  await env.DB.prepare(
+    `INSERT INTO auth_tokens (email, token, expires_at, ip_hash) VALUES (?, ?, ?, ?)`
+  ).bind(email, token, expiresAt, ipHash).run();
+
+  const verifyUrl = `${env.SITE_ORIGIN}/auth/verify?t=${encodeURIComponent(token)}`;
+  if (env.RESEND_API_KEY && env.RESEND_FROM) {
+    const r = await fetch('https://api.resend.com/emails', {
+      method: 'POST',
+      headers: { Authorization: `Bearer ${env.RESEND_API_KEY}`, 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        from: env.RESEND_FROM,
+        to: [email],
+        subject: 'Sign in to Real Daily Review',
+        html: `<div style="font-family:Georgia,serif;max-width:560px;margin:0 auto;padding:24px;color:#1a1a1a">
+          <h1 style="font-size:22px">Sign in to Real Daily Review</h1>
+          <p style="font-size:16px;line-height:1.6">Click the button below to sign in. This link expires in 30 minutes.</p>
+          <p><a href="${verifyUrl}" style="display:inline-block;background:#8a1538;color:#fff;text-decoration:none;padding:12px 22px;border-radius:4px;font-weight:600">Sign me in</a></p>
+          <p style="font-size:13px;color:#5b5b5b">If you didn't request this, you can ignore this email.</p>
+          <p style="font-size:13px;color:#5b5b5b">Or paste this URL: ${verifyUrl}</p>
+        </div>`,
+      }),
+    });
+    if (!r.ok) {
+      console.warn('Resend failed:', r.status, await r.text());
+      return jsonResponse({ error: 'Email send failed.' }, { status: 500 }, env, req);
+    }
+  } else {
+    console.warn('RESEND not configured; magic link:', verifyUrl);
+  }
+  return jsonResponse({ ok: true, message: 'Check your email.' }, {}, env, req);
+}
+
+async function handleAuthVerify(req: Request, env: Env, ipHash: string): Promise<Response> {
+  const url = new URL(req.url);
+  const token = url.searchParams.get('t');
+  if (!token) return Response.redirect(`${env.SITE_ORIGIN}/account?error=missing-token`, 302);
+  const row = await env.DB.prepare(
+    `SELECT id, email, expires_at, used_at FROM auth_tokens WHERE token=? LIMIT 1`
+  ).bind(token).first<{ id: number; email: string; expires_at: number; used_at: number | null }>();
+  if (!row || row.expires_at < Math.floor(Date.now() / 1000) || row.used_at) {
+    return Response.redirect(`${env.SITE_ORIGIN}/account?error=invalid-or-expired`, 302);
+  }
+  await env.DB.prepare(`UPDATE auth_tokens SET used_at=strftime('%s','now') WHERE id=?`).bind(row.id).run();
+
+  const sessionToken = randomToken(32);
+  const sessionExpires = Math.floor(Date.now() / 1000) + 60 * 60 * 24 * 30; // 30 days
+  await env.DB.prepare(
+    `INSERT INTO user_sessions (email, session_token, expires_at, ip_hash) VALUES (?, ?, ?, ?)`
+  ).bind(row.email, sessionToken, sessionExpires, ipHash).run();
+
+  // Ensure subscriber + preferences row exist
+  await env.DB.prepare(
+    `INSERT INTO subscribers (email, status, source) VALUES (?, 'confirmed', 'magic-link')
+     ON CONFLICT(email) DO UPDATE SET status='confirmed'`
+  ).bind(row.email).run();
+  await env.DB.prepare(
+    `INSERT OR IGNORE INTO user_preferences (email, preferences) VALUES (?, '{}')`
+  ).bind(row.email).run();
+
+  const headers = new Headers();
+  headers.set('Set-Cookie', `rdr_session=${sessionToken}; Path=/; HttpOnly; Secure; SameSite=Lax; Max-Age=${60 * 60 * 24 * 30}`);
+  headers.set('Location', `${env.SITE_ORIGIN}/account`);
+  return new Response(null, { status: 302, headers });
+}
+
+async function handleSignOut(req: Request, env: Env): Promise<Response> {
+  const sessionToken = getCookie(req, 'rdr_session');
+  if (sessionToken) {
+    await env.DB.prepare(`DELETE FROM user_sessions WHERE session_token=?`).bind(sessionToken).run();
+  }
+  const headers = new Headers();
+  headers.set('Set-Cookie', 'rdr_session=; Path=/; Max-Age=0; HttpOnly; Secure; SameSite=Lax');
+  Object.entries(corsHeaders(env, req)).forEach(([k, v]) => headers.set(k, v));
+  headers.set('content-type', 'application/json; charset=utf-8');
+  return new Response(JSON.stringify({ ok: true }), { status: 200, headers });
+}
+
+async function handleMe(req: Request, env: Env): Promise<Response> {
+  const sess = await currentSession(req, env);
+  if (!sess) return jsonResponse({ signed_in: false }, {}, env, req);
+  const prefs = await env.DB.prepare(`SELECT preferences FROM user_preferences WHERE email=?`).bind(sess.email).first<{ preferences: string }>();
+  let preferences: any = {};
+  try { preferences = JSON.parse(prefs?.preferences || '{}'); } catch {}
+  return jsonResponse({ signed_in: true, email: sess.email, preferences }, {}, env, req);
+}
+
+async function handlePreferences(req: Request, env: Env): Promise<Response> {
+  const sess = await currentSession(req, env);
+  if (!sess) return jsonResponse({ error: 'unauthorized' }, { status: 401 }, env, req);
+  const body = await readJson(req);
+  if (!body || typeof body !== 'object') return jsonResponse({ error: 'Bad request.' }, { status: 400 }, env, req);
+  const allowed: any = {};
+  if (Array.isArray(body.sections)) allowed.sections = body.sections.filter((s: unknown) => typeof s === 'string').slice(0, 12);
+  if (typeof body.frequency === 'string' && ['daily', 'weekly', 'breaking'].includes(body.frequency)) allowed.frequency = body.frequency;
+  if (typeof body.timezone === 'string' && body.timezone.length < 60) allowed.timezone = body.timezone;
+  await env.DB.prepare(
+    `INSERT INTO user_preferences (email, preferences) VALUES (?, ?)
+     ON CONFLICT(email) DO UPDATE SET preferences=excluded.preferences, updated_at=strftime('%s','now')`
+  ).bind(sess.email, JSON.stringify(allowed)).run();
+  return jsonResponse({ ok: true, preferences: allowed }, {}, env, req);
+}
+
 async function handleAdminSubscribers(req: Request, env: Env): Promise<Response> {
   const auth = req.headers.get('authorization') ?? '';
   if (!auth.startsWith('Bearer ') || auth.slice(7) !== env.ADMIN_TOKEN) {
@@ -267,6 +413,11 @@ export default {
     if (req.method === 'GET' && url.pathname === '/api/admin/feedback') return handleAdminFeedback(req, env);
     if (req.method === 'GET' && url.pathname === '/api/admin/stats') return handleAdminStats(req, env);
     if (req.method === 'GET' && url.pathname === '/api/admin/subscribers') return handleAdminSubscribers(req, env);
+    if (req.method === 'POST' && url.pathname === '/api/auth/request') return handleAuthRequest(req, env, ipHash);
+    if (req.method === 'GET' && url.pathname === '/api/auth/verify') return handleAuthVerify(req, env, ipHash);
+    if (req.method === 'POST' && url.pathname === '/api/auth/signout') return handleSignOut(req, env);
+    if (req.method === 'GET' && url.pathname === '/api/me') return handleMe(req, env);
+    if (req.method === 'POST' && url.pathname === '/api/preferences') return handlePreferences(req, env);
 
     if (req.method === 'GET' && url.pathname === '/api/health') {
       return jsonResponse({ ok: true, time: new Date().toISOString() }, {}, env, req);

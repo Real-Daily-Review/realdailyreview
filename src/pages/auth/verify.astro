@@ -1,0 +1,16 @@
+---
+// /auth/verify?t=TOKEN — the magic link target.
+// Bounces to /api/auth/verify which is handled by the Worker (sets cookie + redirects to /account).
+// This page only exists so the URL is friendly inside emails.
+---
+
+<!doctype html>
+<html lang="en"><head>
+<meta charset="UTF-8"/>
+<title>Signing you in… · Real Daily Review</title>
+<meta http-equiv="refresh" content="0; url=/api/auth/verify?t={Astro.url.searchParams.get('t') ?? ''}"/>
+<style>body{font-family:-apple-system,Inter,sans-serif;color:#5b5b5b;text-align:center;padding:6rem 1rem;background:#fbfaf7}</style>
+</head><body>
+<p>Signing you in…</p>
+<p><a href={`/api/auth/verify?t=${Astro.url.searchParams.get('t') ?? ''}`}>If you aren't redirected, click here.</a></p>
+</body></html>

@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
+import ArticleCard from '@/components/ArticleCard.astro';
 import { getCollection } from 'astro:content';
 
 export async function getStaticPaths() {
@@ -45,16 +46,7 @@ const titleCase = (display as string).replace(/-/g, ' ').replace(/\b\w/g, (c: st
     {articles.length} {articles.length === 1 ? 'story' : 'stories'} tagged <code>{tag}</code>. Newest first.
   </p>
 
-  <ul class="article-list" style="margin-top: var(--space-lg);">
-    {articles.map((a) => (
-      <li class="article-card">
-        <p class="meta">
-          <span class="section-tag">{a.data.section}</span> &middot;
-          {' '}{a.data.pubDate.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}
-        </p>
-        <h2><a href={`/articles/${a.slug}`}>{a.data.title}</a></h2>
-        <p class="dek">{a.data.description}</p>
-      </li>
-    ))}
-  </ul>
+  <div style="margin-top: var(--space-lg);">
+    {articles.map((a) => <ArticleCard article={a} />)}
+  </div>
 </BaseLayout>

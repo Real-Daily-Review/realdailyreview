@@ -1,0 +1,55 @@
+---
+import type { CollectionEntry } from 'astro:content';
+interface Props {
+  article: CollectionEntry<'articles'>;
+  size?: 'lead' | 'normal' | 'compact';
+}
+const { article, size = 'normal' } = Astro.props;
+const img = `/og/${article.slug}.png`;
+const date = article.data.pubDate.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+---
+
+{size === 'lead' ? (
+  <article class="rdr-card rdr-card-lead">
+    <a href={`/articles/${article.slug}`} class="rdr-card-image-wrap">
+      <img src={img} alt="" class="rdr-card-image" loading="eager" />
+    </a>
+    <div class="rdr-card-body">
+      <p class="rdr-card-meta"><span class="rdr-card-section">{article.data.section}</span> · {date}</p>
+      <h2 class="rdr-card-title rdr-card-title-lead"><a href={`/articles/${article.slug}`}>{article.data.title}</a></h2>
+      <p class="rdr-card-dek">{article.data.description}</p>
+    </div>
+  </article>
+) : (
+  <article class={`rdr-card rdr-card-${size}`}>
+    <a href={`/articles/${article.slug}`} class="rdr-card-image-wrap">
+      <img src={img} alt="" class="rdr-card-image" loading="lazy" />
+    </a>
+    <div class="rdr-card-body">
+      <p class="rdr-card-meta"><span class="rdr-card-section">{article.data.section}</span> · {date}</p>
+      <h3 class="rdr-card-title"><a href={`/articles/${article.slug}`}>{article.data.title}</a></h3>
+      <p class="rdr-card-dek">{article.data.description}</p>
+    </div>
+  </article>
+)}
+
+<style>
+  .rdr-card { display: flex; gap: 1rem; padding-bottom: var(--space-lg); border-bottom: 1px solid var(--color-rule); margin-bottom: var(--space-lg); }
+  .rdr-card-lead { display: block; }
+  .rdr-card-image-wrap { display: block; flex: 0 0 200px; aspect-ratio: 1200 / 630; overflow: hidden; border-radius: 6px; background: var(--color-tag-bg); }
+  .rdr-card-image { display: block; width: 100%; height: 100%; object-fit: cover; transition: transform 240ms ease-out; }
+  .rdr-card-image-wrap:hover .rdr-card-image { transform: scale(1.03); }
+  .rdr-card-lead .rdr-card-image-wrap { flex: none; aspect-ratio: 1200 / 630; margin-bottom: 1rem; max-height: 360px; }
+  .rdr-card-body { flex: 1; min-width: 0; }
+  .rdr-card-meta { font-family: var(--font-sans); font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--color-muted); margin: 0 0 var(--space-xs); }
+  .rdr-card-section { color: var(--color-accent); font-weight: 600; }
+  .rdr-card-title { margin: 0 0 var(--space-xs); font-size: 1.2rem; line-height: 1.25; }
+  .rdr-card-title-lead { font-size: clamp(1.6rem, 3vw, 2.2rem); }
+  .rdr-card-title a { color: var(--color-text); text-decoration: none; }
+  .rdr-card-title a:hover { color: var(--color-link); }
+  .rdr-card-dek { font-size: 0.95rem; color: var(--color-muted); margin: 0; line-height: 1.55; }
+  @media (max-width: 600px) {
+    .rdr-card { flex-direction: column; }
+    .rdr-card-image-wrap { flex: none; width: 100%; }
+  }
+</style>

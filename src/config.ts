@@ -23,7 +23,7 @@ export const NAV = [
   { href: '/section/world', label: 'World' },
   { href: '/section/tech', label: 'Tech' },
   { href: '/archive', label: 'Archive' },
-  { href: '/about', label: 'About' },
+  { href: '/account', label: 'Account' },
 ] as const;
 
 // Monetization toggles. Flip to true once approval lands. The components
