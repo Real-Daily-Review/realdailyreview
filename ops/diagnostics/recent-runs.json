@@ -1,12 +1,51 @@
 [
   {
-    "id": 25603413511,
+    "id": 25603498832,
     "name": "Heartbeat",
     "status": "in_progress",
     "conclusion": null,
     "event": "push",
+    "created_at": "2026-05-09T14:27:49Z",
+    "updated_at": "2026-05-09T14:27:59Z",
+    "run_number": 22,
+    "head_branch": "diag-20260509-142747",
+    "head_sha": "b49d55c9",
+    "html_url": "https://github.com/Real-Daily-Review/realdailyreview/actions/runs/25603498832"
+  },
+  {
+    "id": 25603492066,
+    "name": "Send daily newsletter",
+    "status": "completed",
+    "conclusion": "success",
+    "event": "push",
+    "created_at": "2026-05-09T14:27:30Z",
+    "updated_at": "2026-05-09T14:27:52Z",
+    "run_number": 3,
+    "head_branch": "send-newsletter-20260509-142726",
+    "head_sha": "b49d55c9",
+    "html_url": "https://github.com/Real-Daily-Review/realdailyreview/actions/runs/25603492066"
+  },
+  {
+    "id": 25603466599,
+    "name": "Deploy API Worker",
+    "status": "completed",
+    "conclusion": "success",
+    "event": "push",
+    "created_at": "2026-05-09T14:26:12Z",
+    "updated_at": "2026-05-09T14:27:01Z",
+    "run_number": 12,
+    "head_branch": "main",
+    "head_sha": "b49d55c9",
+    "html_url": "https://github.com/Real-Daily-Review/realdailyreview/actions/runs/25603466599"
+  },
+  {
+    "id": 25603413511,
+    "name": "Heartbeat",
+    "status": "completed",
+    "conclusion": "success",
+    "event": "push",
     "created_at": "2026-05-09T14:23:35Z",
-    "updated_at": "2026-05-09T14:23:38Z",
+    "updated_at": "2026-05-09T14:23:45Z",
     "run_number": 21,
     "head_branch": "diag-20260509-1423322",
     "head_sha": "9e821f42",
@@ -89,44 +128,5 @@
     "head_branch": "send-newsletter-20260509-142003",
     "head_sha": "87a078fa",
     "html_url": "https://github.com/Real-Daily-Review/realdailyreview/actions/runs/25603341657"
-  },
-  {
-    "id": 25603338608,
-    "name": "Send daily newsletter",
-    "status": "completed",
-    "conclusion": "success",
-    "event": "push",
-    "created_at": "2026-05-09T14:19:58Z",
-    "updated_at": "2026-05-09T14:20:17Z",
-    "run_number": 1,
-    "head_branch": "send-newsletter-20260509-141955",
-    "head_sha": "87a078fa",
-    "html_url": "https://github.com/Real-Daily-Review/realdailyreview/actions/runs/25603338608"
-  },
-  {
-    "id": 25603324750,
-    "name": "Deploy API Worker",
-    "status": "completed",
-    "conclusion": "success",
-    "event": "push",
-    "created_at": "2026-05-09T14:19:18Z",
-    "updated_at": "2026-05-09T14:19:58Z",
-    "run_number": 10,
-    "head_branch": "main",
-    "head_sha": "87a078fa",
-    "html_url": "https://github.com/Real-Daily-Review/realdailyreview/actions/runs/25603324750"
-  },
-  {
-    "id": 25603225884,
-    "name": "Daily content publish",
-    "status": "completed",
-    "conclusion": "success",
-    "event": "schedule",
-    "created_at": "2026-05-09T14:14:17Z",
-    "updated_at": "2026-05-09T14:18:56Z",
-    "run_number": 32,
-    "head_branch": "main",
-    "head_sha": "9e11b9c6",
-    "html_url": "https://github.com/Real-Daily-Review/realdailyreview/actions/runs/25603225884"
   }
 ]
