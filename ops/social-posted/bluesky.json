@@ -15,7 +15,8 @@
     "2026-05-09-bobby-cox-hall-of-fame-braves-manager-dies-at-84",
     "2026-05-09-canvas-learning-platform-restored-after-cyberattack-disrupts-schools",
     "2026-05-10-boat-explosion-injures-11-at-miami-marina-during-gathering",
-    "2026-05-10-ai-data-centers-spark-global-backlash-over-power-and-pollution"
+    "2026-05-10-ai-data-centers-spark-global-backlash-over-power-and-pollution",
+    "2026-05-10-israeli-strikes-kill-39-in-lebanon-despite-ceasefire-deal"
   ],
   "posts": [
     {
@@ -81,6 +82,15 @@
       "had_embed": true,
       "had_image": true,
       "posted_at": "2026-05-10T09:47:27.624Z"
+    },
+    {
+      "slug": "2026-05-10-israeli-strikes-kill-39-in-lebanon-despite-ceasefire-deal",
+      "uri": "at://did:plc:p7bwmjqjgn3ldehylmu2cydk/app.bsky.feed.post/3mlimukqtax2i",
+      "strategy": "ai-hook",
+      "hook": "A ceasefire took effect in April. Since then, Israeli airstrikes have killed at least 39 people in Lebanon this week alone.",
+      "had_embed": true,
+      "had_image": true,
+      "posted_at": "2026-05-10T11:12:35.957Z"
     }
   ]
 }

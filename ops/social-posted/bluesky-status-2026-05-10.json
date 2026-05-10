@@ -1,22 +1,22 @@
 {
   "outcome": "sent",
-  "candidates": 14,
+  "candidates": 8,
   "posted": 1,
   "used_ai_hooks": true,
   "failures": [],
   "sent": [
     {
-      "slug": "2026-05-10-ai-data-centers-spark-global-backlash-over-power-and-pollution",
-      "uri": "at://did:plc:p7bwmjqjgn3ldehylmu2cydk/app.bsky.feed.post/3mlii4d2ey72a",
+      "slug": "2026-05-10-israeli-strikes-kill-39-in-lebanon-despite-ceasefire-deal",
+      "uri": "at://did:plc:p7bwmjqjgn3ldehylmu2cydk/app.bsky.feed.post/3mlimukqtax2i",
       "strategy": "ai-hook",
-      "hook": "Tech companies are building data centers so massive they're straining power grids worldwide—and 43 percent of Americans blame them for rising electric bills.",
+      "hook": "A ceasefire took effect in April. Since then, Israeli airstrikes have killed at least 39 people in Lebanon this week alone.",
       "had_embed": true,
       "had_image": true,
-      "posted_at": "2026-05-10T09:47:27.624Z"
+      "posted_at": "2026-05-10T11:12:35.957Z"
     }
   ],
   "has_handle": true,
   "has_password": true,
   "handle": "realdailyreview.bsky.social",
-  "written_at": "2026-05-10T09:47:32.126Z"
+  "written_at": "2026-05-10T11:12:40.459Z"
 }
