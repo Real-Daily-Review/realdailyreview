@@ -1,22 +1,9 @@
 {
-  "outcome": "sent",
-  "candidates": 1,
-  "posted": 1,
-  "used_ai_hooks": true,
-  "failures": [],
-  "sent": [
-    {
-      "slug": "2026-05-10-ai-data-centers-shift-to-homes-amid-public-opposition",
-      "uri": "at://did:plc:p7bwmjqjgn3ldehylmu2cydk/app.bsky.feed.post/3mljaues5s52x",
-      "strategy": "ai-hook",
-      "hook": "Developers are shrinking AI data centers down to fit inside homes as towns block their megafacilities.",
-      "had_embed": true,
-      "had_image": true,
-      "posted_at": "2026-05-10T17:10:24.665Z"
-    }
-  ],
+  "outcome": "no-candidates",
+  "reason": "3 articles in last 6h; all already posted",
+  "already_posted_count": 20,
   "has_handle": true,
   "has_password": true,
   "handle": "realdailyreview.bsky.social",
-  "written_at": "2026-05-10T17:10:29.266Z"
+  "written_at": "2026-05-10T19:20:58.955Z"
 }
