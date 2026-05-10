@@ -1,0 +1,59 @@
+name: Daily exec brief
+
+# Sends the morning brief to the shareholder via Resend at 11:00 UTC (7am ET).
+# Renders Markdown via Anthropic from real state, then HTML for email.
+
+on:
+  schedule:
+    - cron: '0 11 * * *'   # 7am ET (winter) / 6am ET (DST)
+    - cron: '0 12 * * *'   # 8am ET (winter) / 7am ET (DST) — DST safety duplicate
+  push:
+    tags:
+      - 'exec-brief-*'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: exec-brief
+  cancel-in-progress: false
+
+jobs:
+  brief:
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 50
+          token: '${{ secrets.GITHUB_TOKEN }}'
+      - uses: actions/setup-node@v4
+        with: { node-version: '20' }
+      - run: npm install @anthropic-ai/sdk@^0.30 --no-save --no-audit --no-fund
+      - env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
+          RESEND_FROM: ${{ secrets.RESEND_FROM }}
+          SHAREHOLDER_EMAIL: ${{ secrets.SHAREHOLDER_EMAIL || 'ryan@revv.com' }}
+        run: |
+          # Skip second cron if today's brief already sent
+          today=$(date -u +%Y-%m-%d)
+          if [ -f "ops/exec-briefs/${today}.md" ]; then
+            echo "Brief already sent for ${today}; skipping"
+            exit 0
+          fi
+          node scripts/exec-brief.mjs
+      - run: |
+          git config user.name "Alex Reeve (CEO)"
+          git config user.email "ceo@realdailyreview.com"
+          git add ops/exec-briefs/ 2>/dev/null || true
+          if git diff --cached --quiet; then echo "no change"; exit 0; fi
+          git commit -m "exec: daily brief $(date -u +%Y-%m-%d)"
+          for attempt in 1 2 3 4 5; do
+            if git push origin HEAD:main; then exit 0; fi
+            git fetch origin main
+            git rebase origin/main || { git rebase --abort; sleep 2; }
+          done
+          exit 1

@@ -159,9 +159,10 @@ ${recentStandups.slice(0, 4000)}`;
 
 async function aiStandupSummary({ slot, queueAfter, doneSinceLast, recentArticles, recentCommits, recentRuns }) {
   const client = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY });
-  const prompt = `Write the ${slot} CEO standup for Real Daily Review. ≤220 words, no fluff.
+  const prompt = `Write the ${slot} CEO standup for Real Daily Review. ≤450 words total. No fluff. Be specific and data-driven.
 
-Format strictly:
+Mandatory format (every section is required, even if "(none)"):
+
 ## What shipped since last standup
 - one bullet per landed item
 
@@ -174,32 +175,63 @@ Format strictly:
 ## North-star
 - One line: articles published in last 24h, recent commit count, run pass-rate, anything quantifiable
 
+## What can we do better? What can we improve?
+- 2 specific bullets, honest, data-backed. What's NOT working? Where are we behind a real outlet? Each bullet must name a CONCRETE shortcoming, not vague aspirations.
+
+## How do we increase TRAFFIC?
+- 2 specific bullets. Each must be implementable as code or a one-time shareholder click. Tag the easy autonomous wins with [BUILD-NOW]. No "do more SEO" — name the specific tactic.
+
+## How do we increase SIGNUPS?
+- 2 specific bullets, same rules. [BUILD-NOW] for autonomous ones.
+
+## How do we increase REVENUE?
+- 2 specific bullets, same rules. [BUILD-NOW] for autonomous ones.
+
 ## Shareholder asks
-- bullet only items that need human-in-the-loop; skip if none
+- bullet only items that need human-in-the-loop; "(none)" if not
 
 DATA:
 Done since last standup:
 ${JSON.stringify(doneSinceLast, null, 2)}
 
-Active queue (top 8):
-${JSON.stringify(queueAfter.filter(i => !i.done).slice(0, 8).map(i => i.text), null, 2)}
+Active queue (top 10):
+${JSON.stringify(queueAfter.filter(i => !i.done).slice(0, 10).map(i => i.text), null, 2)}
 
 Recent articles (last 48h):
-${JSON.stringify(recentArticles.slice(0, 12), null, 2)}
+${JSON.stringify(recentArticles.slice(0, 15), null, 2)}
 
-Recent commits (top 15):
-${JSON.stringify(recentCommits.slice(0, 15), null, 2)}
+Recent commits (top 20):
+${JSON.stringify(recentCommits.slice(0, 20), null, 2)}
 
 Recent workflow runs (top 8):
 ${JSON.stringify(recentRuns.slice(0, 8), null, 2)}`;
 
   const r = await client.messages.create({
     model: 'claude-haiku-4-5-20251001',
-    max_tokens: 1100,
-    temperature: 0.3,
+    max_tokens: 2000,
+    temperature: 0.4,
     messages: [{ role: 'user', content: prompt }],
   });
   return r.content.filter((b) => b.type === 'text').map((b) => b.text).join('\n').trim();
+}
+
+// Pull [BUILD-NOW] lines out of the standup body and append to the queue.
+function extractBuildNowFromStandup(text) {
+  const out = [];
+  for (const line of text.split('\n')) {
+    if (!/\[BUILD-NOW\]/i.test(line)) continue;
+    let cleaned = line
+      .replace(/^[-*]\s+/, '')
+      .replace(/\*\*\[BUILD-NOW\]\*\*\s*/i, '')
+      .replace(/\[BUILD-NOW\]\s*/i, '')
+      .replace(/^\*\*([^*]+)\*\*/, '$1')
+      .replace(/^`([^`]+)`/, '$1')
+      .trim();
+    if (/^#+\s/.test(cleaned)) continue;
+    if (cleaned.length < 12) continue;
+    out.push(cleaned);
+  }
+  return out;
 }
 
 async function main() {
@@ -304,7 +336,29 @@ ${commits.slice(0, 30).map((c) => `- ${c.subject}`).join('\n')}`;
     }
   }
 
-  const finalItems = [...updatedItems, ...appended];
+  // Compose standup FIRST so we can extract [BUILD-NOW] ideas from the
+  // "what can we do better" sections and feed them into the queue.
+  const summaryBody = await aiStandupSummary({
+    slot, queueAfter: [...updatedItems, ...appended], doneSinceLast: newlyDone,
+    recentArticles, recentCommits: commits, recentRuns: runs,
+  }).catch((err) => `(standup generation failed: ${err.message})\n\nFallback summary — ${appended.length} new tasks queued, ${newlyDone.length} marked done since last run.`);
+
+  // Pull [BUILD-NOW] lines from the standup body — these are improvement
+  // ideas the CEO surfaced that should hit the queue.
+  const buildNow = extractBuildNowFromStandup(summaryBody);
+  let dedupedBuildNow = [];
+  if (buildNow.length > 0) {
+    const queueText = renderQueue([...updatedItems, ...appended], '').toLowerCase();
+    dedupedBuildNow = buildNow
+      .filter((b) => !queueText.includes(b.toLowerCase().slice(0, 30)))
+      .slice(0, 4); // cap at 4 new items per standup
+  }
+
+  const finalItems = [
+    ...updatedItems,
+    ...appended,
+    ...dedupedBuildNow.map((text) => ({ done: false, text: text + `  _from ${slot} standup ${stamp}_` })),
+  ];
 
   // Write queue.md
   await fs.writeFile(
@@ -315,12 +369,6 @@ ${commits.slice(0, 30).map((c) => `- ${c.subject}`).join('\n')}`;
     ),
     'utf8'
   );
-
-  // Compose standup
-  const summaryBody = await aiStandupSummary({
-    slot, queueAfter: finalItems, doneSinceLast: newlyDone,
-    recentArticles, recentCommits: commits, recentRuns: runs,
-  }).catch((err) => `(standup generation failed: ${err.message})\n\nFallback summary — ${appended.length} new tasks queued, ${newlyDone.length} marked done since last run.`);
 
   const file = `# Standup — ${stamp} ${slot.toUpperCase()}
 
@@ -335,6 +383,10 @@ ${summaryBody}
   await fs.writeFile(standupFile, file, 'utf8');
   console.log(`Wrote ${standupFile}`);
   console.log(`Queue size: ${finalItems.length} (${finalItems.filter((i) => !i.done).length} active)`);
+  if (dedupedBuildNow.length > 0) {
+    console.log(`Spawned ${dedupedBuildNow.length} new [BUILD-NOW] queue items from improvement ideas:`);
+    for (const b of dedupedBuildNow) console.log(`  - ${b.slice(0, 100)}`);
+  }
 }
 
 main().catch((err) => { console.error(err); process.exit(1); });
