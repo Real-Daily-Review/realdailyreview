@@ -19,7 +19,8 @@
     "2026-05-10-israeli-strikes-kill-39-in-lebanon-despite-ceasefire-deal",
     "2026-05-10-home-ai-data-centers-emerge-amid-public-opposition-to-large-facilities",
     "2026-05-10-pentagon-launches-public-database-of-ufo-files",
-    "2026-05-10-ai-data-centers-shift-to-homes-amid-public-opposition"
+    "2026-05-10-ai-data-centers-shift-to-homes-amid-public-opposition",
+    "2026-05-10-assad-cousin-charged-with-war-crimes-in-syria-trial"
   ],
   "posts": [
     {
@@ -121,6 +122,15 @@
       "had_embed": true,
       "had_image": true,
       "posted_at": "2026-05-10T17:10:24.665Z"
+    },
+    {
+      "slug": "2026-05-10-assad-cousin-charged-with-war-crimes-in-syria-trial",
+      "uri": "at://did:plc:p7bwmjqjgn3ldehylmu2cydk/app.bsky.feed.post/3mljnvcfcwd2c",
+      "strategy": "ai-hook",
+      "hook": "Atef Najib, Assad's cousin and a top security official, is on trial for orchestrating torture and massacres during Syria's 2011 uprising—the first major accountability case since the regime fell.",
+      "had_embed": true,
+      "had_image": true,
+      "posted_at": "2026-05-10T21:03:33.980Z"
     }
   ]
 }
