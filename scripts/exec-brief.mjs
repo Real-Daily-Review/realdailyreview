@@ -160,24 +160,9 @@ async function main() {
   const file = path.join(OUT_DIR, `${today}.md`);
   await fs.writeFile(file, `# Exec brief — ${today}\n\n${md}\n\n---\n\n## Raw snapshot\n\`\`\`json\n${JSON.stringify(snap, null, 2)}\n\`\`\`\n`, 'utf8');
 
-  const html = `<div style="max-width:600px;margin:0 auto;padding:24px;background:#fbfaf7;font-family:Georgia,serif">
-    <div style="border-bottom:2px solid #1a1a1a;padding-bottom:12px;margin-bottom:20px">
-      <div style="font-weight:900;font-size:22px;letter-spacing:-0.5px">Real Daily Review</div>
-      <div style="font-family:-apple-system,Inter,sans-serif;font-size:11px;text-transform:uppercase;letter-spacing:0.1em;color:#5b5b5b;margin-top:4px">Exec brief · ${today}</div>
-    </div>
-    ${mdToHtml(md)}
-    <p style="margin-top:24px;font-family:-apple-system,Inter,sans-serif;font-size:12px;color:#5b5b5b;border-top:1px solid #e7e3da;padding-top:12px">
-      Auto-generated daily by ceo-exec-brief workflow. <a href="https://github.com/Real-Daily-Review/realdailyreview/blob/main/ops/exec-briefs/${today}.md" style="color:#8a1538">view raw</a>
-    </p>
-  </div>`;
-
-  const text = md.replace(/\*\*/g, '');
-  await sendEmail({
-    subject: `Real Daily Review — exec brief — ${today}`,
-    html,
-    text,
-  });
-  console.log(`[exec-brief] sent to ${SHAREHOLDER_EMAIL} for ${today}`);
+  // Shareholder asked for this in chat, not email. We just commit the file —
+  // Alex Reeve (Claude in next Cowork session) reads it and surfaces it.
+  console.log(`[exec-brief] wrote ${file} (no email — surfaced in next chat session per shareholder pref)`);
 }
 
 main().catch((err) => { console.error(err); process.exit(1); });
