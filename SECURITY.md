@@ -69,12 +69,21 @@ If we get a takedown / DMCA / legal letter:
 
 | Threat | Mitigation |
 |---|---|
-| Spam form floods | Turnstile + honeypot + per-IP rate limit |
+| Spam form floods | Turnstile + honeypot + per-IP rate limit (5/min) on every POST |
 | DDoS | Cloudflare in front; static HTML for read paths is essentially infinite-scale |
-| API key exfil via XSS | Strict CSP; no inline event handlers; AI body sanitized |
-| Subscriber list theft | D1 access only via Worker bindings; ADMIN_TOKEN required for read; consider read-only token for any future export |
+| API key exfil via XSS | CSP (default-src 'self', form-action locked); no inline event handlers; AI body sanitized through allowlist |
+| Subscriber list theft | D1 access only via Worker bindings; admin endpoints require Bearer ADMIN_TOKEN; **constant-time** comparison to thwart timing attacks |
 | Prompt injection in source articles | Generation script only treats source text as data, not instructions; we publish AI output as content, not as instructions to other systems |
 | Domain hijack | Cloudflare 2FA + registrar lock at GoDaddy |
+| Worker direct access bypass | `workers_dev = false` — Worker only reachable via realdailyreview.com/api/*, no `*.workers.dev` URL |
+| CSRF on state-changing API | Origin / Referer check on every state-changing endpoint (subscribe, feedback, auth/request, auth/signout, preferences); SameSite=Lax cookie |
+| Magic-link spam (using us to email arbitrary addresses) | Per-email rate limit: 3 magic links per email per hour, regardless of IP. Mandatory Turnstile when configured. Honeypot on auth form. |
+| Magic-link token brute force | 256-bit random tokens (crypto.getRandomValues × 32 bytes), 30-min expiry, single-use (used_at flag), rate limit on /api/auth/verify per IP |
+| Magic-link enumeration (does email X exist?) | /api/auth/request always returns "Check your email" regardless of whether email is registered or rate-limited |
+| Session hijack | httpOnly + Secure + SameSite=Lax cookie; session token = 256-bit random, 30-day expiry, server-stored in user_sessions table; sign-out wipes server row |
+| Open redirect via /api/auth/verify | Hardcoded redirect target = `${SITE_ORIGIN}/account`; no user-controlled URL parameters used in Location |
+| Account-page SEO leakage | robots.txt disallows /account and /auth/; pages emit `<meta name="robots" content="noindex, nofollow">` |
+| Cookie theft via JS | httpOnly flag prevents `document.cookie` access from any script |
 
 ## Things deliberately NOT in scope yet
 

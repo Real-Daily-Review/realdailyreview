@@ -443,8 +443,13 @@ export default {
     const ipHash = await sha256(ip);
     const uaHash = await sha256(ua);
 
-    // Rate limit POSTs by IP
-    if (req.method === 'POST') {
+    // Rate limit per-IP for any state-changing or sensitive endpoint.
+    // POSTs always; sensitive GETs (auth verify, admin) too.
+    const isStateful = req.method === 'POST';
+    const isSensitiveGet =
+      req.method === 'GET' &&
+      (url.pathname === '/api/auth/verify' || url.pathname.startsWith('/api/admin/'));
+    if (isStateful || isSensitiveGet) {
       const ok = await rateLimit(env, `${url.pathname}:${ipHash}`);
       if (!ok) return jsonResponse({ error: 'Rate limit. Slow down.' }, { status: 429 }, env, req);
     }

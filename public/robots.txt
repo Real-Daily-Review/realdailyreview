@@ -3,6 +3,8 @@ Allow: /
 Disallow: /api/
 Disallow: /admin/
 Disallow: /preview/
+Disallow: /account
+Disallow: /auth/
 
 User-agent: GPTBot
 Allow: /

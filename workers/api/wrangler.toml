@@ -4,13 +4,12 @@ main = "src/index.ts"
 compatibility_date = "2026-04-01"
 compatibility_flags = ["nodejs_compat"]
 
-# Worker is reachable on rdr-api.<your-subdomain>.workers.dev by default.
-# To bind /api/* on realdailyreview.com requires either (a) regenerating
-# the CLOUDFLARE_API_TOKEN with "Zone → Workers Routes → Edit" permission
-# added, or (b) one-time dashboard click: Workers & Pages → rdr-api →
-# Settings → Triggers → Add Custom Domain → realdailyreview.com → /api/*
-# Until bound, browser-side fetches to /api/subscribe etc. fail.
-workers_dev = true
+# Routes are bound at realdailyreview.com/api/* and www.realdailyreview.com/api/*
+# (added via CF dashboard 2026-05-09). Disable the workers.dev URL so the
+# Worker is ONLY reachable on our domain — eliminates a second attack surface
+# (without this anyone could call rdr-api.<subdomain>.workers.dev directly,
+# bypassing CSP / referer checks targeted at our origin).
+workers_dev = false
 # routes = [
 #   { pattern = "realdailyreview.com/api/*", zone_id = "0e483a913db9070a2f01144ed97eff54" },
 #   { pattern = "www.realdailyreview.com/api/*", zone_id = "0e483a913db9070a2f01144ed97eff54" },
