@@ -1,16 +1,15 @@
 User-agent: *
 Allow: /
-Disallow: /api/
-Disallow: /admin/
-Disallow: /preview/
 
-User-agent: GPTBot
-Allow: /
-
-User-agent: ClaudeBot
-Allow: /
-
-User-agent: Google-Extended
-Disallow: /
-
+# Sitemaps
 Sitemap: https://realdailyreview.com/sitemap-index.xml
+
+# RSS Feeds
+# Main feed
+Allow: /feed.xml
+Allow: /rss.xml
+# Per-section feeds
+Allow: /section/politics/rss.xml
+Allow: /section/business/rss.xml
+Allow: /section/world/rss.xml
+Allow: /section/tech/rss.xml
