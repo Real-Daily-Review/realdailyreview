@@ -1,9 +1,9 @@
 {
-  "fetched_at": "2026-05-10T01:44:57.331Z",
-  "total_posts_tracked": 5,
+  "fetched_at": "2026-05-10T07:52:55.224Z",
+  "total_posts_tracked": 7,
   "by_strategy": {
     "ai-hook": {
-      "posts": 5,
+      "posts": 7,
       "total_likes": 0,
       "total_reposts": 0,
       "total_replies": 0,
@@ -69,6 +69,32 @@
       "repostCount": 0,
       "replyCount": 0,
       "indexedAt": "2026-05-09T23:02:28.478Z"
+    },
+    {
+      "slug": "2026-05-09-canvas-learning-platform-restored-after-cyberattack-disrupts-schools",
+      "uri": "at://did:plc:p7bwmjqjgn3ldehylmu2cydk/app.bsky.feed.post/3mlhvds2df62g",
+      "strategy": "ai-hook",
+      "hook": "Thousands of schools lost access to Canvas during finals week. Here's what a cyberattack on one platform can do to an entire education system.",
+      "had_embed": true,
+      "had_image": true,
+      "posted_at": "2026-05-10T04:11:37.224Z",
+      "likeCount": 0,
+      "repostCount": 0,
+      "replyCount": 0,
+      "indexedAt": "2026-05-10T04:11:37.275Z"
+    },
+    {
+      "slug": "2026-05-10-boat-explosion-injures-11-at-miami-marina-during-gathering",
+      "uri": "at://did:plc:p7bwmjqjgn3ldehylmu2cydk/app.bsky.feed.post/3mli5rau4g42s",
+      "strategy": "ai-hook",
+      "hook": "At least 11 people injured in a suspected boat explosion at a Miami marina during a weekend gathering. Investigators still don't know what caused the blast.",
+      "had_embed": true,
+      "had_image": true,
+      "posted_at": "2026-05-10T06:42:18.842Z",
+      "likeCount": 0,
+      "repostCount": 0,
+      "replyCount": 0,
+      "indexedAt": "2026-05-10T06:42:18.873Z"
     }
   ],
   "posts": [
@@ -128,6 +154,32 @@
       "repostCount": 0,
       "replyCount": 0,
       "indexedAt": "2026-05-09T23:02:28.478Z"
+    },
+    {
+      "slug": "2026-05-09-canvas-learning-platform-restored-after-cyberattack-disrupts-schools",
+      "uri": "at://did:plc:p7bwmjqjgn3ldehylmu2cydk/app.bsky.feed.post/3mlhvds2df62g",
+      "strategy": "ai-hook",
+      "hook": "Thousands of schools lost access to Canvas during finals week. Here's what a cyberattack on one platform can do to an entire education system.",
+      "had_embed": true,
+      "had_image": true,
+      "posted_at": "2026-05-10T04:11:37.224Z",
+      "likeCount": 0,
+      "repostCount": 0,
+      "replyCount": 0,
+      "indexedAt": "2026-05-10T04:11:37.275Z"
+    },
+    {
+      "slug": "2026-05-10-boat-explosion-injures-11-at-miami-marina-during-gathering",
+      "uri": "at://did:plc:p7bwmjqjgn3ldehylmu2cydk/app.bsky.feed.post/3mli5rau4g42s",
+      "strategy": "ai-hook",
+      "hook": "At least 11 people injured in a suspected boat explosion at a Miami marina during a weekend gathering. Investigators still don't know what caused the blast.",
+      "had_embed": true,
+      "had_image": true,
+      "posted_at": "2026-05-10T06:42:18.842Z",
+      "likeCount": 0,
+      "repostCount": 0,
+      "replyCount": 0,
+      "indexedAt": "2026-05-10T06:42:18.873Z"
     }
   ]
 }
