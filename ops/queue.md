@@ -1,6 +1,6 @@
 # Sprint Queue
 
-_Last updated: 2026-05-09T16:57:33.008Z (midday)_
+_Last updated: 2026-05-10T02:27:02.298Z (overnight)_
 
 Active items the CEO operator works through. Auto-managed by ceo-standup.yml.
 
@@ -26,5 +26,6 @@ Active items the CEO operator works through. Auto-managed by ceo-standup.yml.
 - [x] (dev) Add a "Next brief in Xh Xm" live countdown banner in the site header, calculated against the next scheduled cron publish time. Add a "Brief #N of 5 today" label on each article.  _from competitor-watch 2026-05-08_
 - [x] (monetization) Add per-article estimated read time ("~2 min read") rendered statically at build/publish time using word_count / 200, plus a visible article-view counter ("X reads today") for social proof.  _from competitor-watch 2026-05-08_
 - [ ] (growth) Generate and serve a valid RSS 2.0 feed at `/feed.xml` pulling the 20 most recent articles (title, link, pubDate, description). Submit URL to Google News Publisher Center and Feedly's index endpoint via HTTP POST on deploy. Estimated build time: 2–4 hrs.  _from competitor-watch 2026-05-09_
-- [ ] (dev) Inject per-article structured metadata: `<meta name="description">`, Open Graph (`og:title`, `og:description`, `og:image`, `og:published_time`), and `Article` JSON-LD schema on every article page. Pull values from existing article fields. Estimated build time: 3–5 hrs; zero dependencies.  _from competitor-watch 2026-05-09_
-- [ ] (growth) Add a cron job that fires after each 5×/day publish cycle, formats the new article's headline + URL into a 240-char string, and POSTs to the X API (free Basic tier, no payment required for write access at low volume) and optionally appends to a Buffer-compatible queue file. Tag posts `#news #AI`. Estimated build time: 2–3 hrs.  _from competitor-watch 2026-05-09_
+- [x] (dev) Inject per-article structured metadata: `<meta name="description">`, Open Graph (`og:title`, `og:description`, `og:image`, `og:published_time`), and `Article` JSON-LD schema on every article page. Pull values from existing article fields. Estimated build time: 3–5 hrs; zero dependencies.  _from competitor-watch 2026-05-09_
+- [x] (growth) Add a cron job that fires after each 5×/day publish cycle, formats the new article's headline + URL into a 240-char string, and POSTs to the X API (free Basic tier, no payment required for write access at low volume) and optionally appends to a Buffer-compatible queue file. Tag posts `#news #AI`. Estimated build time: 2–3 hrs.  _from competitor-watch 2026-05-09_
+- [ ] (growth) Wire newsletter signup form to Resend API for double opt-in delivery + track subscription rate as leading indicator of DAU growth
