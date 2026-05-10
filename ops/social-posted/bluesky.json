@@ -20,7 +20,8 @@
     "2026-05-10-home-ai-data-centers-emerge-amid-public-opposition-to-large-facilities",
     "2026-05-10-pentagon-launches-public-database-of-ufo-files",
     "2026-05-10-ai-data-centers-shift-to-homes-amid-public-opposition",
-    "2026-05-10-assad-cousin-charged-with-war-crimes-in-syria-trial"
+    "2026-05-10-assad-cousin-charged-with-war-crimes-in-syria-trial",
+    "2026-05-10-french-passenger-shows-hantavirus-symptoms-after-antarctic-cruise"
   ],
   "posts": [
     {
@@ -131,6 +132,15 @@
       "had_embed": true,
       "had_image": true,
       "posted_at": "2026-05-10T21:03:33.980Z"
+    },
+    {
+      "slug": "2026-05-10-french-passenger-shows-hantavirus-symptoms-after-antarctic-cruise",
+      "uri": "at://did:plc:p7bwmjqjgn3ldehylmu2cydk/app.bsky.feed.post/3mljup4k4gu2u",
+      "strategy": "ai-hook",
+      "hook": "A French passenger showed hantavirus symptoms mid-flight from Antarctica. Five people from the same cruise ship are now quarantined in Paris pending evaluation.",
+      "had_embed": true,
+      "had_image": true,
+      "posted_at": "2026-05-10T23:05:22.709Z"
     }
   ]
 }

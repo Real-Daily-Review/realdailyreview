@@ -1,22 +1,22 @@
 {
   "outcome": "sent",
-  "candidates": 11,
+  "candidates": 14,
   "posted": 1,
   "used_ai_hooks": true,
   "failures": [],
   "sent": [
     {
-      "slug": "2026-05-10-assad-cousin-charged-with-war-crimes-in-syria-trial",
-      "uri": "at://did:plc:p7bwmjqjgn3ldehylmu2cydk/app.bsky.feed.post/3mljnvcfcwd2c",
+      "slug": "2026-05-10-french-passenger-shows-hantavirus-symptoms-after-antarctic-cruise",
+      "uri": "at://did:plc:p7bwmjqjgn3ldehylmu2cydk/app.bsky.feed.post/3mljup4k4gu2u",
       "strategy": "ai-hook",
-      "hook": "Atef Najib, Assad's cousin and a top security official, is on trial for orchestrating torture and massacres during Syria's 2011 uprising—the first major accountability case since the regime fell.",
+      "hook": "A French passenger showed hantavirus symptoms mid-flight from Antarctica. Five people from the same cruise ship are now quarantined in Paris pending evaluation.",
       "had_embed": true,
       "had_image": true,
-      "posted_at": "2026-05-10T21:03:33.980Z"
+      "posted_at": "2026-05-10T23:05:22.709Z"
     }
   ],
   "has_handle": true,
   "has_password": true,
   "handle": "realdailyreview.bsky.social",
-  "written_at": "2026-05-10T21:03:38.482Z"
+  "written_at": "2026-05-10T23:05:27.211Z"
 }
