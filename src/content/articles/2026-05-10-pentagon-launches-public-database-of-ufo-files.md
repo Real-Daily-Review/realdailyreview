@@ -1,16 +1,15 @@
 ---
 title: Pentagon Launches Public Database of UFO Files
 description: >-
-  The Pentagon released previously classified unidentified anomalous phenomena
-  files on a new website, including videos, photos, and documents from across
-  the U.S. government.
-pubDate: '2026-05-10T13:39:45.477Z'
+  The Department of Defense has released previously unreleased videos, photos,
+  and documents on unidentified anomalous phenomena through a new website.
+pubDate: '2026-05-10T16:14:58.134Z'
 section: politics
 tags:
   - pentagon
   - uap
   - transparency
-  - government
+  - defense
 perspectives: []
 sources:
   - title: 'News Wrap: Pentagon releases ''never-before-seen'' UFO files on its website'
@@ -24,14 +23,14 @@ sources:
 aiGenerated: true
 draft: false
 ---
-# Pentagon Launches Public Database of UFO Files
+# Pentagon Launches Public UFO Database
 
-The Pentagon has begun releasing previously classified files on unidentified anomalous phenomena (UAP) through a new dedicated website, according to TechCrunch and PBS NewsHour.
+The Pentagon has begun releasing previously unreleased files on unidentified anomalous phenomena (UAP) through a new dedicated website, according to TechCrunch and PBS NewsHour.
 
-The initial collection includes videos, photographs, and original source documents from across the U.S. government. While the materials have undergone security review before publication, many remain unanalyzed for resolution of any anomalies, the Department of Defense stated.
+The initial collection includes videos, photos, and original source documents from across the U.S. government. While the materials have undergone security review before publication, many remain unanalyzed for resolution of any anomalies, the Department of Defense stated.
 
-The move represents a significant shift in government transparency around UAP investigations, though the scope and completeness of the released materials remain unclear from available statements. The Pentagon has not specified how many files are included in the initial release or provided a timeline for additional disclosures.
+The move represents a significant shift in transparency around UAP materials, which have long been the subject of public curiosity and congressional scrutiny. The Pentagon did not specify how many files are included in the initial release or provide details on the website's search functionality.
 
-The database's launch follows years of increased congressional and public interest in UAP documentation, driven partly by congressional hearings and declassification requests. The agency has not detailed what analysis or conclusions, if any, accompany the raw materials being made public.
+The database's launch follows years of increased official acknowledgment of UAP sightings, including congressional hearings and the establishment of dedicated Pentagon offices to investigate the phenomena. The agency has not characterized the materials as evidence of extraterrestrial activity.
 
-Watch for details on the total volume of files released, any patterns or findings the Pentagon highlights, and whether additional tranches of documents will follow.
+Watch for details on the total volume of released files and whether additional tranches are planned.
