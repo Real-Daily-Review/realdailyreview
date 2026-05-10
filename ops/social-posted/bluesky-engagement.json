@@ -1,9 +1,9 @@
 {
-  "fetched_at": "2026-05-09T18:41:15.156Z",
-  "total_posts_tracked": 1,
+  "fetched_at": "2026-05-10T01:44:57.331Z",
+  "total_posts_tracked": 5,
   "by_strategy": {
     "ai-hook": {
-      "posts": 1,
+      "posts": 5,
       "total_likes": 0,
       "total_reposts": 0,
       "total_replies": 0,
@@ -23,6 +23,52 @@
       "repostCount": 0,
       "replyCount": 0,
       "indexedAt": "2026-05-09T15:30:34.971Z"
+    },
+    {
+      "slug": "2026-05-09-australias-one-nation-wins-first-lower-house-seat-in-historic-by-elect",
+      "uri": "at://did:plc:p7bwmjqjgn3ldehylmu2cydk/app.bsky.feed.post/3mlgxngr3y72s",
+      "strategy": "ai-hook",
+      "hook": "One Nation just won its first lower house seat in Australia—a watershed moment for the right-wing populist party that's been knocking on parliament's door for years.\nhttps://example.com",
+      "posted_at": "2026-05-09T19:20:08.299Z",
+      "likeCount": 0,
+      "repostCount": 0,
+      "replyCount": 0,
+      "indexedAt": "2026-05-09T19:20:08.374Z"
+    },
+    {
+      "slug": "2026-05-09-nvidia-commits-dollar40b-to-ai-equity-investments-in-2026",
+      "uri": "at://did:plc:p7bwmjqjgn3ldehylmu2cydk/app.bsky.feed.post/3mlgxnlznf32h",
+      "strategy": "ai-hook",
+      "hook": "Nvidia is now a $40B venture investor, not just a chip seller—and it's betting on its future customers.",
+      "posted_at": "2026-05-09T19:20:13.815Z",
+      "likeCount": 0,
+      "repostCount": 0,
+      "replyCount": 0,
+      "indexedAt": "2026-05-09T19:20:13.877Z"
+    },
+    {
+      "slug": "2026-05-09-us-jobs-report-beats-expectations-despite-economic-red-flags",
+      "uri": "at://did:plc:p7bwmjqjgn3ldehylmu2cydk/app.bsky.feed.post/3mlgxnr3ukk2i",
+      "strategy": "ai-hook",
+      "hook": "The jobs report doubled expectations—but economists are spotting warning signs underneath the headline number.",
+      "posted_at": "2026-05-09T19:20:19.138Z",
+      "likeCount": 0,
+      "repostCount": 0,
+      "replyCount": 0,
+      "indexedAt": "2026-05-09T19:20:19.174Z"
+    },
+    {
+      "slug": "2026-05-09-bobby-cox-hall-of-fame-braves-manager-dies-at-84",
+      "uri": "at://did:plc:p7bwmjqjgn3ldehylmu2cydk/app.bsky.feed.post/3mlhe2ymb5w2s",
+      "strategy": "ai-hook",
+      "hook": "Bobby Cox, who managed the Braves to their only World Series title in 1995, has died at 84. His teams dominated the National League for a decade but won just once.",
+      "had_embed": true,
+      "had_image": true,
+      "posted_at": "2026-05-09T23:02:28.428Z",
+      "likeCount": 0,
+      "repostCount": 0,
+      "replyCount": 0,
+      "indexedAt": "2026-05-09T23:02:28.478Z"
     }
   ],
   "posts": [
@@ -36,6 +82,52 @@
       "repostCount": 0,
       "replyCount": 0,
       "indexedAt": "2026-05-09T15:30:34.971Z"
+    },
+    {
+      "slug": "2026-05-09-australias-one-nation-wins-first-lower-house-seat-in-historic-by-elect",
+      "uri": "at://did:plc:p7bwmjqjgn3ldehylmu2cydk/app.bsky.feed.post/3mlgxngr3y72s",
+      "strategy": "ai-hook",
+      "hook": "One Nation just won its first lower house seat in Australia—a watershed moment for the right-wing populist party that's been knocking on parliament's door for years.\nhttps://example.com",
+      "posted_at": "2026-05-09T19:20:08.299Z",
+      "likeCount": 0,
+      "repostCount": 0,
+      "replyCount": 0,
+      "indexedAt": "2026-05-09T19:20:08.374Z"
+    },
+    {
+      "slug": "2026-05-09-nvidia-commits-dollar40b-to-ai-equity-investments-in-2026",
+      "uri": "at://did:plc:p7bwmjqjgn3ldehylmu2cydk/app.bsky.feed.post/3mlgxnlznf32h",
+      "strategy": "ai-hook",
+      "hook": "Nvidia is now a $40B venture investor, not just a chip seller—and it's betting on its future customers.",
+      "posted_at": "2026-05-09T19:20:13.815Z",
+      "likeCount": 0,
+      "repostCount": 0,
+      "replyCount": 0,
+      "indexedAt": "2026-05-09T19:20:13.877Z"
+    },
+    {
+      "slug": "2026-05-09-us-jobs-report-beats-expectations-despite-economic-red-flags",
+      "uri": "at://did:plc:p7bwmjqjgn3ldehylmu2cydk/app.bsky.feed.post/3mlgxnr3ukk2i",
+      "strategy": "ai-hook",
+      "hook": "The jobs report doubled expectations—but economists are spotting warning signs underneath the headline number.",
+      "posted_at": "2026-05-09T19:20:19.138Z",
+      "likeCount": 0,
+      "repostCount": 0,
+      "replyCount": 0,
+      "indexedAt": "2026-05-09T19:20:19.174Z"
+    },
+    {
+      "slug": "2026-05-09-bobby-cox-hall-of-fame-braves-manager-dies-at-84",
+      "uri": "at://did:plc:p7bwmjqjgn3ldehylmu2cydk/app.bsky.feed.post/3mlhe2ymb5w2s",
+      "strategy": "ai-hook",
+      "hook": "Bobby Cox, who managed the Braves to their only World Series title in 1995, has died at 84. His teams dominated the National League for a decade but won just once.",
+      "had_embed": true,
+      "had_image": true,
+      "posted_at": "2026-05-09T23:02:28.428Z",
+      "likeCount": 0,
+      "repostCount": 0,
+      "replyCount": 0,
+      "indexedAt": "2026-05-09T23:02:28.478Z"
     }
   ]
 }
