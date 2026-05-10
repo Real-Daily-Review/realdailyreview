@@ -1,22 +1,22 @@
 {
   "outcome": "sent",
-  "candidates": 9,
+  "candidates": 14,
   "posted": 1,
   "used_ai_hooks": true,
   "failures": [],
   "sent": [
     {
-      "slug": "2026-05-10-boat-explosion-injures-11-at-miami-marina-during-gathering",
-      "uri": "at://did:plc:p7bwmjqjgn3ldehylmu2cydk/app.bsky.feed.post/3mli5rau4g42s",
+      "slug": "2026-05-10-ai-data-centers-spark-global-backlash-over-power-and-pollution",
+      "uri": "at://did:plc:p7bwmjqjgn3ldehylmu2cydk/app.bsky.feed.post/3mlii4d2ey72a",
       "strategy": "ai-hook",
-      "hook": "At least 11 people injured in a suspected boat explosion at a Miami marina during a weekend gathering. Investigators still don't know what caused the blast.",
+      "hook": "Tech companies are building data centers so massive they're straining power grids worldwide—and 43 percent of Americans blame them for rising electric bills.",
       "had_embed": true,
       "had_image": true,
-      "posted_at": "2026-05-10T06:42:18.842Z"
+      "posted_at": "2026-05-10T09:47:27.624Z"
     }
   ],
   "has_handle": true,
   "has_password": true,
   "handle": "realdailyreview.bsky.social",
-  "written_at": "2026-05-10T06:42:23.343Z"
+  "written_at": "2026-05-10T09:47:32.126Z"
 }
