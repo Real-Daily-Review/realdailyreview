@@ -12,7 +12,8 @@
     "2026-05-09-australias-one-nation-wins-first-lower-house-seat-in-historic-by-elect",
     "2026-05-09-nvidia-commits-dollar40b-to-ai-equity-investments-in-2026",
     "2026-05-09-us-jobs-report-beats-expectations-despite-economic-red-flags",
-    "2026-05-09-bobby-cox-hall-of-fame-braves-manager-dies-at-84"
+    "2026-05-09-bobby-cox-hall-of-fame-braves-manager-dies-at-84",
+    "2026-05-09-canvas-learning-platform-restored-after-cyberattack-disrupts-schools"
   ],
   "posts": [
     {
@@ -51,6 +52,15 @@
       "had_embed": true,
       "had_image": true,
       "posted_at": "2026-05-09T23:02:28.428Z"
+    },
+    {
+      "slug": "2026-05-09-canvas-learning-platform-restored-after-cyberattack-disrupts-schools",
+      "uri": "at://did:plc:p7bwmjqjgn3ldehylmu2cydk/app.bsky.feed.post/3mlhvds2df62g",
+      "strategy": "ai-hook",
+      "hook": "Thousands of schools lost access to Canvas during finals week. Here's what a cyberattack on one platform can do to an entire education system.",
+      "had_embed": true,
+      "had_image": true,
+      "posted_at": "2026-05-10T04:11:37.224Z"
     }
   ]
 }
