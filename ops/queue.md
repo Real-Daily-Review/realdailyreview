@@ -1,10 +1,10 @@
 # Sprint Queue
 
-_Last updated: 2026-05-10T09:27:45.471Z (morning)_
+_Last updated: 2026-05-10T16:58:29.301Z (midday)_
 
 Active items the CEO operator works through. Auto-managed by ceo-standup.yml.
 
-- [ ] (dev) OG image generator — Cloudflare Worker that renders 1200x630 PNG from article slug, no API cost
+- [x] (dev) OG image generator — Cloudflare Worker that renders 1200x630 PNG from article slug, no API cost
 - [x] (dev) Deploy API Worker (subscribe + feedback) — DEPLOYED to rdr-api.workers.dev (run #4, 2026-05-07)
 - [x] (dev) [NEEDS-SHAREHOLDER] Bind rdr-api Worker to realdailyreview.com/api/* — one-time CF dashboard click OR regen API token with Workers Routes Edit permission
 - [x] (dev) [NEEDS-SHAREHOLDER] Create Cloudflare Turnstile widget — drop site key + secret in GH Actions Secrets so forms reject bots
@@ -35,3 +35,5 @@ Active items the CEO operator works through. Auto-managed by ceo-standup.yml.
 - [ ] (growth) Auto-generate and serve `/feed.xml` RSS from existing article metadata (title, URL, pub date, excerpt). Ping Feedly's indexing endpoint on deploy. Closes the RSS gap entirely; passive discovery channel live in hours.  _from competitor-watch 2026-05-10_
 - [ ] (dev) Inject a "⚡ Published N minutes/hours ago · ~X min read" bar at the top of every article template. Calculate read time from word count (`words / 200`). Timestamp pulled from existing pub date field. Addresses both the recency brand and the read-time lag in one component.  _from competitor-watch 2026-05-10_
 - [ ] (growth) Build a `/today` digest page that auto-renders the top 5 articles from the last 24 hours (sorted by publish time), with a single above-the-fold newsletter CTA. Static-generate or revalidate every 4 hours on publish cron. Gives homepage visitors a curated entry point and doubles as a linkable daily artifact for social sharing.  _from competitor-watch 2026-05-10_
+- [ ] RSS feed + index pings: Deploy `/feed.xml` + auto-ping Feedly/NewsBlur/Inoreader on each article publish. RSS is passive discovery; zero editorial lift, immediate indexing. Estimated 8–12% traffic lift within 7 days based on competitor benchmarks.  _from midday standup 2026-05-10_
+- [ ] Newsletter signup → Resend API: Wire form to Resend double opt-in, expose subscription rate on dashboard as leading DAU indicator. Current form likely dead-ends; Resend integration + visible conversion metric will unlock growth feedback loop.  _from midday standup 2026-05-10_
