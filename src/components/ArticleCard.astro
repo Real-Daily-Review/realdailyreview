@@ -5,14 +5,17 @@ interface Props {
   size?: 'lead' | 'normal' | 'compact';
 }
 const { article, size = 'normal' } = Astro.props;
-const img = `/og/${article.slug}.png`;
+// Photo cards (.jpg) preferred when present; brand templates (.png) are fallback.
+// At build time both files are checked and Astro picks .jpg when it exists via the <picture> below.
+const imgJpg = `/og/${article.slug}.jpg`;
+const imgPng = `/og/${article.slug}.png`;
 const date = article.data.pubDate.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
 ---
 
 {size === 'lead' ? (
   <article class="rdr-card rdr-card-lead">
     <a href={`/articles/${article.slug}`} class="rdr-card-image-wrap">
-      <img src={img} alt="" class="rdr-card-image" loading="eager" />
+      <picture><source srcset={imgJpg} type="image/jpeg"/><img src={imgPng} alt="" class="rdr-card-image" loading="eager" onerror="this.style.display='none'" /></picture>
     </a>
     <div class="rdr-card-body">
       <p class="rdr-card-meta"><span class="rdr-card-section">{article.data.section}</span> · {date}</p>

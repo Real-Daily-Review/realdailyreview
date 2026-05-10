@@ -76,18 +76,36 @@ async function verifyTurnstile(token: string, ip: string, secret: string): Promi
   return !!j.success;
 }
 
-async function rateLimit(env: Env, key: string): Promise<boolean> {
-  const limit = Number(env.RATE_LIMIT_PER_MIN || '5');
+async function rateLimit(env: Env, key: string, limit?: number, windowSec = 60): Promise<boolean> {
+  const lim = limit ?? Number(env.RATE_LIMIT_PER_MIN || '5');
   const now = Math.floor(Date.now() / 1000);
-  const windowStart = now - 60;
+  const windowStart = now - windowSec;
   const row = await env.DB.prepare('SELECT count, window_start FROM rate_limit WHERE key = ?').bind(key).first<{ count: number; window_start: number }>();
   if (!row || row.window_start < windowStart) {
     await env.DB.prepare('INSERT OR REPLACE INTO rate_limit (key, count, window_start) VALUES (?, 1, ?)').bind(key, now).run();
     return true;
   }
-  if (row.count >= limit) return false;
+  if (row.count >= lim) return false;
   await env.DB.prepare('UPDATE rate_limit SET count = count + 1 WHERE key = ?').bind(key).run();
   return true;
+}
+
+// Constant-time string comparison — prevents timing attacks on tokens.
+function timingSafeEqual(a: string, b: string): boolean {
+  if (a.length !== b.length) return false;
+  let diff = 0;
+  for (let i = 0; i < a.length; i++) diff |= a.charCodeAt(i) ^ b.charCodeAt(i);
+  return diff === 0;
+}
+
+// Origin / Referer check for state-changing POSTs. Defends against CSRF
+// even on browsers that ignore SameSite (older Safari, certain extensions).
+function isOriginAllowed(req: Request, env: Env): boolean {
+  const o = req.headers.get('Origin') || '';
+  if (o && o === env.SITE_ORIGIN) return true;
+  const r = req.headers.get('Referer') || '';
+  if (r && r.startsWith(env.SITE_ORIGIN + '/')) return true;
+  return false;
 }
 
 function isValidEmail(s: string) {
@@ -200,9 +218,14 @@ async function handleFeedback(req: Request, env: Env, ipHash: string, uaHash: st
   return jsonResponse({ ok: true }, {}, env, req);
 }
 
-async function handleAdminFeedback(req: Request, env: Env): Promise<Response> {
+function checkAdminAuth(req: Request, env: Env): boolean {
   const auth = req.headers.get('authorization') ?? '';
-  if (!auth.startsWith('Bearer ') || auth.slice(7) !== env.ADMIN_TOKEN) {
+  if (!auth.startsWith('Bearer ')) return false;
+  return timingSafeEqual(auth.slice(7), env.ADMIN_TOKEN);
+}
+
+async function handleAdminFeedback(req: Request, env: Env): Promise<Response> {
+  if (!checkAdminAuth(req, env)) {
     return jsonResponse({ error: 'unauthorized' }, { status: 401 }, env, req);
   }
   const r = await env.DB.prepare(
@@ -212,8 +235,7 @@ async function handleAdminFeedback(req: Request, env: Env): Promise<Response> {
 }
 
 async function handleAdminStats(req: Request, env: Env): Promise<Response> {
-  const auth = req.headers.get('authorization') ?? '';
-  if (!auth.startsWith('Bearer ') || auth.slice(7) !== env.ADMIN_TOKEN) {
+  if (!checkAdminAuth(req, env)) {
     return jsonResponse({ error: 'unauthorized' }, { status: 401 }, env, req);
   }
   const subStats = await env.DB.prepare(`SELECT status, COUNT(*) as n FROM subscribers GROUP BY status`).all();
@@ -261,16 +283,34 @@ async function currentSession(req: Request, env: Env): Promise<{ email: string }
 }
 
 async function handleAuthRequest(req: Request, env: Env, ipHash: string): Promise<Response> {
+  // CSRF defense: require Origin or Referer matches our site for state-changing POST.
+  if (!isOriginAllowed(req, env)) {
+    return jsonResponse({ error: 'forbidden' }, { status: 403 }, env, req);
+  }
+
   const body = await readJson(req);
   if (!body) return jsonResponse({ error: 'Bad request.' }, { status: 400 }, env, req);
+
+  // Honeypot — silently swallow bot submissions
+  if (typeof body.hp === 'string' && body.hp.length > 0) return jsonResponse({ ok: true }, {}, env, req);
+
   const email = typeof body.email === 'string' ? body.email.toLowerCase().trim() : '';
   if (!isValidEmail(email)) return jsonResponse({ error: 'Invalid email.' }, { status: 400 }, env, req);
 
-  // Optional Turnstile if present
+  // Mandatory Turnstile when configured (not the placeholder).
   const turnstile = typeof body['cf-turnstile-response'] === 'string' ? body['cf-turnstile-response'] : '';
-  if (env.TURNSTILE_SECRET && env.TURNSTILE_SECRET !== 'PLACEHOLDER_NO_TURNSTILE_SET' && turnstile) {
+  if (env.TURNSTILE_SECRET && env.TURNSTILE_SECRET !== 'PLACEHOLDER_NO_TURNSTILE_SET') {
+    if (!turnstile) return jsonResponse({ error: 'Captcha required.' }, { status: 403 }, env, req);
     const ok = await verifyTurnstile(turnstile, req.headers.get('cf-connecting-ip') ?? '', env.TURNSTILE_SECRET);
     if (!ok) return jsonResponse({ error: 'Captcha failed.' }, { status: 403 }, env, req);
+  }
+
+  // Per-email rate limit (anti-bombing): max 3 magic links per email per hour
+  const emailHash = await sha256(email);
+  const okEmail = await rateLimit(env, `auth-req-email:${emailHash}`, 3, 3600);
+  if (!okEmail) {
+    // Always return 200 — don't leak whether email is registered or just rate-limited.
+    return jsonResponse({ ok: true, message: 'Check your email.' }, {}, env, req);
   }
 
   const token = randomToken(32);
@@ -341,6 +381,7 @@ async function handleAuthVerify(req: Request, env: Env, ipHash: string): Promise
 }
 
 async function handleSignOut(req: Request, env: Env): Promise<Response> {
+  if (!isOriginAllowed(req, env)) return jsonResponse({ error: 'forbidden' }, { status: 403 }, env, req);
   const sessionToken = getCookie(req, 'rdr_session');
   if (sessionToken) {
     await env.DB.prepare(`DELETE FROM user_sessions WHERE session_token=?`).bind(sessionToken).run();
@@ -362,6 +403,7 @@ async function handleMe(req: Request, env: Env): Promise<Response> {
 }
 
 async function handlePreferences(req: Request, env: Env): Promise<Response> {
+  if (!isOriginAllowed(req, env)) return jsonResponse({ error: 'forbidden' }, { status: 403 }, env, req);
   const sess = await currentSession(req, env);
   if (!sess) return jsonResponse({ error: 'unauthorized' }, { status: 401 }, env, req);
   const body = await readJson(req);
@@ -378,8 +420,7 @@ async function handlePreferences(req: Request, env: Env): Promise<Response> {
 }
 
 async function handleAdminSubscribers(req: Request, env: Env): Promise<Response> {
-  const auth = req.headers.get('authorization') ?? '';
-  if (!auth.startsWith('Bearer ') || auth.slice(7) !== env.ADMIN_TOKEN) {
+  if (!checkAdminAuth(req, env)) {
     return jsonResponse({ error: 'unauthorized' }, { status: 401 }, env, req);
   }
   const r = await env.DB.prepare(
