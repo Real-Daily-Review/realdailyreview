@@ -16,7 +16,8 @@
     "2026-05-09-canvas-learning-platform-restored-after-cyberattack-disrupts-schools",
     "2026-05-10-boat-explosion-injures-11-at-miami-marina-during-gathering",
     "2026-05-10-ai-data-centers-spark-global-backlash-over-power-and-pollution",
-    "2026-05-10-israeli-strikes-kill-39-in-lebanon-despite-ceasefire-deal"
+    "2026-05-10-israeli-strikes-kill-39-in-lebanon-despite-ceasefire-deal",
+    "2026-05-10-home-ai-data-centers-emerge-amid-public-opposition-to-large-facilities"
   ],
   "posts": [
     {
@@ -91,6 +92,15 @@
       "had_embed": true,
       "had_image": true,
       "posted_at": "2026-05-10T11:12:35.957Z"
+    },
+    {
+      "slug": "2026-05-10-home-ai-data-centers-emerge-amid-public-opposition-to-large-facilities",
+      "uri": "at://did:plc:p7bwmjqjgn3ldehylmu2cydk/app.bsky.feed.post/3mlivtbcq6p24",
+      "strategy": "ai-hook",
+      "hook": "Communities are blocking mega data centers. So tech companies want to put AI servers in your house instead.",
+      "had_embed": true,
+      "had_image": true,
+      "posted_at": "2026-05-10T13:52:56.164Z"
     }
   ]
 }
