@@ -1,9 +1,9 @@
 {
-  "fetched_at": "2026-05-10T12:48:00.978Z",
-  "total_posts_tracked": 9,
+  "fetched_at": "2026-05-10T18:42:38.983Z",
+  "total_posts_tracked": 12,
   "by_strategy": {
     "ai-hook": {
-      "posts": 9,
+      "posts": 12,
       "total_likes": 0,
       "total_reposts": 0,
       "total_replies": 0,
@@ -121,6 +121,19 @@
       "repostCount": 0,
       "replyCount": 0,
       "indexedAt": "2026-05-10T11:12:36.170Z"
+    },
+    {
+      "slug": "2026-05-10-home-ai-data-centers-emerge-amid-public-opposition-to-large-facilities",
+      "uri": "at://did:plc:p7bwmjqjgn3ldehylmu2cydk/app.bsky.feed.post/3mlivtbcq6p24",
+      "strategy": "ai-hook",
+      "hook": "Communities are blocking mega data centers. So tech companies want to put AI servers in your house instead.",
+      "had_embed": true,
+      "had_image": true,
+      "posted_at": "2026-05-10T13:52:56.164Z",
+      "likeCount": 0,
+      "repostCount": 0,
+      "replyCount": 0,
+      "indexedAt": "2026-05-10T13:52:56.271Z"
     }
   ],
   "posts": [
@@ -232,6 +245,45 @@
       "repostCount": 0,
       "replyCount": 0,
       "indexedAt": "2026-05-10T11:12:36.170Z"
+    },
+    {
+      "slug": "2026-05-10-home-ai-data-centers-emerge-amid-public-opposition-to-large-facilities",
+      "uri": "at://did:plc:p7bwmjqjgn3ldehylmu2cydk/app.bsky.feed.post/3mlivtbcq6p24",
+      "strategy": "ai-hook",
+      "hook": "Communities are blocking mega data centers. So tech companies want to put AI servers in your house instead.",
+      "had_embed": true,
+      "had_image": true,
+      "posted_at": "2026-05-10T13:52:56.164Z",
+      "likeCount": 0,
+      "repostCount": 0,
+      "replyCount": 0,
+      "indexedAt": "2026-05-10T13:52:56.271Z"
+    },
+    {
+      "slug": "2026-05-10-pentagon-launches-public-database-of-ufo-files",
+      "uri": "at://did:plc:p7bwmjqjgn3ldehylmu2cydk/app.bsky.feed.post/3mlj26unse72i",
+      "strategy": "ai-hook",
+      "hook": "The Pentagon just put classified UFO files online for anyone to see. Most haven't been analyzed yet.",
+      "had_embed": true,
+      "had_image": true,
+      "posted_at": "2026-05-10T15:11:00.554Z",
+      "likeCount": 0,
+      "repostCount": 0,
+      "replyCount": 0,
+      "indexedAt": "2026-05-10T15:11:00.672Z"
+    },
+    {
+      "slug": "2026-05-10-ai-data-centers-shift-to-homes-amid-public-opposition",
+      "uri": "at://did:plc:p7bwmjqjgn3ldehylmu2cydk/app.bsky.feed.post/3mljaues5s52x",
+      "strategy": "ai-hook",
+      "hook": "Developers are shrinking AI data centers down to fit inside homes as towns block their megafacilities.",
+      "had_embed": true,
+      "had_image": true,
+      "posted_at": "2026-05-10T17:10:24.665Z",
+      "likeCount": 0,
+      "repostCount": 0,
+      "replyCount": 0,
+      "indexedAt": "2026-05-10T17:10:24.675Z"
     }
   ]
 }
