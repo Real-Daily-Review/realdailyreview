@@ -1,9 +1,9 @@
 {
-  "fetched_at": "2026-05-10T07:52:55.224Z",
-  "total_posts_tracked": 7,
+  "fetched_at": "2026-05-10T12:48:00.978Z",
+  "total_posts_tracked": 9,
   "by_strategy": {
     "ai-hook": {
-      "posts": 7,
+      "posts": 9,
       "total_likes": 0,
       "total_reposts": 0,
       "total_replies": 0,
@@ -95,6 +95,32 @@
       "repostCount": 0,
       "replyCount": 0,
       "indexedAt": "2026-05-10T06:42:18.873Z"
+    },
+    {
+      "slug": "2026-05-10-ai-data-centers-spark-global-backlash-over-power-and-pollution",
+      "uri": "at://did:plc:p7bwmjqjgn3ldehylmu2cydk/app.bsky.feed.post/3mlii4d2ey72a",
+      "strategy": "ai-hook",
+      "hook": "Tech companies are building data centers so massive they're straining power grids worldwide—and 43 percent of Americans blame them for rising electric bills.",
+      "had_embed": true,
+      "had_image": true,
+      "posted_at": "2026-05-10T09:47:27.624Z",
+      "likeCount": 0,
+      "repostCount": 0,
+      "replyCount": 0,
+      "indexedAt": "2026-05-10T09:47:27.673Z"
+    },
+    {
+      "slug": "2026-05-10-israeli-strikes-kill-39-in-lebanon-despite-ceasefire-deal",
+      "uri": "at://did:plc:p7bwmjqjgn3ldehylmu2cydk/app.bsky.feed.post/3mlimukqtax2i",
+      "strategy": "ai-hook",
+      "hook": "A ceasefire took effect in April. Since then, Israeli airstrikes have killed at least 39 people in Lebanon this week alone.",
+      "had_embed": true,
+      "had_image": true,
+      "posted_at": "2026-05-10T11:12:35.957Z",
+      "likeCount": 0,
+      "repostCount": 0,
+      "replyCount": 0,
+      "indexedAt": "2026-05-10T11:12:36.170Z"
     }
   ],
   "posts": [
@@ -180,6 +206,32 @@
       "repostCount": 0,
       "replyCount": 0,
       "indexedAt": "2026-05-10T06:42:18.873Z"
+    },
+    {
+      "slug": "2026-05-10-ai-data-centers-spark-global-backlash-over-power-and-pollution",
+      "uri": "at://did:plc:p7bwmjqjgn3ldehylmu2cydk/app.bsky.feed.post/3mlii4d2ey72a",
+      "strategy": "ai-hook",
+      "hook": "Tech companies are building data centers so massive they're straining power grids worldwide—and 43 percent of Americans blame them for rising electric bills.",
+      "had_embed": true,
+      "had_image": true,
+      "posted_at": "2026-05-10T09:47:27.624Z",
+      "likeCount": 0,
+      "repostCount": 0,
+      "replyCount": 0,
+      "indexedAt": "2026-05-10T09:47:27.673Z"
+    },
+    {
+      "slug": "2026-05-10-israeli-strikes-kill-39-in-lebanon-despite-ceasefire-deal",
+      "uri": "at://did:plc:p7bwmjqjgn3ldehylmu2cydk/app.bsky.feed.post/3mlimukqtax2i",
+      "strategy": "ai-hook",
+      "hook": "A ceasefire took effect in April. Since then, Israeli airstrikes have killed at least 39 people in Lebanon this week alone.",
+      "had_embed": true,
+      "had_image": true,
+      "posted_at": "2026-05-10T11:12:35.957Z",
+      "likeCount": 0,
+      "repostCount": 0,
+      "replyCount": 0,
+      "indexedAt": "2026-05-10T11:12:36.170Z"
     }
   ]
 }
