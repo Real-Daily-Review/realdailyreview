@@ -23,7 +23,8 @@
     "2026-05-10-assad-cousin-charged-with-war-crimes-in-syria-trial",
     "2026-05-10-french-passenger-shows-hantavirus-symptoms-after-antarctic-cruise",
     "2026-05-10-micro-data-centers-may-move-into-us-homes-amid-public-opposition",
-    "2026-05-11-france-expands-africa-influence-through-kenya-partnership"
+    "2026-05-11-france-expands-africa-influence-through-kenya-partnership",
+    "2026-05-11-thailands-thaksin-released-from-prison-on-parole"
   ],
   "posts": [
     {
@@ -161,6 +162,15 @@
       "had_embed": true,
       "had_image": true,
       "posted_at": "2026-05-11T09:59:04.700Z"
+    },
+    {
+      "slug": "2026-05-11-thailands-thaksin-released-from-prison-on-parole",
+      "uri": "at://did:plc:p7bwmjqjgn3ldehylmu2cydk/app.bsky.feed.post/3mllcqmcfem24",
+      "strategy": "fallback-ai-error",
+      "hook": null,
+      "had_embed": true,
+      "had_image": true,
+      "posted_at": "2026-05-11T12:49:24.878Z"
     }
   ]
 }
