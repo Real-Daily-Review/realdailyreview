@@ -1,18 +1,31 @@
 {
-  "fetched_at": "2026-05-10T18:42:38.983Z",
-  "total_posts_tracked": 12,
+  "fetched_at": "2026-05-11T01:52:27.059Z",
+  "total_posts_tracked": 14,
   "by_strategy": {
     "ai-hook": {
-      "posts": 12,
-      "total_likes": 0,
-      "total_reposts": 0,
+      "posts": 14,
+      "total_likes": 2,
+      "total_reposts": 2,
       "total_replies": 0,
-      "avg_likes": 0,
-      "avg_reposts": 0,
+      "avg_likes": 0.14,
+      "avg_reposts": 0.14,
       "avg_replies": 0
     }
   },
   "top10": [
+    {
+      "slug": "2026-05-10-french-passenger-shows-hantavirus-symptoms-after-antarctic-cruise",
+      "uri": "at://did:plc:p7bwmjqjgn3ldehylmu2cydk/app.bsky.feed.post/3mljup4k4gu2u",
+      "strategy": "ai-hook",
+      "hook": "A French passenger showed hantavirus symptoms mid-flight from Antarctica. Five people from the same cruise ship are now quarantined in Paris pending evaluation.",
+      "had_embed": true,
+      "had_image": true,
+      "posted_at": "2026-05-10T23:05:22.709Z",
+      "likeCount": 2,
+      "repostCount": 2,
+      "replyCount": 0,
+      "indexedAt": "2026-05-10T23:05:22.774Z"
+    },
     {
       "slug": "2026-05-09-us-sanctions-chinese-middle-eastern-entities-for-aiding-iran",
       "uri": "at://did:plc:p7bwmjqjgn3ldehylmu2cydk/app.bsky.feed.post/3mlgksxeyg42l",
@@ -121,19 +134,6 @@
       "repostCount": 0,
       "replyCount": 0,
       "indexedAt": "2026-05-10T11:12:36.170Z"
-    },
-    {
-      "slug": "2026-05-10-home-ai-data-centers-emerge-amid-public-opposition-to-large-facilities",
-      "uri": "at://did:plc:p7bwmjqjgn3ldehylmu2cydk/app.bsky.feed.post/3mlivtbcq6p24",
-      "strategy": "ai-hook",
-      "hook": "Communities are blocking mega data centers. So tech companies want to put AI servers in your house instead.",
-      "had_embed": true,
-      "had_image": true,
-      "posted_at": "2026-05-10T13:52:56.164Z",
-      "likeCount": 0,
-      "repostCount": 0,
-      "replyCount": 0,
-      "indexedAt": "2026-05-10T13:52:56.271Z"
     }
   ],
   "posts": [
@@ -284,6 +284,32 @@
       "repostCount": 0,
       "replyCount": 0,
       "indexedAt": "2026-05-10T17:10:24.675Z"
+    },
+    {
+      "slug": "2026-05-10-assad-cousin-charged-with-war-crimes-in-syria-trial",
+      "uri": "at://did:plc:p7bwmjqjgn3ldehylmu2cydk/app.bsky.feed.post/3mljnvcfcwd2c",
+      "strategy": "ai-hook",
+      "hook": "Atef Najib, Assad's cousin and a top security official, is on trial for orchestrating torture and massacres during Syria's 2011 uprising—the first major accountability case since the regime fell.",
+      "had_embed": true,
+      "had_image": true,
+      "posted_at": "2026-05-10T21:03:33.980Z",
+      "likeCount": 0,
+      "repostCount": 0,
+      "replyCount": 0,
+      "indexedAt": "2026-05-10T21:03:34.078Z"
+    },
+    {
+      "slug": "2026-05-10-french-passenger-shows-hantavirus-symptoms-after-antarctic-cruise",
+      "uri": "at://did:plc:p7bwmjqjgn3ldehylmu2cydk/app.bsky.feed.post/3mljup4k4gu2u",
+      "strategy": "ai-hook",
+      "hook": "A French passenger showed hantavirus symptoms mid-flight from Antarctica. Five people from the same cruise ship are now quarantined in Paris pending evaluation.",
+      "had_embed": true,
+      "had_image": true,
+      "posted_at": "2026-05-10T23:05:22.709Z",
+      "likeCount": 2,
+      "repostCount": 2,
+      "replyCount": 0,
+      "indexedAt": "2026-05-10T23:05:22.774Z"
     }
   ]
 }
