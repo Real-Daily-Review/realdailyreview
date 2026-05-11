@@ -1,6 +1,6 @@
 {
-  "fetched_at": "2026-05-11T08:53:50.868Z",
-  "total_posts_tracked": 15,
+  "fetched_at": "2026-05-11T14:18:09.398Z",
+  "total_posts_tracked": 17,
   "by_strategy": {
     "ai-hook": {
       "posts": 15,
@@ -9,6 +9,15 @@
       "total_replies": 0,
       "avg_likes": 0.13,
       "avg_reposts": 0.13,
+      "avg_replies": 0
+    },
+    "fallback-ai-error": {
+      "posts": 2,
+      "total_likes": 0,
+      "total_reposts": 0,
+      "total_replies": 0,
+      "avg_likes": 0,
+      "avg_reposts": 0,
       "avg_replies": 0
     }
   },
@@ -323,6 +332,32 @@
       "repostCount": 0,
       "replyCount": 0,
       "indexedAt": "2026-05-11T04:21:47.071Z"
+    },
+    {
+      "slug": "2026-05-11-france-expands-africa-influence-through-kenya-partnership",
+      "uri": "at://did:plc:p7bwmjqjgn3ldehylmu2cydk/app.bsky.feed.post/3mlkz7zl7yv2u",
+      "strategy": "fallback-ai-error",
+      "hook": null,
+      "had_embed": true,
+      "had_image": true,
+      "posted_at": "2026-05-11T09:59:04.700Z",
+      "likeCount": 0,
+      "repostCount": 0,
+      "replyCount": 0,
+      "indexedAt": "2026-05-11T09:59:05.076Z"
+    },
+    {
+      "slug": "2026-05-11-thailands-thaksin-released-from-prison-on-parole",
+      "uri": "at://did:plc:p7bwmjqjgn3ldehylmu2cydk/app.bsky.feed.post/3mllcqmcfem24",
+      "strategy": "fallback-ai-error",
+      "hook": null,
+      "had_embed": true,
+      "had_image": true,
+      "posted_at": "2026-05-11T12:49:24.878Z",
+      "likeCount": 0,
+      "repostCount": 0,
+      "replyCount": 0,
+      "indexedAt": "2026-05-11T12:49:24.974Z"
     }
   ]
 }
