@@ -21,7 +21,8 @@
     "2026-05-10-pentagon-launches-public-database-of-ufo-files",
     "2026-05-10-ai-data-centers-shift-to-homes-amid-public-opposition",
     "2026-05-10-assad-cousin-charged-with-war-crimes-in-syria-trial",
-    "2026-05-10-french-passenger-shows-hantavirus-symptoms-after-antarctic-cruise"
+    "2026-05-10-french-passenger-shows-hantavirus-symptoms-after-antarctic-cruise",
+    "2026-05-10-micro-data-centers-may-move-into-us-homes-amid-public-opposition"
   ],
   "posts": [
     {
@@ -141,6 +142,15 @@
       "had_embed": true,
       "had_image": true,
       "posted_at": "2026-05-10T23:05:22.709Z"
+    },
+    {
+      "slug": "2026-05-10-micro-data-centers-may-move-into-us-homes-amid-public-opposition",
+      "uri": "at://did:plc:p7bwmjqjgn3ldehylmu2cydk/app.bsky.feed.post/3mlkgevdygd2s",
+      "strategy": "ai-hook",
+      "hook": "Tech companies are quietly designing data centers small enough to fit in your house—to dodge community opposition to massive facilities.",
+      "had_embed": true,
+      "had_image": true,
+      "posted_at": "2026-05-11T04:21:46.965Z"
     }
   ]
 }
