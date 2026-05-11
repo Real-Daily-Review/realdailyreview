@@ -1,14 +1,14 @@
 {
-  "fetched_at": "2026-05-11T01:52:27.059Z",
-  "total_posts_tracked": 14,
+  "fetched_at": "2026-05-11T08:53:50.868Z",
+  "total_posts_tracked": 15,
   "by_strategy": {
     "ai-hook": {
-      "posts": 14,
+      "posts": 15,
       "total_likes": 2,
       "total_reposts": 2,
       "total_replies": 0,
-      "avg_likes": 0.14,
-      "avg_reposts": 0.14,
+      "avg_likes": 0.13,
+      "avg_reposts": 0.13,
       "avg_replies": 0
     }
   },
@@ -310,6 +310,19 @@
       "repostCount": 2,
       "replyCount": 0,
       "indexedAt": "2026-05-10T23:05:22.774Z"
+    },
+    {
+      "slug": "2026-05-10-micro-data-centers-may-move-into-us-homes-amid-public-opposition",
+      "uri": "at://did:plc:p7bwmjqjgn3ldehylmu2cydk/app.bsky.feed.post/3mlkgevdygd2s",
+      "strategy": "ai-hook",
+      "hook": "Tech companies are quietly designing data centers small enough to fit in your house—to dodge community opposition to massive facilities.",
+      "had_embed": true,
+      "had_image": true,
+      "posted_at": "2026-05-11T04:21:46.965Z",
+      "likeCount": 0,
+      "repostCount": 0,
+      "replyCount": 0,
+      "indexedAt": "2026-05-11T04:21:47.071Z"
     }
   ]
 }
