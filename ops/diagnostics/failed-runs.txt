@@ -1,15 +1,15 @@
-=== FAILED: Growth agent (Ravi Sharma) #2 (failure) ===
-URL: https://github.com/Real-Daily-Review/realdailyreview/actions/runs/25603801769
-Started: 2026-05-09T14:42:32Z
-Head SHA: d7955b6a
+=== FAILED: Daily exec brief #1 (failure) ===
+URL: https://github.com/Real-Daily-Review/realdailyreview/actions/runs/25673576466
+Started: 2026-05-11T13:36:09Z
+Head SHA: 26c5416a
 
-=== FAILED: Autonomous feature builder #3 (failure) ===
-URL: https://github.com/Real-Daily-Review/realdailyreview/actions/runs/25596280546
-Started: 2026-05-09T08:15:39Z
-Head SHA: 6c995dd8
+=== FAILED: Daily content publish #62 (failure) ===
+URL: https://github.com/Real-Daily-Review/realdailyreview/actions/runs/25671158357
+Started: 2026-05-11T12:49:51Z
+Head SHA: e5b8ed5e
 
-=== FAILED: Growth agent (Ravi Sharma) #1 (failure) ===
-URL: https://github.com/Real-Daily-Review/realdailyreview/actions/runs/25588195066
-Started: 2026-05-09T01:46:13Z
-Head SHA: 04027b24
+=== FAILED: Daily content publish #61 (failure) ===
+URL: https://github.com/Real-Daily-Review/realdailyreview/actions/runs/25669857038
+Started: 2026-05-11T12:22:58Z
+Head SHA: b58d2feb
 
