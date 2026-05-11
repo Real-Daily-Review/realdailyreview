@@ -1,22 +1,22 @@
 {
   "outcome": "sent",
-  "candidates": 4,
+  "candidates": 9,
   "posted": 1,
   "used_ai_hooks": true,
   "failures": [],
   "sent": [
     {
-      "slug": "2026-05-10-micro-data-centers-may-move-into-us-homes-amid-public-opposition",
-      "uri": "at://did:plc:p7bwmjqjgn3ldehylmu2cydk/app.bsky.feed.post/3mlkgevdygd2s",
-      "strategy": "ai-hook",
-      "hook": "Tech companies are quietly designing data centers small enough to fit in your house—to dodge community opposition to massive facilities.",
+      "slug": "2026-05-11-france-expands-africa-influence-through-kenya-partnership",
+      "uri": "at://did:plc:p7bwmjqjgn3ldehylmu2cydk/app.bsky.feed.post/3mlkz7zl7yv2u",
+      "strategy": "fallback-ai-error",
+      "hook": null,
       "had_embed": true,
       "had_image": true,
-      "posted_at": "2026-05-11T04:21:46.965Z"
+      "posted_at": "2026-05-11T09:59:04.700Z"
     }
   ],
   "has_handle": true,
   "has_password": true,
   "handle": "realdailyreview.bsky.social",
-  "written_at": "2026-05-11T04:21:51.467Z"
+  "written_at": "2026-05-11T09:59:09.203Z"
 }
