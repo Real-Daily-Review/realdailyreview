@@ -1,6 +1,6 @@
 # Sprint Queue
 
-_Last updated: 2026-05-10T16:58:29.301Z (midday)_
+_Last updated: 2026-05-11T02:36:46.316Z (overnight)_
 
 Active items the CEO operator works through. Auto-managed by ceo-standup.yml.
 
@@ -37,3 +37,4 @@ Active items the CEO operator works through. Auto-managed by ceo-standup.yml.
 - [ ] (growth) Build a `/today` digest page that auto-renders the top 5 articles from the last 24 hours (sorted by publish time), with a single above-the-fold newsletter CTA. Static-generate or revalidate every 4 hours on publish cron. Gives homepage visitors a curated entry point and doubles as a linkable daily artifact for social sharing.  _from competitor-watch 2026-05-10_
 - [ ] RSS feed + index pings: Deploy `/feed.xml` + auto-ping Feedly/NewsBlur/Inoreader on each article publish. RSS is passive discovery; zero editorial lift, immediate indexing. Estimated 8–12% traffic lift within 7 days based on competitor benchmarks.  _from midday standup 2026-05-10_
 - [ ] Newsletter signup → Resend API: Wire form to Resend double opt-in, expose subscription rate on dashboard as leading DAU indicator. Current form likely dead-ends; Resend integration + visible conversion metric will unlock growth feedback loop.  _from midday standup 2026-05-10_
+- [ ] Deploy RSS feed to `/feed.xml` and ping Feedly + Google News indexes on every publish. Estimated 2–4 hrs. RSS is the fastest path to discovery; zero editorial lift. Competitors are already indexed; we're invisible to aggregators.  _from overnight standup 2026-05-11_
