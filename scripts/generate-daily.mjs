@@ -147,7 +147,30 @@ async function main() {
   }
 }
 
-main().catch((err) => {
+main().catch(async (err) => {
   console.error('[generate-daily] FATAL', err);
+  // Surface Anthropic credit / quota errors loudly so the shareholder sees the
+  // shutdown in the queue + next standup instead of "huh, where's content?"
+  const msg = String(err && err.message || err);
+  const creditOut = /credit balance is too low|insufficient_quota|429|rate_limit_error/i.test(msg);
+  if (creditOut) {
+    try {
+      const { promises: fs } = await import('node:fs');
+      const path = await import('node:path');
+      const queueFile = path.resolve('ops/queue.md');
+      const queue = await fs.readFile(queueFile, 'utf8').catch(() => '# Sprint Queue\n\n');
+      const flag = '[NEEDS-SHAREHOLDER] Anthropic credit balance depleted';
+      if (!queue.includes(flag)) {
+        await fs.writeFile(
+          queueFile,
+          queue.trimEnd() + `\n- [ ] ${flag} — content generation halted, top up at https://console.anthropic.com/settings/billing  _surfaced ${new Date().toISOString()}_\n`,
+          'utf8'
+        );
+        console.error('[generate-daily] queued shareholder alert: credits depleted');
+      }
+    } catch (e) {
+      console.error('[generate-daily] failed to surface credit alert:', e.message);
+    }
+  }
   process.exit(1);
 });
