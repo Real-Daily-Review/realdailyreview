@@ -151,10 +151,57 @@ async function sendEmail({ subject, html, text }) {
   return true;
 }
 
+function deterministicBrief(snap) {
+  const lines = [];
+  lines.push('## What shipped in the last 24h');
+  if (snap.commits_24h_count === 0) {
+    lines.push('- (no commits in last 24h)');
+  } else {
+    for (const c of snap.commits_24h_sample) {
+      lines.push(`- ${c.subject} (\`${c.hash}\`)`);
+    }
+  }
+  lines.push('');
+  lines.push('## Numbers that matter');
+  const confirmed = (snap.subscribers || []).find((s) => s.status === 'confirmed')?.n ?? 0;
+  lines.push(`- Subscribers (confirmed): ${confirmed} (+${snap.subs_added_24h} in last 24h)`);
+  lines.push(`- Visits last 7 days: ${snap.visits_7d} / pageviews ${snap.pageviews_7d}`);
+  lines.push(`- Articles published last 24h: ${snap.articles_24h} (total ${snap.articles_total})`);
+  lines.push(`- Queue: ${snap.queue.active} active / ${snap.queue.done} done / ${snap.queue.needs_shareholder} shareholder-blocked`);
+  lines.push(`- Bluesky posts shipped: ${snap.bluesky_total_posts}`);
+  lines.push('');
+  lines.push('## What\'s working');
+  lines.push(`- Autonomous publish + cross-post cadence steady (${snap.articles_24h} articles/day, multiple social pushes)`);
+  lines.push('');
+  lines.push('## What\'s NOT working');
+  if (snap.subs_added_24h === 0 && snap.visits_7d > 10) {
+    lines.push(`- 0 new subscribers despite ${snap.visits_7d} visits over 7 days — conversion = 0%; investigate whether visits are bots vs humans`);
+  }
+  lines.push('- AI-driven brief generation skipped this run (Anthropic API error — likely credit balance). Deterministic fallback used.');
+  lines.push('');
+  lines.push('## Today\'s focus (top 3)');
+  lines.push('- Top eligible queue items (next up for feature-build):');
+  // Top 3 not-done, not-needs-shareholder items from queue
+  // (already filtered upstream; here just summarize)
+  lines.push('  (see ops/queue.md)');
+  lines.push('');
+  lines.push('## Shareholder asks');
+  lines.push('- Add Anthropic API credits at https://console.anthropic.com/settings/billing — currently blocking AI-driven workflows');
+  lines.push('');
+  lines.push('— Alex (deterministic mode)');
+  return lines.join('\n');
+}
+
 async function main() {
   await fs.mkdir(OUT_DIR, { recursive: true });
   const snap = await gather();
-  const md = await aiBrief(snap);
+  let md;
+  try {
+    md = await aiBrief(snap);
+  } catch (err) {
+    console.warn('[exec-brief] AI brief failed, falling back to deterministic:', err.message);
+    md = deterministicBrief(snap);
+  }
 
   const today = snap.date;
   const file = path.join(OUT_DIR, `${today}.md`);
