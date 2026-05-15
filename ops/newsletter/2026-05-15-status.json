@@ -1,0 +1,9 @@
+{
+  "outcome": "skipped",
+  "reason": "no digest article today",
+  "has_resend_api_key": true,
+  "has_admin_token": true,
+  "resend_from": "Real Daily Review <brief@realdailyreview.com>",
+  "site_host": "realdailyreview.com",
+  "written_at": "2026-05-15T11:47:40.922Z"
+}
