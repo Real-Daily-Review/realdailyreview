@@ -26,7 +26,8 @@
     "2026-05-11-france-expands-africa-influence-through-kenya-partnership",
     "2026-05-11-thailands-thaksin-released-from-prison-on-parole",
     "2026-05-20-google-launches-gemini-35-flash-for-autonomous-ai-agents",
-    "2026-05-20-eu-clears-trade-deal-with-us-to-head-off-trump-tariffs"
+    "2026-05-20-eu-clears-trade-deal-with-us-to-head-off-trump-tariffs",
+    "2026-05-20-barney-frank-pioneering-congressman-and-financial-reformer-dies-at-86"
   ],
   "posts": [
     {
@@ -191,6 +192,15 @@
       "had_embed": true,
       "had_image": true,
       "posted_at": "2026-05-20T12:38:04.506Z"
+    },
+    {
+      "slug": "2026-05-20-barney-frank-pioneering-congressman-and-financial-reformer-dies-at-86",
+      "uri": "at://did:plc:p7bwmjqjgn3ldehylmu2cydk/app.bsky.feed.post/3mmcggws6n52h",
+      "strategy": "ai-hook",
+      "hook": "Barney Frank, who shaped post-2008 banking rules and helped redefine what Congress could look like, died at 86.",
+      "had_embed": true,
+      "had_image": true,
+      "posted_at": "2026-05-20T17:26:49.256Z"
     }
   ]
 }
