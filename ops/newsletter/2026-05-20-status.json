@@ -1,0 +1,15 @@
+{
+  "date": "2026-05-20",
+  "digest_slug": "2026-05-20-the-brief-wednesday-may-20-2026",
+  "subject": "The Brief — Wednesday, May 20, 2026",
+  "audience_size": 1,
+  "succeeded": 1,
+  "failed": 0,
+  "failures": [],
+  "outcome": "sent",
+  "has_resend_api_key": true,
+  "has_admin_token": true,
+  "resend_from": "Real Daily Review <brief@realdailyreview.com>",
+  "site_host": "realdailyreview.com",
+  "written_at": "2026-05-20T12:15:16.046Z"
+}
