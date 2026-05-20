@@ -25,7 +25,8 @@
     "2026-05-10-micro-data-centers-may-move-into-us-homes-amid-public-opposition",
     "2026-05-11-france-expands-africa-influence-through-kenya-partnership",
     "2026-05-11-thailands-thaksin-released-from-prison-on-parole",
-    "2026-05-20-google-launches-gemini-35-flash-for-autonomous-ai-agents"
+    "2026-05-20-google-launches-gemini-35-flash-for-autonomous-ai-agents",
+    "2026-05-20-eu-clears-trade-deal-with-us-to-head-off-trump-tariffs"
   ],
   "posts": [
     {
@@ -181,6 +182,15 @@
       "had_embed": true,
       "had_image": true,
       "posted_at": "2026-05-20T09:53:21.416Z"
+    },
+    {
+      "slug": "2026-05-20-eu-clears-trade-deal-with-us-to-head-off-trump-tariffs",
+      "uri": "at://did:plc:p7bwmjqjgn3ldehylmu2cydk/app.bsky.feed.post/3mmbwcm4r462h",
+      "strategy": "ai-hook",
+      "hook": "The EU just struck a deal to dodge Trump's threatened tariffs before they hit. Here's what changes for European exporters.",
+      "had_embed": true,
+      "had_image": true,
+      "posted_at": "2026-05-20T12:38:04.506Z"
     }
   ]
 }

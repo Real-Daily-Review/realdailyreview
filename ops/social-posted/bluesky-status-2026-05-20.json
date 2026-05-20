@@ -1,22 +1,22 @@
 {
   "outcome": "sent",
-  "candidates": 20,
+  "candidates": 7,
   "posted": 1,
   "used_ai_hooks": true,
   "failures": [],
   "sent": [
     {
-      "slug": "2026-05-20-google-launches-gemini-35-flash-for-autonomous-ai-agents",
-      "uri": "at://did:plc:p7bwmjqjgn3ldehylmu2cydk/app.bsky.feed.post/3mmbn43eylk2s",
+      "slug": "2026-05-20-eu-clears-trade-deal-with-us-to-head-off-trump-tariffs",
+      "uri": "at://did:plc:p7bwmjqjgn3ldehylmu2cydk/app.bsky.feed.post/3mmbwcm4r462h",
       "strategy": "ai-hook",
-      "hook": "Google's betting autonomous AI agents need speed more than raw power with its new Gemini 3.5 Flash model.",
+      "hook": "The EU just struck a deal to dodge Trump's threatened tariffs before they hit. Here's what changes for European exporters.",
       "had_embed": true,
       "had_image": true,
-      "posted_at": "2026-05-20T09:53:21.416Z"
+      "posted_at": "2026-05-20T12:38:04.506Z"
     }
   ],
   "has_handle": true,
   "has_password": true,
   "handle": "realdailyreview.bsky.social",
-  "written_at": "2026-05-20T09:53:25.918Z"
+  "written_at": "2026-05-20T12:38:09.008Z"
 }
