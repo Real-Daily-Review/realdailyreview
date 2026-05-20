@@ -1,14 +1,14 @@
 {
-  "fetched_at": "2026-05-20T14:29:02.989Z",
-  "total_posts_tracked": 19,
+  "fetched_at": "2026-05-20T19:59:31.968Z",
+  "total_posts_tracked": 20,
   "by_strategy": {
     "ai-hook": {
-      "posts": 17,
+      "posts": 18,
       "total_likes": 2,
       "total_reposts": 2,
       "total_replies": 0,
-      "avg_likes": 0.12,
-      "avg_reposts": 0.12,
+      "avg_likes": 0.11,
+      "avg_reposts": 0.11,
       "avg_replies": 0
     },
     "fallback-ai-error": {
@@ -384,6 +384,19 @@
       "repostCount": 0,
       "replyCount": 0,
       "indexedAt": "2026-05-20T12:38:04.783Z"
+    },
+    {
+      "slug": "2026-05-20-barney-frank-pioneering-congressman-and-financial-reformer-dies-at-86",
+      "uri": "at://did:plc:p7bwmjqjgn3ldehylmu2cydk/app.bsky.feed.post/3mmcggws6n52h",
+      "strategy": "ai-hook",
+      "hook": "Barney Frank, who shaped post-2008 banking rules and helped redefine what Congress could look like, died at 86.",
+      "had_embed": true,
+      "had_image": true,
+      "posted_at": "2026-05-20T17:26:49.256Z",
+      "likeCount": 0,
+      "repostCount": 0,
+      "replyCount": 0,
+      "indexedAt": "2026-05-20T17:26:49.280Z"
     }
   ]
 }
