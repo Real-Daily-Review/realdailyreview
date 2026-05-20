@@ -1,6 +1,6 @@
 # Sprint Queue
 
-_Last updated: 2026-05-20T02:42:39.915Z (overnight)_
+_Last updated: 2026-05-20T10:50:10.177Z (morning)_
 
 Active items the CEO operator works through. Auto-managed by ceo-standup.yml.
 
@@ -44,3 +44,7 @@ Active items the CEO operator works through. Auto-managed by ceo-standup.yml.
 - [ ] (growth) Auto-generate and inject an RSS 2.0 feed at `/feed.xml` from the existing article database, including title, description (first 150 chars), pubDate, and canonical link. Submit URL to Feedly, Newsblur, and Google News Publisher Center via their open submission endpoints. Closes the largest free-traffic gap in under 4 hours.  _from competitor-watch 2026-05-20_
 - [ ] (dev) Add a `reading_time` computed field on every article (word count ÷ 238, rounded up) and render a "⏱ X-min read" badge in the article header and on all index/feed cards. Simultaneously inject correct `og:title`, `og:description`, `og:image`, and `twitter:card` meta tags on every article page if not already present. Reduces bounce, improves social CTR.  _from competitor-watch 2026-05-20_
 - [ ] (content) Add a post-publish enrichment step to the cron pipeline: after each article is written, call the LLM with prompt `"In exactly one sentence (max 20 words), state why this story matters to a general reader."` Store as `why_it_matters` field and render it in a highlighted callout block at article top. Zero marginal cost, instant editorial differentiation from every competitor listed.  _from competitor-watch 2026-05-20_
+- [ ] (growth) Auto-generate RSS 2.0 feed at `/feed.xml`, ping Feedly/NewsBlur/Inoreader indexes on publish — closes largest discovery gap  _from morning standup 2026-05-20_
+- [ ] (dev) Inject article metadata bar: read time (word count ÷ 200), pub timestamp, source count — single muted line beneath headline  _from morning standup 2026-05-20_
+- [ ] (monetization) Build `/sitemap-topics.xml` + 8-topic taxonomy (Politics, Economy, Tech, World, Health, Culture, Science, Business) with `/topic/{slug}` archive pages — improves SEO crawlability and AdSense RPM via pages-per-session lift  _from morning standup 2026-05-20_
+- [ ] RSS feed + indexing: Deploy `/feed.xml` (20 most recent articles) and auto-ping Feedly, NewsBlur, Inoreader on each publish. Zero editorial lift; passive discovery channel live in <4 hrs. Estimated 200–400 monthly referrals from aggregators alone.  _from morning standup 2026-05-20_
