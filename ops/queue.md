@@ -1,6 +1,6 @@
 # Sprint Queue
 
-_Last updated: 2026-05-19T21:14:23.838Z (evening)_
+_Last updated: 2026-05-20T02:42:39.915Z (overnight)_
 
 Active items the CEO operator works through. Auto-managed by ceo-standup.yml.
 
@@ -38,3 +38,6 @@ Active items the CEO operator works through. Auto-managed by ceo-standup.yml.
 - [ ] RSS feed + index pings: Deploy `/feed.xml` + auto-ping Feedly/NewsBlur/Inoreader on each article publish. RSS is passive discovery; zero editorial lift, immediate indexing. Estimated 8–12% traffic lift within 7 days based on competitor benchmarks.  _from midday standup 2026-05-10_
 - [ ] Newsletter signup → Resend API: Wire form to Resend double opt-in, expose subscription rate on dashboard as leading DAU indicator. Current form likely dead-ends; Resend integration + visible conversion metric will unlock growth feedback loop.  _from midday standup 2026-05-10_
 - [ ] Deploy RSS feed to `/feed.xml` and ping Feedly + Google News indexes on every publish. Estimated 2–4 hrs. RSS is the fastest path to discovery; zero editorial lift. Competitors are already indexed; we're invisible to aggregators.  _from overnight standup 2026-05-11_
+- [ ] (growth) Generate and serve valid RSS 2.0 feed at `/feed.xml`, submit to Google News Publisher Center and Feedly index. **Est. 2–4 hrs build time.**  _from overnight standup 2026-05-20_
+- [ ] (dev) Inject per-article metadata block: read time (word count ÷ 200), publish timestamp, source count. Render as `3 min read · May 9, 2026 · 4 sources`.  _from overnight standup 2026-05-20_
+- [ ] Build `/sitemap-topics.xml` + auto-tag articles into 8 topic buckets (Politics, Economy, Tech, World, Health, Culture, Science, Business); generate `/topic/{slug}` archive pages. Creates crawlable hub pages for long-tail SEO, increases pages-per-session (boosts Ezoic/AdSense RPM), zero editorial effort. Est. 3–4 hours.  _from overnight standup 2026-05-20_
