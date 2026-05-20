@@ -1,9 +1,22 @@
 {
-  "outcome": "no-candidates",
-  "reason": "0 articles in last 6h; all already posted",
-  "already_posted_count": 25,
+  "outcome": "sent",
+  "candidates": 20,
+  "posted": 1,
+  "used_ai_hooks": true,
+  "failures": [],
+  "sent": [
+    {
+      "slug": "2026-05-20-google-launches-gemini-35-flash-for-autonomous-ai-agents",
+      "uri": "at://did:plc:p7bwmjqjgn3ldehylmu2cydk/app.bsky.feed.post/3mmbn43eylk2s",
+      "strategy": "ai-hook",
+      "hook": "Google's betting autonomous AI agents need speed more than raw power with its new Gemini 3.5 Flash model.",
+      "had_embed": true,
+      "had_image": true,
+      "posted_at": "2026-05-20T09:53:21.416Z"
+    }
+  ],
   "has_handle": true,
   "has_password": true,
   "handle": "realdailyreview.bsky.social",
-  "written_at": "2026-05-20T04:34:09.036Z"
+  "written_at": "2026-05-20T09:53:25.918Z"
 }

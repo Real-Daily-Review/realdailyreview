@@ -24,7 +24,8 @@
     "2026-05-10-french-passenger-shows-hantavirus-symptoms-after-antarctic-cruise",
     "2026-05-10-micro-data-centers-may-move-into-us-homes-amid-public-opposition",
     "2026-05-11-france-expands-africa-influence-through-kenya-partnership",
-    "2026-05-11-thailands-thaksin-released-from-prison-on-parole"
+    "2026-05-11-thailands-thaksin-released-from-prison-on-parole",
+    "2026-05-20-google-launches-gemini-35-flash-for-autonomous-ai-agents"
   ],
   "posts": [
     {
@@ -171,6 +172,15 @@
       "had_embed": true,
       "had_image": true,
       "posted_at": "2026-05-11T12:49:24.878Z"
+    },
+    {
+      "slug": "2026-05-20-google-launches-gemini-35-flash-for-autonomous-ai-agents",
+      "uri": "at://did:plc:p7bwmjqjgn3ldehylmu2cydk/app.bsky.feed.post/3mmbn43eylk2s",
+      "strategy": "ai-hook",
+      "hook": "Google's betting autonomous AI agents need speed more than raw power with its new Gemini 3.5 Flash model.",
+      "had_embed": true,
+      "had_image": true,
+      "posted_at": "2026-05-20T09:53:21.416Z"
     }
   ]
 }
