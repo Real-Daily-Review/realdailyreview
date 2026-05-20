@@ -1,6 +1,6 @@
 # Sprint Queue
 
-_Last updated: 2026-05-20T10:50:10.177Z (morning)_
+_Last updated: 2026-05-20T18:20:12.878Z (midday)_
 
 Active items the CEO operator works through. Auto-managed by ceo-standup.yml.
 
@@ -49,3 +49,5 @@ Active items the CEO operator works through. Auto-managed by ceo-standup.yml.
 - [ ] (monetization) Build `/sitemap-topics.xml` + 8-topic taxonomy (Politics, Economy, Tech, World, Health, Culture, Science, Business) with `/topic/{slug}` archive pages — improves SEO crawlability and AdSense RPM via pages-per-session lift  _from morning standup 2026-05-20_
 - [ ] RSS feed + indexing: Deploy `/feed.xml` (20 most recent articles) and auto-ping Feedly, NewsBlur, Inoreader on each publish. Zero editorial lift; passive discovery channel live in <4 hrs. Estimated 200–400 monthly referrals from aggregators alone.  _from morning standup 2026-05-20_
 - [ ] (dev) Inject a reading-time estimator into every article template: calculate `Math.ceil(wordCount / 200)` at render time and display "⏱ X min read" below the headline. Also append a `DEVELOPING` badge to any article updated within the last 6 hours vs. a `CONFIRMED` badge otherwise, using `updatedAt` timestamp comparison. Single template change; covers two lag items and one differentiation opportunity simultaneously.  _from competitor-watch 2026-05-20_
+- [ ] Inject newsletter CTA + signup form into article footer. Wire to Resend API for double opt-in. Track subscription rate as leading indicator of DAU growth. Current form exists but is not wired; conversion is unmeasured and likely <0.5%.  _from midday standup 2026-05-20_
+- [ ] Deploy topic taxonomy + archive pages. Creates crawlable hub pages that increase pages-per-session (critical for AdSense/Ezoic RPM). Each reader who lands on `/topic/politics` and browses 2–3 articles instead of 1 = +100% ad impressions. Zero editorial cost; monetization queue item already scoped.  _from midday standup 2026-05-20_
