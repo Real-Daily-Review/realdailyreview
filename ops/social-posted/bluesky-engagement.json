@@ -1,14 +1,14 @@
 {
-  "fetched_at": "2026-05-20T08:49:51.663Z",
-  "total_posts_tracked": 17,
+  "fetched_at": "2026-05-20T14:29:02.989Z",
+  "total_posts_tracked": 19,
   "by_strategy": {
     "ai-hook": {
-      "posts": 15,
+      "posts": 17,
       "total_likes": 2,
       "total_reposts": 2,
       "total_replies": 0,
-      "avg_likes": 0.13,
-      "avg_reposts": 0.13,
+      "avg_likes": 0.12,
+      "avg_reposts": 0.12,
       "avg_replies": 0
     },
     "fallback-ai-error": {
@@ -358,6 +358,32 @@
       "repostCount": 0,
       "replyCount": 0,
       "indexedAt": "2026-05-11T12:49:24.974Z"
+    },
+    {
+      "slug": "2026-05-20-google-launches-gemini-35-flash-for-autonomous-ai-agents",
+      "uri": "at://did:plc:p7bwmjqjgn3ldehylmu2cydk/app.bsky.feed.post/3mmbn43eylk2s",
+      "strategy": "ai-hook",
+      "hook": "Google's betting autonomous AI agents need speed more than raw power with its new Gemini 3.5 Flash model.",
+      "had_embed": true,
+      "had_image": true,
+      "posted_at": "2026-05-20T09:53:21.416Z",
+      "likeCount": 0,
+      "repostCount": 0,
+      "replyCount": 0,
+      "indexedAt": "2026-05-20T09:53:21.475Z"
+    },
+    {
+      "slug": "2026-05-20-eu-clears-trade-deal-with-us-to-head-off-trump-tariffs",
+      "uri": "at://did:plc:p7bwmjqjgn3ldehylmu2cydk/app.bsky.feed.post/3mmbwcm4r462h",
+      "strategy": "ai-hook",
+      "hook": "The EU just struck a deal to dodge Trump's threatened tariffs before they hit. Here's what changes for European exporters.",
+      "had_embed": true,
+      "had_image": true,
+      "posted_at": "2026-05-20T12:38:04.506Z",
+      "likeCount": 0,
+      "repostCount": 0,
+      "replyCount": 0,
+      "indexedAt": "2026-05-20T12:38:04.783Z"
     }
   ]
 }
