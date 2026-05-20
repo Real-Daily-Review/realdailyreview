@@ -1,22 +1,22 @@
 {
   "outcome": "sent",
-  "candidates": 16,
+  "candidates": 17,
   "posted": 1,
   "used_ai_hooks": true,
   "failures": [],
   "sent": [
     {
-      "slug": "2026-05-20-barney-frank-pioneering-congressman-and-financial-reformer-dies-at-86",
-      "uri": "at://did:plc:p7bwmjqjgn3ldehylmu2cydk/app.bsky.feed.post/3mmcggws6n52h",
+      "slug": "2026-05-20-chinese-ai-labs-cost-advantage-threatens-openai-anthropic-ipos",
+      "uri": "at://did:plc:p7bwmjqjgn3ldehylmu2cydk/app.bsky.feed.post/3mmcqnec4xg2h",
       "strategy": "ai-hook",
-      "hook": "Barney Frank, who shaped post-2008 banking rules and helped redefine what Congress could look like, died at 86.",
+      "hook": "Chinese AI labs are matching U.S. capabilities at a fraction of the cost—just as OpenAI and Anthropic head toward IPOs.",
       "had_embed": true,
       "had_image": true,
-      "posted_at": "2026-05-20T17:26:49.256Z"
+      "posted_at": "2026-05-20T20:29:22.159Z"
     }
   ],
   "has_handle": true,
   "has_password": true,
   "handle": "realdailyreview.bsky.social",
-  "written_at": "2026-05-20T17:26:53.759Z"
+  "written_at": "2026-05-20T20:29:26.661Z"
 }
