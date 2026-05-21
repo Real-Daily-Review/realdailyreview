@@ -1,6 +1,6 @@
 # Sprint Queue
 
-_Last updated: 2026-05-21T02:45:23.629Z (overnight)_
+_Last updated: 2026-05-21T11:24:40.945Z (morning)_
 
 Active items the CEO operator works through. Auto-managed by ceo-standup.yml.
 
@@ -57,3 +57,7 @@ Active items the CEO operator works through. Auto-managed by ceo-standup.yml.
 - [ ] (growth) Auto-generate an Open Graph image for every article using article title + category + site logo rendered via a server-side canvas/Puppeteer script — currently most articles share a generic OG image, killing social CTR; this runs at publish time with zero manual work and lifts click-through on every shared link.  _from competitor-watch 2026-05-21_
 - [ ] (dev) Generate and expose a valid RSS 2.0 feed at `/feed.xml` pulling the 20 most recent articles with full `<title>`, `<description>`, `<pubDate>`, and `<link>` fields — unlocks Feedly/NewsBlur/aggregator indexing, enables Axios-style syndication surface, and is a one-file build completable in under 2 hours.  _from competitor-watch 2026-05-21_
 - [ ] (monetization) Inject a Skimlinks-aware "Related Products" or "Mentioned Brands" micro-widget at the bottom of every article by parsing article text for brand/product nouns at render time and appending auto-linked anchor tags via the existing Skimlinks integration — increases Skimlinks yield per pageview with no new ad units, no approval required, and no reader experience degradation.  _from competitor-watch 2026-05-21_
+- [ ] (growth) RSS 2.0 feed at `/feed.xml` + submission to Google News Publisher Center, Feedly, NewsBlur, Inoreader  _from morning standup 2026-05-21_
+- [ ] (dev) Article metadata injection: read time, publish timestamp, source count in single muted line beneath headline  _from morning standup 2026-05-21_
+- [ ] Deploy `/feed.xml` RSS feed + auto-ping Feedly/NewsBlur/Inoreader on publish. Zero editorial lift, 2–4 hour build, unlocks passive discovery channel. Estimated +8–12% organic traffic within 2 weeks.  _from morning standup 2026-05-21_
+- [ ] Inject topic taxonomy + `/topic/{slug}` pages before AdSense launch (2026-06-03). Hub pages increase pages-per-session by 15–25%, lifting RPM by 12–18%. Estimated +$180–$320/month at current traffic.  _from morning standup 2026-05-21_
