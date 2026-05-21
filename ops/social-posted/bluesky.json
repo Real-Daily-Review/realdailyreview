@@ -33,7 +33,8 @@
     "2026-05-21-capitol-police-officers-sue-to-block-dollar18b-jan-6-settlement-fund",
     "2026-05-21-burberry-stellantis-report-turnaround-progress-with-growth-investment-",
     "2026-05-21-feeding-our-future-ringleader-sentenced-to-41-years-in-prison",
-    "2026-05-21-duffy-testifies-on-transportation-budget-as-airline-costs-rise"
+    "2026-05-21-duffy-testifies-on-transportation-budget-as-airline-costs-rise",
+    "2026-05-21-noaa-predicts-milder-2026-atlantic-hurricane-season-due-to-el-nino"
   ],
   "posts": [
     {
@@ -261,6 +262,15 @@
       "had_embed": true,
       "had_image": true,
       "posted_at": "2026-05-21T20:07:53.226Z"
+    },
+    {
+      "slug": "2026-05-21-noaa-predicts-milder-2026-atlantic-hurricane-season-due-to-el-nino",
+      "uri": "at://did:plc:p7bwmjqjgn3ldehylmu2cydk/app.bsky.feed.post/3mmffg6ihqm24",
+      "strategy": "ai-hook",
+      "hook": "NOAA expects fewer Atlantic hurricanes in 2026 thanks to El Niño, but meteorologists warn the threat won't disappear entirely.",
+      "had_embed": true,
+      "had_image": true,
+      "posted_at": "2026-05-21T21:46:29.237Z"
     }
   ]
 }
