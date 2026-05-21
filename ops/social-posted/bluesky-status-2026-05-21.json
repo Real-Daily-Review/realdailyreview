@@ -1,22 +1,22 @@
 {
   "outcome": "sent",
-  "candidates": 15,
+  "candidates": 10,
   "posted": 1,
   "used_ai_hooks": true,
   "failures": [],
   "sent": [
     {
-      "slug": "2026-05-21-capitol-police-officers-sue-to-block-dollar18b-jan-6-settlement-fund",
-      "uri": "at://did:plc:p7bwmjqjgn3ldehylmu2cydk/app.bsky.feed.post/3mme6275tt42c",
+      "slug": "2026-05-21-burberry-stellantis-report-turnaround-progress-with-growth-investment-",
+      "uri": "at://did:plc:p7bwmjqjgn3ldehylmu2cydk/app.bsky.feed.post/3mmejqdvqmf2s",
       "strategy": "ai-hook",
-      "hook": "Capitol Police officers who defended the building on Jan. 6 are now suing to block the Trump administration's $1.8B settlement fund for Jan. 6 claims.",
+      "hook": "Burberry just upgraded its outlook. Stellantis committed $70 billion through 2028. Both luxury and auto are betting hard on recovery.",
       "had_embed": true,
       "had_image": true,
-      "posted_at": "2026-05-21T10:01:51.378Z"
+      "posted_at": "2026-05-21T13:31:05.677Z"
     }
   ],
   "has_handle": true,
   "has_password": true,
   "handle": "realdailyreview.bsky.social",
-  "written_at": "2026-05-21T10:01:55.879Z"
+  "written_at": "2026-05-21T13:31:10.181Z"
 }

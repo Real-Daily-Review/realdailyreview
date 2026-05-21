@@ -30,7 +30,8 @@
     "2026-05-20-barney-frank-pioneering-congressman-and-financial-reformer-dies-at-86",
     "2026-05-20-chinese-ai-labs-cost-advantage-threatens-openai-anthropic-ipos",
     "2026-05-20-bezos-proposes-zero-federal-income-tax-for-bottom-half-of-us-earners",
-    "2026-05-21-capitol-police-officers-sue-to-block-dollar18b-jan-6-settlement-fund"
+    "2026-05-21-capitol-police-officers-sue-to-block-dollar18b-jan-6-settlement-fund",
+    "2026-05-21-burberry-stellantis-report-turnaround-progress-with-growth-investment-"
   ],
   "posts": [
     {
@@ -231,6 +232,15 @@
       "had_embed": true,
       "had_image": true,
       "posted_at": "2026-05-21T10:01:51.378Z"
+    },
+    {
+      "slug": "2026-05-21-burberry-stellantis-report-turnaround-progress-with-growth-investment-",
+      "uri": "at://did:plc:p7bwmjqjgn3ldehylmu2cydk/app.bsky.feed.post/3mmejqdvqmf2s",
+      "strategy": "ai-hook",
+      "hook": "Burberry just upgraded its outlook. Stellantis committed $70 billion through 2028. Both luxury and auto are betting hard on recovery.",
+      "had_embed": true,
+      "had_image": true,
+      "posted_at": "2026-05-21T13:31:05.677Z"
     }
   ]
 }
