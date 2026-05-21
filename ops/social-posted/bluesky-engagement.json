@@ -1,14 +1,14 @@
 {
-  "fetched_at": "2026-05-20T19:59:31.968Z",
-  "total_posts_tracked": 20,
+  "fetched_at": "2026-05-21T01:58:19.891Z",
+  "total_posts_tracked": 22,
   "by_strategy": {
     "ai-hook": {
-      "posts": 18,
+      "posts": 20,
       "total_likes": 2,
       "total_reposts": 2,
       "total_replies": 0,
-      "avg_likes": 0.11,
-      "avg_reposts": 0.11,
+      "avg_likes": 0.1,
+      "avg_reposts": 0.1,
       "avg_replies": 0
     },
     "fallback-ai-error": {
@@ -397,6 +397,32 @@
       "repostCount": 0,
       "replyCount": 0,
       "indexedAt": "2026-05-20T17:26:49.280Z"
+    },
+    {
+      "slug": "2026-05-20-chinese-ai-labs-cost-advantage-threatens-openai-anthropic-ipos",
+      "uri": "at://did:plc:p7bwmjqjgn3ldehylmu2cydk/app.bsky.feed.post/3mmcqnec4xg2h",
+      "strategy": "ai-hook",
+      "hook": "Chinese AI labs are matching U.S. capabilities at a fraction of the cost—just as OpenAI and Anthropic head toward IPOs.",
+      "had_embed": true,
+      "had_image": true,
+      "posted_at": "2026-05-20T20:29:22.159Z",
+      "likeCount": 0,
+      "repostCount": 0,
+      "replyCount": 0,
+      "indexedAt": "2026-05-20T20:29:22.271Z"
+    },
+    {
+      "slug": "2026-05-20-bezos-proposes-zero-federal-income-tax-for-bottom-half-of-us-earners",
+      "uri": "at://did:plc:p7bwmjqjgn3ldehylmu2cydk/app.bsky.feed.post/3mmd36ggh2a2s",
+      "strategy": "ai-hook",
+      "hook": "Bezos wants to eliminate federal income taxes for the bottom half of earners—but didn't say how the government replaces that revenue.",
+      "had_embed": true,
+      "had_image": true,
+      "posted_at": "2026-05-20T23:37:52.251Z",
+      "likeCount": 0,
+      "repostCount": 0,
+      "replyCount": 0,
+      "indexedAt": "2026-05-20T23:37:52.385Z"
     }
   ]
 }
