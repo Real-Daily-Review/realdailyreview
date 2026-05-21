@@ -1,6 +1,6 @@
 # Sprint Queue
 
-_Last updated: 2026-05-21T18:01:00.534Z (midday)_
+_Last updated: 2026-05-21T21:23:26.892Z (evening)_
 
 Active items the CEO operator works through. Auto-managed by ceo-standup.yml.
 
@@ -64,3 +64,6 @@ Active items the CEO operator works through. Auto-managed by ceo-standup.yml.
 - [ ] Deploy RSS feed + auto-ping Feedly/NewsBlur/Inoreader on every publish. Zero editorial lift; passive discovery channel live in 2 hrs. Estimated 8–12% traffic lift from aggregator referral based on competitor benchmarks.  _from midday standup 2026-05-21_
 - [ ] Build `/today` digest page (top 5 articles from last 24h, revalidated every 4h) with above-fold newsletter CTA. Linkable daily artifact for social sharing; doubles as curated entry point. Estimated 15–20% lift in repeat daily visitors.  _from midday standup 2026-05-21_
 - [ ] Auto-tag all articles into 8 fixed topics (Politics, Economy, Tech, World, Health, Culture, Science, Business); render `/topic/{slug}` archive pages. Creates crawlable hub pages for long-tail SEO, increases pages-per-session for AdSense/Ezoic RPM. Zero editorial cost; estimated 18–25% RPM lift from improved session depth.  _from midday standup 2026-05-21_
+- [ ] Deploy `/feed.xml` RSS + auto-ping Feedly/NewsBlur/Inoreader on publish. Zero editorial lift; passive discovery channel live in 4 hours. Estimated 8–12% traffic uplift from aggregator referrals within 2 weeks.  _from evening standup 2026-05-21_
+- [ ] Wire existing newsletter form to Resend API for double opt-in delivery + expose subscription count in dashboard. Closes the feedback loop; we'll know within 24h if signup copy or placement is broken. Current state: form exists but we have zero visibility into conversion rate.  _from evening standup 2026-05-21_
+- [ ] Deploy topic taxonomy + `/topic/{slug}` pages. Increases pages-per-session (users browse related articles within a topic), which directly improves RPM for AdSense/Ezoic. Estimated 12–18% RPM uplift. Zero editorial overhead.  _from evening standup 2026-05-21_
