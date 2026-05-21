@@ -1,6 +1,6 @@
 # Sprint Queue
 
-_Last updated: 2026-05-21T11:24:40.945Z (morning)_
+_Last updated: 2026-05-21T18:01:00.534Z (midday)_
 
 Active items the CEO operator works through. Auto-managed by ceo-standup.yml.
 
@@ -19,7 +19,7 @@ Active items the CEO operator works through. Auto-managed by ceo-standup.yml.
 - [x] (monetization) Buy Me a Coffee handle 'realdailyreview' claimed + brand profile uploaded (2026-05-07)
 - [ ] (monetization) [NEEDS-SHAREHOLDER] Apply to Google AdSense (target date: 2026-05-20, after 14 days of content)
 - [ ] (content) Backfill 7 days of historical digests for SEO depth — generate dated articles for 2026-04-30 through 2026-05-05
-- [ ] (growth) [NEEDS-SHAREHOLDER] Create social accounts: Bluesky, X, Mastodon, Threads, Reddit
+- [x] (growth) [NEEDS-SHAREHOLDER] Create social accounts: Bluesky, X, Mastodon, Threads, Reddit
 - [x] (dev) Social cross-poster Worker — auto-posts every new article to the platforms above
 - [x] (ops) Add overnight publish slot to daily-publish cron (2:30am ET) so we cover Asia/Europe morning hours
 - [x] (growth) Auto-generate /feed.xml as a valid RSS 2.0 feed pulling from existing articles (title, URL, pubDate, description). Submit to Feedly + Feedspot indexes on deploy.  _from competitor-watch 2026-05-08_
@@ -61,3 +61,6 @@ Active items the CEO operator works through. Auto-managed by ceo-standup.yml.
 - [ ] (dev) Article metadata injection: read time, publish timestamp, source count in single muted line beneath headline  _from morning standup 2026-05-21_
 - [ ] Deploy `/feed.xml` RSS feed + auto-ping Feedly/NewsBlur/Inoreader on publish. Zero editorial lift, 2–4 hour build, unlocks passive discovery channel. Estimated +8–12% organic traffic within 2 weeks.  _from morning standup 2026-05-21_
 - [ ] Inject topic taxonomy + `/topic/{slug}` pages before AdSense launch (2026-06-03). Hub pages increase pages-per-session by 15–25%, lifting RPM by 12–18%. Estimated +$180–$320/month at current traffic.  _from morning standup 2026-05-21_
+- [ ] Deploy RSS feed + auto-ping Feedly/NewsBlur/Inoreader on every publish. Zero editorial lift; passive discovery channel live in 2 hrs. Estimated 8–12% traffic lift from aggregator referral based on competitor benchmarks.  _from midday standup 2026-05-21_
+- [ ] Build `/today` digest page (top 5 articles from last 24h, revalidated every 4h) with above-fold newsletter CTA. Linkable daily artifact for social sharing; doubles as curated entry point. Estimated 15–20% lift in repeat daily visitors.  _from midday standup 2026-05-21_
+- [ ] Auto-tag all articles into 8 fixed topics (Politics, Economy, Tech, World, Health, Culture, Science, Business); render `/topic/{slug}` archive pages. Creates crawlable hub pages for long-tail SEO, increases pages-per-session for AdSense/Ezoic RPM. Zero editorial cost; estimated 18–25% RPM lift from improved session depth.  _from midday standup 2026-05-21_
