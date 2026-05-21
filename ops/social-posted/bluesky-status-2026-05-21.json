@@ -1,9 +1,22 @@
 {
-  "outcome": "no-candidates",
-  "reason": "0 articles in last 6h; all already posted",
-  "already_posted_count": 30,
+  "outcome": "sent",
+  "candidates": 15,
+  "posted": 1,
+  "used_ai_hooks": true,
+  "failures": [],
+  "sent": [
+    {
+      "slug": "2026-05-21-capitol-police-officers-sue-to-block-dollar18b-jan-6-settlement-fund",
+      "uri": "at://did:plc:p7bwmjqjgn3ldehylmu2cydk/app.bsky.feed.post/3mme6275tt42c",
+      "strategy": "ai-hook",
+      "hook": "Capitol Police officers who defended the building on Jan. 6 are now suing to block the Trump administration's $1.8B settlement fund for Jan. 6 claims.",
+      "had_embed": true,
+      "had_image": true,
+      "posted_at": "2026-05-21T10:01:51.378Z"
+    }
+  ],
   "has_handle": true,
   "has_password": true,
   "handle": "realdailyreview.bsky.social",
-  "written_at": "2026-05-21T04:41:23.026Z"
+  "written_at": "2026-05-21T10:01:55.879Z"
 }

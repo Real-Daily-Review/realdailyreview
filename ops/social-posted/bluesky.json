@@ -29,7 +29,8 @@
     "2026-05-20-eu-clears-trade-deal-with-us-to-head-off-trump-tariffs",
     "2026-05-20-barney-frank-pioneering-congressman-and-financial-reformer-dies-at-86",
     "2026-05-20-chinese-ai-labs-cost-advantage-threatens-openai-anthropic-ipos",
-    "2026-05-20-bezos-proposes-zero-federal-income-tax-for-bottom-half-of-us-earners"
+    "2026-05-20-bezos-proposes-zero-federal-income-tax-for-bottom-half-of-us-earners",
+    "2026-05-21-capitol-police-officers-sue-to-block-dollar18b-jan-6-settlement-fund"
   ],
   "posts": [
     {
@@ -221,6 +222,15 @@
       "had_embed": true,
       "had_image": true,
       "posted_at": "2026-05-20T23:37:52.251Z"
+    },
+    {
+      "slug": "2026-05-21-capitol-police-officers-sue-to-block-dollar18b-jan-6-settlement-fund",
+      "uri": "at://did:plc:p7bwmjqjgn3ldehylmu2cydk/app.bsky.feed.post/3mme6275tt42c",
+      "strategy": "ai-hook",
+      "hook": "Capitol Police officers who defended the building on Jan. 6 are now suing to block the Trump administration's $1.8B settlement fund for Jan. 6 claims.",
+      "had_embed": true,
+      "had_image": true,
+      "posted_at": "2026-05-21T10:01:51.378Z"
     }
   ]
 }
