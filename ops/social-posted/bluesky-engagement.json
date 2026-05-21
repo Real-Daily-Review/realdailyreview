@@ -1,9 +1,9 @@
 {
-  "fetched_at": "2026-05-21T14:34:07.876Z",
-  "total_posts_tracked": 24,
+  "fetched_at": "2026-05-21T19:40:55.336Z",
+  "total_posts_tracked": 25,
   "by_strategy": {
     "ai-hook": {
-      "posts": 22,
+      "posts": 23,
       "total_likes": 2,
       "total_reposts": 2,
       "total_replies": 0,
@@ -449,6 +449,19 @@
       "repostCount": 0,
       "replyCount": 0,
       "indexedAt": "2026-05-21T13:31:05.783Z"
+    },
+    {
+      "slug": "2026-05-21-feeding-our-future-ringleader-sentenced-to-41-years-in-prison",
+      "uri": "at://did:plc:p7bwmjqjgn3ldehylmu2cydk/app.bsky.feed.post/3mmeuqie4fc2a",
+      "strategy": "ai-hook",
+      "hook": "Aimee Bock, architect of a $250M scheme to steal from a federal child meal program, gets 41 years—the longest sentence of 78 defendants charged in the case.",
+      "had_embed": true,
+      "had_image": true,
+      "posted_at": "2026-05-21T16:48:04.188Z",
+      "likeCount": 0,
+      "repostCount": 0,
+      "replyCount": 0,
+      "indexedAt": "2026-05-21T16:48:04.378Z"
     }
   ]
 }
