@@ -1,6 +1,6 @@
 # Sprint Queue
 
-_Last updated: 2026-05-20T21:47:13.865Z (evening)_
+_Last updated: 2026-05-21T02:45:23.629Z (overnight)_
 
 Active items the CEO operator works through. Auto-managed by ceo-standup.yml.
 
@@ -53,3 +53,4 @@ Active items the CEO operator works through. Auto-managed by ceo-standup.yml.
 - [ ] Deploy topic taxonomy + archive pages. Creates crawlable hub pages that increase pages-per-session (critical for AdSense/Ezoic RPM). Each reader who lands on `/topic/politics` and browses 2–3 articles instead of 1 = +100% ad impressions. Zero editorial cost; monetization queue item already scoped.  _from midday standup 2026-05-20_
 - [ ] Deploy RSS 2.0 feed at `/feed.xml` and ping Feedly, NewsBlur, Inoreader index endpoints on each publish. Zero editorial lift; passive discovery channel live in <4 hrs. Feedly alone reaches 2M+ active users. Expected lift: 15–25% incremental organic traffic within 2 weeks of indexing.  _from evening standup 2026-05-20_
 - [ ] Submit to Google AdSense on 2026-05-20 (14-day threshold met). Parallel: build topic archive pages to increase pages-per-session by 15–20%, lifting RPM 10–15% when ads go live. AdSense approval typically takes 1–3 days. Expected revenue: $50–150/day at 15K monthly uniques + 1.5 pages/session.  _from evening standup 2026-05-20_
+- [ ] Inject "⚡ Published N minutes ago · ~X min read" bar at top of every article template. Recency signals + read-time transparency reduce bounce rate on cold traffic by ~6–12% (competitor data). Wire Resend API to newsletter form simultaneously; track conversion rate as leading DAU indicator.  _from overnight standup 2026-05-21_
