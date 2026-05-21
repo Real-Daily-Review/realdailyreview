@@ -1,22 +1,22 @@
 {
   "outcome": "sent",
-  "candidates": 24,
+  "candidates": 16,
   "posted": 1,
   "used_ai_hooks": true,
   "failures": [],
   "sent": [
     {
-      "slug": "2026-05-21-feeding-our-future-ringleader-sentenced-to-41-years-in-prison",
-      "uri": "at://did:plc:p7bwmjqjgn3ldehylmu2cydk/app.bsky.feed.post/3mmeuqie4fc2a",
+      "slug": "2026-05-21-duffy-testifies-on-transportation-budget-as-airline-costs-rise",
+      "uri": "at://did:plc:p7bwmjqjgn3ldehylmu2cydk/app.bsky.feed.post/3mmf7vukbeu2c",
       "strategy": "ai-hook",
-      "hook": "Aimee Bock, architect of a $250M scheme to steal from a federal child meal program, gets 41 years—the longest sentence of 78 defendants charged in the case.",
+      "hook": "Sean Duffy is asking Congress for $26.6B for transportation while jet fuel shortages—tied to Iran tensions—are already spiking airfares.",
       "had_embed": true,
       "had_image": true,
-      "posted_at": "2026-05-21T16:48:04.188Z"
+      "posted_at": "2026-05-21T20:07:53.226Z"
     }
   ],
   "has_handle": true,
   "has_password": true,
   "handle": "realdailyreview.bsky.social",
-  "written_at": "2026-05-21T16:48:08.690Z"
+  "written_at": "2026-05-21T20:07:57.728Z"
 }
