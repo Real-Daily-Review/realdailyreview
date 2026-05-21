@@ -1,22 +1,22 @@
 {
   "outcome": "sent",
-  "candidates": 10,
+  "candidates": 24,
   "posted": 1,
   "used_ai_hooks": true,
   "failures": [],
   "sent": [
     {
-      "slug": "2026-05-21-burberry-stellantis-report-turnaround-progress-with-growth-investment-",
-      "uri": "at://did:plc:p7bwmjqjgn3ldehylmu2cydk/app.bsky.feed.post/3mmejqdvqmf2s",
+      "slug": "2026-05-21-feeding-our-future-ringleader-sentenced-to-41-years-in-prison",
+      "uri": "at://did:plc:p7bwmjqjgn3ldehylmu2cydk/app.bsky.feed.post/3mmeuqie4fc2a",
       "strategy": "ai-hook",
-      "hook": "Burberry just upgraded its outlook. Stellantis committed $70 billion through 2028. Both luxury and auto are betting hard on recovery.",
+      "hook": "Aimee Bock, architect of a $250M scheme to steal from a federal child meal program, gets 41 years—the longest sentence of 78 defendants charged in the case.",
       "had_embed": true,
       "had_image": true,
-      "posted_at": "2026-05-21T13:31:05.677Z"
+      "posted_at": "2026-05-21T16:48:04.188Z"
     }
   ],
   "has_handle": true,
   "has_password": true,
   "handle": "realdailyreview.bsky.social",
-  "written_at": "2026-05-21T13:31:10.181Z"
+  "written_at": "2026-05-21T16:48:08.690Z"
 }

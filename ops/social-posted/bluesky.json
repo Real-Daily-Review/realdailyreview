@@ -31,7 +31,8 @@
     "2026-05-20-chinese-ai-labs-cost-advantage-threatens-openai-anthropic-ipos",
     "2026-05-20-bezos-proposes-zero-federal-income-tax-for-bottom-half-of-us-earners",
     "2026-05-21-capitol-police-officers-sue-to-block-dollar18b-jan-6-settlement-fund",
-    "2026-05-21-burberry-stellantis-report-turnaround-progress-with-growth-investment-"
+    "2026-05-21-burberry-stellantis-report-turnaround-progress-with-growth-investment-",
+    "2026-05-21-feeding-our-future-ringleader-sentenced-to-41-years-in-prison"
   ],
   "posts": [
     {
@@ -241,6 +242,15 @@
       "had_embed": true,
       "had_image": true,
       "posted_at": "2026-05-21T13:31:05.677Z"
+    },
+    {
+      "slug": "2026-05-21-feeding-our-future-ringleader-sentenced-to-41-years-in-prison",
+      "uri": "at://did:plc:p7bwmjqjgn3ldehylmu2cydk/app.bsky.feed.post/3mmeuqie4fc2a",
+      "strategy": "ai-hook",
+      "hook": "Aimee Bock, architect of a $250M scheme to steal from a federal child meal program, gets 41 years—the longest sentence of 78 defendants charged in the case.",
+      "had_embed": true,
+      "had_image": true,
+      "posted_at": "2026-05-21T16:48:04.188Z"
     }
   ]
 }
