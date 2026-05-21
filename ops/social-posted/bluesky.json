@@ -34,7 +34,8 @@
     "2026-05-21-burberry-stellantis-report-turnaround-progress-with-growth-investment-",
     "2026-05-21-feeding-our-future-ringleader-sentenced-to-41-years-in-prison",
     "2026-05-21-duffy-testifies-on-transportation-budget-as-airline-costs-rise",
-    "2026-05-21-noaa-predicts-milder-2026-atlantic-hurricane-season-due-to-el-nino"
+    "2026-05-21-noaa-predicts-milder-2026-atlantic-hurricane-season-due-to-el-nino",
+    "2026-05-21-house-republicans-block-iran-war-powers-vote-before-recess"
   ],
   "posts": [
     {
@@ -271,6 +272,15 @@
       "had_embed": true,
       "had_image": true,
       "posted_at": "2026-05-21T21:46:29.237Z"
+    },
+    {
+      "slug": "2026-05-21-house-republicans-block-iran-war-powers-vote-before-recess",
+      "uri": "at://did:plc:p7bwmjqjgn3ldehylmu2cydk/app.bsky.feed.post/3mmfkgjvihu2s",
+      "strategy": "ai-hook",
+      "hook": "Democrats had the votes to limit Trump's Iran war powers. Republicans blocked the vote anyway using a procedural trick right before recess.",
+      "had_embed": true,
+      "had_image": true,
+      "posted_at": "2026-05-21T23:16:09.937Z"
     }
   ]
 }
