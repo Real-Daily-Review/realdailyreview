@@ -1,6 +1,6 @@
 # Sprint Queue
 
-_Last updated: 2026-05-21T21:23:26.892Z (evening)_
+_Last updated: 2026-05-22T02:46:11.573Z (overnight)_
 
 Active items the CEO operator works through. Auto-managed by ceo-standup.yml.
 
@@ -67,3 +67,4 @@ Active items the CEO operator works through. Auto-managed by ceo-standup.yml.
 - [ ] Deploy `/feed.xml` RSS + auto-ping Feedly/NewsBlur/Inoreader on publish. Zero editorial lift; passive discovery channel live in 4 hours. Estimated 8–12% traffic uplift from aggregator referrals within 2 weeks.  _from evening standup 2026-05-21_
 - [ ] Wire existing newsletter form to Resend API for double opt-in delivery + expose subscription count in dashboard. Closes the feedback loop; we'll know within 24h if signup copy or placement is broken. Current state: form exists but we have zero visibility into conversion rate.  _from evening standup 2026-05-21_
 - [ ] Deploy topic taxonomy + `/topic/{slug}` pages. Increases pages-per-session (users browse related articles within a topic), which directly improves RPM for AdSense/Ezoic. Estimated 12–18% RPM uplift. Zero editorial overhead.  _from evening standup 2026-05-21_
+- [ ] Auto-tag all articles into 8 topic buckets; render `/topic/{slug}` pages with 10 most recent per topic. Topic hubs increase pages-per-session (key RPM lever for Ezoic/AdSense). Keyword-matching tagging is zero editorial overhead. Expected RPM lift: 15–25% from improved session depth.  _from overnight standup 2026-05-22_
