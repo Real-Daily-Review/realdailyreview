@@ -1,6 +1,6 @@
 # Sprint Queue
 
-_Last updated: 2026-05-22T10:50:54.044Z (morning)_
+_Last updated: 2026-05-22T17:53:09.659Z (midday)_
 
 Active items the CEO operator works through. Auto-managed by ceo-standup.yml.
 
@@ -71,3 +71,5 @@ Active items the CEO operator works through. Auto-managed by ceo-standup.yml.
 - [ ] Ship RSS feed + Google News submission. 2–4 hour build; `/feed.xml` endpoint + cron ping to Google News Publisher Center on each publish. Passive discovery channel; 8–15% traffic lift typical for news outlets at our volume.  _from morning standup 2026-05-22_
 - [ ] Place newsletter CTA above the fold on `/today` digest page. Auto-render top 5 articles from last 24h; static-generate every 4 hours. Single-purpose landing page for social shares + homepage visitors. Baseline: 3–6% conversion on curated entry points vs. 0.8% on homepage.  _from morning standup 2026-05-22_
 - [ ] Build topic taxonomy + archive pages to increase pages-per-session. AdSense RPM scales with session depth. Topic hubs create internal link structure; users browsing `/topic/tech` will click 1.4–1.8x more articles per visit. Estimated 18–25% RPM lift once Google AdSense approves (pending 14-day content threshold on 2026-05-20).  _from morning standup 2026-05-22_
+- [ ] Wire newsletter form to Resend API for double opt-in delivery and expose daily subscription count as a dashboard metric. Right now we have no visibility into conversion. Once live, we can A/B test CTA placement and copy.  _from midday standup 2026-05-22_
+- [ ] Build `/sitemap-topics.xml` with 8 topic buckets (Politics, Economy, Tech, World, Health, Culture, Science, Business) and render `/topic/{slug}` archive pages. Creates crawlable hub pages for long-tail SEO, increases pages-per-session (boosts Ezoic/AdSense RPM), zero editorial cost. Estimated +12–18% RPM lift within 30 days.  _from midday standup 2026-05-22_
