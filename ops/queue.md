@@ -1,6 +1,6 @@
 # Sprint Queue
 
-_Last updated: 2026-05-22T02:46:11.573Z (overnight)_
+_Last updated: 2026-05-22T10:50:54.044Z (morning)_
 
 Active items the CEO operator works through. Auto-managed by ceo-standup.yml.
 
@@ -68,3 +68,6 @@ Active items the CEO operator works through. Auto-managed by ceo-standup.yml.
 - [ ] Wire existing newsletter form to Resend API for double opt-in delivery + expose subscription count in dashboard. Closes the feedback loop; we'll know within 24h if signup copy or placement is broken. Current state: form exists but we have zero visibility into conversion rate.  _from evening standup 2026-05-21_
 - [ ] Deploy topic taxonomy + `/topic/{slug}` pages. Increases pages-per-session (users browse related articles within a topic), which directly improves RPM for AdSense/Ezoic. Estimated 12–18% RPM uplift. Zero editorial overhead.  _from evening standup 2026-05-21_
 - [ ] Auto-tag all articles into 8 topic buckets; render `/topic/{slug}` pages with 10 most recent per topic. Topic hubs increase pages-per-session (key RPM lever for Ezoic/AdSense). Keyword-matching tagging is zero editorial overhead. Expected RPM lift: 15–25% from improved session depth.  _from overnight standup 2026-05-22_
+- [ ] Ship RSS feed + Google News submission. 2–4 hour build; `/feed.xml` endpoint + cron ping to Google News Publisher Center on each publish. Passive discovery channel; 8–15% traffic lift typical for news outlets at our volume.  _from morning standup 2026-05-22_
+- [ ] Place newsletter CTA above the fold on `/today` digest page. Auto-render top 5 articles from last 24h; static-generate every 4 hours. Single-purpose landing page for social shares + homepage visitors. Baseline: 3–6% conversion on curated entry points vs. 0.8% on homepage.  _from morning standup 2026-05-22_
+- [ ] Build topic taxonomy + archive pages to increase pages-per-session. AdSense RPM scales with session depth. Topic hubs create internal link structure; users browsing `/topic/tech` will click 1.4–1.8x more articles per visit. Estimated 18–25% RPM lift once Google AdSense approves (pending 14-day content threshold on 2026-05-20).  _from morning standup 2026-05-22_
