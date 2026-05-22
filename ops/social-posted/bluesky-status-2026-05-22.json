@@ -1,22 +1,22 @@
 {
   "outcome": "sent",
-  "candidates": 2,
+  "candidates": 4,
   "posted": 1,
   "used_ai_hooks": true,
   "failures": [],
   "sent": [
     {
-      "slug": "2026-05-22-trump-announces-5000-us-troops-deployment-to-poland",
-      "uri": "at://did:plc:p7bwmjqjgn3ldehylmu2cydk/app.bsky.feed.post/3mmgwz73esm24",
+      "slug": "2026-05-22-alberta-to-hold-referendum-on-separation-from-canada",
+      "uri": "at://did:plc:p7bwmjqjgn3ldehylmu2cydk/app.bsky.feed.post/3mmhejtzi3y2s",
       "strategy": "ai-hook",
-      "hook": "Trump just announced 5,000 more US troops to Poland—a sharp reversal from his NATO skepticism that's left allies scrambling to understand his actual strategy.",
+      "hook": "Alberta will vote on leaving Canada this October—the first province outside Quebec to seriously pursue it.",
       "had_embed": true,
       "had_image": true,
-      "posted_at": "2026-05-22T12:34:00.764Z"
+      "posted_at": "2026-05-22T16:35:58.230Z"
     }
   ],
   "has_handle": true,
   "has_password": true,
   "handle": "realdailyreview.bsky.social",
-  "written_at": "2026-05-22T12:34:05.267Z"
+  "written_at": "2026-05-22T16:36:02.731Z"
 }
