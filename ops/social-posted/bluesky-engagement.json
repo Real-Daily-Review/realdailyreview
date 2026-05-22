@@ -1,9 +1,9 @@
 {
-  "fetched_at": "2026-05-22T14:10:31.125Z",
-  "total_posts_tracked": 31,
+  "fetched_at": "2026-05-22T19:20:03.469Z",
+  "total_posts_tracked": 32,
   "by_strategy": {
     "ai-hook": {
-      "posts": 29,
+      "posts": 30,
       "total_likes": 2,
       "total_reposts": 2,
       "total_replies": 0,
@@ -540,6 +540,19 @@
       "repostCount": 0,
       "replyCount": 0,
       "indexedAt": "2026-05-22T12:34:00.971Z"
+    },
+    {
+      "slug": "2026-05-22-alberta-to-hold-referendum-on-separation-from-canada",
+      "uri": "at://did:plc:p7bwmjqjgn3ldehylmu2cydk/app.bsky.feed.post/3mmhejtzi3y2s",
+      "strategy": "ai-hook",
+      "hook": "Alberta will vote on leaving Canada this October—the first province outside Quebec to seriously pursue it.",
+      "had_embed": true,
+      "had_image": true,
+      "posted_at": "2026-05-22T16:35:58.230Z",
+      "likeCount": 0,
+      "repostCount": 0,
+      "replyCount": 0,
+      "indexedAt": "2026-05-22T16:35:58.279Z"
     }
   ]
 }
