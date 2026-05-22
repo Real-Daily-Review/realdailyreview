@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-05-22T04:20:05.302Z",
+  "fetched_at": "2026-05-22T10:57:18.484Z",
   "site": "realdailyreview.com",
   "subscribers": [
     {
@@ -12,6 +12,11 @@
   "feedback_total": 0,
   "cloudflare_web_analytics": {
     "daily": [
+      {
+        "date": "2026-05-22",
+        "visits": 3,
+        "pageviews": 3
+      },
       {
         "date": "2026-05-21",
         "visits": 5,
