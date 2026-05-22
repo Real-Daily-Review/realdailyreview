@@ -36,7 +36,8 @@
     "2026-05-21-duffy-testifies-on-transportation-budget-as-airline-costs-rise",
     "2026-05-21-noaa-predicts-milder-2026-atlantic-hurricane-season-due-to-el-nino",
     "2026-05-21-house-republicans-block-iran-war-powers-vote-before-recess",
-    "2026-05-21-mcconnell-condemns-trumps-dollar18b-wrongful-prosecution-fund"
+    "2026-05-21-mcconnell-condemns-trumps-dollar18b-wrongful-prosecution-fund",
+    "2026-05-22-tesla-recalls-12-million-vehicles-in-china-over-software-issues"
   ],
   "posts": [
     {
@@ -291,6 +292,15 @@
       "had_embed": true,
       "had_image": true,
       "posted_at": "2026-05-22T04:33:50.394Z"
+    },
+    {
+      "slug": "2026-05-22-tesla-recalls-12-million-vehicles-in-china-over-software-issues",
+      "uri": "at://did:plc:p7bwmjqjgn3ldehylmu2cydk/app.bsky.feed.post/3mmgnr5skzk2c",
+      "strategy": "ai-hook",
+      "hook": "Tesla's largest market outside the U.S. just got hit with a 1.2 million vehicle recall—and the company won't say what's wrong.\nhttps://example.com",
+      "had_embed": true,
+      "had_image": true,
+      "posted_at": "2026-05-22T09:48:27.306Z"
     }
   ]
 }
