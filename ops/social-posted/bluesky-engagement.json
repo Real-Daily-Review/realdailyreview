@@ -1,14 +1,14 @@
 {
-  "fetched_at": "2026-05-21T19:40:55.336Z",
-  "total_posts_tracked": 25,
+  "fetched_at": "2026-05-22T01:59:57.714Z",
+  "total_posts_tracked": 28,
   "by_strategy": {
     "ai-hook": {
-      "posts": 23,
+      "posts": 26,
       "total_likes": 2,
       "total_reposts": 2,
       "total_replies": 0,
-      "avg_likes": 0.09,
-      "avg_reposts": 0.09,
+      "avg_likes": 0.08,
+      "avg_reposts": 0.08,
       "avg_replies": 0
     },
     "fallback-ai-error": {
@@ -462,6 +462,45 @@
       "repostCount": 0,
       "replyCount": 0,
       "indexedAt": "2026-05-21T16:48:04.378Z"
+    },
+    {
+      "slug": "2026-05-21-duffy-testifies-on-transportation-budget-as-airline-costs-rise",
+      "uri": "at://did:plc:p7bwmjqjgn3ldehylmu2cydk/app.bsky.feed.post/3mmf7vukbeu2c",
+      "strategy": "ai-hook",
+      "hook": "Sean Duffy is asking Congress for $26.6B for transportation while jet fuel shortages—tied to Iran tensions—are already spiking airfares.",
+      "had_embed": true,
+      "had_image": true,
+      "posted_at": "2026-05-21T20:07:53.226Z",
+      "likeCount": 0,
+      "repostCount": 0,
+      "replyCount": 0,
+      "indexedAt": "2026-05-21T20:07:53.277Z"
+    },
+    {
+      "slug": "2026-05-21-noaa-predicts-milder-2026-atlantic-hurricane-season-due-to-el-nino",
+      "uri": "at://did:plc:p7bwmjqjgn3ldehylmu2cydk/app.bsky.feed.post/3mmffg6ihqm24",
+      "strategy": "ai-hook",
+      "hook": "NOAA expects fewer Atlantic hurricanes in 2026 thanks to El Niño, but meteorologists warn the threat won't disappear entirely.",
+      "had_embed": true,
+      "had_image": true,
+      "posted_at": "2026-05-21T21:46:29.237Z",
+      "likeCount": 0,
+      "repostCount": 0,
+      "replyCount": 0,
+      "indexedAt": "2026-05-21T21:46:29.279Z"
+    },
+    {
+      "slug": "2026-05-21-house-republicans-block-iran-war-powers-vote-before-recess",
+      "uri": "at://did:plc:p7bwmjqjgn3ldehylmu2cydk/app.bsky.feed.post/3mmfkgjvihu2s",
+      "strategy": "ai-hook",
+      "hook": "Democrats had the votes to limit Trump's Iran war powers. Republicans blocked the vote anyway using a procedural trick right before recess.",
+      "had_embed": true,
+      "had_image": true,
+      "posted_at": "2026-05-21T23:16:09.937Z",
+      "likeCount": 0,
+      "repostCount": 0,
+      "replyCount": 0,
+      "indexedAt": "2026-05-21T23:16:10.074Z"
     }
   ]
 }
