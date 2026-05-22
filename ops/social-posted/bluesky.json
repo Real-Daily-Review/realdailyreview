@@ -37,7 +37,8 @@
     "2026-05-21-noaa-predicts-milder-2026-atlantic-hurricane-season-due-to-el-nino",
     "2026-05-21-house-republicans-block-iran-war-powers-vote-before-recess",
     "2026-05-21-mcconnell-condemns-trumps-dollar18b-wrongful-prosecution-fund",
-    "2026-05-22-tesla-recalls-12-million-vehicles-in-china-over-software-issues"
+    "2026-05-22-tesla-recalls-12-million-vehicles-in-china-over-software-issues",
+    "2026-05-22-trump-announces-5000-us-troops-deployment-to-poland"
   ],
   "posts": [
     {
@@ -301,6 +302,15 @@
       "had_embed": true,
       "had_image": true,
       "posted_at": "2026-05-22T09:48:27.306Z"
+    },
+    {
+      "slug": "2026-05-22-trump-announces-5000-us-troops-deployment-to-poland",
+      "uri": "at://did:plc:p7bwmjqjgn3ldehylmu2cydk/app.bsky.feed.post/3mmgwz73esm24",
+      "strategy": "ai-hook",
+      "hook": "Trump just announced 5,000 more US troops to Poland—a sharp reversal from his NATO skepticism that's left allies scrambling to understand his actual strategy.",
+      "had_embed": true,
+      "had_image": true,
+      "posted_at": "2026-05-22T12:34:00.764Z"
     }
   ]
 }
