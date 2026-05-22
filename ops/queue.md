@@ -1,6 +1,6 @@
 # Sprint Queue
 
-_Last updated: 2026-05-22T17:53:09.659Z (midday)_
+_Last updated: 2026-05-22T21:05:14.341Z (evening)_
 
 Active items the CEO operator works through. Auto-managed by ceo-standup.yml.
 
@@ -73,3 +73,4 @@ Active items the CEO operator works through. Auto-managed by ceo-standup.yml.
 - [ ] Build topic taxonomy + archive pages to increase pages-per-session. AdSense RPM scales with session depth. Topic hubs create internal link structure; users browsing `/topic/tech` will click 1.4–1.8x more articles per visit. Estimated 18–25% RPM lift once Google AdSense approves (pending 14-day content threshold on 2026-05-20).  _from morning standup 2026-05-22_
 - [ ] Wire newsletter form to Resend API for double opt-in delivery and expose daily subscription count as a dashboard metric. Right now we have no visibility into conversion. Once live, we can A/B test CTA placement and copy.  _from midday standup 2026-05-22_
 - [ ] Build `/sitemap-topics.xml` with 8 topic buckets (Politics, Economy, Tech, World, Health, Culture, Science, Business) and render `/topic/{slug}` archive pages. Creates crawlable hub pages for long-tail SEO, increases pages-per-session (boosts Ezoic/AdSense RPM), zero editorial cost. Estimated +12–18% RPM lift within 30 days.  _from midday standup 2026-05-22_
+- [ ] Ship RSS feed to `/feed.xml` + ping Feedly/NewsBlur/Inoreader on publish. Autonomous discovery channel live in 4 hours. Projected 200–400 new DAU within 7 days based on competitor benchmarks.  _from evening standup 2026-05-22_
