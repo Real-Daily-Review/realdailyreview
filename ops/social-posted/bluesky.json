@@ -41,7 +41,8 @@
     "2026-05-22-trump-announces-5000-us-troops-deployment-to-poland",
     "2026-05-22-alberta-to-hold-referendum-on-separation-from-canada",
     "2026-05-22-meta-launches-forum-app-to-compete-with-reddit-using-facebook-groups",
-    "2026-05-22-tillis-rebukes-trump-over-stupid-stuff-hurting-gop-midterms"
+    "2026-05-22-tillis-rebukes-trump-over-stupid-stuff-hurting-gop-midterms",
+    "2026-05-22-house-launches-insider-trading-investigation-into-prediction-markets"
   ],
   "posts": [
     {
@@ -341,6 +342,15 @@
       "had_embed": true,
       "had_image": true,
       "posted_at": "2026-05-22T21:22:18.452Z"
+    },
+    {
+      "slug": "2026-05-22-house-launches-insider-trading-investigation-into-prediction-markets",
+      "uri": "at://did:plc:p7bwmjqjgn3ldehylmu2cydk/app.bsky.feed.post/3mmi2ynefse2s",
+      "strategy": "ai-hook",
+      "hook": "Rep. Comer is investigating whether traders on Kalshi and Polymarket are betting on classified information—and if the platforms are deliberately ignoring it.",
+      "had_embed": true,
+      "had_image": true,
+      "posted_at": "2026-05-22T23:17:56.868Z"
     }
   ]
 }
