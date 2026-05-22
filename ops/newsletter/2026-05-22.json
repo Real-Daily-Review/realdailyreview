@@ -1,0 +1,14 @@
+{
+  "date": "2026-05-22",
+  "digest_slug": "2026-05-22-the-brief-friday-may-22-2026",
+  "subject": "The Brief — Friday, May 22, 2026",
+  "audience_size": 1,
+  "succeeded": 1,
+  "failed": 0,
+  "failures": [],
+  "outcome": "sent",
+  "has_resend_api_key": true,
+  "has_admin_token": true,
+  "resend_from": "Real Daily Review <brief@realdailyreview.com>",
+  "site_host": "realdailyreview.com"
+}
