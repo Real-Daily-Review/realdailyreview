@@ -1,14 +1,14 @@
 {
-  "fetched_at": "2026-05-22T01:59:57.714Z",
-  "total_posts_tracked": 28,
+  "fetched_at": "2026-05-22T08:45:49.478Z",
+  "total_posts_tracked": 29,
   "by_strategy": {
     "ai-hook": {
-      "posts": 26,
+      "posts": 27,
       "total_likes": 2,
       "total_reposts": 2,
       "total_replies": 0,
-      "avg_likes": 0.08,
-      "avg_reposts": 0.08,
+      "avg_likes": 0.07,
+      "avg_reposts": 0.07,
       "avg_replies": 0
     },
     "fallback-ai-error": {
@@ -501,6 +501,19 @@
       "repostCount": 0,
       "replyCount": 0,
       "indexedAt": "2026-05-21T23:16:10.074Z"
+    },
+    {
+      "slug": "2026-05-21-mcconnell-condemns-trumps-dollar18b-wrongful-prosecution-fund",
+      "uri": "at://did:plc:p7bwmjqjgn3ldehylmu2cydk/app.bsky.feed.post/3mmg46lfgzl2i",
+      "strategy": "ai-hook",
+      "hook": "McConnell calls Trump's $1.8B legal fund for the wrongly prosecuted \"morally wrong\"—critics fear it could pay Capitol riot defendants.",
+      "had_embed": true,
+      "had_image": true,
+      "posted_at": "2026-05-22T04:33:50.394Z",
+      "likeCount": 0,
+      "repostCount": 0,
+      "replyCount": 0,
+      "indexedAt": "2026-05-22T04:33:50.471Z"
     }
   ]
 }
