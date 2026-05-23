@@ -1,22 +1,22 @@
 {
   "outcome": "sent",
-  "candidates": 7,
+  "candidates": 3,
   "posted": 1,
   "used_ai_hooks": true,
   "failures": [],
   "sent": [
     {
-      "slug": "2026-05-23-serbian-students-rally-for-early-elections-after-novi-sad-disaster",
-      "uri": "at://did:plc:p7bwmjqjgn3ldehylmu2cydk/app.bsky.feed.post/3mmke4nvtks2h",
+      "slug": "2026-05-23-ebola-outbreak-in-dr-congo-kills-red-cross-workers-disrupts-containmen",
+      "uri": "at://did:plc:p7bwmjqjgn3ldehylmu2cydk/app.bsky.feed.post/3mmkkwqgejc2c",
       "strategy": "ai-hook",
-      "hook": "Tens of thousands of Serbian students are demanding early elections after November's Novi Sad disaster—a student-led movement that's now shaking the government.",
+      "hook": "Red Cross workers dead, patients fleeing burning tents, and the US just warned Congo's World Cup team about Ebola spreading in the east. Health officials say containment is falling apart.\nhttps://",
       "had_embed": true,
       "had_image": true,
-      "posted_at": "2026-05-23T21:06:34.813Z"
+      "posted_at": "2026-05-23T23:08:32.325Z"
     }
   ],
   "has_handle": true,
   "has_password": true,
   "handle": "realdailyreview.bsky.social",
-  "written_at": "2026-05-23T21:06:39.315Z"
+  "written_at": "2026-05-23T23:08:36.827Z"
 }
