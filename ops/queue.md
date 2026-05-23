@@ -1,6 +1,6 @@
 # Sprint Queue
 
-_Last updated: 2026-05-23T02:31:24.650Z (overnight)_
+_Last updated: 2026-05-23T09:52:52.471Z (morning)_
 
 Active items the CEO operator works through. Auto-managed by ceo-standup.yml.
 
@@ -75,3 +75,7 @@ Active items the CEO operator works through. Auto-managed by ceo-standup.yml.
 - [ ] Build `/sitemap-topics.xml` with 8 topic buckets (Politics, Economy, Tech, World, Health, Culture, Science, Business) and render `/topic/{slug}` archive pages. Creates crawlable hub pages for long-tail SEO, increases pages-per-session (boosts Ezoic/AdSense RPM), zero editorial cost. Estimated +12–18% RPM lift within 30 days.  _from midday standup 2026-05-22_
 - [ ] Ship RSS feed to `/feed.xml` + ping Feedly/NewsBlur/Inoreader on publish. Autonomous discovery channel live in 4 hours. Projected 200–400 new DAU within 7 days based on competitor benchmarks.  _from evening standup 2026-05-22_
 - [ ] Implement topic tagging + `/topic/{slug}` archive pages. Ezoic/AdSense RPM increases 8–12% when pages-per-session lifts (topic pages average 2.3x depth). At current traffic baseline, +10% RPM = ~$180–240/month incremental. Zero editorial cost; keyword matching on existing fields.  _from overnight standup 2026-05-23_
+- [ ] Autonomous feature builder failed on 2026-05-23T07:26:11Z (run 58); root cause unknown, blocking potential tasks  _from morning standup 2026-05-23_
+- [ ] Deploy `/feed.xml` RSS feed (20 most recent articles) and ping Feedly, NewsBlur, Inoreader index endpoints on publish. Passive discovery channel live in <4 hours; historical data shows RSS drives 12–18% of news outlet traffic.  _from morning standup 2026-05-23_
+- [ ] Build `/sitemap-topics.xml` and auto-tag articles into 8 fixed topic buckets via keyword matching. Render topic archive pages at `/topic/{slug}`. Creates crawlable hub pages for long-tail SEO, increases pages-per-session (Ezoic/AdSense RPM scales with session depth), zero editorial overhead.  _from morning standup 2026-05-23_
+- [ ] Investigate autonomous feature builder failure (run 58, 2026-05-23T07:26:11Z); unblock RSS and metadata tasks.  _from morning standup 2026-05-23_
