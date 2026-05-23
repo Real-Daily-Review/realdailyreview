@@ -48,7 +48,8 @@
     "2026-05-23-gaza-flotilla-detainees-allege-abuse-israeli-strikes-continue",
     "2026-05-23-45-million-americans-expected-to-travel-for-memorial-day-weekend",
     "2026-05-23-indian-youth-movement-alleges-government-shut-down-website-hacked-acco",
-    "2026-05-23-spacex-launches-enhanced-starship-rocket-on-test-flight"
+    "2026-05-23-spacex-launches-enhanced-starship-rocket-on-test-flight",
+    "2026-05-23-french-open-players-protest-prize-money-with-media-boycott"
   ],
   "posts": [
     {
@@ -411,6 +412,15 @@
       "had_embed": true,
       "had_image": true,
       "posted_at": "2026-05-23T15:16:49.757Z"
+    },
+    {
+      "slug": "2026-05-23-french-open-players-protest-prize-money-with-media-boycott",
+      "uri": "at://did:plc:p7bwmjqjgn3ldehylmu2cydk/app.bsky.feed.post/3mmjx7227z42s",
+      "strategy": "ai-hook",
+      "hook": "Top tennis players including Sabalenka and Gauff are cutting French Open media time to 15 minutes over prize money. Organizers are now negotiating revenue sharing.",
+      "had_embed": true,
+      "had_image": true,
+      "posted_at": "2026-05-23T17:15:15.993Z"
     }
   ]
 }
