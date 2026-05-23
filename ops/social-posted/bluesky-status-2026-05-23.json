@@ -1,22 +1,22 @@
 {
   "outcome": "sent",
-  "candidates": 16,
+  "candidates": 7,
   "posted": 1,
   "used_ai_hooks": true,
   "failures": [],
   "sent": [
     {
-      "slug": "2026-05-23-gaza-flotilla-detainees-allege-abuse-israeli-strikes-continue",
-      "uri": "at://did:plc:p7bwmjqjgn3ldehylmu2cydk/app.bsky.feed.post/3mmj736qr3t2h",
+      "slug": "2026-05-23-45-million-americans-expected-to-travel-for-memorial-day-weekend",
+      "uri": "at://did:plc:p7bwmjqjgn3ldehylmu2cydk/app.bsky.feed.post/3mmje4jbefb24",
       "strategy": "ai-hook",
-      "hook": "Activists detained from a Gaza aid flotilla allege physical and sexual abuse by Israeli forces, while Israeli strikes continue hitting refugee camps despite a ceasefire agreement.",
+      "hook": "45 million Americans are about to clog every highway, airport, and rail line in the country this Memorial Day weekend.",
       "had_embed": true,
       "had_image": true,
-      "posted_at": "2026-05-23T10:03:36.921Z"
+      "posted_at": "2026-05-23T11:33:50.197Z"
     }
   ],
   "has_handle": true,
   "has_password": true,
   "handle": "realdailyreview.bsky.social",
-  "written_at": "2026-05-23T10:03:41.423Z"
+  "written_at": "2026-05-23T11:33:54.699Z"
 }
