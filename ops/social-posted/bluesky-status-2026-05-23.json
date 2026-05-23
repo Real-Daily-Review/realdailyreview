@@ -6,17 +6,17 @@
   "failures": [],
   "sent": [
     {
-      "slug": "2026-05-23-ebola-outbreak-becomes-third-largest-on-record",
-      "uri": "at://did:plc:p7bwmjqjgn3ldehylmu2cydk/app.bsky.feed.post/3mmk6zu4rxd2a",
+      "slug": "2026-05-23-serbian-students-rally-for-early-elections-after-novi-sad-disaster",
+      "uri": "at://did:plc:p7bwmjqjgn3ldehylmu2cydk/app.bsky.feed.post/3mmke4nvtks2h",
       "strategy": "ai-hook",
-      "hook": "177 deaths and climbing: this Ebola outbreak just became the third largest on record, with health authorities raising alarm over rapid spread.",
+      "hook": "Tens of thousands of Serbian students are demanding early elections after November's Novi Sad disaster—a student-led movement that's now shaking the government.",
       "had_embed": true,
       "had_image": true,
-      "posted_at": "2026-05-23T19:35:31.980Z"
+      "posted_at": "2026-05-23T21:06:34.813Z"
     }
   ],
   "has_handle": true,
   "has_password": true,
   "handle": "realdailyreview.bsky.social",
-  "written_at": "2026-05-23T19:35:36.483Z"
+  "written_at": "2026-05-23T21:06:39.315Z"
 }

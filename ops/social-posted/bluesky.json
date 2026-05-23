@@ -50,7 +50,8 @@
     "2026-05-23-indian-youth-movement-alleges-government-shut-down-website-hacked-acco",
     "2026-05-23-spacex-launches-enhanced-starship-rocket-on-test-flight",
     "2026-05-23-french-open-players-protest-prize-money-with-media-boycott",
-    "2026-05-23-ebola-outbreak-becomes-third-largest-on-record"
+    "2026-05-23-ebola-outbreak-becomes-third-largest-on-record",
+    "2026-05-23-serbian-students-rally-for-early-elections-after-novi-sad-disaster"
   ],
   "posts": [
     {
@@ -431,6 +432,15 @@
       "had_embed": true,
       "had_image": true,
       "posted_at": "2026-05-23T19:35:31.980Z"
+    },
+    {
+      "slug": "2026-05-23-serbian-students-rally-for-early-elections-after-novi-sad-disaster",
+      "uri": "at://did:plc:p7bwmjqjgn3ldehylmu2cydk/app.bsky.feed.post/3mmke4nvtks2h",
+      "strategy": "ai-hook",
+      "hook": "Tens of thousands of Serbian students are demanding early elections after November's Novi Sad disaster—a student-led movement that's now shaking the government.",
+      "had_embed": true,
+      "had_image": true,
+      "posted_at": "2026-05-23T21:06:34.813Z"
     }
   ]
 }
