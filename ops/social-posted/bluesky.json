@@ -42,7 +42,8 @@
     "2026-05-22-alberta-to-hold-referendum-on-separation-from-canada",
     "2026-05-22-meta-launches-forum-app-to-compete-with-reddit-using-facebook-groups",
     "2026-05-22-tillis-rebukes-trump-over-stupid-stuff-hurting-gop-midterms",
-    "2026-05-22-house-launches-insider-trading-investigation-into-prediction-markets"
+    "2026-05-22-house-launches-insider-trading-investigation-into-prediction-markets",
+    "2026-05-22-gop-senator-backs-stefanik-to-replace-gabbard-as-intelligence-chief"
   ],
   "posts": [
     {
@@ -351,6 +352,15 @@
       "had_embed": true,
       "had_image": true,
       "posted_at": "2026-05-22T23:17:56.868Z"
+    },
+    {
+      "slug": "2026-05-22-gop-senator-backs-stefanik-to-replace-gabbard-as-intelligence-chief",
+      "uri": "at://did:plc:p7bwmjqjgn3ldehylmu2cydk/app.bsky.feed.post/3mmil3cyzay2h",
+      "strategy": "ai-hook",
+      "hook": "A Trump ally just floated Elise Stefanik to replace Tulsi Gabbard as intelligence chief—but offered no explanation for why she'd \"easily\" clear confirmation.",
+      "had_embed": true,
+      "had_image": true,
+      "posted_at": "2026-05-23T04:05:46.542Z"
     }
   ]
 }
