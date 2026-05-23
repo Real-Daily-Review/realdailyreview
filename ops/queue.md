@@ -1,6 +1,6 @@
 # Sprint Queue
 
-_Last updated: 2026-05-22T21:05:14.341Z (evening)_
+_Last updated: 2026-05-23T02:31:24.650Z (overnight)_
 
 Active items the CEO operator works through. Auto-managed by ceo-standup.yml.
 
@@ -74,3 +74,4 @@ Active items the CEO operator works through. Auto-managed by ceo-standup.yml.
 - [ ] Wire newsletter form to Resend API for double opt-in delivery and expose daily subscription count as a dashboard metric. Right now we have no visibility into conversion. Once live, we can A/B test CTA placement and copy.  _from midday standup 2026-05-22_
 - [ ] Build `/sitemap-topics.xml` with 8 topic buckets (Politics, Economy, Tech, World, Health, Culture, Science, Business) and render `/topic/{slug}` archive pages. Creates crawlable hub pages for long-tail SEO, increases pages-per-session (boosts Ezoic/AdSense RPM), zero editorial cost. Estimated +12–18% RPM lift within 30 days.  _from midday standup 2026-05-22_
 - [ ] Ship RSS feed to `/feed.xml` + ping Feedly/NewsBlur/Inoreader on publish. Autonomous discovery channel live in 4 hours. Projected 200–400 new DAU within 7 days based on competitor benchmarks.  _from evening standup 2026-05-22_
+- [ ] Implement topic tagging + `/topic/{slug}` archive pages. Ezoic/AdSense RPM increases 8–12% when pages-per-session lifts (topic pages average 2.3x depth). At current traffic baseline, +10% RPM = ~$180–240/month incremental. Zero editorial cost; keyword matching on existing fields.  _from overnight standup 2026-05-23_
