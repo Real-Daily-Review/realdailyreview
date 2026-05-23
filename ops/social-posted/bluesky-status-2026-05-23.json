@@ -1,22 +1,22 @@
 {
   "outcome": "sent",
-  "candidates": 4,
+  "candidates": 3,
   "posted": 1,
   "used_ai_hooks": true,
   "failures": [],
   "sent": [
     {
-      "slug": "2026-05-23-indian-youth-movement-alleges-government-shut-down-website-hacked-acco",
-      "uri": "at://did:plc:p7bwmjqjgn3ldehylmu2cydk/app.bsky.feed.post/3mmjmdepano2u",
+      "slug": "2026-05-23-spacex-launches-enhanced-starship-rocket-on-test-flight",
+      "uri": "at://did:plc:p7bwmjqjgn3ldehylmu2cydk/app.bsky.feed.post/3mmjqlaxzog2u",
       "strategy": "ai-hook",
-      "hook": "A viral Indian youth protest movement claims the government hacked its Instagram and took its website offline as the \"Cockroach Janta Party\" gains momentum over job scarcity.",
+      "hook": "SpaceX's 12th Starship test flight just cleared a major hurdle for NASA's plan to land astronauts on the moon.",
       "had_embed": true,
       "had_image": true,
-      "posted_at": "2026-05-23T14:00:50.232Z"
+      "posted_at": "2026-05-23T15:16:49.757Z"
     }
   ],
   "has_handle": true,
   "has_password": true,
   "handle": "realdailyreview.bsky.social",
-  "written_at": "2026-05-23T14:00:54.735Z"
+  "written_at": "2026-05-23T15:16:54.260Z"
 }

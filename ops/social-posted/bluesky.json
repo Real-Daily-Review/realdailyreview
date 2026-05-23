@@ -47,7 +47,8 @@
     "2026-05-23-pentagon-releases-second-batch-of-classified-ufo-files",
     "2026-05-23-gaza-flotilla-detainees-allege-abuse-israeli-strikes-continue",
     "2026-05-23-45-million-americans-expected-to-travel-for-memorial-day-weekend",
-    "2026-05-23-indian-youth-movement-alleges-government-shut-down-website-hacked-acco"
+    "2026-05-23-indian-youth-movement-alleges-government-shut-down-website-hacked-acco",
+    "2026-05-23-spacex-launches-enhanced-starship-rocket-on-test-flight"
   ],
   "posts": [
     {
@@ -401,6 +402,15 @@
       "had_embed": true,
       "had_image": true,
       "posted_at": "2026-05-23T14:00:50.232Z"
+    },
+    {
+      "slug": "2026-05-23-spacex-launches-enhanced-starship-rocket-on-test-flight",
+      "uri": "at://did:plc:p7bwmjqjgn3ldehylmu2cydk/app.bsky.feed.post/3mmjqlaxzog2u",
+      "strategy": "ai-hook",
+      "hook": "SpaceX's 12th Starship test flight just cleared a major hurdle for NASA's plan to land astronauts on the moon.",
+      "had_embed": true,
+      "had_image": true,
+      "posted_at": "2026-05-23T15:16:49.757Z"
     }
   ]
 }
