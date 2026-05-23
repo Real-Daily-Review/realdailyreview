@@ -1,14 +1,14 @@
 {
-  "fetched_at": "2026-05-22T19:20:03.469Z",
-  "total_posts_tracked": 32,
+  "fetched_at": "2026-05-23T01:50:40.801Z",
+  "total_posts_tracked": 35,
   "by_strategy": {
     "ai-hook": {
-      "posts": 30,
+      "posts": 33,
       "total_likes": 2,
       "total_reposts": 2,
       "total_replies": 0,
-      "avg_likes": 0.07,
-      "avg_reposts": 0.07,
+      "avg_likes": 0.06,
+      "avg_reposts": 0.06,
       "avg_replies": 0
     },
     "fallback-ai-error": {
@@ -553,6 +553,45 @@
       "repostCount": 0,
       "replyCount": 0,
       "indexedAt": "2026-05-22T16:35:58.279Z"
+    },
+    {
+      "slug": "2026-05-22-meta-launches-forum-app-to-compete-with-reddit-using-facebook-groups",
+      "uri": "at://did:plc:p7bwmjqjgn3ldehylmu2cydk/app.bsky.feed.post/3mmhqaolvhy24",
+      "strategy": "ai-hook",
+      "hook": "Meta's quietly launching Forum to poach Reddit's communities—by turning Facebook Groups into a standalone app with AI built in.",
+      "had_embed": true,
+      "had_image": true,
+      "posted_at": "2026-05-22T20:05:35.463Z",
+      "likeCount": 0,
+      "repostCount": 0,
+      "replyCount": 0,
+      "indexedAt": "2026-05-22T20:05:35.570Z"
+    },
+    {
+      "slug": "2026-05-22-tillis-rebukes-trump-over-stupid-stuff-hurting-gop-midterms",
+      "uri": "at://did:plc:p7bwmjqjgn3ldehylmu2cydk/app.bsky.feed.post/3mmhujudpdu2a",
+      "strategy": "ai-hook",
+      "hook": "Republican Sen. Tillis tells Trump: \"The stupid stuff is killing our chances\" in the midterms, escalating a rare public rift over controversial policy proposals.",
+      "had_embed": true,
+      "had_image": true,
+      "posted_at": "2026-05-22T21:22:18.452Z",
+      "likeCount": 0,
+      "repostCount": 0,
+      "replyCount": 0,
+      "indexedAt": "2026-05-22T21:22:18.478Z"
+    },
+    {
+      "slug": "2026-05-22-house-launches-insider-trading-investigation-into-prediction-markets",
+      "uri": "at://did:plc:p7bwmjqjgn3ldehylmu2cydk/app.bsky.feed.post/3mmi2ynefse2s",
+      "strategy": "ai-hook",
+      "hook": "Rep. Comer is investigating whether traders on Kalshi and Polymarket are betting on classified information—and if the platforms are deliberately ignoring it.",
+      "had_embed": true,
+      "had_image": true,
+      "posted_at": "2026-05-22T23:17:56.868Z",
+      "likeCount": 0,
+      "repostCount": 0,
+      "replyCount": 0,
+      "indexedAt": "2026-05-22T23:17:56.971Z"
     }
   ]
 }
