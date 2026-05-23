@@ -1,22 +1,22 @@
 {
   "outcome": "sent",
-  "candidates": 15,
+  "candidates": 16,
   "posted": 1,
   "used_ai_hooks": true,
   "failures": [],
   "sent": [
     {
-      "slug": "2026-05-23-pentagon-releases-second-batch-of-classified-ufo-files",
-      "uri": "at://did:plc:p7bwmjqjgn3ldehylmu2cydk/app.bsky.feed.post/3mmitvglguk2a",
+      "slug": "2026-05-23-gaza-flotilla-detainees-allege-abuse-israeli-strikes-continue",
+      "uri": "at://did:plc:p7bwmjqjgn3ldehylmu2cydk/app.bsky.feed.post/3mmj736qr3t2h",
       "strategy": "ai-hook",
-      "hook": "Trump ordered 64 classified Pentagon UFO files released Friday. One official was left \"speechless\" by what they contained.",
+      "hook": "Activists detained from a Gaza aid flotilla allege physical and sexual abuse by Israeli forces, while Israeli strikes continue hitting refugee camps despite a ceasefire agreement.",
       "had_embed": true,
       "had_image": true,
-      "posted_at": "2026-05-23T06:43:32.624Z"
+      "posted_at": "2026-05-23T10:03:36.921Z"
     }
   ],
   "has_handle": true,
   "has_password": true,
   "handle": "realdailyreview.bsky.social",
-  "written_at": "2026-05-23T06:43:37.127Z"
+  "written_at": "2026-05-23T10:03:41.423Z"
 }

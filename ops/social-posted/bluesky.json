@@ -44,7 +44,8 @@
     "2026-05-22-tillis-rebukes-trump-over-stupid-stuff-hurting-gop-midterms",
     "2026-05-22-house-launches-insider-trading-investigation-into-prediction-markets",
     "2026-05-22-gop-senator-backs-stefanik-to-replace-gabbard-as-intelligence-chief",
-    "2026-05-23-pentagon-releases-second-batch-of-classified-ufo-files"
+    "2026-05-23-pentagon-releases-second-batch-of-classified-ufo-files",
+    "2026-05-23-gaza-flotilla-detainees-allege-abuse-israeli-strikes-continue"
   ],
   "posts": [
     {
@@ -371,6 +372,15 @@
       "had_embed": true,
       "had_image": true,
       "posted_at": "2026-05-23T06:43:32.624Z"
+    },
+    {
+      "slug": "2026-05-23-gaza-flotilla-detainees-allege-abuse-israeli-strikes-continue",
+      "uri": "at://did:plc:p7bwmjqjgn3ldehylmu2cydk/app.bsky.feed.post/3mmj736qr3t2h",
+      "strategy": "ai-hook",
+      "hook": "Activists detained from a Gaza aid flotilla allege physical and sexual abuse by Israeli forces, while Israeli strikes continue hitting refugee camps despite a ceasefire agreement.",
+      "had_embed": true,
+      "had_image": true,
+      "posted_at": "2026-05-23T10:03:36.921Z"
     }
   ]
 }
