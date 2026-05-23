@@ -49,7 +49,8 @@
     "2026-05-23-45-million-americans-expected-to-travel-for-memorial-day-weekend",
     "2026-05-23-indian-youth-movement-alleges-government-shut-down-website-hacked-acco",
     "2026-05-23-spacex-launches-enhanced-starship-rocket-on-test-flight",
-    "2026-05-23-french-open-players-protest-prize-money-with-media-boycott"
+    "2026-05-23-french-open-players-protest-prize-money-with-media-boycott",
+    "2026-05-23-ebola-outbreak-becomes-third-largest-on-record"
   ],
   "posts": [
     {
@@ -421,6 +422,15 @@
       "had_embed": true,
       "had_image": true,
       "posted_at": "2026-05-23T17:15:15.993Z"
+    },
+    {
+      "slug": "2026-05-23-ebola-outbreak-becomes-third-largest-on-record",
+      "uri": "at://did:plc:p7bwmjqjgn3ldehylmu2cydk/app.bsky.feed.post/3mmk6zu4rxd2a",
+      "strategy": "ai-hook",
+      "hook": "177 deaths and climbing: this Ebola outbreak just became the third largest on record, with health authorities raising alarm over rapid spread.",
+      "had_embed": true,
+      "had_image": true,
+      "posted_at": "2026-05-23T19:35:31.980Z"
     }
   ]
 }

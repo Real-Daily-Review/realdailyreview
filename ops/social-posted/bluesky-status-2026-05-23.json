@@ -1,22 +1,22 @@
 {
   "outcome": "sent",
-  "candidates": 4,
+  "candidates": 7,
   "posted": 1,
   "used_ai_hooks": true,
   "failures": [],
   "sent": [
     {
-      "slug": "2026-05-23-french-open-players-protest-prize-money-with-media-boycott",
-      "uri": "at://did:plc:p7bwmjqjgn3ldehylmu2cydk/app.bsky.feed.post/3mmjx7227z42s",
+      "slug": "2026-05-23-ebola-outbreak-becomes-third-largest-on-record",
+      "uri": "at://did:plc:p7bwmjqjgn3ldehylmu2cydk/app.bsky.feed.post/3mmk6zu4rxd2a",
       "strategy": "ai-hook",
-      "hook": "Top tennis players including Sabalenka and Gauff are cutting French Open media time to 15 minutes over prize money. Organizers are now negotiating revenue sharing.",
+      "hook": "177 deaths and climbing: this Ebola outbreak just became the third largest on record, with health authorities raising alarm over rapid spread.",
       "had_embed": true,
       "had_image": true,
-      "posted_at": "2026-05-23T17:15:15.993Z"
+      "posted_at": "2026-05-23T19:35:31.980Z"
     }
   ],
   "has_handle": true,
   "has_password": true,
   "handle": "realdailyreview.bsky.social",
-  "written_at": "2026-05-23T17:15:20.495Z"
+  "written_at": "2026-05-23T19:35:36.483Z"
 }
