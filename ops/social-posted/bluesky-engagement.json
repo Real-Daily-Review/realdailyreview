@@ -1,13 +1,13 @@
 {
-  "fetched_at": "2026-05-23T01:50:40.801Z",
-  "total_posts_tracked": 35,
+  "fetched_at": "2026-05-23T08:03:03.329Z",
+  "total_posts_tracked": 37,
   "by_strategy": {
     "ai-hook": {
-      "posts": 33,
-      "total_likes": 2,
+      "posts": 35,
+      "total_likes": 3,
       "total_reposts": 2,
       "total_replies": 0,
-      "avg_likes": 0.06,
+      "avg_likes": 0.09,
       "avg_reposts": 0.06,
       "avg_replies": 0
     },
@@ -34,6 +34,19 @@
       "repostCount": 2,
       "replyCount": 0,
       "indexedAt": "2026-05-10T23:05:22.774Z"
+    },
+    {
+      "slug": "2026-05-22-tillis-rebukes-trump-over-stupid-stuff-hurting-gop-midterms",
+      "uri": "at://did:plc:p7bwmjqjgn3ldehylmu2cydk/app.bsky.feed.post/3mmhujudpdu2a",
+      "strategy": "ai-hook",
+      "hook": "Republican Sen. Tillis tells Trump: \"The stupid stuff is killing our chances\" in the midterms, escalating a rare public rift over controversial policy proposals.",
+      "had_embed": true,
+      "had_image": true,
+      "posted_at": "2026-05-22T21:22:18.452Z",
+      "likeCount": 1,
+      "repostCount": 0,
+      "replyCount": 0,
+      "indexedAt": "2026-05-22T21:22:18.478Z"
     },
     {
       "slug": "2026-05-09-us-sanctions-chinese-middle-eastern-entities-for-aiding-iran",
@@ -130,19 +143,6 @@
       "repostCount": 0,
       "replyCount": 0,
       "indexedAt": "2026-05-10T09:47:27.673Z"
-    },
-    {
-      "slug": "2026-05-10-israeli-strikes-kill-39-in-lebanon-despite-ceasefire-deal",
-      "uri": "at://did:plc:p7bwmjqjgn3ldehylmu2cydk/app.bsky.feed.post/3mlimukqtax2i",
-      "strategy": "ai-hook",
-      "hook": "A ceasefire took effect in April. Since then, Israeli airstrikes have killed at least 39 people in Lebanon this week alone.",
-      "had_embed": true,
-      "had_image": true,
-      "posted_at": "2026-05-10T11:12:35.957Z",
-      "likeCount": 0,
-      "repostCount": 0,
-      "replyCount": 0,
-      "indexedAt": "2026-05-10T11:12:36.170Z"
     }
   ],
   "posts": [
@@ -575,7 +575,7 @@
       "had_embed": true,
       "had_image": true,
       "posted_at": "2026-05-22T21:22:18.452Z",
-      "likeCount": 0,
+      "likeCount": 1,
       "repostCount": 0,
       "replyCount": 0,
       "indexedAt": "2026-05-22T21:22:18.478Z"
@@ -592,6 +592,32 @@
       "repostCount": 0,
       "replyCount": 0,
       "indexedAt": "2026-05-22T23:17:56.971Z"
+    },
+    {
+      "slug": "2026-05-22-gop-senator-backs-stefanik-to-replace-gabbard-as-intelligence-chief",
+      "uri": "at://did:plc:p7bwmjqjgn3ldehylmu2cydk/app.bsky.feed.post/3mmil3cyzay2h",
+      "strategy": "ai-hook",
+      "hook": "A Trump ally just floated Elise Stefanik to replace Tulsi Gabbard as intelligence chief—but offered no explanation for why she'd \"easily\" clear confirmation.",
+      "had_embed": true,
+      "had_image": true,
+      "posted_at": "2026-05-23T04:05:46.542Z",
+      "likeCount": 0,
+      "repostCount": 0,
+      "replyCount": 0,
+      "indexedAt": "2026-05-23T04:05:46.673Z"
+    },
+    {
+      "slug": "2026-05-23-pentagon-releases-second-batch-of-classified-ufo-files",
+      "uri": "at://did:plc:p7bwmjqjgn3ldehylmu2cydk/app.bsky.feed.post/3mmitvglguk2a",
+      "strategy": "ai-hook",
+      "hook": "Trump ordered 64 classified Pentagon UFO files released Friday. One official was left \"speechless\" by what they contained.",
+      "had_embed": true,
+      "had_image": true,
+      "posted_at": "2026-05-23T06:43:32.624Z",
+      "likeCount": 0,
+      "repostCount": 0,
+      "replyCount": 0,
+      "indexedAt": "2026-05-23T06:43:32.674Z"
     }
   ]
 }
