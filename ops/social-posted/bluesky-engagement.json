@@ -1,13 +1,13 @@
 {
-  "fetched_at": "2026-05-23T12:54:11.773Z",
-  "total_posts_tracked": 39,
+  "fetched_at": "2026-05-23T18:51:37.174Z",
+  "total_posts_tracked": 42,
   "by_strategy": {
     "ai-hook": {
-      "posts": 37,
-      "total_likes": 3,
+      "posts": 40,
+      "total_likes": 4,
       "total_reposts": 2,
       "total_replies": 0,
-      "avg_likes": 0.08,
+      "avg_likes": 0.1,
       "avg_reposts": 0.05,
       "avg_replies": 0
     },
@@ -47,6 +47,19 @@
       "repostCount": 0,
       "replyCount": 0,
       "indexedAt": "2026-05-22T21:22:18.478Z"
+    },
+    {
+      "slug": "2026-05-23-french-open-players-protest-prize-money-with-media-boycott",
+      "uri": "at://did:plc:p7bwmjqjgn3ldehylmu2cydk/app.bsky.feed.post/3mmjx7227z42s",
+      "strategy": "ai-hook",
+      "hook": "Top tennis players including Sabalenka and Gauff are cutting French Open media time to 15 minutes over prize money. Organizers are now negotiating revenue sharing.",
+      "had_embed": true,
+      "had_image": true,
+      "posted_at": "2026-05-23T17:15:15.993Z",
+      "likeCount": 1,
+      "repostCount": 0,
+      "replyCount": 0,
+      "indexedAt": "2026-05-23T17:15:16.077Z"
     },
     {
       "slug": "2026-05-09-us-sanctions-chinese-middle-eastern-entities-for-aiding-iran",
@@ -130,19 +143,6 @@
       "repostCount": 0,
       "replyCount": 0,
       "indexedAt": "2026-05-10T06:42:18.873Z"
-    },
-    {
-      "slug": "2026-05-10-ai-data-centers-spark-global-backlash-over-power-and-pollution",
-      "uri": "at://did:plc:p7bwmjqjgn3ldehylmu2cydk/app.bsky.feed.post/3mlii4d2ey72a",
-      "strategy": "ai-hook",
-      "hook": "Tech companies are building data centers so massive they're straining power grids worldwide—and 43 percent of Americans blame them for rising electric bills.",
-      "had_embed": true,
-      "had_image": true,
-      "posted_at": "2026-05-10T09:47:27.624Z",
-      "likeCount": 0,
-      "repostCount": 0,
-      "replyCount": 0,
-      "indexedAt": "2026-05-10T09:47:27.673Z"
     }
   ],
   "posts": [
@@ -644,6 +644,45 @@
       "repostCount": 0,
       "replyCount": 0,
       "indexedAt": "2026-05-23T11:33:50.273Z"
+    },
+    {
+      "slug": "2026-05-23-indian-youth-movement-alleges-government-shut-down-website-hacked-acco",
+      "uri": "at://did:plc:p7bwmjqjgn3ldehylmu2cydk/app.bsky.feed.post/3mmjmdepano2u",
+      "strategy": "ai-hook",
+      "hook": "A viral Indian youth protest movement claims the government hacked its Instagram and took its website offline as the \"Cockroach Janta Party\" gains momentum over job scarcity.",
+      "had_embed": true,
+      "had_image": true,
+      "posted_at": "2026-05-23T14:00:50.232Z",
+      "likeCount": 0,
+      "repostCount": 0,
+      "replyCount": 0,
+      "indexedAt": "2026-05-23T14:00:50.277Z"
+    },
+    {
+      "slug": "2026-05-23-spacex-launches-enhanced-starship-rocket-on-test-flight",
+      "uri": "at://did:plc:p7bwmjqjgn3ldehylmu2cydk/app.bsky.feed.post/3mmjqlaxzog2u",
+      "strategy": "ai-hook",
+      "hook": "SpaceX's 12th Starship test flight just cleared a major hurdle for NASA's plan to land astronauts on the moon.",
+      "had_embed": true,
+      "had_image": true,
+      "posted_at": "2026-05-23T15:16:49.757Z",
+      "likeCount": 0,
+      "repostCount": 0,
+      "replyCount": 0,
+      "indexedAt": "2026-05-23T15:16:49.871Z"
+    },
+    {
+      "slug": "2026-05-23-french-open-players-protest-prize-money-with-media-boycott",
+      "uri": "at://did:plc:p7bwmjqjgn3ldehylmu2cydk/app.bsky.feed.post/3mmjx7227z42s",
+      "strategy": "ai-hook",
+      "hook": "Top tennis players including Sabalenka and Gauff are cutting French Open media time to 15 minutes over prize money. Organizers are now negotiating revenue sharing.",
+      "had_embed": true,
+      "had_image": true,
+      "posted_at": "2026-05-23T17:15:15.993Z",
+      "likeCount": 1,
+      "repostCount": 0,
+      "replyCount": 0,
+      "indexedAt": "2026-05-23T17:15:16.077Z"
     }
   ]
 }
