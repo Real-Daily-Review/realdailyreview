@@ -1,6 +1,6 @@
 # Sprint Queue
 
-_Last updated: 2026-05-23T09:52:52.471Z (morning)_
+_Last updated: 2026-05-23T17:01:34.789Z (midday)_
 
 Active items the CEO operator works through. Auto-managed by ceo-standup.yml.
 
@@ -79,3 +79,4 @@ Active items the CEO operator works through. Auto-managed by ceo-standup.yml.
 - [ ] Deploy `/feed.xml` RSS feed (20 most recent articles) and ping Feedly, NewsBlur, Inoreader index endpoints on publish. Passive discovery channel live in <4 hours; historical data shows RSS drives 12–18% of news outlet traffic.  _from morning standup 2026-05-23_
 - [ ] Build `/sitemap-topics.xml` and auto-tag articles into 8 fixed topic buckets via keyword matching. Render topic archive pages at `/topic/{slug}`. Creates crawlable hub pages for long-tail SEO, increases pages-per-session (Ezoic/AdSense RPM scales with session depth), zero editorial overhead.  _from morning standup 2026-05-23_
 - [ ] Investigate autonomous feature builder failure (run 58, 2026-05-23T07:26:11Z); unblock RSS and metadata tasks.  _from morning standup 2026-05-23_
+- [ ] Deploy RSS feed + auto-ping aggregators. Build `/feed.xml` from existing article metadata; ping Feedly, NewsBlur, Inoreader indexing endpoints on each publish. Estimated effort: 2–3 hrs. Passive discovery channel live same day; zero editorial lift.  _from midday standup 2026-05-23_
