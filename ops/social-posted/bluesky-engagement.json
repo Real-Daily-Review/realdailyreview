@@ -1,14 +1,14 @@
 {
-  "fetched_at": "2026-05-23T08:03:03.329Z",
-  "total_posts_tracked": 37,
+  "fetched_at": "2026-05-23T12:54:11.773Z",
+  "total_posts_tracked": 39,
   "by_strategy": {
     "ai-hook": {
-      "posts": 35,
+      "posts": 37,
       "total_likes": 3,
       "total_reposts": 2,
       "total_replies": 0,
-      "avg_likes": 0.09,
-      "avg_reposts": 0.06,
+      "avg_likes": 0.08,
+      "avg_reposts": 0.05,
       "avg_replies": 0
     },
     "fallback-ai-error": {
@@ -618,6 +618,32 @@
       "repostCount": 0,
       "replyCount": 0,
       "indexedAt": "2026-05-23T06:43:32.674Z"
+    },
+    {
+      "slug": "2026-05-23-gaza-flotilla-detainees-allege-abuse-israeli-strikes-continue",
+      "uri": "at://did:plc:p7bwmjqjgn3ldehylmu2cydk/app.bsky.feed.post/3mmj736qr3t2h",
+      "strategy": "ai-hook",
+      "hook": "Activists detained from a Gaza aid flotilla allege physical and sexual abuse by Israeli forces, while Israeli strikes continue hitting refugee camps despite a ceasefire agreement.",
+      "had_embed": true,
+      "had_image": true,
+      "posted_at": "2026-05-23T10:03:36.921Z",
+      "likeCount": 0,
+      "repostCount": 0,
+      "replyCount": 0,
+      "indexedAt": "2026-05-23T10:03:36.974Z"
+    },
+    {
+      "slug": "2026-05-23-45-million-americans-expected-to-travel-for-memorial-day-weekend",
+      "uri": "at://did:plc:p7bwmjqjgn3ldehylmu2cydk/app.bsky.feed.post/3mmje4jbefb24",
+      "strategy": "ai-hook",
+      "hook": "45 million Americans are about to clog every highway, airport, and rail line in the country this Memorial Day weekend.",
+      "had_embed": true,
+      "had_image": true,
+      "posted_at": "2026-05-23T11:33:50.197Z",
+      "likeCount": 0,
+      "repostCount": 0,
+      "replyCount": 0,
+      "indexedAt": "2026-05-23T11:33:50.273Z"
     }
   ]
 }
