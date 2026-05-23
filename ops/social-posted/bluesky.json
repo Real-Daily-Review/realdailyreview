@@ -46,7 +46,8 @@
     "2026-05-22-gop-senator-backs-stefanik-to-replace-gabbard-as-intelligence-chief",
     "2026-05-23-pentagon-releases-second-batch-of-classified-ufo-files",
     "2026-05-23-gaza-flotilla-detainees-allege-abuse-israeli-strikes-continue",
-    "2026-05-23-45-million-americans-expected-to-travel-for-memorial-day-weekend"
+    "2026-05-23-45-million-americans-expected-to-travel-for-memorial-day-weekend",
+    "2026-05-23-indian-youth-movement-alleges-government-shut-down-website-hacked-acco"
   ],
   "posts": [
     {
@@ -391,6 +392,15 @@
       "had_embed": true,
       "had_image": true,
       "posted_at": "2026-05-23T11:33:50.197Z"
+    },
+    {
+      "slug": "2026-05-23-indian-youth-movement-alleges-government-shut-down-website-hacked-acco",
+      "uri": "at://did:plc:p7bwmjqjgn3ldehylmu2cydk/app.bsky.feed.post/3mmjmdepano2u",
+      "strategy": "ai-hook",
+      "hook": "A viral Indian youth protest movement claims the government hacked its Instagram and took its website offline as the \"Cockroach Janta Party\" gains momentum over job scarcity.",
+      "had_embed": true,
+      "had_image": true,
+      "posted_at": "2026-05-23T14:00:50.232Z"
     }
   ]
 }

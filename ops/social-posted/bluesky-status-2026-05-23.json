@@ -1,22 +1,22 @@
 {
   "outcome": "sent",
-  "candidates": 7,
+  "candidates": 4,
   "posted": 1,
   "used_ai_hooks": true,
   "failures": [],
   "sent": [
     {
-      "slug": "2026-05-23-45-million-americans-expected-to-travel-for-memorial-day-weekend",
-      "uri": "at://did:plc:p7bwmjqjgn3ldehylmu2cydk/app.bsky.feed.post/3mmje4jbefb24",
+      "slug": "2026-05-23-indian-youth-movement-alleges-government-shut-down-website-hacked-acco",
+      "uri": "at://did:plc:p7bwmjqjgn3ldehylmu2cydk/app.bsky.feed.post/3mmjmdepano2u",
       "strategy": "ai-hook",
-      "hook": "45 million Americans are about to clog every highway, airport, and rail line in the country this Memorial Day weekend.",
+      "hook": "A viral Indian youth protest movement claims the government hacked its Instagram and took its website offline as the \"Cockroach Janta Party\" gains momentum over job scarcity.",
       "had_embed": true,
       "had_image": true,
-      "posted_at": "2026-05-23T11:33:50.197Z"
+      "posted_at": "2026-05-23T14:00:50.232Z"
     }
   ],
   "has_handle": true,
   "has_password": true,
   "handle": "realdailyreview.bsky.social",
-  "written_at": "2026-05-23T11:33:54.699Z"
+  "written_at": "2026-05-23T14:00:54.735Z"
 }
