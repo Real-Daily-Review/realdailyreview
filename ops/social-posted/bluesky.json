@@ -52,7 +52,8 @@
     "2026-05-23-french-open-players-protest-prize-money-with-media-boycott",
     "2026-05-23-ebola-outbreak-becomes-third-largest-on-record",
     "2026-05-23-serbian-students-rally-for-early-elections-after-novi-sad-disaster",
-    "2026-05-23-ebola-outbreak-in-dr-congo-kills-red-cross-workers-disrupts-containmen"
+    "2026-05-23-ebola-outbreak-in-dr-congo-kills-red-cross-workers-disrupts-containmen",
+    "2026-05-23-indias-viral-cockroach-party-satire-claims-website-blocked"
   ],
   "posts": [
     {
@@ -451,6 +452,15 @@
       "had_embed": true,
       "had_image": true,
       "posted_at": "2026-05-23T23:08:32.325Z"
+    },
+    {
+      "slug": "2026-05-23-indias-viral-cockroach-party-satire-claims-website-blocked",
+      "uri": "at://did:plc:p7bwmjqjgn3ldehylmu2cydk/app.bsky.feed.post/3mml5bhd6op2c",
+      "strategy": "ai-hook",
+      "hook": "A satirical Indian political party with millions of followers claims its website got blocked. The \"Cockroach Janta Party\" says it's paying the price for mocking the government.",
+      "had_embed": true,
+      "had_image": true,
+      "posted_at": "2026-05-24T04:36:39.213Z"
     }
   ]
 }
