@@ -1,13 +1,13 @@
 {
-  "fetched_at": "2026-05-23T18:51:37.174Z",
-  "total_posts_tracked": 42,
+  "fetched_at": "2026-05-24T01:57:24.970Z",
+  "total_posts_tracked": 45,
   "by_strategy": {
     "ai-hook": {
-      "posts": 40,
+      "posts": 43,
       "total_likes": 4,
       "total_reposts": 2,
       "total_replies": 0,
-      "avg_likes": 0.1,
+      "avg_likes": 0.09,
       "avg_reposts": 0.05,
       "avg_replies": 0
     },
@@ -683,6 +683,45 @@
       "repostCount": 0,
       "replyCount": 0,
       "indexedAt": "2026-05-23T17:15:16.077Z"
+    },
+    {
+      "slug": "2026-05-23-ebola-outbreak-becomes-third-largest-on-record",
+      "uri": "at://did:plc:p7bwmjqjgn3ldehylmu2cydk/app.bsky.feed.post/3mmk6zu4rxd2a",
+      "strategy": "ai-hook",
+      "hook": "177 deaths and climbing: this Ebola outbreak just became the third largest on record, with health authorities raising alarm over rapid spread.",
+      "had_embed": true,
+      "had_image": true,
+      "posted_at": "2026-05-23T19:35:31.980Z",
+      "likeCount": 0,
+      "repostCount": 0,
+      "replyCount": 0,
+      "indexedAt": "2026-05-23T19:35:32.172Z"
+    },
+    {
+      "slug": "2026-05-23-serbian-students-rally-for-early-elections-after-novi-sad-disaster",
+      "uri": "at://did:plc:p7bwmjqjgn3ldehylmu2cydk/app.bsky.feed.post/3mmke4nvtks2h",
+      "strategy": "ai-hook",
+      "hook": "Tens of thousands of Serbian students are demanding early elections after November's Novi Sad disaster—a student-led movement that's now shaking the government.",
+      "had_embed": true,
+      "had_image": true,
+      "posted_at": "2026-05-23T21:06:34.813Z",
+      "likeCount": 0,
+      "repostCount": 0,
+      "replyCount": 0,
+      "indexedAt": "2026-05-23T21:06:34.977Z"
+    },
+    {
+      "slug": "2026-05-23-ebola-outbreak-in-dr-congo-kills-red-cross-workers-disrupts-containmen",
+      "uri": "at://did:plc:p7bwmjqjgn3ldehylmu2cydk/app.bsky.feed.post/3mmkkwqgejc2c",
+      "strategy": "ai-hook",
+      "hook": "Red Cross workers dead, patients fleeing burning tents, and the US just warned Congo's World Cup team about Ebola spreading in the east. Health officials say containment is falling apart.\nhttps://",
+      "had_embed": true,
+      "had_image": true,
+      "posted_at": "2026-05-23T23:08:32.325Z",
+      "likeCount": 0,
+      "repostCount": 0,
+      "replyCount": 0,
+      "indexedAt": "2026-05-23T23:08:32.372Z"
     }
   ]
 }
