@@ -51,6 +51,9 @@ const ogImageUrl = new URL(ogImage, Astro.site).toString();
       </Fragment>
     )}
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <!-- Primary RSS feed -->
+    <link rel="alternate" type="application/rss+xml" title={`${SITE.name} — RSS Feed`} href="/feed.xml" />
+    <!-- Legacy alias kept for backward compat -->
     <link rel="alternate" type="application/rss+xml" title={`${SITE.name} — RSS`} href="/rss.xml" />
     <link rel="canonical" href={canonical} />
 

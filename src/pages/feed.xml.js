@@ -1,7 +1,3 @@
-/**
- * /rss.xml — canonical alias for /feed.xml.
- * BaseLayout and Footer both reference this path; keep it in sync.
- */
 import rss from '@astrojs/rss';
 import { getCollection } from 'astro:content';
 import { SITE } from '@/config';
@@ -26,7 +22,7 @@ export async function GET(context) {
       `<webMaster>${SITE.contactEmail} (${SITE.name})</webMaster>`,
       `<copyright>Copyright ${new Date().getFullYear()} ${SITE.name}</copyright>`,
       '<ttl>60</ttl>',
-      `<atom:link href="${SITE.url}/rss.xml" rel="self" type="application/rss+xml" />`,
+      `<atom:link href="${SITE.url}/feed.xml" rel="self" type="application/rss+xml" />`,
     ].join('\n'),
     items: sorted.map((article) => ({
       title: article.data.title,
