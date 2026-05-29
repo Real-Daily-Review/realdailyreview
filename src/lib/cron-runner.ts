@@ -42,6 +42,8 @@ export interface RunScriptOptions {
   env?: Record<string, string | undefined>;
   /** ms timeout for the script itself (default 50_000) */
   scriptTimeout?: number;
+  /** called with the repo tmpDir path after a successful push (before cleanup) */
+  onAfterPush?: (tmpDir: string) => Promise<void>;
 }
 
 export async function runScript(opts: RunScriptOptions): Promise<void> {
@@ -97,6 +99,12 @@ export async function runScript(opts: RunScriptOptions): Promise<void> {
       try {
         execSync('git push origin HEAD:main', { ...BASE_EXEC, cwd: tmpDir, timeout: 15_000 });
         console.log(`[cron-runner] pushed on attempt ${attempt}`);
+        // Call onAfterPush before cleanup
+        if (opts.onAfterPush) {
+          try { await opts.onAfterPush(tmpDir); } catch (e: any) {
+            console.error('[cron-runner] onAfterPush error:', e.message);
+          }
+        }
         return;
       } catch {
         if (attempt < 4) {
