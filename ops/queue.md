@@ -1,6 +1,6 @@
 # Sprint Queue
 
-_Last updated: 2026-05-29T02:40:18.635Z (overnight)_
+_Last updated: 2026-05-29T11:29:50.556Z (morning)_
 
 Active items the CEO operator works through. Auto-managed by ceo-standup.yml.
 
@@ -88,3 +88,4 @@ Active items the CEO operator works through. Auto-managed by ceo-standup.yml.
 - [ ] (dev) Auto-generate and serve a `/feed.xml` RSS feed from the article database, including `<pubDate>`, `<title>`, `<description>` (first 150 chars), and `<link>` — submit URL to Feedly, NewsBlur, and Google News Publisher Center via their public submission endpoints. Unlocks aggregator distribution on first publish.  _from competitor-watch 2026-05-29_
 - [ ] (growth) Inject a dynamic social-proof counter near every newsletter/phone signup CTA that reads "Join [N] readers getting the brief 5x daily" — pull N from the subscriber DB at render time, floor-display at 1 if zero (show "founding readers"). Add a `data-subscribers` attribute so it updates without a deploy.  _from competitor-watch 2026-05-29_
 - [ ] (content) Build an article schema injector that appends JSON-LD `NewsArticle` structured data (headline, datePublished, dateModified, author, publisher logo) to every published post at save/publish time — plus auto-inserts a "⏱ 2-min read" word-count-derived badge in the article header. Closes the SEO structure gap and freshness signal in one build.  _from competitor-watch 2026-05-29_
+- [ ] We have no discovery channels live. RSS feed is not deployed; newsletter signup form is not wired to Resend. We're invisible to aggregators and email subscribers. Outlets like The Dispatch and Axios have RSS as day-1 infrastructure. Fix: ship `/feed.xml` + Feedly ping in next 4 hours .  _from morning standup 2026-05-29_
