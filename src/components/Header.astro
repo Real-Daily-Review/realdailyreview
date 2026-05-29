@@ -3,21 +3,51 @@ import { SITE, NAV } from '@/config';
 import NextBriefCountdown from './NextBriefCountdown.astro';
 
 const { pathname } = Astro.url;
+const today = new Date().toLocaleDateString('en-US', {
+  weekday: 'long', month: 'long', day: 'numeric', year: 'numeric'
+});
 ---
 
 <header class="site-header">
-  <div class="site-header-inner">
-    <a href="/" class="site-title">
-      {SITE.name}
-      <small>{new Date().toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' })}</small>
+  <div class="site-header-top">
+    <!-- CO Badge Logo -->
+    <a href="/" class="site-logo" aria-label="CO Daily Review — Home">
+      <svg class="site-logo-badge" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <!-- Circle background -->
+        <circle cx="50" cy="50" r="48" fill="#ffffff" stroke="#4a9e6b" stroke-width="2.5"/>
+        <!-- Mountain silhouette -->
+        <polygon points="50,18 28,62 72,62" fill="#1e5c3a"/>
+        <polygon points="36,62 20,62 36,40" fill="#2a7a50"/>
+        <polygon points="64,62 80,62 64,42" fill="#2a7a50"/>
+        <!-- Snow cap -->
+        <polygon points="50,18 44,30 56,30" fill="#f0ede4"/>
+        <!-- Ground line -->
+        <rect x="16" y="62" width="68" height="6" rx="1" fill="#0f1d2e"/>
+        <!-- CO text -->
+        <text x="50" y="88" text-anchor="middle" font-family="'Arial Black', Arial, sans-serif" font-weight="900" font-size="14" letter-spacing="3" fill="#0f1d2e">CO</text>
+      </svg>
+      <div class="site-logo-text">
+        <span class="site-logo-name">Daily Review</span>
+        <span class="site-logo-tagline">Colorado Conservative News</span>
+      </div>
     </a>
+
+    <!-- Date + subscribe -->
+    <div class="site-header-meta">
+      <div>{today}</div>
+      <NextBriefCountdown />
+      <a href="/account" class="btn-subscribe">Subscribe Free</a>
+    </div>
+  </div>
+
+  <!-- Nav bar -->
+  <div class="site-nav-bar">
     <nav class="site-nav" aria-label="Primary">
       {NAV.map((item) => (
-        <a href={item.href} class={pathname === item.href ? 'active' : ''}>
+        <a href={item.href} class={pathname === item.href || (item.href !== '/' && pathname.startsWith(item.href)) ? 'active' : ''}>
           {item.label}
         </a>
       ))}
-      <NextBriefCountdown />
     </nav>
   </div>
 </header>

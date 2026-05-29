@@ -6,16 +6,17 @@ const year = Math.max(new Date().getFullYear(), SITE.copyrightYearStart);
 <footer class="site-footer">
   <div class="site-footer-inner">
     <div>
-      <h4>{SITE.name}</h4>
-      <p>{SITE.tagline}</p>
+      <h4>CO Daily Review</h4>
+      <p style="font-size:0.82rem; line-height:1.5; max-width: 22ch; color: var(--color-header-muted);">{SITE.tagline}</p>
     </div>
     <div>
-      <h4>Sections</h4>
+      <h4>Coverage</h4>
       <ul>
-        <li><a href="/section/politics">Politics</a></li>
-        <li><a href="/section/business">Business</a></li>
-        <li><a href="/section/world">World</a></li>
-        <li><a href="/section/tech">Tech</a></li>
+        <li><a href="/section/politics">CO Politics</a></li>
+        <li><a href="/section/elections">Elections</a></li>
+        <li><a href="/section/economy">Economy</a></li>
+        <li><a href="/section/national">National</a></li>
+        <li><a href="/section/opinion">Opinion</a></li>
       </ul>
     </div>
     <div>
@@ -28,15 +29,16 @@ const year = Math.max(new Date().getFullYear(), SITE.copyrightYearStart);
       </ul>
     </div>
     <div>
-      <h4>Legal</h4>
+      <h4>More</h4>
       <ul>
+        <li><a href="/archive">Archive</a></li>
+        <li><a href="/rss.xml">RSS Feed</a></li>
         <li><a href="/privacy">Privacy</a></li>
         <li><a href="/terms">Terms</a></li>
-        <li><a href="/rss.xml">RSS</a></li>
       </ul>
     </div>
   </div>
-  <div style="max-width: var(--max-grid); margin: 2rem auto 0; padding-top: 1rem; border-top: 1px solid var(--color-rule); font-size: 0.78rem; text-align: center;">
-    &copy; {year} {SITE.name}. Built with care; powered in part by AI; reviewed by humans.
+  <div style="max-width: var(--max-grid); margin: var(--space-lg) auto 0; padding-top: var(--space-md); border-top: 1px solid var(--color-header-border); font-size: 0.75rem; text-align: center; color: var(--color-header-muted);">
+    &copy; {year} {SITE.name} &mdash; Colorado conservative news, powered by AI. <a href="/about" style="color: var(--color-nav-active); text-decoration: none;">About our approach.</a>
   </div>
 </footer>

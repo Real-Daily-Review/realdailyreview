@@ -1,20 +1,33 @@
-/* Real Daily Review — global styles
-   Design goals: print-newspaper feel, fast load, accessible, no JS dependency. */
+/* CO Daily Review — alpine editorial design
+   Palette: deep navy + forest pine green + mountain white + gold accent
+   Inspired by Colorado's Rocky Mountain landscape. */
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;500;600&display=swap');
 
 :root {
-  --color-bg: #fbfaf7;
+  /* Alpine palette — light mode */
+  --color-bg: #f4f1ea;
   --color-surface: #ffffff;
-  --color-text: #1a1a1a;
-  --color-muted: #5b5b5b;
-  --color-rule: #e7e3da;
-  --color-link: #8a1538;
-  --color-link-hover: #5e0e26;
-  --color-accent: #8a1538;
-  --color-tag-bg: #f0ece2;
+  --color-text: #0f1d2e;
+  --color-muted: #5a6a7a;
+  --color-rule: #d8d0c4;
+  --color-link: #1e5c3a;
+  --color-link-hover: #155230;
+  --color-accent: #1e5c3a;
+  --color-accent-alt: #c8922a;
+  --color-tag-bg: #e8e2d6;
   --color-warn: #8a4b00;
 
-  --font-serif: 'Iowan Old Style', 'Charter', 'Source Serif Pro', Georgia, serif;
-  --font-sans: -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', Roboto, sans-serif;
+  /* Header */
+  --color-header-bg: #0f1d2e;
+  --color-header-text: #f0ede4;
+  --color-header-muted: #7a9ab8;
+  --color-header-border: #1e3a56;
+  --color-nav-active: #4a9e6b;
+
+  --font-display: 'Playfair Display', 'Iowan Old Style', Georgia, serif;
+  --font-serif: 'Charter', 'Source Serif Pro', Georgia, serif;
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
 
   --max-content: 70ch;
@@ -31,14 +44,19 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --color-bg: #14130f;
-    --color-surface: #1c1b17;
-    --color-text: #ece8de;
-    --color-muted: #9a948a;
-    --color-rule: #2c2a25;
-    --color-link: #f5a4b8;
-    --color-link-hover: #ffc1d0;
-    --color-tag-bg: #25231e;
+    --color-bg: #0a1520;
+    --color-surface: #0f1d2e;
+    --color-text: #e8e2d6;
+    --color-muted: #7a9ab8;
+    --color-rule: #1e3245;
+    --color-link: #4a9e6b;
+    --color-link-hover: #5cb87d;
+    --color-accent: #4a9e6b;
+    --color-accent-alt: #d4a843;
+    --color-tag-bg: #152030;
+    --color-header-bg: #060f18;
+    --color-header-text: #f0ede4;
+    --color-header-border: #1e3a56;
   }
 }
 
@@ -72,15 +90,15 @@ main {
 }
 
 h1, h2, h3, h4 {
-  font-family: var(--font-serif);
+  font-family: var(--font-display);
   line-height: 1.2;
   letter-spacing: -0.01em;
   margin-bottom: var(--space-sm);
 }
 
-h1 { font-size: clamp(1.75rem, 4vw, 2.6rem); font-weight: 800; }
+h1 { font-size: clamp(1.75rem, 4vw, 2.6rem); font-weight: 900; }
 h2 { font-size: clamp(1.35rem, 3vw, 1.85rem); font-weight: 700; margin-top: var(--space-lg); }
-h3 { font-size: 1.2rem; font-weight: 700; margin-top: var(--space-md); }
+h3 { font-size: 1.2rem; font-weight: 700; margin-top: var(--space-md); font-family: var(--font-sans); }
 
 p { margin-bottom: var(--space-md); max-width: var(--max-content); }
 
@@ -116,66 +134,143 @@ code {
   border-radius: var(--radius-sm);
 }
 
-/* Header / nav */
+/* ─── Header / nav ──────────────────────────────────────────────────── */
 .site-header {
-  border-bottom: 2px solid var(--color-text);
-  padding: var(--space-md);
-  background: var(--color-bg);
+  background: var(--color-header-bg);
+  border-bottom: 3px solid var(--color-nav-active);
   position: sticky;
   top: 0;
   z-index: 50;
 }
-.site-header-inner {
+.site-header-top {
   max-width: var(--max-grid);
   margin: 0 auto;
+  padding: 0.9rem var(--space-md) 0.7rem;
   display: flex;
-  align-items: baseline;
+  align-items: center;
   justify-content: space-between;
-  flex-wrap: wrap;
   gap: var(--space-md);
 }
-.site-title {
-  font-weight: 900;
-  font-size: 1.5rem;
-  letter-spacing: -0.02em;
+/* CO badge logo */
+.site-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
   text-decoration: none;
-  color: var(--color-text);
+  flex-shrink: 0;
 }
-.site-title small {
-  display: block;
-  font-size: 0.7rem;
-  font-weight: 400;
-  font-family: var(--font-sans);
-  color: var(--color-muted);
-  letter-spacing: 0.08em;
+.site-logo-badge {
+  width: 52px;
+  height: 52px;
+  flex-shrink: 0;
+}
+.site-logo-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1;
+}
+.site-logo-name {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: 1.45rem;
+  color: var(--color-header-text);
+  letter-spacing: 0.04em;
   text-transform: uppercase;
 }
-.site-nav { display: flex; gap: var(--space-md); flex-wrap: wrap; font-family: var(--font-sans); font-size: 0.9rem; }
-.site-nav a { color: var(--color-text); text-decoration: none; }
-.site-nav a:hover { color: var(--color-link); }
-.site-nav a.active { color: var(--color-accent); border-bottom: 2px solid var(--color-accent); }
+.site-logo-tagline {
+  font-family: var(--font-sans);
+  font-size: 0.65rem;
+  font-weight: 500;
+  color: var(--color-header-muted);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-top: 2px;
+}
+/* Top-right: date + subscribe */
+.site-header-meta {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  color: var(--color-header-muted);
+  text-align: right;
+  letter-spacing: 0.04em;
+}
+.site-header-meta .btn-subscribe {
+  display: inline-block;
+  margin-top: 4px;
+  background: var(--color-nav-active);
+  color: #fff;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 3px;
+  text-decoration: none;
+  transition: background 160ms;
+}
+.site-header-meta .btn-subscribe:hover { background: #3a8a5a; }
+/* Nav bar */
+.site-nav-bar {
+  border-top: 1px solid var(--color-header-border);
+  background: var(--color-header-bg);
+}
+.site-nav {
+  max-width: var(--max-grid);
+  margin: 0 auto;
+  padding: 0 var(--space-md);
+  display: flex;
+  gap: 0;
+  flex-wrap: wrap;
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  font-weight: 500;
+}
+.site-nav a {
+  color: var(--color-header-muted);
+  text-decoration: none;
+  padding: 0.55rem 0.85rem;
+  border-bottom: 2px solid transparent;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  transition: color 150ms, border-color 150ms;
+}
+.site-nav a:hover { color: var(--color-header-text); }
+.site-nav a.active {
+  color: var(--color-nav-active);
+  border-bottom-color: var(--color-nav-active);
+}
 
-/* Footer */
+/* ─── Footer ─────────────────────────────────────────────────────────── */
 .site-footer {
-  border-top: 1px solid var(--color-rule);
-  padding: var(--space-lg) var(--space-md);
+  border-top: 3px solid var(--color-header-bg);
+  padding: var(--space-xl) var(--space-md) var(--space-lg);
   margin-top: var(--space-xl);
   font-family: var(--font-sans);
   font-size: 0.85rem;
   color: var(--color-muted);
-  background: var(--color-surface);
+  background: var(--color-header-bg);
+  color: var(--color-header-muted);
 }
 .site-footer-inner {
   max-width: var(--max-grid);
   margin: 0 auto;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   gap: var(--space-lg);
 }
-.site-footer h4 { color: var(--color-text); font-family: var(--font-sans); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.06em; }
+.site-footer h4 {
+  color: var(--color-header-text);
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 0.6rem;
+  font-weight: 600;
+}
 .site-footer ul { list-style: none; padding: 0; }
-.site-footer a { color: var(--color-muted); text-decoration: none; }
-.site-footer a:hover { color: var(--color-link); }
+.site-footer ul li { margin-bottom: 0.4rem; }
+.site-footer a { color: var(--color-header-muted); text-decoration: none; }
+.site-footer a:hover { color: var(--color-nav-active); }
 
 /* Article cards / lists */
 .article-list { list-style: none; padding: 0; display: grid; gap: var(--space-lg); }
@@ -316,7 +411,24 @@ form.rdr-form .form-status.err { color: var(--color-warn); }
   padding: 0.5rem 1rem;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 680px) {
   html { font-size: 16px; }
-  .site-header-inner { flex-direction: column; align-items: flex-start; gap: var(--space-sm); }
+  .site-header-top { flex-direction: column; align-items: flex-start; gap: var(--space-sm); }
+  .site-header-meta { text-align: left; }
+  .site-logo-badge { width: 42px; height: 42px; }
+  .site-logo-name { font-size: 1.2rem; }
+}
+
+/* ─── Utility ─────────────────────────────────────────────────────────── */
+.section-badge {
+  display: inline-block;
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 2px 7px;
+  border-radius: 3px;
+  background: var(--color-accent);
+  color: #fff;
 }

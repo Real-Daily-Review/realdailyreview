@@ -1,4 +1,16 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <rect width="64" height="64" rx="8" fill="#8a1538"/>
-  <text x="32" y="44" font-family="Georgia, serif" font-weight="900" font-size="36" text-anchor="middle" fill="#fbfaf7">R</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <!-- Background circle -->
+  <circle cx="50" cy="50" r="50" fill="#0f1d2e"/>
+  <!-- Outer ring -->
+  <circle cx="50" cy="50" r="46" fill="none" stroke="#4a9e6b" stroke-width="2"/>
+  <!-- Mountain shape -->
+  <polygon points="50,16 25,64 75,64" fill="#4a9e6b"/>
+  <polygon points="34,64 16,64 34,42" fill="#2a7a50"/>
+  <polygon points="66,64 84,64 66,44" fill="#2a7a50"/>
+  <!-- Snow cap -->
+  <polygon points="50,16 43,30 57,30" fill="#f0ede4"/>
+  <!-- Ground -->
+  <rect x="14" y="64" width="72" height="5" rx="1" fill="#1e3a56"/>
+  <!-- CO text -->
+  <text x="50" y="88" text-anchor="middle" font-family="Arial Black, Arial, sans-serif" font-weight="900" font-size="13" letter-spacing="3.5" fill="#f0ede4">CO</text>
 </svg>
