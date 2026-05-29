@@ -1,6 +1,6 @@
 # Sprint Queue
 
-_Last updated: 2026-05-29T11:29:50.556Z (morning)_
+_Last updated: 2026-05-29T18:35:24.921Z (midday)_
 
 Active items the CEO operator works through. Auto-managed by ceo-standup.yml.
 
@@ -92,3 +92,5 @@ Active items the CEO operator works through. Auto-managed by ceo-standup.yml.
 - [ ] (content) Auto-publish the backlog: trigger the existing 5x/day cron immediately for the past 23 days' worth of top stories, generating a minimum viable article corpus of 50–100 posts. Populate `sitemap.xml` and `robots.txt` on completion so Google indexes on next crawl. Unblocks SEO, Ezoic review, and AdSense Day 14 clock.  _from competitor-watch 2026-05-29_
 - [ ] (growth) Generate and expose an RSS feed at `/feed.xml` (RSS 2.0) pulling the 20 most recent articles from the database, with `<pubDate>`, `<description>` (first 150 chars of brief), and canonical `<link>`. Submit URL to Feedly, NewsBlur, and Inoreader programmatically via their free ping/submit APIs. Zero cost, activates aggregator distribution within 24 hrs.  _from competitor-watch 2026-05-29_
 - [ ] (dev) Add a "Read in ~N min" tag to every article page computed as `Math.ceil(wordCount / 200)` and rendered as a pill beneath the headline. Simultaneously inject a `<meta name="twitter:label1" content="Read time">` card tag. Mirrors Morning Brew's core conversion hook; implementable in under 1 hr.  _from competitor-watch 2026-05-29_
+- [ ] (growth) Generate and serve RSS 2.0 feed at `/feed.xml`, ping Feedly/NewsBlur/Inoreader on deploy — closes discovery gap  _from midday standup 2026-05-29_
+- [ ] Build `/today` digest page: top 5 articles from last 24h, single above-the-fold newsletter CTA, static-revalidate every 4 hours. Gives homepage visitors a curated entry point and a linkable daily artifact for social sharing. Estimated 8–12% signup lift from repeat visitors.  _from midday standup 2026-05-29_
