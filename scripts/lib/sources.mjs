@@ -1,40 +1,203 @@
-// RSS feed list — major outlets across the political spectrum.
-// Picked for: free public feeds, broad topic coverage, ideological balance,
-// reliable update cadence. Tweak `weight` to up-rank trustworthy sources.
+// RSS feed list — Colorado politics coverage with a conservative lens.
+// Sources span conservative outlets, Colorado-specific news, and select
+// national wires for context. Weight reflects editorial trust + ideological fit.
 
 export const FEEDS = [
-  // Wires (highest trust, lowest spin)
-  { name: 'Reuters Top News', url: 'https://feeds.reuters.com/reuters/topNews', section: 'world', weight: 1.0, lean: 'center' },
-  { name: 'AP Top News', url: 'https://rsshub.app/apnews/topics/apf-topnews', section: 'world', weight: 1.0, lean: 'center' },
-  { name: 'BBC World', url: 'https://feeds.bbci.co.uk/news/world/rss.xml', section: 'world', weight: 0.95, lean: 'center' },
+  // ── Colorado Conservative / Right-leaning ────────────────────────────────
+  {
+    name: 'Complete Colorado',
+    url: 'https://completecolorado.com/feed/',
+    section: 'politics',
+    weight: 1.0,
+    lean: 'right',
+  },
+  {
+    name: 'Colorado Peak Politics',
+    url: 'https://coloradopeakpolitics.com/feed/',
+    section: 'politics',
+    weight: 1.0,
+    lean: 'right',
+  },
+  {
+    name: 'Colorado Springs Gazette — Politics',
+    url: 'https://gazette.com/news/politics/rss/',
+    section: 'politics',
+    weight: 0.95,
+    lean: 'right',
+  },
+  {
+    name: 'Denver Gazette',
+    url: 'https://denvergazette.com/feed/',
+    section: 'politics',
+    weight: 0.9,
+    lean: 'right',
+  },
 
-  // U.S. national
-  { name: 'NPR National', url: 'https://feeds.npr.org/1003/rss.xml', section: 'politics', weight: 0.9, lean: 'center-left' },
-  { name: 'CBS News U.S.', url: 'https://www.cbsnews.com/latest/rss/us', section: 'politics', weight: 0.85, lean: 'center' },
-  { name: 'PBS NewsHour', url: 'https://www.pbs.org/newshour/feeds/rss/headlines', section: 'politics', weight: 0.9, lean: 'center' },
+  // ── Colorado General News (for raw state coverage) ─────────────────────
+  {
+    name: 'Colorado Politics',
+    url: 'https://www.coloradopolitics.com/feed/',
+    section: 'politics',
+    weight: 0.85,
+    lean: 'center',
+  },
+  {
+    name: 'Colorado Sun',
+    url: 'https://coloradosun.com/feed/',
+    section: 'politics',
+    weight: 0.75,
+    lean: 'center-left',
+  },
+  {
+    name: 'CPR News',
+    url: 'https://www.cpr.org/feed/',
+    section: 'politics',
+    weight: 0.7,
+    lean: 'center-left',
+  },
+  {
+    name: 'Denver Post — Politics',
+    url: 'https://www.denverpost.com/politics/feed/',
+    section: 'politics',
+    weight: 0.75,
+    lean: 'center',
+  },
+  {
+    name: '9News Colorado',
+    url: 'https://www.9news.com/feeds/syndication/rss/news',
+    section: 'politics',
+    weight: 0.7,
+    lean: 'center',
+  },
 
-  // Politics — different leans, intentional
-  { name: 'The Hill', url: 'https://thehill.com/homenews/feed/', section: 'politics', weight: 0.8, lean: 'center' },
-  { name: 'Politico', url: 'https://www.politico.com/rss/politicopicks.xml', section: 'politics', weight: 0.85, lean: 'center' },
-  { name: 'Wall Street Journal — Politics', url: 'https://feeds.a.dj.com/rss/RSSPolitics.xml', section: 'politics', weight: 0.85, lean: 'center-right' },
-  { name: 'Washington Examiner', url: 'https://www.washingtonexaminer.com/feed', section: 'politics', weight: 0.7, lean: 'right' },
+  // ── Colorado Elections ─────────────────────────────────────────────────
+  {
+    name: 'Colorado Politics — Elections',
+    url: 'https://www.coloradopolitics.com/elections/feed/',
+    section: 'elections',
+    weight: 0.95,
+    lean: 'center',
+  },
+  {
+    name: 'Complete Colorado — Elections',
+    url: 'https://completecolorado.com/category/elections/feed/',
+    section: 'elections',
+    weight: 1.0,
+    lean: 'right',
+  },
+  {
+    name: 'Denver Post — Elections',
+    url: 'https://www.denverpost.com/tag/election/feed/',
+    section: 'elections',
+    weight: 0.75,
+    lean: 'center',
+  },
 
-  // Business
-  { name: 'Reuters Business', url: 'https://feeds.reuters.com/reuters/businessNews', section: 'business', weight: 1.0, lean: 'center' },
-  { name: 'WSJ Business', url: 'https://feeds.a.dj.com/rss/WSJcomUSBusiness.xml', section: 'business', weight: 0.9, lean: 'center' },
-  { name: 'Financial Times — World', url: 'https://www.ft.com/?format=rss', section: 'business', weight: 0.9, lean: 'center' },
-  { name: 'CNBC Top News', url: 'https://www.cnbc.com/id/100003114/device/rss/rss.html', section: 'business', weight: 0.8, lean: 'center' },
+  // ── Colorado Economy / Energy ──────────────────────────────────────────
+  {
+    name: 'Denver Business Journal',
+    url: 'https://www.bizjournals.com/denver/news/feed/',
+    section: 'economy',
+    weight: 0.9,
+    lean: 'center',
+  },
+  {
+    name: 'Colorado Springs Business Journal',
+    url: 'https://www.bizjournals.com/colorado-springs/news/feed/',
+    section: 'economy',
+    weight: 0.8,
+    lean: 'center',
+  },
+  {
+    name: 'Western Wire — Energy',
+    url: 'https://westernwire.net/feed/',
+    section: 'economy',
+    weight: 0.9,
+    lean: 'right',
+  },
 
-  // World
-  { name: 'Al Jazeera English', url: 'https://www.aljazeera.com/xml/rss/all.xml', section: 'world', weight: 0.85, lean: 'center' },
-  { name: 'The Guardian — World', url: 'https://www.theguardian.com/world/rss', section: 'world', weight: 0.85, lean: 'center-left' },
-  { name: 'Deutsche Welle — Top Stories', url: 'https://rss.dw.com/atom/rss-en-all', section: 'world', weight: 0.85, lean: 'center' },
+  // ── National Conservative ─────────────────────────────────────────────
+  {
+    name: 'Washington Examiner',
+    url: 'https://www.washingtonexaminer.com/feed',
+    section: 'national',
+    weight: 0.95,
+    lean: 'right',
+  },
+  {
+    name: 'Fox News Politics',
+    url: 'https://moxie.foxnews.com/google-publisher/politics.xml',
+    section: 'national',
+    weight: 0.9,
+    lean: 'right',
+  },
+  {
+    name: 'National Review',
+    url: 'https://www.nationalreview.com/feed/',
+    section: 'national',
+    weight: 0.9,
+    lean: 'right',
+  },
+  {
+    name: 'The Daily Wire',
+    url: 'https://www.dailywire.com/feeds/rss.xml',
+    section: 'national',
+    weight: 0.85,
+    lean: 'right',
+  },
+  {
+    name: 'Daily Caller',
+    url: 'https://dailycaller.com/feed/',
+    section: 'national',
+    weight: 0.8,
+    lean: 'right',
+  },
+  {
+    name: 'Wall Street Journal — Politics',
+    url: 'https://feeds.a.dj.com/rss/RSSPolitics.xml',
+    section: 'national',
+    weight: 0.9,
+    lean: 'center-right',
+  },
 
-  // Tech
-  { name: 'TechCrunch', url: 'https://techcrunch.com/feed/', section: 'tech', weight: 0.85, lean: 'center' },
-  { name: 'The Verge', url: 'https://www.theverge.com/rss/index.xml', section: 'tech', weight: 0.85, lean: 'center' },
-  { name: 'Ars Technica', url: 'https://feeds.arstechnica.com/arstechnica/index', section: 'tech', weight: 0.9, lean: 'center' },
-  { name: 'Hacker News', url: 'https://hnrss.org/frontpage', section: 'tech', weight: 0.7, lean: 'center' },
+  // ── National Wires (for context / opposing view awareness) ────────────
+  {
+    name: 'Reuters Top News',
+    url: 'https://feeds.reuters.com/reuters/topNews',
+    section: 'national',
+    weight: 0.7,
+    lean: 'center',
+  },
+  {
+    name: 'AP Top News',
+    url: 'https://rsshub.app/apnews/topics/apf-topnews',
+    section: 'national',
+    weight: 0.7,
+    lean: 'center',
+  },
+
+  // ── Opinion / Commentary ──────────────────────────────────────────────
+  {
+    name: 'National Review — Corner',
+    url: 'https://www.nationalreview.com/the-corner/feed/',
+    section: 'opinion',
+    weight: 0.9,
+    lean: 'right',
+  },
+  {
+    name: 'Washington Examiner — Opinion',
+    url: 'https://www.washingtonexaminer.com/opinion/feed',
+    section: 'opinion',
+    weight: 0.85,
+    lean: 'right',
+  },
+  {
+    name: 'Colorado Springs Gazette — Opinion',
+    url: 'https://gazette.com/opinion/rss/',
+    section: 'opinion',
+    weight: 0.9,
+    lean: 'right',
+  },
 ];
 
 export function feedsForSection(section) {

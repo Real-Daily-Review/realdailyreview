@@ -38,7 +38,7 @@ async function recentlyPublishedTitles(hours = 36) {
 
 const DRY_RUN = process.env.DRY_RUN === '1';
 const MAX_STANDALONE_PER_SECTION = Number(process.env.PER_SECTION ?? 2);
-const SECTIONS = ['politics', 'business', 'world', 'tech'];
+const SECTIONS = ['politics', 'elections', 'economy', 'national', 'opinion'];
 
 function bytesUsed(usage) {
   if (!usage) return 0;
@@ -125,7 +125,7 @@ async function main() {
   if (isMorningRun && !digestSeenRecently) {
     try {
       console.log('[generate-daily] drafting digest (morning run)…');
-      const { body, meta, usage } = await draftDigest(fresh.slice(0, 12), dateLabel);
+      const { body, meta, usage } = await draftDigest(fresh.slice(0, 10), dateLabel);
       meta.section = 'digest';
       const { slug } = await writeArticle({ body, meta, pubDate: today });
       written++;

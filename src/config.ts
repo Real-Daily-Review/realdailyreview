@@ -3,9 +3,9 @@
 
 export const SITE = {
   name: 'Real Daily Review',
-  tagline: 'Yesterday’s news, today’s take, in five minutes.',
+  tagline: 'Straight talk on Colorado politics. Conservative. No spin.',
   description:
-    'A balanced, fast-reading daily digest of world, U.S., business, and tech news. Multiple perspectives, no spin, no clickbait.',
+    'Daily conservative news and analysis on Colorado politics — the state legislature, governor\'s office, elections, and economic policy. Delivered every weekday morning.',
   url: 'https://realdailyreview.com',
   defaultLocale: 'en',
   defaultOgImage: '/og-default.png',
@@ -18,10 +18,11 @@ export const SITE = {
 
 export const NAV = [
   { href: '/', label: 'Today' },
-  { href: '/section/politics', label: 'Politics' },
-  { href: '/section/business', label: 'Business' },
-  { href: '/section/world', label: 'World' },
-  { href: '/section/tech', label: 'Tech' },
+  { href: '/section/politics', label: 'CO Politics' },
+  { href: '/section/elections', label: 'Elections' },
+  { href: '/section/economy', label: 'Economy' },
+  { href: '/section/national', label: 'National' },
+  { href: '/section/opinion', label: 'Opinion' },
   { href: '/archive', label: 'Archive' },
   { href: '/account', label: 'Account' },
 ] as const;
@@ -37,34 +38,29 @@ export const MONETIZATION = {
   tipJarUrl: 'https://buymeacoffee.com/realdailyreview',
   newsletterSponsorEnabled: false,
   // Skimlinks: auto-affiliates every commerce link in articles via JS.
-  // Public publisher ID, safe to commit. Site-locked to realdailyreview.com.
   skimlinksEnabled: true,
   skimlinksPublisherId: '302708X1790722',
-  // Ezoic Incubator: JS-driven ad delivery + consent mgmt. Per-site account
-  // configured in Ezoic dashboard; no publisher ID needed in code, just the
-  // shared scripts. Their ads.txt manager is wired via /public/_redirects.
+  // Ezoic Incubator: JS-driven ad delivery + consent mgmt.
   ezoicIncubatorEnabled: true,
 } as const;
 
 // Cloudflare Web Analytics — privacy-respecting, no cookies, no fingerprinting.
-// Token is the public site token from Cloudflare → Analytics → Web Analytics → site settings.
-// (Public — safe to commit. Not a secret.)
 export const ANALYTICS = {
-  cloudflareWebAnalyticsToken: '', // fill in after enabling in CF dashboard, e.g. 'a1b2c3d4e5f6...'
+  cloudflareWebAnalyticsToken: '', // fill in after enabling in CF dashboard
 } as const;
 
 // Cloudflare Turnstile — bot protection for forms.
-// Site key is public by design; the secret lives in Cloudflare Worker secrets.
 export const TURNSTILE = {
   siteKey: '0x4AAAAAADK2HDIDOujAYkxI',
 } as const;
 
 // Editorial guardrails surfaced on /about and /editorial-policy.
 export const EDITORIAL_PRINCIPLES = [
-  'Brevity over bloat — every story summarized in under 200 words.',
-  'On contested topics, label perspectives plainly: "what supporters say / what critics say".',
-  'Cite at least two independent sources per story; link them all.',
-  'No fabricated quotes. No invented statistics. If the source isn’t certain, we say so.',
-  'Disclose when an article is AI-drafted; humans review flagship pieces.',
+  'Colorado first — every story is filtered through its impact on Coloradans.',
+  'Conservative perspective: we cover the news with a free-market, limited-government, individual-liberty lens.',
+  'Brevity over bloat — every story in under 200 words.',
+  'Attribute clearly: label what is news, what is analysis, and what is opinion.',
+  'Cite sources; link the originals. No fabricated quotes or invented statistics.',
+  'Disclose when an article is AI-drafted.',
   'Corrections are appended in-line with date stamps, never silently edited away.',
 ] as const;
