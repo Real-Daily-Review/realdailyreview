@@ -1,8 +1,3 @@
-/**
- * /rss.xml — canonical alias for /feed.xml.
- * BaseLayout already emits <link rel="alternate" href="/rss.xml"> so this
- * must resolve. Both feeds serve identical content.
- */
 import rss from '@astrojs/rss';
 import { getCollection } from 'astro:content';
 import { SITE } from '@/config';
@@ -32,7 +27,7 @@ export async function GET(context) {
       `<managingEditor>${SITE.contactEmail} (${SITE.name})</managingEditor>`,
       `<webMaster>${SITE.contactEmail} (${SITE.name})</webMaster>`,
       '<ttl>60</ttl>',
-      `<atom:link href="${SITE.url}/rss.xml" rel="self" type="application/rss+xml" />`,
+      `<atom:link href="${SITE.url}/feed.xml" rel="self" type="application/rss+xml" />`,
     ].join('\n'),
     xmlns: {
       atom: 'http://www.w3.org/2005/Atom',
