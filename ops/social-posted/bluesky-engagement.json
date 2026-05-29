@@ -1,9 +1,9 @@
 {
-  "fetched_at": "2026-05-24T01:57:24.970Z",
-  "total_posts_tracked": 45,
+  "fetched_at": "2026-05-29T01:57:25.693Z",
+  "total_posts_tracked": 46,
   "by_strategy": {
     "ai-hook": {
-      "posts": 43,
+      "posts": 44,
       "total_likes": 4,
       "total_reposts": 2,
       "total_replies": 0,
@@ -722,6 +722,19 @@
       "repostCount": 0,
       "replyCount": 0,
       "indexedAt": "2026-05-23T23:08:32.372Z"
+    },
+    {
+      "slug": "2026-05-23-indias-viral-cockroach-party-satire-claims-website-blocked",
+      "uri": "at://did:plc:p7bwmjqjgn3ldehylmu2cydk/app.bsky.feed.post/3mml5bhd6op2c",
+      "strategy": "ai-hook",
+      "hook": "A satirical Indian political party with millions of followers claims its website got blocked. The \"Cockroach Janta Party\" says it's paying the price for mocking the government.",
+      "had_embed": true,
+      "had_image": true,
+      "posted_at": "2026-05-24T04:36:39.213Z",
+      "likeCount": 0,
+      "repostCount": 0,
+      "replyCount": 0,
+      "indexedAt": "2026-05-24T04:36:39.278Z"
     }
   ]
 }
