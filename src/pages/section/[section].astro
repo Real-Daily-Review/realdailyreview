@@ -4,7 +4,7 @@ import ArticleCard from '@/components/ArticleCard.astro';
 import { getCollection } from 'astro:content';
 
 export async function getStaticPaths() {
-  const sections = ['politics', 'business', 'world', 'tech', 'culture', 'explainer', 'opinion'];
+  const sections = ['politics', 'elections', 'economy', 'national', 'opinion', 'explainer', 'digest'];
   return sections.map((section) => ({ params: { section } }));
 }
 
