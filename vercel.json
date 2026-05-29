@@ -14,10 +14,10 @@
     { "path": "/api/cron/feature-build",     "schedule": "0 5,11,17,23 * * *" }
   ],
   "functions": {
-    "api/cron/generate-daily": { "maxDuration": 300 },
-    "api/cron/feature-build":  { "maxDuration": 300 },
-    "api/cron/competitor-watch": { "maxDuration": 180 },
-    "api/cron/exec-brief":     { "maxDuration": 120 },
-    "api/cron/ceo-standup":    { "maxDuration": 120 }
+    "api/cron/generate-daily.ts":   { "maxDuration": 300 },
+    "api/cron/feature-build.ts":    { "maxDuration": 300 },
+    "api/cron/competitor-watch.ts": { "maxDuration": 180 },
+    "api/cron/exec-brief.ts":       { "maxDuration": 120 },
+    "api/cron/ceo-standup.ts":      { "maxDuration": 120 }
   }
 }
