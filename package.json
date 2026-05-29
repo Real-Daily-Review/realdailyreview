@@ -18,7 +18,7 @@
   "dependencies": {
     "@astrojs/rss": "^4.0.7",
     "@astrojs/sitemap": "^3.2.1",
-    "astro": "^4.16.19",
+    "astro": "^6.4.2",
     "gray-matter": "^4.0.3",
     "rss-parser": "^3.13.0",
     "sanitize-html": "^2.13.1",
