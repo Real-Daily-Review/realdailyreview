@@ -1,0 +1,23 @@
+{
+  "crons": [
+    { "path": "/api/cron/generate-daily",    "schedule": "30 2,6,9,12,15,19,22,0 * * *" },
+    { "path": "/api/cron/bluesky-poster",    "schedule": "15 */2 * * *" },
+    { "path": "/api/cron/mastodon-poster",   "schedule": "45 */2 * * *" },
+    { "path": "/api/cron/bluesky-engagement","schedule": "0 */6 * * *" },
+    { "path": "/api/cron/growth-agent",      "schedule": "0 14 * * *" },
+    { "path": "/api/cron/revenue-agent",     "schedule": "0 21 * * *" },
+    { "path": "/api/cron/metrics-fetch",     "schedule": "0 */4 * * *" },
+    { "path": "/api/cron/send-newsletter",   "schedule": "0 10 * * *" },
+    { "path": "/api/cron/exec-brief",        "schedule": "0 11 * * *" },
+    { "path": "/api/cron/ceo-standup",       "schedule": "0 0,4,8,12,16,20 * * *" },
+    { "path": "/api/cron/competitor-watch",  "schedule": "0 2,14 * * *" },
+    { "path": "/api/cron/feature-build",     "schedule": "0 5,11,17,23 * * *" }
+  ],
+  "functions": {
+    "api/cron/generate-daily": { "maxDuration": 300 },
+    "api/cron/feature-build":  { "maxDuration": 300 },
+    "api/cron/competitor-watch": { "maxDuration": 180 },
+    "api/cron/exec-brief":     { "maxDuration": 120 },
+    "api/cron/ceo-standup":    { "maxDuration": 120 }
+  }
+}
