@@ -6,7 +6,6 @@ export default defineConfig({
   // hybrid: static pages pre-rendered, API routes (cron handlers) run as serverless functions
   output: 'hybrid',
   adapter: vercel({
-    functionPerRoute: true,
     webAnalytics: { enabled: false },
     imageService: false,
   }),

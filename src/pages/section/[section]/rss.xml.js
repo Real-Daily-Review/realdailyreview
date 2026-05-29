@@ -2,7 +2,7 @@ import rss from '@astrojs/rss';
 import { getCollection } from 'astro:content';
 import { SITE } from '@/config';
 
-const SECTIONS = ['politics', 'business', 'world', 'tech', 'culture', 'explainer', 'opinion'];
+const SECTIONS = ['politics', 'elections', 'economy', 'national', 'opinion', 'explainer', 'digest'];
 
 export async function getStaticPaths() {
   return SECTIONS.map((section) => ({ params: { section } }));
