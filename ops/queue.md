@@ -1,6 +1,6 @@
 # Sprint Queue
 
-_Last updated: 2026-05-24T02:42:07.230Z (overnight)_
+_Last updated: 2026-05-29T02:40:18.635Z (overnight)_
 
 Active items the CEO operator works through. Auto-managed by ceo-standup.yml.
 
@@ -83,3 +83,5 @@ Active items the CEO operator works through. Auto-managed by ceo-standup.yml.
 - [ ] Ship RSS feed + auto-ping indexers. Generate `/feed.xml` from existing article metadata (title, URL, pub date, excerpt). On each publish, POST to Feedly, NewsBlur, Inoreader ping endpoints. Zero editorial overhead; passive discovery channel live in 2 hours. Estimated +200–400 daily referrals within 7 days.  _from overnight standup 2026-05-24_
 - [ ] (content) Inject a "3 Takes" block into every article at render time: a Python/Node script queries the article body, calls the existing AI pipeline with a prompt that extracts one conservative-leaning framing, one centrist framing, and one progressive-leaning framing (≤20 words each), and inserts the styled block above the article footer. Cache result in the DB column `takes_json`. No competitor auto-generates this inline.  _from competitor-watch 2026-05-24_
 - [ ] (growth) Add a homepage countdown widget: read `next_publish_at` from the cron schedule (or compute `last_published_at + 4h`), render a client-side JS countdown ("Next brief in 1h 42m") in the site header. On expiry, auto-reload the feed section via `fetch()` without full page refresh. Costs ~40 lines of JS; creates a return-visit habit loop and visually signals the AI-native cadence to first-time visitors.  _from competitor-watch 2026-05-24_
+- [ ] Generate `/feed.xml` RSS 2.0 endpoint, ping Feedly/NewsBlur/Inoreader on deploy  _from overnight standup 2026-05-29_
+- [ ] Ship `/feed.xml` RSS + auto-ping Feedly/NewsBlur/Inoreader on each publish: Passive discovery channel. Estimated 15–25% of traffic from RSS aggregators within 2 weeks post-launch (benchmark: Substack newsletters see 20–30% referral lift). 2–4 hour build.  _from overnight standup 2026-05-29_
