@@ -1,6 +1,6 @@
 # Sprint Queue
 
-_Last updated: 2026-05-30T10:01:01.435Z (morning)_
+_Last updated: 2026-05-30T17:07:23.851Z (midday)_
 
 Active items the CEO operator works through. Auto-managed by ceo-standup.yml.
 
@@ -98,3 +98,4 @@ Active items the CEO operator works through. Auto-managed by ceo-standup.yml.
 - [ ] (content) Add a `reading_time` computed field to every article at publish time (word count ÷ 238, rounded up, minimum 1 min) and render it as a pill badge (`⏱ 2 min read`) in the article header and RSS `<description>`. Also inject a `<source_count>` badge (`📎 4 sources`) using the existing source metadata. Directly counters the competitor brevity signal gap identified above. *Est: 2–4 hrs.*  _from competitor-watch 2026-05-30_
 - [ ] (content) Auto-publish the cron pipeline's first 10 AI-generated article stubs immediately — each needs only a title, 150-word summary, source attribution, and publish timestamp — so the site has crawlable content, a populated RSS feed, and Ezoic/AdSense inventory before the Day 30 review window closes.  _from competitor-watch 2026-05-30_
 - [ ] (growth) Inject a sticky site-wide banner (dismissible, localStorage-persisted) that reads: *"Dark mode on · 5 briefs/day · No paywall — ever"* with a one-field email capture. Surfaces our three strongest differentiators at zero marginal cost and directly attacks the gap where we show no social proof.  _from competitor-watch 2026-05-30_
+- [ ] Build topic archive pages (`/topic/{slug}`) with keyword-based auto-tagging. Creates crawlable hub pages for long-tail SEO (Politics, Tech, Economy, etc.), increases pages-per-session for Ezoic/AdSense RPM, zero editorial cost. Estimated +30% RPM lift from higher engagement depth.  _from midday standup 2026-05-30_
