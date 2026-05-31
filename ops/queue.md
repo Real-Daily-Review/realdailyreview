@@ -1,6 +1,6 @@
 # Sprint Queue
 
-_Last updated: 2026-05-31T02:51:24.279Z (overnight)_
+_Last updated: 2026-05-31T10:16:15.604Z (morning)_
 
 Active items the CEO operator works through. Auto-managed by ceo-standup.yml.
 
@@ -101,3 +101,6 @@ Active items the CEO operator works through. Auto-managed by ceo-standup.yml.
 - [ ] Build topic archive pages (`/topic/{slug}`) with keyword-based auto-tagging. Creates crawlable hub pages for long-tail SEO (Politics, Tech, Economy, etc.), increases pages-per-session for Ezoic/AdSense RPM, zero editorial cost. Estimated +30% RPM lift from higher engagement depth.  _from midday standup 2026-05-30_
 - [ ] Ship RSS feed + auto-submit to indexers. 2–4 hr build; passive discovery channel live immediately. RSS is the fastest path to Google News and Feedly traffic for a new outlet. No editorial lift.  _from overnight standup 2026-05-31_
 - [ ] Build topic taxonomy + `/topic/{slug}` archive pages. 8 fixed buckets (Politics, Economy, Tech, World, Health, Culture, Science, Business) via keyword matching on title + first paragraph. Creates crawlable hubs for long-tail SEO, improves pages-per-session for Ezoic/AdSense RPM. Zero editorial cost; keyword matching is deterministic.  _from overnight standup 2026-05-31_
+- [ ] RSS feed + syndication. Deploy `/feed.xml` (2–4 hrs) and ping Feedly, NewsBlur, Inoreader on publish. Zero editorial cost; passive discovery channel. Estimated +15–25% referral traffic within 2 weeks if publish pipeline is fixed.  _from morning standup 2026-05-31_
+- [ ] Newsletter CTA on `/today` digest. Build curated 24h digest page with single above-the-fold signup form. Revalidate every 4 hours. Gives visitors a linkable daily artifact for social sharing; doubles signup surface area. ~4 hrs to ship.  _from morning standup 2026-05-31_
+- [ ] Topic archives for AdSense RPM. `/topic/{slug}` pages increase pages-per-session (hub → article → related article). Higher session depth = higher RPM. Zero editorial lift; keyword tagging is automated. Estimated +10–20% RPM per session.  _from morning standup 2026-05-31_
