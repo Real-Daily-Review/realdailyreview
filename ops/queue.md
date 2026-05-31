@@ -1,6 +1,6 @@
 # Sprint Queue
 
-_Last updated: 2026-05-30T17:07:23.851Z (midday)_
+_Last updated: 2026-05-31T02:51:24.279Z (overnight)_
 
 Active items the CEO operator works through. Auto-managed by ceo-standup.yml.
 
@@ -99,3 +99,5 @@ Active items the CEO operator works through. Auto-managed by ceo-standup.yml.
 - [ ] (content) Auto-publish the cron pipeline's first 10 AI-generated article stubs immediately — each needs only a title, 150-word summary, source attribution, and publish timestamp — so the site has crawlable content, a populated RSS feed, and Ezoic/AdSense inventory before the Day 30 review window closes.  _from competitor-watch 2026-05-30_
 - [ ] (growth) Inject a sticky site-wide banner (dismissible, localStorage-persisted) that reads: *"Dark mode on · 5 briefs/day · No paywall — ever"* with a one-field email capture. Surfaces our three strongest differentiators at zero marginal cost and directly attacks the gap where we show no social proof.  _from competitor-watch 2026-05-30_
 - [ ] Build topic archive pages (`/topic/{slug}`) with keyword-based auto-tagging. Creates crawlable hub pages for long-tail SEO (Politics, Tech, Economy, etc.), increases pages-per-session for Ezoic/AdSense RPM, zero editorial cost. Estimated +30% RPM lift from higher engagement depth.  _from midday standup 2026-05-30_
+- [ ] Ship RSS feed + auto-submit to indexers. 2–4 hr build; passive discovery channel live immediately. RSS is the fastest path to Google News and Feedly traffic for a new outlet. No editorial lift.  _from overnight standup 2026-05-31_
+- [ ] Build topic taxonomy + `/topic/{slug}` archive pages. 8 fixed buckets (Politics, Economy, Tech, World, Health, Culture, Science, Business) via keyword matching on title + first paragraph. Creates crawlable hubs for long-tail SEO, improves pages-per-session for Ezoic/AdSense RPM. Zero editorial cost; keyword matching is deterministic.  _from overnight standup 2026-05-31_
