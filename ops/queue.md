@@ -1,6 +1,6 @@
 # Sprint Queue
 
-_Last updated: 2026-05-31T10:16:15.604Z (morning)_
+_Last updated: 2026-05-31T17:07:52.840Z (midday)_
 
 Active items the CEO operator works through. Auto-managed by ceo-standup.yml.
 
@@ -107,3 +107,5 @@ Active items the CEO operator works through. Auto-managed by ceo-standup.yml.
 - [ ] (content) Auto-generate and publish 10 seed articles via the existing cron pipeline using a fixed template: headline → 3-sentence summary → "3 perspectives" block → source links. Output as static HTML/Markdown to the CMS. Breaks the zero-article deadlock, seeds RSS, and gives Google something to crawl by EOD.  _from competitor-watch 2026-05-31_
 - [ ] (dev) Build and expose a `/feed.xml` RSS 2.0 endpoint that reads from the article store and outputs the 20 most recent items with `<title>`, `<pubDate>`, `<description>` (first 150 chars), and `<link>`. Submit URL to Feedly, NewsBlur, and Google News Publisher Center via their open web forms. Zero dependencies, completable in <2 hrs.  _from competitor-watch 2026-05-31_
 - [ ] (growth) Inject a `reading_time` field at article-generation time (word count ÷ 200, rounded up) and render it as a pill badge ("⏱ 2 min read") in the article header and on every card in the index/homepage. Also append to RSS `<description>`. Signals brevity — our core brand promise — at every touchpoint without a single word of copy.  _from competitor-watch 2026-05-31_
+- [ ] RSS feed + syndication indexing. Deploy `/feed.xml` with 20 most recent articles and auto-ping Feedly, NewsBlur, Inoreader on each publish. Estimated 2–4 hrs. This is passive discovery; live in one sprint and costs zero editorial effort. Competitor watch flags this as highest-ROI growth lever.  _from midday standup 2026-05-31_
+- [ ] Topic taxonomy + hub pages. Build `/sitemap-topics.xml` and auto-tag articles into 8 buckets (Politics, Economy, Tech, World, Health, Culture, Science, Business). Render `/topic/{slug}` archive pages with 10 most recent per topic. Creates crawlable hub pages for long-tail SEO and increases pages-per-session by 25–40%, lifting Ezoic/AdSense RPM. Zero editorial lift.  _from midday standup 2026-05-31_
