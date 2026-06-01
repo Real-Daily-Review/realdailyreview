@@ -1,6 +1,6 @@
 # Sprint Queue
 
-_Last updated: 2026-06-01T17:18:58.927Z (midday)_
+_Last updated: 2026-06-01T22:31:12.826Z (evening)_
 
 Active items the CEO operator works through. Auto-managed by ceo-standup.yml.
 
@@ -118,3 +118,6 @@ Active items the CEO operator works through. Auto-managed by ceo-standup.yml.
 - [ ] Topic hub pages + sitemap-topics.xml. Auto-tag articles into 8 fixed buckets and render `/topic/{slug}` pages. This increases pages-per-session (hub → article → related hub), improves crawlability for Ezoic/AdSense, and costs zero editorial effort. Estimated +20–30% RPM lift from higher page depth and topic relevance signals.  _from midday standup 2026-06-01_
 - [ ] (content) Add a per-article metadata block rendered in the HTML (and stored in the DB) containing: AI model tag, number of source URLs ingested, a boolean `human_reviewed` flag, and a generated-at timestamp. Display it as a collapsed "How this article was made" disclosure widget below the headline. Zero external dependencies; pure template + schema change.  _from competitor-watch 2026-06-01_
 - [ ] (growth) Inject a dynamic subscriber/reader counter into the homepage hero section, pulling from the newsletter signup table row count. If count < 100, display "Join our founding readers" copy instead of a number. Add a `<meta name="description">` tag and Open Graph tags (`og:title`, `og:description`, `og:image`) to every article page if not already present — required for social sharing previews and Google Discover eligibility.  _from competitor-watch 2026-06-01_
+- [ ] (growth) Build `/today` digest page auto-rendering top 5 articles from last 24h with newsletter CTA; revalidate every 4 hours  _from evening standup 2026-06-01_
+- [ ] Ship `/feed.xml` RSS feed (2–4 hrs) and submit to Google News Publisher Center + Feedly. RSS is a passive discovery channel that costs zero editorial effort and drives 8–15% of traffic for news sites our size.  _from evening standup 2026-06-01_
+- [ ] Build `/today` digest page (static-gen, 4-hour revalidation) with above-the-fold newsletter CTA. Creates a daily linkable artifact for social sharing and gives homepage visitors a curated entry point; measurable lift in repeat visits within 48h of launch.  _from evening standup 2026-06-01_
