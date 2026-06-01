@@ -1,6 +1,6 @@
 # Sprint Queue
 
-_Last updated: 2026-05-31T17:07:52.840Z (midday)_
+_Last updated: 2026-06-01T03:26:30.279Z (overnight)_
 
 Active items the CEO operator works through. Auto-managed by ceo-standup.yml.
 
@@ -109,3 +109,6 @@ Active items the CEO operator works through. Auto-managed by ceo-standup.yml.
 - [ ] (growth) Inject a `reading_time` field at article-generation time (word count ÷ 200, rounded up) and render it as a pill badge ("⏱ 2 min read") in the article header and on every card in the index/homepage. Also append to RSS `<description>`. Signals brevity — our core brand promise — at every touchpoint without a single word of copy.  _from competitor-watch 2026-05-31_
 - [ ] RSS feed + syndication indexing. Deploy `/feed.xml` with 20 most recent articles and auto-ping Feedly, NewsBlur, Inoreader on each publish. Estimated 2–4 hrs. This is passive discovery; live in one sprint and costs zero editorial effort. Competitor watch flags this as highest-ROI growth lever.  _from midday standup 2026-05-31_
 - [ ] Topic taxonomy + hub pages. Build `/sitemap-topics.xml` and auto-tag articles into 8 buckets (Politics, Economy, Tech, World, Health, Culture, Science, Business). Render `/topic/{slug}` archive pages with 10 most recent per topic. Creates crawlable hub pages for long-tail SEO and increases pages-per-session by 25–40%, lifting Ezoic/AdSense RPM. Zero editorial lift.  _from midday standup 2026-05-31_
+- [ ] Social cross-posting dominates dev effort (90% of commits) while core product gaps remain unfilled. We're posting to Bluesky/Mastodon 10+ times daily but have no RSS feed, no topic pages, no read-time metadata, and no newsletter signup wired. Redirect Ravi's automation capacity to items that drive traffic and signups, not engagement snapshots.  _from overnight standup 2026-06-01_
+- [ ] Wire RSS feed to Google News and Feedly. Estimated 2–4 hrs. Google News alone drives 15–40% of referral traffic for news outlets at our scale. We're leaving discovery on the table. Deploy `/feed.xml` with 20 most recent articles, ping Google News Publisher Center and Feedly index endpoints on each publish. No editorial lift.  _from overnight standup 2026-06-01_
+- [ ] Redirect Ravi's capacity from social cross-posting automation to RSS + topic pages. Social engagement snapshots don't move the needle on traffic, signups, or revenue.  _from overnight standup 2026-06-01_
