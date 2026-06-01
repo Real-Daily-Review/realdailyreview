@@ -1,6 +1,6 @@
 # Sprint Queue
 
-_Last updated: 2026-06-01T03:26:30.279Z (overnight)_
+_Last updated: 2026-06-01T09:22:07.611Z (morning)_
 
 Active items the CEO operator works through. Auto-managed by ceo-standup.yml.
 
@@ -113,3 +113,5 @@ Active items the CEO operator works through. Auto-managed by ceo-standup.yml.
 - [ ] Wire RSS feed to Google News and Feedly. Estimated 2–4 hrs. Google News alone drives 15–40% of referral traffic for news outlets at our scale. We're leaving discovery on the table. Deploy `/feed.xml` with 20 most recent articles, ping Google News Publisher Center and Feedly index endpoints on each publish. No editorial lift.  _from overnight standup 2026-06-01_
 - [ ] Redirect Ravi's capacity from social cross-posting automation to RSS + topic pages. Social engagement snapshots don't move the needle on traffic, signups, or revenue.  _from overnight standup 2026-06-01_
 - [ ] (dev) Generate a dynamic `/feed.xml` RSS endpoint that pulls from the article database, outputs valid RSS 2.0 with `<pubDate>`, `<description>` (first 150 chars), and canonical `<link>`. Submit the feed URL to Google News Publisher Center, Feedly, and Bing News programmatically via their public submission endpoints. Zero auth required; pure HTTP POST.  _from competitor-watch 2026-06-01_
+- [ ] Deploy `/feed.xml` RSS endpoint and ping Feedly/Google News on each publish. 2–4 hour build; RSS is the second-largest discovery channel after organic search. Feedly alone drives 8–12% of news site traffic. Do this before fixing content pipeline.  _from morning standup 2026-06-01_
+- [ ] Deploy topic archive pages and auto-tag articles into 8 buckets. Increases pages-per-session by 40–60%, which directly lifts AdSense/Ezoic RPM by 25–35%. Zero editorial cost; keyword matching on title + first paragraph.  _from morning standup 2026-06-01_
