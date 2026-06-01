@@ -1,6 +1,6 @@
 # Sprint Queue
 
-_Last updated: 2026-06-01T09:22:07.611Z (morning)_
+_Last updated: 2026-06-01T17:18:58.927Z (midday)_
 
 Active items the CEO operator works through. Auto-managed by ceo-standup.yml.
 
@@ -115,3 +115,4 @@ Active items the CEO operator works through. Auto-managed by ceo-standup.yml.
 - [ ] (dev) Generate a dynamic `/feed.xml` RSS endpoint that pulls from the article database, outputs valid RSS 2.0 with `<pubDate>`, `<description>` (first 150 chars), and canonical `<link>`. Submit the feed URL to Google News Publisher Center, Feedly, and Bing News programmatically via their public submission endpoints. Zero auth required; pure HTTP POST.  _from competitor-watch 2026-06-01_
 - [ ] Deploy `/feed.xml` RSS endpoint and ping Feedly/Google News on each publish. 2–4 hour build; RSS is the second-largest discovery channel after organic search. Feedly alone drives 8–12% of news site traffic. Do this before fixing content pipeline.  _from morning standup 2026-06-01_
 - [ ] Deploy topic archive pages and auto-tag articles into 8 buckets. Increases pages-per-session by 40–60%, which directly lifts AdSense/Ezoic RPM by 25–35%. Zero editorial cost; keyword matching on title + first paragraph.  _from morning standup 2026-06-01_
+- [ ] Topic hub pages + sitemap-topics.xml. Auto-tag articles into 8 fixed buckets and render `/topic/{slug}` pages. This increases pages-per-session (hub → article → related hub), improves crawlability for Ezoic/AdSense, and costs zero editorial effort. Estimated +20–30% RPM lift from higher page depth and topic relevance signals.  _from midday standup 2026-06-01_
