@@ -1,6 +1,6 @@
 # Sprint Queue
 
-_Last updated: 2026-06-01T22:31:12.826Z (evening)_
+_Last updated: 2026-06-02T02:57:00.195Z (overnight)_
 
 Active items the CEO operator works through. Auto-managed by ceo-standup.yml.
 
@@ -121,3 +121,5 @@ Active items the CEO operator works through. Auto-managed by ceo-standup.yml.
 - [ ] (growth) Build `/today` digest page auto-rendering top 5 articles from last 24h with newsletter CTA; revalidate every 4 hours  _from evening standup 2026-06-01_
 - [ ] Ship `/feed.xml` RSS feed (2–4 hrs) and submit to Google News Publisher Center + Feedly. RSS is a passive discovery channel that costs zero editorial effort and drives 8–15% of traffic for news sites our size.  _from evening standup 2026-06-01_
 - [ ] Build `/today` digest page (static-gen, 4-hour revalidation) with above-the-fold newsletter CTA. Creates a daily linkable artifact for social sharing and gives homepage visitors a curated entry point; measurable lift in repeat visits within 48h of launch.  _from evening standup 2026-06-01_
+- [ ] (dev) Inject "⚡ Published N minutes ago · ~X min read" bar at top of every article template  _from overnight standup 2026-06-02_
+- [ ] Ship RSS feed at `/feed.xml` and auto-ping Feedly, NewsBlur, Inoreader, Google News on every publish. Estimated 2–4 hrs. This opens a passive discovery channel; RSS readers are high-intent, low-churn traffic. Competitors see 12–18% of DAU from feed discovery.  _from overnight standup 2026-06-02_
