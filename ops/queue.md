@@ -1,6 +1,6 @@
 # Sprint Queue
 
-_Last updated: 2026-06-02T16:02:43.159Z (midday)_
+_Last updated: 2026-06-02T22:19:41.605Z (evening)_
 
 Active items the CEO operator works through. Auto-managed by ceo-standup.yml.
 
@@ -124,3 +124,5 @@ Active items the CEO operator works through. Auto-managed by ceo-standup.yml.
 - [ ] (dev) Inject "⚡ Published N minutes ago · ~X min read" bar at top of every article template  _from overnight standup 2026-06-02_
 - [ ] Ship RSS feed at `/feed.xml` and auto-ping Feedly, NewsBlur, Inoreader, Google News on every publish. Estimated 2–4 hrs. This opens a passive discovery channel; RSS readers are high-intent, low-churn traffic. Competitors see 12–18% of DAU from feed discovery.  _from overnight standup 2026-06-02_
 - [ ] Deploy RSS feed + ping Feedly/NewsBlur/Inoreader on next successful publish. Passive discovery channel; zero editorial lift. Estimated 8–12% traffic lift within 7 days based on competitor benchmarks.  _from midday standup 2026-06-02_
+- [ ] Ship RSS feed to Feedly + Google News in <4 hrs. This is the single largest passive discovery channel. Feedly alone reaches 500K+ daily active readers. Zero implementation cost; massive upside. Blocks on queue item #1.  _from evening standup 2026-06-02_
+- [ ] Deploy topic tagging + `/topic/{slug}` archive pages. Creates crawlable hub pages for long-tail SEO (Politics, Economy, Tech, etc.). Increases pages-per-session → higher RPM on AdSense/Ezoic. Zero editorial cost; keyword matching on title + first paragraph. Estimated 3–4 hrs.  _from evening standup 2026-06-02_
