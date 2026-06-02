@@ -1,6 +1,6 @@
 # Sprint Queue
 
-_Last updated: 2026-06-02T12:04:07.540Z (morning)_
+_Last updated: 2026-06-02T16:02:43.159Z (midday)_
 
 Active items the CEO operator works through. Auto-managed by ceo-standup.yml.
 
@@ -123,3 +123,4 @@ Active items the CEO operator works through. Auto-managed by ceo-standup.yml.
 - [ ] Build `/today` digest page (static-gen, 4-hour revalidation) with above-the-fold newsletter CTA. Creates a daily linkable artifact for social sharing and gives homepage visitors a curated entry point; measurable lift in repeat visits within 48h of launch.  _from evening standup 2026-06-01_
 - [ ] (dev) Inject "⚡ Published N minutes ago · ~X min read" bar at top of every article template  _from overnight standup 2026-06-02_
 - [ ] Ship RSS feed at `/feed.xml` and auto-ping Feedly, NewsBlur, Inoreader, Google News on every publish. Estimated 2–4 hrs. This opens a passive discovery channel; RSS readers are high-intent, low-churn traffic. Competitors see 12–18% of DAU from feed discovery.  _from overnight standup 2026-06-02_
+- [ ] Deploy RSS feed + ping Feedly/NewsBlur/Inoreader on next successful publish. Passive discovery channel; zero editorial lift. Estimated 8–12% traffic lift within 7 days based on competitor benchmarks.  _from midday standup 2026-06-02_
