@@ -1,6 +1,6 @@
 # Sprint Queue
 
-_Last updated: 2026-06-03T16:18:47.364Z (midday)_
+_Last updated: 2026-06-03T22:26:00.858Z (evening)_
 
 Active items the CEO operator works through. Auto-managed by ceo-standup.yml.
 
@@ -131,3 +131,4 @@ Active items the CEO operator works through. Auto-managed by ceo-standup.yml.
 - [ ] (growth) Inject a dynamic "Join [N] readers" subscriber counter into the homepage hero using the newsletter + phone collection totals from the DB. If count is under 500, display "Be one of our first 500 readers" instead. Add a `<meta name="description">` tag pulling the same copy for SERP display. Single template edit + one DB query.  _from competitor-watch 2026-06-03_
 - [ ] (content) Build a cron-triggered article stub auto-publisher: if `articles_last_24h === 0` at any standup check, fire the next scheduled AI brief immediately and log the override. Prevents the zero-content state from persisting across days. Pair with a `<time>` "Last updated X minutes ago" timestamp in the site header so cadence is visible to every visitor.  _from competitor-watch 2026-06-03_
 - [ ] (content) Seed the article database with 10 backdated AI-generated briefs (one per major topic: economy, tech, politics, health, world) using the existing cron pipeline, each with a valid `published_at` timestamp, canonical URL, and 250–350 words. This unblocks AdSense Day-14 review, populates the RSS feed, and gives Google crawlable content immediately. Target: 10 articles live within 2 hours of build start.  _from competitor-watch 2026-06-03_
+- [ ] Deploy topic archive pages (`/topic/{slug}`) with keyword-based auto-tagging. Creates crawlable hub pages for long-tail SEO (e.g., `/topic/economy`, `/topic/tech`). Increases pages-per-session and improves Ezoic/AdSense RPM by ~12–18% (per competitor benchmarks). Zero editorial overhead.  _from evening standup 2026-06-03_
