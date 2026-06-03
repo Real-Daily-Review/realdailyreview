@@ -1,6 +1,6 @@
 # Sprint Queue
 
-_Last updated: 2026-06-02T22:19:41.605Z (evening)_
+_Last updated: 2026-06-03T03:32:24.061Z (overnight)_
 
 Active items the CEO operator works through. Auto-managed by ceo-standup.yml.
 
@@ -126,3 +126,5 @@ Active items the CEO operator works through. Auto-managed by ceo-standup.yml.
 - [ ] Deploy RSS feed + ping Feedly/NewsBlur/Inoreader on next successful publish. Passive discovery channel; zero editorial lift. Estimated 8–12% traffic lift within 7 days based on competitor benchmarks.  _from midday standup 2026-06-02_
 - [ ] Ship RSS feed to Feedly + Google News in <4 hrs. This is the single largest passive discovery channel. Feedly alone reaches 500K+ daily active readers. Zero implementation cost; massive upside. Blocks on queue item #1.  _from evening standup 2026-06-02_
 - [ ] Deploy topic tagging + `/topic/{slug}` archive pages. Creates crawlable hub pages for long-tail SEO (Politics, Economy, Tech, etc.). Increases pages-per-session → higher RPM on AdSense/Ezoic. Zero editorial cost; keyword matching on title + first paragraph. Estimated 3–4 hrs.  _from evening standup 2026-06-02_
+- [ ] RSS feed + syndication pings. Deploy `/feed.xml` (2–4 hrs) and ping Feedly, NewsBlur, Inoreader on publish. This is a zero-editorial-effort discovery channel; RSS readers are high-intent users. Estimated +15–25% referral traffic within 7 days post-launch.  _from overnight standup 2026-06-03_
+- [ ] Topic archive pages + long-tail SEO hubs. Auto-tag articles into 8 buckets (Politics, Economy, Tech, World, Health, Culture, Science, Business); render `/topic/{slug}` pages with 10 most recent per topic. Creates crawlable hub pages that increase pages-per-session and improve Ezoic/AdSense RPM. Zero editorial cost.  _from overnight standup 2026-06-03_
