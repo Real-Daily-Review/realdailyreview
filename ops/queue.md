@@ -1,6 +1,6 @@
 # Sprint Queue
 
-_Last updated: 2026-06-04T18:18:34.345Z (midday)_
+_Last updated: 2026-06-04T21:27:29.063Z (evening)_
 
 Active items the CEO operator works through. Auto-managed by ceo-standup.yml.
 
@@ -135,3 +135,5 @@ Active items the CEO operator works through. Auto-managed by ceo-standup.yml.
 - [ ] Ship RSS 2.0 feed at `/feed.xml` + ping Feedly/NewsBlur/Inoreader indexing endpoints on deploy. Zero editorial lift, passive discovery channel. Estimated 15–20% of daily traffic from aggregator referrals within 2 weeks of indexing.  _from overnight standup 2026-06-04_
 - [ ] RSS feed + distribution. Deploy `/feed.xml` RSS 2.0 endpoint and ping Feedly, NewsBlur, Inoreader indexing endpoints on each publish. RSS is a zero-CAC discovery channel; Feedly alone drives 8–12% of news site traffic. Effort: 2–4 hrs. Measurable: track RSS subscriber count and referral traffic in analytics.  _from midday standup 2026-06-04_
 - [ ] Topic archive pages + Ezoic/AdSense RPM lift. `/topic/{slug}` pages increase pages-per-session and session depth, which directly improve RPM. Combined with per-article metadata (read time, source count), users stay longer. Effort: 3–5 hrs. Measurable: track RPM and pages-per-session by topic within 2 weeks of deploy.  _from midday standup 2026-06-04_
+- [ ] /today digest page + newsletter CTA. Auto-render top 5 articles from last 24h, static-generate every 4 hours. Single above-the-fold signup prompt. Linkable daily artifact for social sharing. Estimated +20–30% newsletter CTR vs. homepage alone.  _from evening standup 2026-06-04_
+- [ ] Apply to Google AdSense post-14-day content threshold (target: 2026-05-20). Prerequisite: unblock content pipeline. Once live, estimated $40–80/day baseline revenue at current traffic levels; scales with RSS + topic page traffic gains.  _from evening standup 2026-06-04_
