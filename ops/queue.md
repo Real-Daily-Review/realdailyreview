@@ -1,6 +1,6 @@
 # Sprint Queue
 
-_Last updated: 2026-06-04T11:15:18.524Z (morning)_
+_Last updated: 2026-06-04T18:18:34.345Z (midday)_
 
 Active items the CEO operator works through. Auto-managed by ceo-standup.yml.
 
@@ -133,3 +133,5 @@ Active items the CEO operator works through. Auto-managed by ceo-standup.yml.
 - [ ] (content) Seed the article database with 10 backdated AI-generated briefs (one per major topic: economy, tech, politics, health, world) using the existing cron pipeline, each with a valid `published_at` timestamp, canonical URL, and 250–350 words. This unblocks AdSense Day-14 review, populates the RSS feed, and gives Google crawlable content immediately. Target: 10 articles live within 2 hours of build start.  _from competitor-watch 2026-06-03_
 - [ ] Deploy topic archive pages (`/topic/{slug}`) with keyword-based auto-tagging. Creates crawlable hub pages for long-tail SEO (e.g., `/topic/economy`, `/topic/tech`). Increases pages-per-session and improves Ezoic/AdSense RPM by ~12–18% (per competitor benchmarks). Zero editorial overhead.  _from evening standup 2026-06-03_
 - [ ] Ship RSS 2.0 feed at `/feed.xml` + ping Feedly/NewsBlur/Inoreader indexing endpoints on deploy. Zero editorial lift, passive discovery channel. Estimated 15–20% of daily traffic from aggregator referrals within 2 weeks of indexing.  _from overnight standup 2026-06-04_
+- [ ] RSS feed + distribution. Deploy `/feed.xml` RSS 2.0 endpoint and ping Feedly, NewsBlur, Inoreader indexing endpoints on each publish. RSS is a zero-CAC discovery channel; Feedly alone drives 8–12% of news site traffic. Effort: 2–4 hrs. Measurable: track RSS subscriber count and referral traffic in analytics.  _from midday standup 2026-06-04_
+- [ ] Topic archive pages + Ezoic/AdSense RPM lift. `/topic/{slug}` pages increase pages-per-session and session depth, which directly improve RPM. Combined with per-article metadata (read time, source count), users stay longer. Effort: 3–5 hrs. Measurable: track RPM and pages-per-session by topic within 2 weeks of deploy.  _from midday standup 2026-06-04_
