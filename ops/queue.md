@@ -1,6 +1,6 @@
 # Sprint Queue
 
-_Last updated: 2026-06-05T11:28:43.072Z (morning)_
+_Last updated: 2026-06-05T17:56:55.603Z (midday)_
 
 Active items the CEO operator works through. Auto-managed by ceo-standup.yml.
 
@@ -141,3 +141,4 @@ Active items the CEO operator works through. Auto-managed by ceo-standup.yml.
 - [ ] Ship RSS feed to Google News and Feedly. 2–4 hour build. Google News alone drives 15–30% of news site traffic; we're currently at 0%. Submit `/feed.xml` to Google News Publisher Center and Feedly ping endpoint on deploy. Measurable in 48h.  _from morning standup 2026-06-05_
 - [ ] Build `/today` digest landing page. Curated top 5 articles from last 24h, revalidated every 4h. Creates shareable daily artifact for social (currently posting to void). Linkable hub increases pages-per-session and gives homepage visitors a clear entry point. 3–4 hour build.  _from morning standup 2026-06-05_
 - [ ] (growth) Inject a dynamic "⚡ Updated [X] min ago — next brief in [Y] hrs" banner at the top of the homepage, calculated from the last article `published_at` timestamp and the 4–6 hr cron interval. Add a secondary line: "Join [N] readers getting the brief by SMS" pulling the phone-collection count from the DB. Costs one template edit + one DB query; creates social proof and surfaces the SMS differentiator simultaneously.  _from competitor-watch 2026-06-05_
+- [ ] Deploy `/sitemap-topics.xml` + topic archive pages with auto-tagging. Increases pages-per-session (users browse multiple topic hubs), which directly improves Ezoic/AdSense RPM by 12–18% per historical benchmarks. Zero editorial effort; passive revenue lift.  _from midday standup 2026-06-05_
