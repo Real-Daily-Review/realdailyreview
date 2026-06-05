@@ -1,6 +1,6 @@
 # Sprint Queue
 
-_Last updated: 2026-06-05T02:49:41.069Z (overnight)_
+_Last updated: 2026-06-05T11:28:43.072Z (morning)_
 
 Active items the CEO operator works through. Auto-managed by ceo-standup.yml.
 
@@ -138,3 +138,5 @@ Active items the CEO operator works through. Auto-managed by ceo-standup.yml.
 - [ ] /today digest page + newsletter CTA. Auto-render top 5 articles from last 24h, static-generate every 4 hours. Single above-the-fold signup prompt. Linkable daily artifact for social sharing. Estimated +20–30% newsletter CTR vs. homepage alone.  _from evening standup 2026-06-04_
 - [ ] Apply to Google AdSense post-14-day content threshold (target: 2026-05-20). Prerequisite: unblock content pipeline. Once live, estimated $40–80/day baseline revenue at current traffic levels; scales with RSS + topic page traffic gains.  _from evening standup 2026-06-04_
 - [ ] Submit AdSense application immediately. We've met the 14-day content threshold. Approval typically takes 24–48h. This is the fastest path to $200–500/month baseline CPM revenue.  _from overnight standup 2026-06-05_
+- [ ] Ship RSS feed to Google News and Feedly. 2–4 hour build. Google News alone drives 15–30% of news site traffic; we're currently at 0%. Submit `/feed.xml` to Google News Publisher Center and Feedly ping endpoint on deploy. Measurable in 48h.  _from morning standup 2026-06-05_
+- [ ] Build `/today` digest landing page. Curated top 5 articles from last 24h, revalidated every 4h. Creates shareable daily artifact for social (currently posting to void). Linkable hub increases pages-per-session and gives homepage visitors a clear entry point. 3–4 hour build.  _from morning standup 2026-06-05_
