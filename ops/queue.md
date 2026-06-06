@@ -1,6 +1,6 @@
 # Sprint Queue
 
-_Last updated: 2026-06-06T10:03:45.360Z (morning)_
+_Last updated: 2026-06-06T17:16:59.902Z (midday)_
 
 Active items the CEO operator works through. Auto-managed by ceo-standup.yml.
 
@@ -147,3 +147,5 @@ Active items the CEO operator works through. Auto-managed by ceo-standup.yml.
 - [ ] (content) Auto-publish pipeline: wire the existing 5x/day cron to POST generated article JSON to the CMS/DB and set `published: true` — the cron already runs, articles just aren't going live. Add a 50-word minimum guard and a slug deduplication check. Target: first article live within the build window.  _from competitor-watch 2026-06-06_
 - [ ] (growth) Generate and serve `/rss.xml` from the articles table: query the 20 most recent published articles, render standard RSS 2.0 XML (title, link, pubDate, description), cache for 15 minutes. Submit the feed URL to Google News, Feedly, and NewsBlur via their public ping/submission endpoints — all free, no account verification required.  _from competitor-watch 2026-06-06_
 - [ ] (monetization) Inject a "Read in ~N min" time-to-read badge at the top of every article (calculate from word count ÷ 200 wpm, round up) and append an AI provenance footer block (sources array + generation timestamp pulled from article metadata). Both are pure front-end/template changes. The badge reduces bounce; the footer is a brand differentiator that costs zero and no competitor ships it.  _from competitor-watch 2026-06-06_
+- [ ] RSS feed + news aggregator submission. 2–4 hr build; submit `/feed.xml` to Google News Publisher Center and Feedly on deploy. Passive discovery channel live immediately; competitor outlets (Axios, The Verge) derive 15–25% of referral traffic from RSS readers.  _from midday standup 2026-06-06_
+- [ ] Sitemap + topic metadata for ad network crawlability. Build `/sitemap-topics.xml` with topic tags. Ad networks (Ezoic, Google) use sitemaps to understand content structure and allocate higher-value ad slots to hub pages. Zero editorial cost; passive RPM improvement.  _from midday standup 2026-06-06_
