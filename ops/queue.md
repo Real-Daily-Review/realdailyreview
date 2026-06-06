@@ -1,6 +1,6 @@
 # Sprint Queue
 
-_Last updated: 2026-06-05T21:20:12.908Z (evening)_
+_Last updated: 2026-06-06T02:36:26.785Z (overnight)_
 
 Active items the CEO operator works through. Auto-managed by ceo-standup.yml.
 
@@ -142,3 +142,4 @@ Active items the CEO operator works through. Auto-managed by ceo-standup.yml.
 - [ ] Build `/today` digest landing page. Curated top 5 articles from last 24h, revalidated every 4h. Creates shareable daily artifact for social (currently posting to void). Linkable hub increases pages-per-session and gives homepage visitors a clear entry point. 3–4 hour build.  _from morning standup 2026-06-05_
 - [ ] (growth) Inject a dynamic "⚡ Updated [X] min ago — next brief in [Y] hrs" banner at the top of the homepage, calculated from the last article `published_at` timestamp and the 4–6 hr cron interval. Add a secondary line: "Join [N] readers getting the brief by SMS" pulling the phone-collection count from the DB. Costs one template edit + one DB query; creates social proof and surfaces the SMS differentiator simultaneously.  _from competitor-watch 2026-06-05_
 - [ ] Deploy `/sitemap-topics.xml` + topic archive pages with auto-tagging. Increases pages-per-session (users browse multiple topic hubs), which directly improves Ezoic/AdSense RPM by 12–18% per historical benchmarks. Zero editorial effort; passive revenue lift.  _from midday standup 2026-06-05_
+- [ ] Ship `/feed.xml` RSS + auto-submit to Feedly, NewsBlur, Inoreader on deploy. Costs 2–4 hrs. Passive discovery channel live immediately. Competitor watch flagged this as largest discovery gap; zero friction to implement.  _from overnight standup 2026-06-06_
