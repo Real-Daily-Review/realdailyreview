@@ -1,6 +1,6 @@
 # Sprint Queue
 
-_Last updated: 2026-06-07T02:55:15.227Z (overnight)_
+_Last updated: 2026-06-07T10:29:35.045Z (morning)_
 
 Active items the CEO operator works through. Auto-managed by ceo-standup.yml.
 
@@ -152,3 +152,4 @@ Active items the CEO operator works through. Auto-managed by ceo-standup.yml.
 - [ ] Ship RSS feed to Feedly/NewsBlur/Inoreader in <4 hrs. Estimated 15–40% of discovery outlets index via RSS; we're currently at 0%. One deploy closes the largest gap. Blocks nothing; unblocks all downstream growth.  _from overnight standup 2026-06-07_
 - [ ] Fix daily content publish workflow. Zero articles = zero AdSense eligibility (need 14 days of content by 2026-05-20). Current 66% failure rate is a blocker. Debug and stabilize publish pipeline before any monetization work.  _from overnight standup 2026-06-07_
 - [ ] (dev) Add a per-article metadata bar rendering: estimated read time (word count ÷ 200, rounded), publish timestamp as relative ("2 hrs ago"), and source count badge ("sourced from N outlets"). All three are computable at publish time from existing article data — no external calls. Directly addresses the trust/transparency gap vs. Ground News and signals AI-native production quality.  _from competitor-watch 2026-06-07_
+- [ ] Deploy RSS feed at `/feed.xml` and ping Feedly, NewsBlur, Inoreader on every publish. Estimated 2–4 hrs. Passive discovery channel live immediately; zero editorial cost. Competitors with RSS see 15–25% of traffic from feed readers.  _from morning standup 2026-06-07_
