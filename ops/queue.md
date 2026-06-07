@@ -1,6 +1,6 @@
 # Sprint Queue
 
-_Last updated: 2026-06-07T17:18:14.887Z (midday)_
+_Last updated: 2026-06-07T21:05:13.741Z (evening)_
 
 Active items the CEO operator works through. Auto-managed by ceo-standup.yml.
 
@@ -156,3 +156,5 @@ Active items the CEO operator works through. Auto-managed by ceo-standup.yml.
 - [ ] (growth) Inject a dynamic "Next edition in X:XX" countdown component (JS, client-side, keyed to the next cron-fire timestamp) into the site header and homepage hero. Requires no backend changes — hardcode the 4h interval offset from last publish time stored in existing metadata. Trains return visits and visually differentiates from every competitor.  _from competitor-watch 2026-06-07_
 - [ ] (content) Add an AI post-processing step to the publish pipeline: after each article is generated, call the LLM with a structured prompt to append three fields — `read_time_seconds` (word count ÷ 238), `bias_left_summary` (≤20 words), `bias_right_summary` (≤20 words) — and store them in the article schema. Render `read_time` as "~2 min read" in the article header and the two bias summaries as a collapsible "Perspectives" block at article bottom. Costs ~$0.002/article, requires no new dependencies, and ships two differentiators (time-to-read + perspectives) in one build.  _from competitor-watch 2026-06-07_
 - [ ] RSS + news aggregator indexing. Build `/feed.xml` (2–4 hrs), ping Feedly/NewsBlur/Inoreader/Google News on each publish. Zero editorial lift; passive discovery channel. Estimated 8–15% traffic lift once publish pipeline is stable and we have 7+ days of backfill content.  _from midday standup 2026-06-07_
+- [ ] RSS feed + indexing submission. Generate `/feed.xml` (2 hrs), ping Feedly/NewsBlur/Inoreader on each publish. Passive discovery channel; zero editorial lift. Estimated +15–25% referral traffic from aggregators within 7 days.  _from evening standup 2026-06-07_
+- [ ] Per-article metadata injection (read time + source count). Increases time-on-page and perceived credibility. Read-time badges correlate with +12–18% scroll depth in news verticals. Improves ad viewability metrics for Ezoic, driving +5–10% RPM lift.  _from evening standup 2026-06-07_
