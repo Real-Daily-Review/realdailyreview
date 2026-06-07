@@ -1,0 +1,8 @@
+{
+  "outcome": "skipped",
+  "reason": "secrets missing",
+  "has_instance": false,
+  "has_token": false,
+  "instance": null,
+  "written_at": "2026-06-07T05:12:54.121Z"
+}
