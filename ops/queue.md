@@ -1,6 +1,6 @@
 # Sprint Queue
 
-_Last updated: 2026-06-06T17:16:59.902Z (midday)_
+_Last updated: 2026-06-07T02:55:15.227Z (overnight)_
 
 Active items the CEO operator works through. Auto-managed by ceo-standup.yml.
 
@@ -149,3 +149,5 @@ Active items the CEO operator works through. Auto-managed by ceo-standup.yml.
 - [ ] (monetization) Inject a "Read in ~N min" time-to-read badge at the top of every article (calculate from word count ÷ 200 wpm, round up) and append an AI provenance footer block (sources array + generation timestamp pulled from article metadata). Both are pure front-end/template changes. The badge reduces bounce; the footer is a brand differentiator that costs zero and no competitor ships it.  _from competitor-watch 2026-06-06_
 - [ ] RSS feed + news aggregator submission. 2–4 hr build; submit `/feed.xml` to Google News Publisher Center and Feedly on deploy. Passive discovery channel live immediately; competitor outlets (Axios, The Verge) derive 15–25% of referral traffic from RSS readers.  _from midday standup 2026-06-06_
 - [ ] Sitemap + topic metadata for ad network crawlability. Build `/sitemap-topics.xml` with topic tags. Ad networks (Ezoic, Google) use sitemaps to understand content structure and allocate higher-value ad slots to hub pages. Zero editorial cost; passive RPM improvement.  _from midday standup 2026-06-06_
+- [ ] Ship RSS feed to Feedly/NewsBlur/Inoreader in <4 hrs. Estimated 15–40% of discovery outlets index via RSS; we're currently at 0%. One deploy closes the largest gap. Blocks nothing; unblocks all downstream growth.  _from overnight standup 2026-06-07_
+- [ ] Fix daily content publish workflow. Zero articles = zero AdSense eligibility (need 14 days of content by 2026-05-20). Current 66% failure rate is a blocker. Debug and stabilize publish pipeline before any monetization work.  _from overnight standup 2026-06-07_
