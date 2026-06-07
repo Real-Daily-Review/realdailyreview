@@ -1,6 +1,6 @@
 # Sprint Queue
 
-_Last updated: 2026-06-07T10:29:35.045Z (morning)_
+_Last updated: 2026-06-07T17:18:14.887Z (midday)_
 
 Active items the CEO operator works through. Auto-managed by ceo-standup.yml.
 
@@ -155,3 +155,4 @@ Active items the CEO operator works through. Auto-managed by ceo-standup.yml.
 - [ ] Deploy RSS feed at `/feed.xml` and ping Feedly, NewsBlur, Inoreader on every publish. Estimated 2–4 hrs. Passive discovery channel live immediately; zero editorial cost. Competitors with RSS see 15–25% of traffic from feed readers.  _from morning standup 2026-06-07_
 - [ ] (growth) Inject a dynamic "Next edition in X:XX" countdown component (JS, client-side, keyed to the next cron-fire timestamp) into the site header and homepage hero. Requires no backend changes — hardcode the 4h interval offset from last publish time stored in existing metadata. Trains return visits and visually differentiates from every competitor.  _from competitor-watch 2026-06-07_
 - [ ] (content) Add an AI post-processing step to the publish pipeline: after each article is generated, call the LLM with a structured prompt to append three fields — `read_time_seconds` (word count ÷ 238), `bias_left_summary` (≤20 words), `bias_right_summary` (≤20 words) — and store them in the article schema. Render `read_time` as "~2 min read" in the article header and the two bias summaries as a collapsible "Perspectives" block at article bottom. Costs ~$0.002/article, requires no new dependencies, and ships two differentiators (time-to-read + perspectives) in one build.  _from competitor-watch 2026-06-07_
+- [ ] RSS + news aggregator indexing. Build `/feed.xml` (2–4 hrs), ping Feedly/NewsBlur/Inoreader/Google News on each publish. Zero editorial lift; passive discovery channel. Estimated 8–15% traffic lift once publish pipeline is stable and we have 7+ days of backfill content.  _from midday standup 2026-06-07_
