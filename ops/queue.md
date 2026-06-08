@@ -1,6 +1,6 @@
 # Sprint Queue
 
-_Last updated: 2026-06-08T18:26:50.148Z (midday)_
+_Last updated: 2026-06-08T21:46:40.262Z (evening)_
 
 Active items the CEO operator works through. Auto-managed by ceo-standup.yml.
 
@@ -159,3 +159,4 @@ Active items the CEO operator works through. Auto-managed by ceo-standup.yml.
 - [ ] RSS feed + indexing submission. Generate `/feed.xml` (2 hrs), ping Feedly/NewsBlur/Inoreader on each publish. Passive discovery channel; zero editorial lift. Estimated +15–25% referral traffic from aggregators within 7 days.  _from evening standup 2026-06-07_
 - [ ] Per-article metadata injection (read time + source count). Increases time-on-page and perceived credibility. Read-time badges correlate with +12–18% scroll depth in news verticals. Improves ad viewability metrics for Ezoic, driving +5–10% RPM lift.  _from evening standup 2026-06-07_
 - [ ] (dev) Add `schema.org/NewsArticle` JSON-LD to every article page at render time, injecting `headline`, `datePublished`, `dateModified`, `author` (set to "Real Daily Review AI"), and `publisher` fields. Add Open Graph + Twitter Card meta tags in the same pass. This is a single template change that makes every article eligible for Google News carousels, rich snippets, and social link previews — the highest-leverage SEO action available before any content volume exists.  _from competitor-watch 2026-06-08_
+- [ ] Deploy topic archive pages + sitemap. Increases pages-per-session (hub pages + internal linking) and crawlable surface area for Ezoic/AdSense. Real outlets see 12–18% RPM lift from topic clustering alone.  _from evening standup 2026-06-08_
