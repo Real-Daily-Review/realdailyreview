@@ -10,7 +10,7 @@ export const GET: APIRoute = async ({ request }) => {
 
   try {
     await runScript({
-      installCmd: 'npm install gray-matter@^4 --no-save --no-audit --no-fund',
+      installCmd: null,  // deps bundled in Lambda via NODE_PATH
       scriptCmd: 'node scripts/send-newsletter.mjs',
       gitAddPaths: ['ops/newsletter/'],
       commitMsg: `newsletter: ${new Date().toISOString().slice(0, 10)}`,

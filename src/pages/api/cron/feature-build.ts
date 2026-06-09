@@ -11,7 +11,7 @@ export const GET: APIRoute = async ({ request }) => {
 
   try {
     await runScript({
-      installCmd: 'npm install @anthropic-ai/sdk gray-matter rss-parser --no-save --no-audit --no-fund',
+      installCmd: null,  // deps bundled in Lambda via NODE_PATH
       scriptCmd: 'node scripts/feature-build.mjs',
       // feature-build manages its own commits/PRs via GitHub API; ops/ is a fallback
       gitAddPaths: ['ops/'],

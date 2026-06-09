@@ -1,10 +1,19 @@
 // Vercel Cron: content generation (replaces daily-publish.yml)
 // Schedule: 8x/day — see vercel.json
 // maxDuration: 300s
+//
+// Deps are bundled into the Lambda by nft at build time.
+// The subprocess finds them via NODE_PATH=/var/task/node_modules — no npm install needed.
 export const prerender = false;
 
+// Force nft to bundle these deps so subprocess can use them via NODE_PATH
+import '@anthropic-ai/sdk';
+import 'gray-matter';
+import 'rss-parser';
+import 'slugify';
+import 'sanitize-html';
+
 import type { APIRoute } from 'astro';
-import { execSync } from 'child_process';
 import { verifyCron, runScript } from '../../../lib/cron-runner';
 
 export const GET: APIRoute = async ({ request }) => {
@@ -12,8 +21,8 @@ export const GET: APIRoute = async ({ request }) => {
 
   try {
     await runScript({
-      installCmd: 'npm install @anthropic-ai/sdk gray-matter rss-parser slugify sanitize-html --no-save --no-audit --no-fund',
-      scriptCmd: 'npm run generate:daily',
+      installCmd: null,  // deps bundled in Lambda via NODE_PATH
+      scriptCmd: 'node scripts/generate-daily.mjs',
       gitAddPaths: ['src/content/articles/', 'ops/runs/', 'public/og/'],
       commitMsg: `content: auto-publish ${new Date().toISOString().slice(0, 16)}Z [vercel-cron]`,
       authorName: 'Real Daily Review Bot',

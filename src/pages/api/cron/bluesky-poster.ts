@@ -10,7 +10,7 @@ export const GET: APIRoute = async ({ request }) => {
 
   try {
     await runScript({
-      installCmd: 'npm install gray-matter@^4 @anthropic-ai/sdk@^0.30 --no-save --no-audit --no-fund',
+      installCmd: null,  // deps bundled in Lambda via NODE_PATH
       scriptCmd: 'node scripts/bluesky-poster.mjs',
       gitAddPaths: ['ops/social-posted/'],
       commitMsg: `social: bluesky cross-post ${new Date().toISOString().slice(0, 16)}Z`,

@@ -199,11 +199,14 @@ export async function runScript(opts: RunScriptOptions): Promise<void> {
 
   const tmpDir = `/tmp/rdr-${randomBytes(4).toString('hex')}`;
   const tarPath = `${tmpDir}.tar.gz`;
-  // Lambda home dir may not exist — point HOME + npm cache to writable /tmp
+  // Lambda home dir may not exist — point HOME + npm cache to writable /tmp.
+  // NODE_PATH lets the subprocess use the Lambda's pre-bundled node_modules
+  // (nft bundles imported packages into /var/task/node_modules at deploy time).
   const lambdaEnv = {
     ...process.env,
     HOME: tmpDir,
     npm_config_cache: `${tmpDir}/.npm-cache`,
+    NODE_PATH: '/var/task/node_modules',
   };
   const exec = (cmd: string, o: Record<string, any> = {}) =>
     execSync(cmd, { stdio: 'pipe', env: lambdaEnv, ...o });
