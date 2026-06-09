@@ -220,13 +220,18 @@ export async function runScript(opts: RunScriptOptions): Promise<void> {
     );
     await tar.x({ file: tarPath, cwd: tmpDir, strip: 1 });
     await fs.unlink(tarPath).catch(() => {});
-    // Remove lock file — it's out of sync with package.json (added @astrojs/vercel
-    // without regenerating the lock). Without this, npm silently skips installs.
-    await fs.unlink(`${tmpDir}/package-lock.json`).catch(() => {});
 
-    // 2. Install deps
-    if (opts.installCmd) {
-      exec(opts.installCmd, { cwd: tmpDir, timeout: 90_000 });
+    // 2. Symlink Lambda's bundled node_modules into tmpDir so ESM scripts can
+    //    resolve imports without a separate npm install.
+    //    NODE_PATH doesn't work with ESM — symlink is the correct approach.
+    //    Packages are bundled by nft at build time (via explicit imports in cron routes).
+    try {
+      await fs.symlink('/var/task/node_modules', `${tmpDir}/node_modules`);
+    } catch {
+      // Fallback: run npm install if symlink fails (e.g., /var/task doesn't exist locally)
+      if (opts.installCmd) {
+        exec(opts.installCmd, { cwd: tmpDir, timeout: 90_000 });
+      }
     }
 
     // 3. Snapshot files before run

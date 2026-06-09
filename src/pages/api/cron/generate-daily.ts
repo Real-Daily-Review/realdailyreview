@@ -6,12 +6,14 @@
 // The subprocess finds them via NODE_PATH=/var/task/node_modules — no npm install needed.
 export const prerender = false;
 
-// Force nft to bundle these deps so subprocess can use them via NODE_PATH
-import '@anthropic-ai/sdk';
-import 'gray-matter';
-import 'rss-parser';
-import 'slugify';
-import 'sanitize-html';
+// Force nft to bundle these deps so subprocess can find them via symlinked node_modules
+import Anthropic from '@anthropic-ai/sdk';
+import matter from 'gray-matter';
+import RSSParser from 'rss-parser';
+import slugify from 'slugify';
+import sanitizeHtml from 'sanitize-html';
+// Suppress unused-import warnings — these are here only to trigger nft bundling
+void [Anthropic, matter, RSSParser, slugify, sanitizeHtml];
 
 import type { APIRoute } from 'astro';
 import { verifyCron, runScript } from '../../../lib/cron-runner';
