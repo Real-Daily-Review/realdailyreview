@@ -1,43 +1,41 @@
-// Vercel Cron: content generation (replaces daily-publish.yml)
+// Vercel Cron: content generation scheduler
 // Schedule: 8x/day — see vercel.json
-// maxDuration: 300s
 //
-// Deps are bundled into the Lambda by nft at build time.
-// The subprocess finds them via NODE_PATH=/var/task/node_modules — no npm install needed.
+// This cron triggers the GitHub Actions daily-publish.yml workflow via workflow_dispatch.
+// GitHub Actions handles the actual generation (no timeout constraints, git available).
+// Vercel is the scheduler; GitHub Actions is the executor.
 export const prerender = false;
 
-// Force nft to bundle these deps so subprocess can find them via symlinked node_modules
-import Anthropic from '@anthropic-ai/sdk';
-import matter from 'gray-matter';
-import RSSParser from 'rss-parser';
-import slugify from 'slugify';
-import sanitizeHtml from 'sanitize-html';
-// Suppress unused-import warnings — these are here only to trigger nft bundling
-void [Anthropic, matter, RSSParser, slugify, sanitizeHtml];
-
 import type { APIRoute } from 'astro';
-import { verifyCron, runScript } from '../../../lib/cron-runner';
+import { verifyCron } from '../../../lib/cron-runner';
+
+const REPO = 'Real-Daily-Review/realdailyreview';
 
 export const GET: APIRoute = async ({ request }) => {
   if (!verifyCron(request)) return new Response('Unauthorized', { status: 401 });
 
-  try {
-    await runScript({
-      installCmd: 'npm install @anthropic-ai/sdk gray-matter rss-parser slugify sanitize-html --no-save --no-audit --no-fund',
-      scriptCmd: 'node scripts/generate-daily.mjs',
-      gitAddPaths: ['src/content/articles/', 'ops/runs/', 'public/og/'],
-      commitMsg: `content: auto-publish ${new Date().toISOString().slice(0, 16)}Z [vercel-cron]`,
-      authorName: 'Real Daily Review Bot',
-      authorEmail: 'bot@realdailyreview.com',
-      env: {
-        ANTHROPIC_API_KEY: process.env.ANTHROPIC_API_KEY,
-        PER_SECTION: '1',
+  const ghPat = process.env.GITHUB_PAT;
+  if (!ghPat) return new Response('GITHUB_PAT not set', { status: 500 });
+
+  const resp = await fetch(
+    `https://api.github.com/repos/${REPO}/actions/workflows/daily-publish.yml/dispatches`,
+    {
+      method: 'POST',
+      headers: {
+        Authorization: `Bearer ${ghPat}`,
+        Accept: 'application/vnd.github.v3+json',
+        'Content-Type': 'application/json',
       },
-      scriptTimeout: 250_000,
-    });
+      body: JSON.stringify({ ref: 'main' }),
+    }
+  );
+
+  if (resp.ok || resp.status === 204) {
+    console.log('[generate-daily] triggered GitHub Actions daily-publish.yml');
     return new Response('OK', { status: 200 });
-  } catch (e: any) {
-    console.error('[generate-daily]', e.message?.slice(0, 500));
-    return new Response(e.message?.slice(0, 1000) ?? 'error', { status: 500 });
   }
+
+  const err = await resp.text();
+  console.error('[generate-daily] failed to trigger workflow:', resp.status, err);
+  return new Response(err, { status: resp.status });
 };
