@@ -26,16 +26,14 @@ jobs:
         env:
           ANTHROPIC_API_KEY: placeholder
 
-      - name: Patch runtime + maxDuration
+      - name: Patch all functions — nodejs20.x + maxDuration 300s
         run: |
           find .vercel/output/functions -name '.vc-config.json' | while read f; do
             node -e "
               const fs=require('fs'), p='$f';
               const cfg=JSON.parse(fs.readFileSync(p));
               cfg.runtime='nodejs20.x';
-              if (p.includes('generate-daily') || p.includes('feature-build')) cfg.maxDuration=300;
-              else if (p.includes('competitor-watch')) cfg.maxDuration=180;
-              else if (p.includes('exec-brief') || p.includes('ceo-standup')) cfg.maxDuration=120;
+              cfg.maxDuration=300;
               fs.writeFileSync(p, JSON.stringify(cfg, null, '\\t'));
             "
           done
