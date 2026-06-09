@@ -81,8 +81,11 @@ export const GET: APIRoute = async ({ request }) => {
       commitMsg: `content: auto-publish ${new Date().toISOString().slice(0, 16)}Z [vercel-cron]`,
       authorName: 'Real Daily Review Bot',
       authorEmail: 'bot@realdailyreview.com',
-      env: { ANTHROPIC_API_KEY: process.env.ANTHROPIC_API_KEY },
-      scriptTimeout: 180_000,
+      env: {
+        ANTHROPIC_API_KEY: process.env.ANTHROPIC_API_KEY,
+        PER_SECTION: '1',  // 1 article/section = 5 Anthropic calls vs 10; keeps run under 300s
+      },
+      scriptTimeout: 250_000,
       onAfterPush: async (dir) => { repoDir = dir; },
     });
 
