@@ -10,7 +10,7 @@ export const GET: APIRoute = async ({ request }) => {
 
   try {
     await runScript({
-      installCmd: null,  // deps bundled in Lambda via NODE_PATH
+      installCmd: 'npm install rss-parser@^3 @anthropic-ai/sdk@^0.30 --no-save --no-audit --no-fund',
       scriptCmd: 'node scripts/competitor-watch.mjs',
       gitAddPaths: ['ops/competitive/', 'ops/queue.md'],
       commitMsg: `ops: competitor watch ${new Date().toISOString().slice(0, 10)}`,

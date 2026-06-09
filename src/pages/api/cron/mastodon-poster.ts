@@ -10,7 +10,7 @@ export const GET: APIRoute = async ({ request }) => {
 
   try {
     await runScript({
-      installCmd: null,  // deps bundled in Lambda via NODE_PATH
+      installCmd: 'npm install gray-matter@^4 --no-save --no-audit --no-fund',
       scriptCmd: 'node scripts/mastodon-poster.mjs',
       gitAddPaths: ['ops/social-posted/'],
       commitMsg: `social: mastodon cross-post ${new Date().toISOString().slice(0, 16)}Z`,
