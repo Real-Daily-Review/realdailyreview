@@ -199,8 +199,14 @@ export async function runScript(opts: RunScriptOptions): Promise<void> {
 
   const tmpDir = `/tmp/rdr-${randomBytes(4).toString('hex')}`;
   const tarPath = `${tmpDir}.tar.gz`;
-  const exec = (cmd: string, o: object = {}) =>
-    execSync(cmd, { stdio: 'pipe', ...o });
+  // Lambda home dir may not exist — point HOME + npm cache to writable /tmp
+  const lambdaEnv = {
+    ...process.env,
+    HOME: tmpDir,
+    npm_config_cache: `${tmpDir}/.npm-cache`,
+  };
+  const exec = (cmd: string, o: Record<string, any> = {}) =>
+    execSync(cmd, { stdio: 'pipe', env: lambdaEnv, ...o });
 
   try {
     // 1. Download + extract repo
@@ -224,7 +230,7 @@ export async function runScript(opts: RunScriptOptions): Promise<void> {
     exec(opts.scriptCmd, {
       cwd: tmpDir,
       timeout: opts.scriptTimeout ?? 50_000,
-      env: { ...process.env, HOME: tmpDir, REPO, GH_TOKEN: ghPat, ...(opts.env ?? {}) },
+      env: { ...lambdaEnv, REPO, GH_TOKEN: ghPat, ...(opts.env ?? {}) },
     });
 
     // 5. Detect changes + commit
