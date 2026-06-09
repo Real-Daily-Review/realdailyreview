@@ -22,9 +22,14 @@ const formattedDate = data.pubDate.toLocaleDateString('en-US', {
   day: 'numeric',
 });
 
-// Per-article OG image (gen-og-images.mjs creates these at build time);
-// falls back to brand default if missing.
-const ogImagePath = `/og/${article.slug}.png`;
+// Per-article OG image — try .jpg first (Unsplash/Wikimedia), then .png (brand template).
+// Both are checked via the static public/og/ dir at build time; fall back to site default.
+import { existsSync } from 'node:fs';
+import { resolve } from 'node:path';
+const ogJpg  = resolve('public', 'og', `${article.slug}.jpg`);
+const ogPng  = resolve('public', 'og', `${article.slug}.png`);
+const ogExt  = existsSync(ogJpg) ? 'jpg' : (existsSync(ogPng) ? 'png' : null);
+const ogImagePath = ogExt ? `/og/${article.slug}.${ogExt}` : '/og-default.png';
 const ogImageAbsoluteUrl = new URL(ogImagePath, SITE.url).toString();
 
 // JSON-LD for SEO + Google News eligibility
