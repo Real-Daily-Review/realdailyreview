@@ -4,9 +4,6 @@ on:
   workflow_dispatch:
   push:
     branches: [main]
-    paths-ignore:
-      - 'ops/**'
-      - 'src/content/articles/**'
 
 jobs:
   deploy:
