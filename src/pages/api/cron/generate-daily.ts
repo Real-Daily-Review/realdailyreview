@@ -23,7 +23,7 @@ export const GET: APIRoute = async ({ request }) => {
 
   try {
     await runScript({
-      installCmd: null,  // deps bundled in Lambda via NODE_PATH
+      installCmd: 'npm install @anthropic-ai/sdk gray-matter rss-parser slugify sanitize-html --no-save --no-audit --no-fund',
       scriptCmd: 'node scripts/generate-daily.mjs',
       gitAddPaths: ['src/content/articles/', 'ops/runs/', 'public/og/'],
       commitMsg: `content: auto-publish ${new Date().toISOString().slice(0, 16)}Z [vercel-cron]`,
