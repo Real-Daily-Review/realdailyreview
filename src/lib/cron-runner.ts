@@ -15,7 +15,7 @@
 
 import { execSync } from 'child_process';
 import { randomBytes } from 'crypto';
-import { promises as fs } from 'fs';
+import { promises as fs, createWriteStream } from 'fs';
 import https from 'https';
 import path from 'path';
 
@@ -81,8 +81,7 @@ function downloadUrl(url: string, dest: string, token?: string): Promise<void> {
         if ((res.statusCode === 301 || res.statusCode === 302) && res.headers.location) {
           get(res.headers.location); return;
         }
-        // eslint-disable-next-line @typescript-eslint/no-var-requires
-        const file = require('fs').createWriteStream(dest);
+        const file = createWriteStream(dest);
         res.pipe(file);
         file.on('finish', () => file.close(resolve));
         file.on('error', reject);
