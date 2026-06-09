@@ -17,6 +17,8 @@ import { execSync } from 'child_process';
 import { randomBytes } from 'crypto';
 import { promises as fs, createWriteStream } from 'fs';
 import https from 'https';
+// @ts-ignore — tar has no bundled types but is pure JS, works in Lambda
+import tar from 'tar';
 import path from 'path';
 
 const REPO = 'Real-Daily-Review/realdailyreview';
@@ -207,7 +209,7 @@ export async function runScript(opts: RunScriptOptions): Promise<void> {
       `https://api.github.com/repos/${REPO}/tarball/main`,
       tarPath, ghPat
     );
-    exec(`tar xz --strip-components=1 -C "${tmpDir}" -f "${tarPath}"`);
+    await tar.x({ file: tarPath, cwd: tmpDir, strip: 1 });
     await fs.unlink(tarPath).catch(() => {});
 
     // 2. Install deps
