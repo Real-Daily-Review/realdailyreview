@@ -81,6 +81,7 @@ jobs:
 
       - name: Generate per-article hero/OG images
         if: github.event.inputs.dry_run != 'true'
+        continue-on-error: true
         env:
           UNSPLASH_ACCESS_KEY: ${{ secrets.UNSPLASH_ACCESS_KEY }}
         run: |
