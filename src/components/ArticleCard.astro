@@ -26,7 +26,7 @@ const date = article.data.pubDate.toLocaleDateString('en-US', { month: 'short', 
 ) : (
   <article class={`rdr-card rdr-card-${size}`}>
     <a href={`/articles/${article.slug}`} class="rdr-card-image-wrap">
-      <img src={img} alt="" class="rdr-card-image" loading="lazy" />
+      <picture><source srcset={imgJpg} type="image/jpeg"/><img src={imgPng} alt="" class="rdr-card-image" loading="lazy" onerror="this.style.display='none'" /></picture>
     </a>
     <div class="rdr-card-body">
       <p class="rdr-card-meta"><span class="rdr-card-section">{article.data.section}</span> · {date}</p>
