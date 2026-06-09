@@ -1,6 +1,6 @@
 # Sprint Queue
 
-_Last updated: 2026-06-09T02:35:07.298Z (overnight)_
+_Last updated: 2026-06-09T11:14:50.900Z (morning)_
 
 Active items the CEO operator works through. Auto-managed by ceo-standup.yml.
 
@@ -162,3 +162,5 @@ Active items the CEO operator works through. Auto-managed by ceo-standup.yml.
 - [ ] Deploy topic archive pages + sitemap. Increases pages-per-session (hub pages + internal linking) and crawlable surface area for Ezoic/AdSense. Real outlets see 12–18% RPM lift from topic clustering alone.  _from evening standup 2026-06-08_
 - [ ] RSS feed + indexing. Generate `/feed.xml` (20 most recent articles) and auto-ping Feedly, NewsBlur, Inoreader on each publish. Estimated 2–4 hrs. This is the single largest passive discovery channel; competitors are already indexed. We're invisible to RSS readers.  _from overnight standup 2026-06-09_
 - [ ] /today digest page. Static-render top 5 articles from last 24h with above-the-fold newsletter CTA; revalidate every 4 hours on publish cron. Gives homepage visitors a curated entry point and creates a daily linkable artifact for social sharing. Doubles as a conversion funnel.  _from overnight standup 2026-06-09_
+- [ ] Deploy RSS feed + ping indexers. Build `/feed.xml` pulling 20 most recent articles, ping Feedly/NewsBlur/Inoreader on each publish. RSS is the fastest path to discovery for news aggregators and search engines; estimated 2–4 hour build, zero ongoing cost. This alone will unlock passive referral traffic within 48 hours of submission.  _from morning standup 2026-06-09_
+- [ ] Build topic archive pages + sitemap. Auto-tag articles into 8 fixed buckets (Politics, Economy, Tech, World, Health, Culture, Science, Business) via keyword matching on title + first paragraph. Render `/topic/{slug}` pages with 10 most recent articles each. Creates crawlable hub pages for long-tail SEO, increases pages-per-session for Ezoic/AdSense RPM. Estimated 4–6 hours; zero editorial overhead.  _from morning standup 2026-06-09_
