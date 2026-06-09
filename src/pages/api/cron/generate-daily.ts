@@ -75,7 +75,7 @@ export const GET: APIRoute = async ({ request }) => {
     let repoDir: string | undefined;
 
     await runScript({
-      installCmd: 'npm install --no-audit --no-fund',
+      installCmd: 'npm install @anthropic-ai/sdk gray-matter rss-parser slugify sanitize-html --no-save --no-audit --no-fund',
       scriptCmd: 'npm run generate:daily',
       gitAddPaths: ['src/content/articles/', 'ops/runs/', 'public/og/'],
       commitMsg: `content: auto-publish ${new Date().toISOString().slice(0, 16)}Z [vercel-cron]`,
