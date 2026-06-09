@@ -1,0 +1,51 @@
+name: Deploy to Vercel
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths-ignore:
+      - 'ops/**'
+      - 'src/content/articles/**'
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with: { ref: main }
+
+      - uses: actions/setup-node@v4
+        with: { node-version: '20', cache: 'npm' }
+
+      - run: npm ci
+
+      - name: Build
+        run: npm run build
+        env:
+          ANTHROPIC_API_KEY: placeholder
+
+      - name: Patch runtime to nodejs20.x + set maxDuration
+        run: |
+          find .vercel/output/functions -name '.vc-config.json' | while read f; do
+            node -e "
+              const fs=require('fs'), cfg=JSON.parse(fs.readFileSync('$f'));
+              cfg.runtime='nodejs20.x';
+              if ('$f'.includes('generate-daily') || '$f'.includes('feature-build')) cfg.maxDuration=300;
+              else if ('$f'.includes('competitor-watch')) cfg.maxDuration=180;
+              else if ('$f'.includes('exec-brief') || '$f'.includes('ceo-standup')) cfg.maxDuration=120;
+              fs.writeFileSync('$f', JSON.stringify(cfg, null, '\\t'));
+            "
+          done
+
+      - name: Deploy to Vercel
+        run: |
+          npx vercel deploy --prebuilt --prod \
+            --token $VERCEL_TOKEN \
+            --scope revv-team \
+            --yes
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+          VERCEL_ORG_ID: team_STzeS2bdoSjZAaaRoKtoodMs
+          VERCEL_PROJECT_ID: prj_LKVKVMRMWncXNdfOrAEeep48q2zH
