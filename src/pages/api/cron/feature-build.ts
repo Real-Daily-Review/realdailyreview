@@ -11,7 +11,7 @@ export const GET: APIRoute = async ({ request }) => {
 
   try {
     await runScript({
-      installCmd: 'npm ci --prefer-offline --no-audit --no-fund',
+      installCmd: 'npm install --no-audit --no-fund',
       scriptCmd: 'node scripts/feature-build.mjs',
       // feature-build manages its own commits/PRs via GitHub API; ops/ is a fallback
       gitAddPaths: ['ops/'],
