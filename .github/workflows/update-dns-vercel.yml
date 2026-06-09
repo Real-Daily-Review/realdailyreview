@@ -8,28 +8,28 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 3
     steps:
-      - name: Point realdailyreview.com A record to Vercel (76.76.21.21)
+      - name: Point realdailyreview.com to Vercel (76.76.21.21)
         env:
           CF_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
         run: |
-          set -e
           # Get zone ID
-          ZONE_ID=$(curl -s -H "Authorization: Bearer $CF_TOKEN" \
-            "https://api.cloudflare.com/client/v4/zones?name=realdailyreview.com" \
-            | python3 -c "import sys,json; print(json.load(sys.stdin)['result'][0]['id'])")
+          ZONES=$(curl -sf -H "Authorization: Bearer $CF_TOKEN" \
+            "https://api.cloudflare.com/client/v4/zones?name=realdailyreview.com")
+          echo "Zones response: $(echo $ZONES | python3 -c "import sys,json; d=json.load(sys.stdin); print(d.get('success'), len(d.get('result',[])))")"
+          ZONE_ID=$(echo $ZONES | python3 -c "import sys,json; print(json.load(sys.stdin)['result'][0]['id'])")
           echo "Zone ID: $ZONE_ID"
           
-          # Find root A record
-          RECORD=$(curl -s -H "Authorization: Bearer $CF_TOKEN" \
-            "https://api.cloudflare.com/client/v4/zones/$ZONE_ID/dns_records?type=A&name=realdailyreview.com" \
-            | python3 -c "import sys,json; d=json.load(sys.stdin); print(json.dumps(d['result'][0]))")
-          echo "Current record: $RECORD"
-          RECORD_ID=$(echo $RECORD | python3 -c "import sys,json; print(json.load(sys.stdin)['id'])")
+          # List all A records for root
+          RECORDS=$(curl -sf -H "Authorization: Bearer $CF_TOKEN" \
+            "https://api.cloudflare.com/client/v4/zones/$ZONE_ID/dns_records?type=A&name=realdailyreview.com&per_page=10")
+          echo "Records: $(echo $RECORDS | python3 -c "import sys,json; d=json.load(sys.stdin); [print(r['id'], r['content'], r.get('proxied')) for r in d.get('result',[])]")"
           
-          # Update to Vercel IP
-          curl -s -X PATCH \
+          # Update first A record to Vercel IP
+          RECORD_ID=$(echo $RECORDS | python3 -c "import sys,json; d=json.load(sys.stdin); print(d['result'][0]['id'])")
+          
+          RESULT=$(curl -sf -X PATCH \
             -H "Authorization: Bearer $CF_TOKEN" \
             -H "Content-Type: application/json" \
             --data '{"content":"76.76.21.21","proxied":true}' \
-            "https://api.cloudflare.com/client/v4/zones/$ZONE_ID/dns_records/$RECORD_ID" \
-            | python3 -c "import sys,json; d=json.load(sys.stdin); print('Success:', d['success'], '| New IP:', d.get('result',{}).get('content','?'))"
+            "https://api.cloudflare.com/client/v4/zones/$ZONE_ID/dns_records/$RECORD_ID")
+          echo "Update result: $(echo $RESULT | python3 -c "import sys,json; d=json.load(sys.stdin); print('success:', d['success'], 'new IP:', d.get('result',{}).get('content','?'))")"
