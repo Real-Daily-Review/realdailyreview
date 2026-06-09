@@ -1,0 +1,35 @@
+name: Update DNS to Vercel
+
+on:
+  workflow_dispatch:
+
+jobs:
+  update-dns:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - name: Point realdailyreview.com A record to Vercel (76.76.21.21)
+        env:
+          CF_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+        run: |
+          set -e
+          # Get zone ID
+          ZONE_ID=$(curl -s -H "Authorization: Bearer $CF_TOKEN" \
+            "https://api.cloudflare.com/client/v4/zones?name=realdailyreview.com" \
+            | python3 -c "import sys,json; print(json.load(sys.stdin)['result'][0]['id'])")
+          echo "Zone ID: $ZONE_ID"
+          
+          # Find root A record
+          RECORD=$(curl -s -H "Authorization: Bearer $CF_TOKEN" \
+            "https://api.cloudflare.com/client/v4/zones/$ZONE_ID/dns_records?type=A&name=realdailyreview.com" \
+            | python3 -c "import sys,json; d=json.load(sys.stdin); print(json.dumps(d['result'][0]))")
+          echo "Current record: $RECORD"
+          RECORD_ID=$(echo $RECORD | python3 -c "import sys,json; print(json.load(sys.stdin)['id'])")
+          
+          # Update to Vercel IP
+          curl -s -X PATCH \
+            -H "Authorization: Bearer $CF_TOKEN" \
+            -H "Content-Type: application/json" \
+            --data '{"content":"76.76.21.21","proxied":true}' \
+            "https://api.cloudflare.com/client/v4/zones/$ZONE_ID/dns_records/$RECORD_ID" \
+            | python3 -c "import sys,json; d=json.load(sys.stdin); print('Success:', d['success'], '| New IP:', d.get('result',{}).get('content','?'))"
