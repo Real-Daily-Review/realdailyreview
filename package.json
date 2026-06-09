@@ -16,6 +16,7 @@
     "test": "node --test scripts/__tests__/**.test.mjs"
   },
   "dependencies": {
+    "@anthropic-ai/sdk": "^0.30.1",
     "@astrojs/rss": "^4.0.7",
     "@astrojs/sitemap": "^3.2.1",
     "astro": "^4.16.19",
@@ -26,7 +27,6 @@
     "tar": "^6.2.1"
   },
   "devDependencies": {
-    "@anthropic-ai/sdk": "^0.30.1",
     "@astrojs/vercel": "^7.0.0",
     "@types/node": "^22.7.5",
     "@types/sanitize-html": "^2.13.0",
