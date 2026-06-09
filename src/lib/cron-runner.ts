@@ -217,6 +217,9 @@ export async function runScript(opts: RunScriptOptions): Promise<void> {
     );
     await tar.x({ file: tarPath, cwd: tmpDir, strip: 1 });
     await fs.unlink(tarPath).catch(() => {});
+    // Remove lock file — it's out of sync with package.json (added @astrojs/vercel
+    // without regenerating the lock). Without this, npm silently skips installs.
+    await fs.unlink(`${tmpDir}/package-lock.json`).catch(() => {});
 
     // 2. Install deps
     if (opts.installCmd) {
