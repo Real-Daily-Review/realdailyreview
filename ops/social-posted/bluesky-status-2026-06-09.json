@@ -1,9 +1,8 @@
 {
-  "outcome": "no-candidates",
-  "reason": "0 articles in last 6h; all already posted",
-  "already_posted_count": 54,
+  "outcome": "auth-failed",
+  "error": "bsky auth 401: {\"error\":\"AuthenticationRequired\",\"message\":\"Invalid identifier or password\"}",
   "has_handle": true,
   "has_password": true,
   "handle": "REPLACE_ME",
-  "written_at": "2026-06-09T13:32:17.713Z"
+  "written_at": "2026-06-09T14:58:05.709Z"
 }
