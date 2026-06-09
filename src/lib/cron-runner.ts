@@ -1,123 +1,242 @@
 /**
- * Shared Vercel Cron runner.
+ * Vercel Cron runner — git-free.
  *
- * Pattern: shallow-clone repo → install deps → run script → commit + push.
- * Works identically to the previous GitHub Actions workflow pattern,
- * but runs inside a Vercel serverless function.
+ * Uses GitHub REST API instead of git commands (git is not available
+ * in Vercel Lambda runtimes). Pattern:
+ *   1. Download repo tarball from GitHub API → extract to /tmp
+ *   2. npm install (minimal deps)
+ *   3. Run agent script
+ *   4. Detect changed files, commit via GitHub API
  *
- * Requirements (Vercel env vars):
- *   GITHUB_PAT   — personal access token with repo write access
- *   CRON_SECRET  — shared secret Vercel sends as Bearer token on every cron call
+ * Required env vars:
+ *   GITHUB_PAT   — token with repo write access
+ *   CRON_SECRET  — Vercel sends this as Bearer on every cron invocation
  */
 
-import { execSync, type ExecSyncOptions } from 'child_process';
+import { execSync } from 'child_process';
 import { randomBytes } from 'crypto';
+import { promises as fs } from 'fs';
+import https from 'https';
+import path from 'path';
 
 const REPO = 'Real-Daily-Review/realdailyreview';
-const BASE_EXEC: ExecSyncOptions = { stdio: 'pipe' };
+
+// ── Auth ──────────────────────────────────────────────────────────────────
 
 export function verifyCron(request: Request): boolean {
   const secret = process.env.CRON_SECRET;
-  if (!secret) {
-    console.warn('[cron] CRON_SECRET not set — rejecting request');
-    return false;
-  }
+  if (!secret) { console.warn('[cron] CRON_SECRET not set'); return false; }
   return request.headers.get('authorization') === `Bearer ${secret}`;
 }
 
+// ── Types ─────────────────────────────────────────────────────────────────
+
 export interface RunScriptOptions {
-  /** npm install command, or null if no deps needed beyond built-ins */
   installCmd: string | null;
-  /** Command to run the agent script, e.g. "node scripts/bluesky-poster.mjs" */
   scriptCmd: string;
-  /** git add paths, space-separated glob patterns */
   gitAddPaths: string[];
-  /** commit message */
   commitMsg: string;
-  /** git author name */
   authorName: string;
-  /** git author email */
   authorEmail: string;
-  /** additional env vars for the script (merged with process.env) */
   env?: Record<string, string | undefined>;
-  /** ms timeout for the script itself (default 50_000) */
   scriptTimeout?: number;
-  /** called with the repo tmpDir path after a successful push (before cleanup) */
   onAfterPush?: (tmpDir: string) => Promise<void>;
 }
 
+// ── GitHub API helpers ────────────────────────────────────────────────────
+
+function ghRequest(endpoint: string, method = 'GET', body?: object): Promise<any> {
+  const token = process.env.GITHUB_PAT!;
+  const data = body ? JSON.stringify(body) : undefined;
+  return new Promise((resolve, reject) => {
+    const req = https.request(`https://api.github.com${endpoint}`, {
+      method,
+      headers: {
+        Authorization: `Bearer ${token}`,
+        Accept: 'application/vnd.github.v3+json',
+        'User-Agent': 'rdr-cron/1.0',
+        'Content-Type': 'application/json',
+        ...(data ? { 'Content-Length': Buffer.byteLength(data).toString() } : {}),
+      },
+    }, (res) => {
+      const chunks: Buffer[] = [];
+      res.on('data', (c) => chunks.push(c));
+      res.on('end', () => {
+        const text = Buffer.concat(chunks).toString();
+        try { resolve(JSON.parse(text)); } catch { resolve(text); }
+      });
+    });
+    req.on('error', reject);
+    if (data) req.write(data);
+    req.end();
+  });
+}
+
+function downloadUrl(url: string, dest: string, token?: string): Promise<void> {
+  return new Promise((resolve, reject) => {
+    const headers: Record<string, string> = { 'User-Agent': 'rdr-cron/1.0' };
+    if (token) headers.Authorization = `Bearer ${token}`;
+    function get(u: string) {
+      https.get(u, { headers }, (res) => {
+        if ((res.statusCode === 301 || res.statusCode === 302) && res.headers.location) {
+          get(res.headers.location); return;
+        }
+        // eslint-disable-next-line @typescript-eslint/no-var-requires
+        const file = require('fs').createWriteStream(dest);
+        res.pipe(file);
+        file.on('finish', () => file.close(resolve));
+        file.on('error', reject);
+      }).on('error', reject);
+    }
+    get(url);
+  });
+}
+
+// ── Directory walker ──────────────────────────────────────────────────────
+
+async function walkDir(dir: string, fn: (file: string) => Promise<void>): Promise<void> {
+  const entries = await fs.readdir(dir, { withFileTypes: true }).catch(() => []);
+  for (const e of entries) {
+    const full = path.join(dir, e.name);
+    if (e.isDirectory()) await walkDir(full, fn);
+    else await fn(full);
+  }
+}
+
+// ── Snapshot / diff helpers ───────────────────────────────────────────────
+
+async function snapshot(repoDir: string, addPaths: string[]): Promise<Map<string, string>> {
+  const snap = new Map<string, string>();
+  for (const p of addPaths) {
+    const full = path.join(repoDir, p.replace(/\/$/, ''));
+    await walkDir(full, async (file) => {
+      const content = await fs.readFile(file, 'utf8').catch(() => null);
+      if (content !== null) snap.set(path.relative(repoDir, file), content);
+    });
+  }
+  return snap;
+}
+
+async function changedFiles(
+  repoDir: string,
+  addPaths: string[],
+  before: Map<string, string>
+): Promise<Map<string, Buffer>> {
+  const changed = new Map<string, Buffer>();
+  for (const p of addPaths) {
+    const full = path.join(repoDir, p.replace(/\/$/, ''));
+    await walkDir(full, async (file) => {
+      const rel = path.relative(repoDir, file);
+      const buf = await fs.readFile(file).catch(() => null);
+      if (!buf) return;
+      if (!before.has(rel) || before.get(rel) !== buf.toString('utf8')) {
+        changed.set(rel, buf);
+      }
+    });
+  }
+  return changed;
+}
+
+// ── GitHub commit via API ─────────────────────────────────────────────────
+
+async function pushCommit(
+  files: Map<string, Buffer>,
+  message: string,
+  authorName: string,
+  authorEmail: string
+): Promise<void> {
+  // Get HEAD
+  const ref = await ghRequest(`/repos/${REPO}/git/ref/heads/main`);
+  const baseCommit: string = ref.object.sha;
+  const baseTree: string = (await ghRequest(`/repos/${REPO}/git/commits/${baseCommit}`)).tree.sha;
+
+  // Create blobs (in parallel, max 5 at a time to avoid rate limits)
+  const entries = Array.from(files.entries());
+  const treeItems: object[] = [];
+  for (let i = 0; i < entries.length; i += 5) {
+    const batch = entries.slice(i, i + 5);
+    const blobs = await Promise.all(batch.map(([, buf]) =>
+      ghRequest(`/repos/${REPO}/git/blobs`, 'POST', {
+        content: buf.toString('base64'), encoding: 'base64',
+      })
+    ));
+    blobs.forEach((blob, j) => {
+      treeItems.push({ path: batch[j][0], mode: '100644', type: 'blob', sha: blob.sha });
+    });
+  }
+
+  const tree = await ghRequest(`/repos/${REPO}/git/trees`, 'POST', {
+    base_tree: baseTree, tree: treeItems,
+  });
+
+  const commit = await ghRequest(`/repos/${REPO}/git/commits`, 'POST', {
+    message,
+    tree: tree.sha,
+    parents: [baseCommit],
+    author: { name: authorName, email: authorEmail, date: new Date().toISOString() },
+  });
+
+  // Push with optimistic concurrency retry
+  for (let attempt = 1; attempt <= 4; attempt++) {
+    const result = await ghRequest(`/repos/${REPO}/git/refs/heads/main`, 'PATCH', {
+      sha: commit.sha, force: false,
+    });
+    if (result.object?.sha === commit.sha) {
+      console.log(`[cron-runner] committed ${files.size} files on attempt ${attempt}`);
+      return;
+    }
+    if (attempt < 4) await new Promise((r) => setTimeout(r, 2000 * attempt));
+  }
+  throw new Error('Failed to update ref after 4 attempts');
+}
+
+// ── Main runner ───────────────────────────────────────────────────────────
+
 export async function runScript(opts: RunScriptOptions): Promise<void> {
   const ghPat = process.env.GITHUB_PAT;
-  if (!ghPat) throw new Error('GITHUB_PAT env var not set');
+  if (!ghPat) throw new Error('GITHUB_PAT not set');
 
   const tmpDir = `/tmp/rdr-${randomBytes(4).toString('hex')}`;
+  const tarPath = `${tmpDir}.tar.gz`;
+  const exec = (cmd: string, o: object = {}) =>
+    execSync(cmd, { stdio: 'pipe', ...o });
 
   try {
-    // ── 1. Shallow clone ────────────────────────────────────────────────
-    execSync(
-      `git clone --depth=1 "https://${ghPat}@github.com/${REPO}.git" "${tmpDir}"`,
-      { ...BASE_EXEC, timeout: 30_000 }
+    // 1. Download + extract repo
+    await fs.mkdir(tmpDir, { recursive: true });
+    await downloadUrl(
+      `https://api.github.com/repos/${REPO}/tarball/main`,
+      tarPath, ghPat
     );
+    exec(`tar xz --strip-components=1 -C "${tmpDir}" -f "${tarPath}"`);
+    await fs.unlink(tarPath).catch(() => {});
 
-    // ── 2. Install dependencies ─────────────────────────────────────────
+    // 2. Install deps
     if (opts.installCmd) {
-      execSync(opts.installCmd, { ...BASE_EXEC, cwd: tmpDir, timeout: 90_000 });
+      exec(opts.installCmd, { cwd: tmpDir, timeout: 90_000 });
     }
 
-    // ── 3. Run the agent script ─────────────────────────────────────────
-    execSync(opts.scriptCmd, {
-      ...BASE_EXEC,
+    // 3. Snapshot files before run
+    const before = await snapshot(tmpDir, opts.gitAddPaths);
+
+    // 4. Run agent script
+    exec(opts.scriptCmd, {
       cwd: tmpDir,
       timeout: opts.scriptTimeout ?? 50_000,
-      env: {
-        ...process.env,
-        HOME: tmpDir,
-        REPO,
-        GH_TOKEN: ghPat,
-        ...(opts.env ?? {}),
-      },
+      env: { ...process.env, HOME: tmpDir, REPO, GH_TOKEN: ghPat, ...(opts.env ?? {}) },
     });
 
-    // ── 4. Commit and push (with rebase retry) ───────────────────────────
-    execSync(`git config user.name "${opts.authorName.replace(/"/g, "'")}"`, { ...BASE_EXEC, cwd: tmpDir });
-    execSync(`git config user.email "${opts.authorEmail}"`, { ...BASE_EXEC, cwd: tmpDir });
-
-    for (const p of opts.gitAddPaths) {
-      try { execSync(`git add "${p}"`, { ...BASE_EXEC, cwd: tmpDir }); } catch { /* path may not exist */ }
-    }
-
-    // Check if there is anything staged
-    try {
-      execSync('git diff --cached --quiet', { ...BASE_EXEC, cwd: tmpDir });
+    // 5. Detect changes + commit
+    const changed = await changedFiles(tmpDir, opts.gitAddPaths, before);
+    if (changed.size === 0) {
       console.log('[cron-runner] nothing to commit');
-      return;
-    } catch { /* non-zero exit = changes staged → proceed */ }
-
-    execSync(`git commit -m "${opts.commitMsg.replace(/"/g, "'")}"`, { ...BASE_EXEC, cwd: tmpDir });
-
-    for (let attempt = 1; attempt <= 4; attempt++) {
-      try {
-        execSync('git push origin HEAD:main', { ...BASE_EXEC, cwd: tmpDir, timeout: 15_000 });
-        console.log(`[cron-runner] pushed on attempt ${attempt}`);
-        // Call onAfterPush before cleanup
-        if (opts.onAfterPush) {
-          try { await opts.onAfterPush(tmpDir); } catch (e: any) {
-            console.error('[cron-runner] onAfterPush error:', e.message);
-          }
-        }
-        return;
-      } catch {
-        if (attempt < 4) {
-          try {
-            execSync('git fetch origin main && git rebase origin/main || git rebase --abort',
-              { ...BASE_EXEC, cwd: tmpDir, shell: '/bin/sh', timeout: 10_000 });
-          } catch { /* ignore rebase errors, retry push */ }
-        }
-      }
+    } else {
+      await pushCommit(changed, opts.commitMsg, opts.authorName, opts.authorEmail);
     }
-    throw new Error('git push failed after 4 attempts');
+
+    if (opts.onAfterPush) await opts.onAfterPush(tmpDir);
 
   } finally {
-    try { execSync(`rm -rf "${tmpDir}"`, { timeout: 10_000 }); } catch { /* best-effort cleanup */ }
+    await fs.rm(tmpDir, { recursive: true, force: true }).catch(() => {});
   }
 }
