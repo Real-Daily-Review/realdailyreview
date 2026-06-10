@@ -23,7 +23,7 @@ const articles = defineCollection({
         z.object({
           label: z.string(),
           summary: z.string(),
-          source: z.string().url().optional(),
+          source: z.string().url().optional().nullable(),
         })
       )
       .optional(),
@@ -31,9 +31,9 @@ const articles = defineCollection({
       .array(
         z.object({
           title: z.string(),
-          // URL optional — digest articles cite multi-outlet aggregations that don't have a single canonical URL.
-          url: z.string().url().optional().or(z.literal('')),
-          publisher: z.string().optional(),
+          // nullish() accepts both undefined and null — AI generators sometimes emit null
+          url: z.string().url().nullish().or(z.literal('')),
+          publisher: z.string().nullish(),
         })
       )
       .default([]),
