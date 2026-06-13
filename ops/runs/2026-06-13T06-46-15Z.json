@@ -1,0 +1,10 @@
+{
+  "trigger": "schedule",
+  "ref": "refs/heads/main",
+  "actor": "RyanLyk",
+  "run_id": "27459245917",
+  "started_at": "2026-06-13T05:53:41Z",
+  "completed_at": "2026-06-13T06:46:15Z",
+  "job_status": "cancelled",
+  "articles_added": 3
+}
