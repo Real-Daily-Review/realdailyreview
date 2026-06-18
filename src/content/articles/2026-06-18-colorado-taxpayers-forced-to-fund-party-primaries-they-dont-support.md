@@ -1,22 +1,21 @@
 ---
 title: Colorado Taxpayers Forced to Fund Party Primaries They Don't Support
 description: >-
-  Colorado compels taxpayers to finance political party primaries regardless of
-  affiliation. Conservatives argue it's government overreach; deceptive campaign
-  ads using fake celebrity endorsements add to the mess.
-pubDate: '2026-06-18T11:36:04.466Z'
+  Colorado's primary system forces all taxpayers to finance party elections
+  regardless of affiliation. Conservatives argue this violates fiscal
+  responsibility and individual liberty.
+pubDate: '2026-06-18T13:43:12.221Z'
 section: elections
 tags:
   - colorado-elections
-  - taxpayer-rights
+  - taxpayer-spending
+  - party-politics
   - government-overreach
-  - primary-funding
 perspectives:
   - label: Conservatives
     summary: >-
-      Forcing taxpayers to fund primaries for parties they don't belong to is
-      forced political speech and government overreach. Party primaries are
-      private business, not public events deserving state subsidy.
+      Argue taxpayer-funded primaries violate individual liberty, entrench
+      two-party duopoly, and should be replaced with party self-funding.
 sources:
   - title: The case for ending Colorado political party privilege
     url: >-
@@ -31,12 +30,14 @@ sources:
 aiGenerated: true
 draft: false
 ---
-# Colorado Taxpayers Forced to Fund Primaries for Parties They Don't Support
+# Colorado Taxpayers Forced to Fund Party Primaries They Don't Support
 
-Colorado forces taxpayers to finance primary elections for political parties they may never vote for—a government overreach conservatives say should end immediately. Complete Colorado reports that the state compels citizens to subsidize party machinery regardless of their own party affiliation or independent status, raising a fundamental question: why should a Republican or unaffiliated voter foot the bill for Democratic primary operations?
+Colorado forces taxpayers to finance primary elections for political parties they may never vote for—a government subsidy conservatives argue violates basic principles of individual liberty and fiscal responsibility.
 
-Republicans and limited-government advocates argue this amounts to forced political speech and spending—taxpayers bankrolling candidates and causes they actively oppose. The practice treats party primaries as quasi-public events deserving state funding, when they are fundamentally private party business.
+According to *Complete Colorado*, the state's primary system compels all taxpayers to underwrite party nominating contests regardless of their own party affiliation or lack thereof. Republicans and limited-government advocates contend this amounts to forced political speech and spending: why should an independent voter or Republican taxpayer foot the bill for Democratic primary infrastructure, or vice versa?
 
-Meanwhile, Colorado political campaigns are deploying deceptive tactics of their own. 9News Denver reports that candidates are using video and audio clips from Pope Francis, Barack Obama, and Justice Ruth Bader Ginsburg in ads that *imply* endorsements these figures never gave—a misleading practice that blurs the line between legitimate advertising and outright fabrication.
+The argument cuts deeper than partisan squabbling. Conservatives say Colorado's system treats party primaries as quasi-public functions deserving public funding—a model that entrenches the two-party duopoly and prevents genuine competition. Reformers propose shifting primary costs to the parties themselves, letting Republicans, Democrats, and others fund their own nominating processes.
 
-Conservatives say both issues expose government and political dysfunction: one forces taxpayer complicity in party politics, the other lets campaigns traffic in false celebrity endorsements. Watch for legislative pushback on primary funding and whether election authorities move to regulate implied-endorsement advertising.
+Meanwhile, *9News Denver* reports Colorado political ads are exploiting footage of Pope Francis, Barack Obama, and Ruth Bader Ginsburg to imply endorsements these figures never gave—a deceptive practice that underscores why campaign finance and electoral integrity matter.
+
+**Watch next:** Whether Colorado Republicans push legislation to end taxpayer-funded primaries and force parties to self-finance their own contests.
