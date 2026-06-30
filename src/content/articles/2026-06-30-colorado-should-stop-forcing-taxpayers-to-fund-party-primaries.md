@@ -1,9 +1,9 @@
 ---
 title: Colorado Should Stop Forcing Taxpayers to Fund Party Primaries
 description: >-
-  Conservatives argue Colorado government improperly uses taxpayer dollars to
-  subsidize political party primaries, violating limited-government principles.
-pubDate: '2026-06-30T04:45:02.700Z'
+  Conservative analysis of Colorado's taxpayer-funded political party primaries
+  and the case for ending government subsidies to partisan machinery.
+pubDate: '2026-06-30T06:37:13.469Z'
 section: politics
 tags:
   - colorado-politics
@@ -23,16 +23,14 @@ sources:
 aiGenerated: true
 draft: false
 ---
-# Colorado Should Stop Forcing Taxpayers to Fund Party Politics
+# Colorado Should Stop Subsidizing Political Parties With Taxpayer Cash
 
-Colorado government is using taxpayer dollars to subsidize political party primaries—a practice conservatives say violates the principle of limited government and individual liberty.
+Colorado taxpayers are bankrolling primary elections for political parties whether they belong to them or not—a government overreach that should end.
 
-According to *Complete Colorado*, the state grants special recognition and privileges to political parties that non-members are forced to finance. The outlet argues this represents an improper use of state power: "Colorado government has no proper business granting special recognition or privileges to political parties."
+According to *Complete Colorado*, the state has no legitimate business granting special recognition or privileges to political parties, let alone forcing citizens to finance their primaries. Conservatives argue this amounts to compelled subsidy of partisan machinery: Why should a Colorado voter registered as unaffiliated, Libertarian, or independent be forced to pay for Democratic or Republican primary elections?
 
-The conservative case is straightforward. Why should Colorado taxpayers who don't belong to the Democratic or Republican parties foot the bill for primary elections? *Complete Colorado* frames it as a fundamental fairness issue: "Why does Colorado government force taxpayers to finance the primaries of parties to which they do not even belong?"
+The argument cuts deeper than principle. Taxpayer-funded party primaries entrench the two-party duopoly, making it harder for independent and third-party candidates to compete fairly. It's corporate welfare for political machines, funded by people who may actively oppose those parties' agendas.
 
-This touches a nerve for Colorado conservatives who view it as government overreach dressed up as election administration. The state shouldn't be in the business of picking winners among political organizations or compelling citizens to subsidize partisan machinery they reject.
+*Complete Colorado* frames ending this practice as a "courageous move"—one that would separate state apparatus from party apparatus and restore fiscal sanity. The question isn't whether Colorado *can* stop subsidizing parties; it's whether legislators have the spine to do it.
 
-Supporters of the current system haven't articulated a public defense in these sources, leaving the field to critics who see party privilege as antithetical to free-market principles and individual choice.
-
-**Watch next:** Whether Colorado lawmakers move to separate state funding from party operations—and how the legislature responds to pressure from taxpayer advocates.
+Colorado voters and taxpayers should demand their representatives introduce legislation eliminating state funding for partisan primaries and watch closely which lawmakers vote to keep the gravy train running.
