@@ -1,24 +1,17 @@
 ---
 title: Aspen Acres Fire Nears 100K Acres; State Offers Tax Relief
 description: >-
-  Colorado's largest wildfire approaches 100,000 acres as Governor Polis
-  announces tax relief for fire-impacted residents and businesses.
-pubDate: '2026-07-15T05:13:08.073Z'
+  Colorado's largest wildfire consumes nearly 100,000 acres as heat and wind
+  intensify. Governor announces tax relief for affected residents and
+  businesses.
+pubDate: '2026-07-15T05:51:41.304Z'
 section: politics
 tags:
   - wildfires
+  - colorado-disasters
   - forest-management
-  - colorado-economy
   - tax-relief
-perspectives:
-  - label: Conservatives
-    summary: >-
-      Argue aggressive forest management and fuel reduction prevent catastrophic
-      burns; question whether relief measures address root causes of megafires.
-  - label: Environmental Groups
-    summary: >-
-      Often oppose logging and thinning projects; emphasize climate change and
-      drought as primary fire drivers.
+perspectives: []
 sources:
   - title: >-
       Heat, wind expected to intensify Colorado wildfires as Aspen Acres nears
@@ -39,10 +32,12 @@ draft: false
 ---
 # Colorado's Largest Wildfire Nears 100,000 Acres as State Offers Tax Relief
 
-Colorado is battling its largest wildfire in years as the Aspen Acres fire approaches 100,000 acres across Pueblo and Custer counties, with crews simultaneously fighting blazes near Ouray, Leadville, and Dolores (Colorado Sun). Two of the state's active wildfires rank among the 10 largest in Colorado history (9News), driven by intensifying heat and wind conditions that threaten communities and critical infrastructure.
+Colorado is battling its worst fire season in years, with the Aspen Acres fire consuming nearly 100,000 acres across Pueblo and Custer counties—making it the state's largest active wildfire (Colorado Sun). Additional major fires are burning near Ouray, Leadville, and Dolores, with two fires now ranking among Colorado's 10 largest on record (9News).
 
-Governor Jared Polis and the Department of Revenue have announced extended tax deadlines and relief options for individuals and businesses impacted by the fires (KDVR Fox31). While tax relief provides short-term assistance, conservatives argue the state should prioritize aggressive forest management and fuel reduction—proven methods to prevent catastrophic burns—rather than relying on post-fire relief measures that shift costs to taxpayers.
+Intensifying heat and wind are expected to worsen conditions in coming days, threatening communities and critical infrastructure across the state's southern and western regions.
 
-The fires underscore a broader debate over Colorado land stewardship. Republicans contend that decades of fire-suppression policies and resistance to timber harvesting have left forests dangerously overgrown, while environmental groups often oppose logging and thinning projects. The result: tinderbox conditions that threaten ranches, homes, and watersheds across the state.
+Governor Jared Polis and the Department of Revenue have announced extended tax deadlines and relief options for individuals and businesses impacted by the fires (KDVR Fox31). While tax relief provides short-term assistance, conservatives should note that disaster response ultimately falls on Colorado taxpayers—underscoring the need for robust forest management and prevention strategies rather than reactive spending after catastrophic fires.
 
-Taxpayers should watch whether Polis's administration commits to preventive forest management or continues the cycle of fighting megafires and offering relief packages.
+The state's decades-long failure to aggressively thin overgrown forests and remove dead timber has created tinderbox conditions. Republicans and fire experts have long argued that environmentalist restrictions on logging and prescribed burns have worsened wildfire risk, yet progressive policies continue to prioritize environmental litigation over forest health.
+
+Watch whether Polis and state lawmakers will finally embrace aggressive forest management—or continue blocking the timber harvests and controlled burns that could prevent the next megafire.
