@@ -1,16 +1,16 @@
 ---
 title: Hegseth Seeks $95B Military Package as Iran War Costs Hit $37.5B
 description: >-
-  Defense Secretary Pete Hegseth told Senate Republicans that Iran operations
-  have cost $37.5 billion and requested $95 billion in military funding through
-  fiscal year.
-pubDate: '2026-07-21T22:51:21.965Z'
+  Defense Secretary Pete Hegseth told Senate the Iran war has cost $37.5
+  billion, defending a $95 billion military funding package. Colorado military
+  bases stand to benefit.
+pubDate: '2026-07-21T23:51:27.978Z'
 section: politics
 tags:
   - defense-spending
   - military
-  - senate-appropriations
-  - iran
+  - colorado-economy
+  - appropriations
 perspectives: []
 sources:
   - title: Hegseth estimates Iran war has cost $37.5B as he defends funding request
@@ -24,16 +24,16 @@ sources:
 aiGenerated: true
 draft: false
 ---
-# Defense Chief Seeks $95B Military Package as Iran Operations Cost Climbs to $37.5B
+# Defense Secretary Hegseth Seeks $95B Military Package as Iran War Costs Climb to $37.5B
 
-Defense Secretary Pete Hegseth told Senate Republicans this week that military operations against Iran have cost $37.5 billion—and he's asking Congress to approve a $95 billion defense funding package to sustain readiness and personnel costs through the fiscal year (Washington Examiner).
+Defense Secretary Pete Hegseth told the Senate this week that operations against Iran have cost $37.5 billion—a figure that underscores why Republicans are pushing a $95 billion military funding package through Congress.
 
-Hegseth appeared before the Senate Appropriations Committee Tuesday as GOP lawmakers push the spending measure. The updated $37.5 billion figure includes additional military pay, operations, and maintenance costs, according to the defense chief (9News Denver).
+Hegseth appeared before the Senate Appropriations Committee Tuesday to defend the spending request, which includes additional military pay, operations, and maintenance costs through the fiscal year (Washington Examiner). The figure reflects the mounting expense of sustained Middle East operations.
 
-Republicans argue robust defense spending is essential to counter Iranian threats and maintain American military superiority in the Middle East. The party frames the request as necessary investment in troops and capabilities.
+Republicans argue the funding is essential to maintain military readiness and deter adversaries like Iran. The $95 billion package represents their commitment to a strong defense posture amid global tensions.
 
-Democrats have not yet articulated a unified response to the specific figure, though the party has historically questioned the long-term costs and strategic rationale for sustained Middle East operations.
+Democrats have not yet mounted a unified counter-argument to the specific request, though progressives generally argue for restraint in military spending and reallocation toward domestic priorities.
 
-**Colorado angle:** Defense spending directly affects Colorado's military installations, including Fort Carson and the Air Force Academy, plus defense contractors and their workers across the state.
+For Colorado, this matters: the state hosts significant military installations, including Fort Carson and Schrieder Space Force Base, which depend on defense appropriations for payroll, operations, and economic activity across El Paso and surrounding counties. Defense spending directly supports thousands of Colorado jobs and local economies.
 
-**Watch next:** Whether Senate Democrats block or delay the $95 billion package—and how that vote splits along party lines.
+**Watch next:** Whether Congress approves the full $95 billion package or negotiates it down—and how Colorado's military-dependent regions fare in the final allocation.
