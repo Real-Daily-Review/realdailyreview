@@ -1,25 +1,26 @@
 ---
 title: Colorado Schools Demand $177M in New Taxes Despite Shrinking Enrollment
 description: >-
-  Jefferson County and Denver Public Schools seek $177 million in new taxes as
-  student enrollment declines, raising questions about fiscal management and
-  priorities.
-pubDate: '2026-08-27T02:49:24.075Z'
+  Jefferson County and Denver Public Schools seek $177 million in combined tax
+  increases. Conservatives question why districts need more funding as student
+  populations decline.
+pubDate: '2026-08-27T19:52:06.445Z'
 section: politics
 tags:
-  - education
   - taxes
+  - education
   - colorado-schools
   - fiscal-policy
 perspectives:
   - label: Conservatives
     summary: >-
-      School districts should cut administrative bloat and prove fiscal
-      responsibility before demanding new taxes from struggling families.
+      School districts should right-size operations to match declining
+      enrollment, not demand tax hikes. Bloated bureaucracies prioritize raises
+      over fiscal discipline.
   - label: Democrats
     summary: >-
-      Teacher pay and school funding have not kept pace with inflation; new
-      revenue is necessary to maintain quality education.
+      Education funding is chronically underfunded. Competitive salaries are
+      necessary to attract quality teachers and support student outcomes.
 sources:
   - title: Jeffco schools asking $133 million more from taxpayers
     url: >-
@@ -34,16 +35,14 @@ sources:
 aiGenerated: true
 draft: false
 ---
-# Colorado School Districts Seek $177M in New Taxes as Enrollment Drops
+# Colorado School Districts Demand $177M More From Taxpayers Amid Shrinking Enrollment
 
-Two major Colorado school districts are asking taxpayers to foot massive bills even as student enrollment shrinks—a classic case of government spending growth divorced from results.
+Jefferson County Schools is asking voters for a $133 million tax increase even as the district's student population declines—a move that exposes the real problem with government education spending: bloated bureaucracies that grow regardless of demand.
 
-Jefferson County Schools wants $133 million more (Complete Colorado), while Denver Public Schools is pushing a $44 million mill levy override in November, with $25.8 million earmarked for employee raises (Denver Post). Combined, that's $177 million in new tax burden on Colorado families already squeezed by inflation and housing costs.
+Meanwhile, Denver Public Schools is pushing a $44 million mill levy override in November, with $25.8 million earmarked for employee raises (Complete Colorado, Denver Post). Combined, these two major districts are asking Colorado families for nearly $177 million in new taxes.
 
-The timing is telling. Jeffco is simultaneously locked in federal litigation over transgender-student policies—raising questions about whether taxpayer dollars are funding ideological battles rather than classroom instruction. Neither district has made a compelling case that throwing more money at bloated bureaucracies will improve academic outcomes, especially when both are losing students.
+Republicans and fiscal conservatives argue these requests ignore a fundamental reality: fewer students should mean lower costs, not higher taxes. Instead of right-sizing operations, school bureaucracies are asking taxpayers to subsidize the same overhead. The Jeffco litigation over transgender-student policies adds another layer—taxpayers are funding both the district's legal defense and demands for more revenue.
 
-Republicans and fiscal conservatives argue that Colorado school districts have demonstrated chronic mismanagement and mission drift. Before asking voters for more, these districts should cut administrative overhead, freeze non-instructional spending, and prove they can educate kids efficiently with existing resources.
+Democrats counter that education funding is chronically underfunded and that competitive salaries are necessary to attract quality teachers. The left frames these levies as investments in Colorado's future.
 
-Democrats counter that teacher pay and school funding have lagged inflation, necessitating new revenue.
-
-Watch whether Colorado voters—increasingly skeptical of tax hikes—reject these asks or whether school boards use scare tactics to ram them through.
+Conservatives say the real issue is accountability: districts should demonstrate fiscal discipline and transparent budget priorities before asking for more. Watch whether Colorado voters reject these tax hikes or approve them—a bellwether for taxpayer patience with education spending.
