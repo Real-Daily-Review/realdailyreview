@@ -1,25 +1,23 @@
 ---
 title: Texas Court Upholds Energy Contracts—Colorado Should Take Note
 description: >-
-  A Texas judge ruled that energy contracts must be honored, offering a lesson
-  for Colorado as state Democrats push policies that discourage reliable power
-  infrastructure investment.
-pubDate: '2026-09-04T16:01:27.003Z'
+  A Texas judge rejected a utility's attempt to break natural-gas contracts,
+  underscoring why stable energy infrastructure and market discipline matter for
+  grid reliability and consumer costs.
+pubDate: '2026-09-04T16:40:43.283Z'
 section: national
 tags:
   - energy
   - infrastructure
-  - contracts
-  - colorado-economy
+  - natural-gas
+  - grid-reliability
 perspectives:
-  - label: Republicans
+  - label: Conservatives
     summary: >-
-      Honoring energy contracts and protecting property rights is essential to
-      reliable, affordable power and attracts infrastructure investment.
-  - label: Democrats
-    summary: >-
-      Climate and environmental goals may justify regulatory intervention in
-      energy markets, even if it disrupts existing agreements.
+      Market contracts and reliable energy infrastructure—not political
+      mandates—keep power flowing and prices stable. Politicians who undermine
+      natural-gas development and long-term energy commitments destabilize grids
+      and inflate costs.
 sources:
   - title: >-
       Politicians keep sabotaging energy infrastructure — then wonder why prices
@@ -30,14 +28,14 @@ sources:
 aiGenerated: true
 draft: false
 ---
-# Energy Contracts and Colorado's Power Future
+# Energy Contracts, Not Politics, Keep the Lights On—and Prices Down
 
-Colorado's energy future depends on whether politicians will honor market agreements or sabotage them in pursuit of green ideology. A Texas court case offers a cautionary tale: when San Antonio's municipal utility tried to walk away from natural-gas contracts after the 2021 winter storm, a state judge ruled that contracts actually matter—a principle Colorado's progressive policymakers seem determined to ignore.
+Colorado's energy future depends on whether politicians respect market discipline or sabotage the infrastructure that keeps power flowing and costs manageable.
 
-The Washington Examiner reports that CPS Energy attempted to escape pipeline agreements with Energy Transfer during Winter Storm Uri, when short-term gas purchases spiked in price. The court's decision reinforced a basic economic truth: reliable energy infrastructure requires stable, enforceable contracts. Without them, companies won't invest in pipelines, storage, or generation capacity.
+A Texas court case offers a cautionary tale. When San Antonio's municipal utility, CPS Energy, tried to walk away from natural-gas contracts after Winter Storm Uri in 2021, a state judge rejected the move—sending a clear message that contracts matter (Washington Examiner). The utility had relied on short-term gas purchases during the crisis, then sought to escape long-term agreements when prices stabilized.
 
-Colorado faces a similar reckoning. State Democrats have pushed aggressive renewable mandates and regulatory barriers to natural gas and coal development, discouraging the long-term infrastructure investment that keeps power reliable and affordable. When politicians treat energy contracts as negotiable based on political winds, investors flee—and consumers pay the price through higher bills and grid instability.
+Conservatives argue this case illustrates a broader problem: politicians and regulators who undermine reliable energy infrastructure, then act shocked when prices spike. When governments discourage natural-gas development, pipeline expansion, or long-term energy commitments in favor of renewable mandates and green-energy subsidies, they destabilize the grid and inflate consumer costs.
 
-Republicans argue that honoring market agreements and protecting property rights is essential to energy affordability. The left counters that climate goals justify regulatory intervention.
+Colorado faces this pressure acutely. State lawmakers have pushed aggressive renewable targets and restrictions on fossil-fuel development, even as the grid's reliability depends on dispatchable natural gas. Utilities and energy companies need certainty—stable contracts, predictable permitting, and respect for property rights—to invest in the infrastructure that keeps Colorado's economy humming.
 
-**Watch whether Colorado regulators will protect contractual certainty or continue imposing rules that discourage reliable energy development.**
+**Watch whether Colorado regulators and legislators protect energy contracts and infrastructure investment, or continue prioritizing ideological energy mandates over grid stability and affordability.**
