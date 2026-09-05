@@ -1,27 +1,26 @@
 ---
 title: Colorado Bear Killings Hit Record 294 as Drought Drives Wildlife Crisis
 description: >-
-  Colorado Parks and Wildlife euthanized 294 bears in 2026, triple last year's
-  total, as drought and wildfire push starving bears into towns. State
-  land-management failures blamed.
-pubDate: '2026-09-05T12:45:32.698Z'
+  Colorado Parks and Wildlife euthanizes 294 bears in 2026, triple last year's
+  number, as drought and wildfire push hungry bears into towns and
+  neighborhoods.
+pubDate: '2026-09-05T15:43:02.158Z'
 section: politics
 tags:
-  - wildlife
-  - water
-  - land-use
+  - wildlife-management
   - drought
-  - colorado-environment
+  - colorado-parks-and-wildlife
+  - forest-policy
 perspectives:
-  - label: Conservatives
+  - label: Wildlife Officials & Public Safety Advocates
     summary: >-
-      State land-management failures—fire suppression, overgrown forests,
-      water-use policies—created conditions for crisis; demand better forest
-      health and water infrastructure, not new restrictions.
-  - label: Democrats/Environmentalists
+      Bear euthanasia is necessary when habituated wildlife threatens human
+      safety and property; prevention requires habitat restoration and forest
+      management.
+  - label: Animal Rights Groups
     summary: >-
-      Climate change and development encroachment are root causes; call for
-      stricter land-use protections and habitat preservation.
+      Killing is excessive; better prevention, garbage management, and habitat
+      restoration should precede lethal removal.
 sources:
   - title: >-
       Colorado has killed 294 bears this year, more than 3 times the number
@@ -40,14 +39,12 @@ draft: false
 ---
 # Colorado Bear Killings Hit Record as Drought, Wildfire Drive Wildlife Into Towns
 
-Colorado Parks and Wildlife has euthanized 294 bears this year—more than triple last year's toll—as drought and wildfire push starving wildlife into residential areas and force a grim choice between public safety and animal welfare.
+Colorado Parks and Wildlife has euthanized 294 bears this year—more than triple last year's toll—as drought and wildfire push hungry wildlife into residential areas at unprecedented rates, forcing a grim choice between public safety and animal management.
 
-The spike reflects a cascading environmental crisis: prolonged drought has decimated natural food sources, while wildfires destroy habitat and force bears downslope into subdivisions and towns searching for garbage, pet food, and anything edible. Each bear encounter near homes typically ends one way—a lethal injection.
+The spike reflects a cascade of environmental pressures: prolonged drought has decimated natural food sources in Colorado's forests, while wildfire has destroyed habitat across the state. Bears, desperate for calories, are raiding garbage cans, breaking into homes, and appearing in backyards from Denver suburbs to mountain communities. Each encounter that turns dangerous ends in euthanasia—a tragic but necessary response when a 300-pound predator poses a threat to families.
 
-Conservatives and property owners argue the state's land-management failures—decades of fire suppression, overgrown forests, and water-use policies favoring environmental mandates over agricultural and municipal needs—have created the conditions for this disaster. Better forest management, controlled burns, and water infrastructure investment could reduce both wildfire severity and wildlife desperation.
+Colorado Parks and Wildlife faces a no-win scenario. Conservatives and rural residents argue that wildlife management must prioritize human safety and property protection; bears that lose their natural fear of humans become liabilities. Yet animal-rights advocates push back against the killing, demanding better prevention measures and habitat restoration instead.
 
-Democrats and environmental groups counter that climate change and development encroachment are the root causes, requiring stricter land-use restrictions and habitat protection.
+The real culprit? Years of forest mismanagement, fire suppression policies, and climate-driven drought have left Colorado's wilderness in crisis. Preventing future bear deaths requires addressing the root causes: thinning overcrowded forests, restoring water resources, and managing wildfire risk—not just managing the symptoms.
 
-The real issue: Colorado's regulatory approach to water and forestry has left the state unprepared for the consequences. As bear euthanasia numbers climb, taxpayers should demand accountability from state wildlife officials and legislators on why preventive land management wasn't prioritized years ago.
-
-Watch whether CPW proposes new restrictions on rural property owners versus investing in forest health and water security.
+Watch for whether state wildlife officials will push for more aggressive forest restoration funding or continue reactive bear culls.
