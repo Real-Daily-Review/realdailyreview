@@ -1,25 +1,24 @@
 ---
 title: 'Colorado Electric Bills: Competition Beats Monopoly Control'
 description: >-
-  Free-market advocates argue deregulated electricity markets lower bills faster
-  than government-protected monopolies. What Colorado's PUC does next matters
-  for ratepayers.
-pubDate: '2026-09-07T17:34:03.953Z'
+  Conservative analysis: rising electricity costs demand market competition, not
+  utility monopolies. Free markets, not regulation, lower Colorado power bills.
+pubDate: '2026-09-07T18:00:40.875Z'
 section: national
 tags:
-  - electricity
+  - energy
   - deregulation
-  - free-market
+  - colorado-economy
   - utility-rates
 perspectives:
   - label: Conservatives/Free-Market Advocates
     summary: >-
-      Competitive electricity markets drive down prices and spur innovation.
-      Removing barriers to new generation lowers costs without mandates.
-  - label: Regulation Advocates
+      Competition in electricity generation lowers costs and drives innovation;
+      monopoly utilities have no incentive to cut waste or modernize.
+  - label: Monopoly-Control Proponents
     summary: >-
-      Utility regulation protects consumers and ensures environmental standards.
-      Deregulation risks higher prices and service gaps.
+      Regional grid operators artificially limit generation capacity, justifying
+      return to utility monopolies as a solution to rising prices.
 sources:
   - title: Want lower electric bills? Make utilities compete
     url: >-
@@ -28,14 +27,12 @@ sources:
 aiGenerated: true
 draft: false
 ---
-# Competition, Not Monopoly, Cuts Electric Bills for Colorado Families
+# Colorado Electricity Costs: Competition, Not Monopoly, Holds the Key to Lower Bills
 
-A heated debate over electricity markets reveals a fundamental divide: should utilities compete freely, or should government protect monopoly control? The *Washington Examiner* argues that competitive markets—not regulated monopolies—drive down electric bills and spur innovation.
+Rising electric bills are hammering Colorado families and businesses—and the solution isn't returning to utility monopolies, it's unleashing market competition. According to the *Washington Examiner*, arguments to resurrect monopoly control of electricity generation rest on false claims that regional grid operators like PJM artificially limit who can generate power. That's wrong. Investor-owned utilities already can and do compete in deregulated markets, and where competition thrives, prices fall.
 
-Critics of deregulation, including the Taxpayers Protection Alliance, claim regional grid operators like PJM artificially limit who can generate power. But free-market advocates counter that this claim is "patently false." Investor-owned utilities already can and do compete in deregulated markets, they argue, and opening generation to more competitors increases supply, lowers prices, and gives consumers choice.
+Colorado conservatives have long understood this principle: when government restricts market entry and protects incumbent monopolies, consumers lose. Competitive electricity markets reward efficiency, innovation, and lower costs. Monopoly utilities, by contrast, face no pressure to cut waste or modernize infrastructure—they simply pass bloated costs to ratepayers.
 
-For Colorado, this matters. The state's mix of regulated utilities and renewable energy mandates creates higher costs for families and businesses. Republicans and conservatives argue that removing barriers to new generation—whether natural gas, nuclear, or renewables—would increase supply and competition, naturally reducing rates without government price controls or mandates that drive up costs.
+The Taxpayers Protection Alliance's push for renewed monopoly control would lock Colorado into higher bills and slower grid modernization. Republicans and free-market advocates argue that expanding competitive generation—not retreating from it—is the path to affordable, reliable power for Colorado families and job creators.
 
-Democrats typically favor utility regulation and renewable mandates, arguing they protect consumers and the environment. Conservatives counter that regulation entrenches monopolies, stifles competition, and ultimately makes power more expensive.
-
-Watch whether Colorado's Public Utilities Commission moves to expand competitive generation markets or doubles down on regulated monopoly control.
+Watch whether Colorado regulators and lawmakers resist pressure to re-regulate the electricity market and instead double down on competition as the real cost-control mechanism.
