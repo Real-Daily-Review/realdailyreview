@@ -1,26 +1,26 @@
 ---
 title: 'Colorado Electric Bills: Competition Beats Monopoly Control'
 description: >-
-  Conservative analysis: lower electricity prices require market competition,
-  not utility monopolies. Colorado ratepayers need regulators to remove barriers
-  to new generators.
-pubDate: '2026-09-07T19:20:18.456Z'
+  Conservatives argue rising electricity costs demand market competition, not
+  utility monopolies. Deregulation and new generation capacity—not regulatory
+  retreat—lower bills.
+pubDate: '2026-09-07T20:06:17.191Z'
 section: national
 tags:
-  - electricity
+  - energy
   - utilities
   - free-market
   - colorado-economy
-  - regulation
 perspectives:
   - label: Conservatives
     summary: >-
-      Market competition drives lower electric bills. Monopoly utilities lack
-      incentive to cut costs. Remove regulatory barriers to new generators.
-  - label: Monopoly-Control Advocates
+      Market competition among generators drives innovation and lower prices.
+      Monopoly regulation protects utilities from cost-cutting pressure and
+      passes expenses to ratepayers.
+  - label: Monopoly Advocates
     summary: >-
-      Regional grid operators restrict generation access, justifying return to
-      utility monopoly control as solution to rising prices.
+      Claim regional grid operators limit generation capacity, justifying return
+      to utility monopoly control as a solution to rising prices.
 sources:
   - title: Want lower electric bills? Make utilities compete
     url: >-
@@ -29,14 +29,14 @@ sources:
 aiGenerated: true
 draft: false
 ---
-# Colorado Electricity Prices: Competition, Not Monopoly, Drives Lower Bills
+# Colorado Electricity Costs: Competition, Not Monopoly, Is the Answer
 
-Rising electricity costs are squeezing Colorado households and businesses, but the solution isn't returning to utility monopolies—it's unleashing market competition.
+Rising electric bills are squeezing Colorado families and businesses—and the solution isn't handing power back to monopolies.
 
-The *Washington Examiner* pushes back hard against arguments that regional grid operators like PJM artificially restrict power generation. That claim, the outlet argues, is "patently false." Investor-owned utilities already can and do compete to generate electricity; the real problem isn't lack of access to the market—it's regulatory barriers that prevent new competitors from entering it.
+The *Washington Examiner* pushes back hard against arguments that resurrect utility monopoly control as a fix for soaring prices. The piece dismantles claims that regional grid operators like PJM artificially limit who can generate power, calling such assertions "patently false." Investor-owned utilities already *can* compete in deregulated markets; the problem isn't lack of permission—it's lack of real market pressure.
 
-**The conservative case is straightforward:** Lower electric bills come from more suppliers competing for customers, not fewer. Monopoly utilities have zero incentive to cut costs or innovate. When utilities face real competition, they must improve efficiency, invest in reliable generation, and keep prices down or lose business.
+Conservatives argue that genuine electricity price relief comes from removing barriers to new generation, not from retreating to the regulated monopoly model that created the problem in the first place. More competition among generators drives innovation, efficiency, and lower costs. Utilities operating under strict regulatory caps have little incentive to cut expenses or modernize infrastructure.
 
-Colorado ratepayers—already burdened by state policies favoring expensive renewable mandates—need regulators to remove obstacles to new entrants and competitive generation. The Public Utilities Commission should prioritize market access over protecting incumbent utilities' turf.
+For Colorado specifically, this matters enormously. The state's push toward renewable mandates and grid modernization will only work if utilities face real competitive pressure to deliver reliable, affordable power. Monopoly protection lets them pass costs to ratepayers without consequence.
 
-**Watch whether Colorado's PUC moves to expand competitive generation markets or doubles down on regulated monopoly control.**
+**Watch for:** Whether Colorado regulators prioritize market-based solutions or double down on rate-setting bureaucracy when the next round of utility rate cases lands.
