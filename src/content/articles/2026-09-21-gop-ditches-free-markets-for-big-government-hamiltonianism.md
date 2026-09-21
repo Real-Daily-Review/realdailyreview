@@ -1,26 +1,26 @@
 ---
 title: GOP Ditches Free Markets for Big-Government Hamiltonianism
 description: >-
-  VP Vance signals Republicans are abandoning Milton Friedman's free-market
-  tradition for Alexander Hamilton's strong central government model. What it
-  means for Colorado.
-pubDate: '2026-09-21T05:17:23.335Z'
+  VP Vance signals Republican shift from Milton Friedman's free-market
+  conservatism to Alexander Hamilton's strong central government model, raising
+  concerns for limited-government conservatives.
+pubDate: '2026-09-21T06:34:45.166Z'
 section: national
 tags:
-  - gop-philosophy
+  - gop-direction
   - free-markets
+  - federal-power
   - vance
-  - colorado-economy
 perspectives:
-  - label: Vance/Modern GOP
+  - label: Vance and Hamiltonian Republicans
     summary: >-
-      Hamiltonian economics—strong central government directing markets—is
-      superior to Friedman's free-market default and represents necessary
-      evolution.
+      Strong central government directing economic outcomes is 'obviously a good
+      thing' and represents necessary evolution of right-of-center policy.
   - label: Free-Market Conservatives
     summary: >-
-      Abandoning market-first principles opens the door to cronyism, subsidies,
-      and regulatory favoritism that harm competition and taxpayers.
+      Abandoning Friedman's market-first approach for government-directed
+      capitalism betrays core conservative principles and threatens limited
+      government.
 sources:
   - title: Vance and the GOP's Hamiltonian turn
     url: >-
@@ -29,16 +29,12 @@ sources:
 aiGenerated: true
 draft: false
 ---
-# GOP's Hamiltonian Pivot: What It Means for Colorado Conservatives
+# GOP Abandons Free-Market Conservatism for Big-Government Hamiltonianism
 
-Vice President JD Vance is openly abandoning free-market conservatism in favor of big-government industrial policy—and calling it progress.
+Vice President JD Vance has declared that Republican economic policy is now "much more Alexander Hamilton than it is Milton Friedman"—and he's calling it progress. That's a red flag for Colorado conservatives who've long championed limited government and free markets.
 
-Vance recently declared that right-of-center economic policy is now "much more Alexander Hamilton than it is Milton Friedman," and he's framed this shift as "obviously a good thing" (Washington Examiner). The distinction matters: Friedman's tradition treated markets as the default and government intervention as the exception requiring justification. Hamilton's approach elevated a strong central government as the economic driver.
+The shift is stark. Milton Friedman's tradition treated markets as the default and government intervention as the exception requiring justification. Hamilton's approach? A strong central government directing economic outcomes. Vance has endorsed this pivot explicitly, signaling the GOP's embrace of industrial policy, tariffs, and state-directed capitalism over the classical liberal economics that once defined the right.
 
-**What conservatives should know:** This represents a fundamental break from the limited-government principles that animated the Reagan era and the Tea Party movement. The Hamiltonian model opens the door to industrial picking, subsidies, tariffs, and regulatory favoritism—the very tools progressives use to engineer outcomes.
+For Colorado, this matters. A Hamiltonian GOP could mean more federal control over energy development, water policy, and land use—exactly the kind of centralized planning that has strangled Colorado's energy sector and ranching communities. It also raises questions about whether Republicans will actually shrink government or simply redirect its power toward favored industries and constituencies.
 
-**Colorado angle:** If the GOP embraces Hamiltonian economics, expect pressure on Colorado energy policy. Rather than letting markets drive energy development, Washington could mandate winners and losers in oil, gas, and renewables. Taxpayers and businesses that don't align with federal industrial priorities could face the squeeze.
-
-The real question: Is the GOP becoming the party of limited government, or the party of *different* government control?
-
-Watch whether Colorado Republicans in Congress push back on this philosophical shift—or fall in line.
+Conservatives should watch whether this Vance doctrine translates into actual policy—and whether Colorado Republicans will push back against federal overreach or embrace the new interventionism.
