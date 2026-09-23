@@ -1,25 +1,25 @@
 ---
 title: Trump's Press Ban Splits Conservatives; National Review Calls for Reversal
 description: >-
-  Donald Trump's reported press ban draws criticism from both left and right.
-  National Review argues it violates free press principles; Colorado Sun calls
-  it a disaster.
-pubDate: '2026-09-23T17:36:32.661Z'
+  Donald Trump's press restrictions draw criticism from right and left. National
+  Review argues the ban violates free-press principles; Colorado Sun calls it a
+  strategic disaster.
+pubDate: '2026-09-23T22:10:47.569Z'
 section: politics
 tags:
   - press-freedom
   - trump
-  - constitutional-rights
+  - first-amendment
   - colorado-politics
 perspectives:
-  - label: Conservatives (National Review)
+  - label: Conservatives/National Review
     summary: >-
-      Press restrictions violate the spirit of free press and weaken Trump's
-      position; direct confrontation with reporters is preferable to bans.
-  - label: Progressives (Colorado Sun)
+      Press ban violates free-press principles and weakens Trump's position;
+      direct confrontation with reporters is more effective.
+  - label: The Left/Colorado Sun
     summary: >-
-      Trump's war on the press is a disaster comparable to his foreign policy
-      failures.
+      Ban represents authoritarian overreach comparable to failed foreign policy
+      decisions.
 sources:
   - title: >-
       Littwin: Not unlike the war in Iran, Trump's war on the press looks like a
@@ -35,12 +35,12 @@ draft: false
 ---
 # Trump's Press Ban Draws Fire From Right and Left—But for Different Reasons
 
-Donald Trump's reported ban on certain press outlets has triggered rare bipartisan criticism, though conservatives and progressives are arguing past each other about what it means.
+Donald Trump's restrictions on press access are backfiring politically, with criticism coming from unexpected quarters. The Colorado Sun's Mike Littwin compares the move to Trump's Iran policy, calling it a strategic disaster. But the sharpest rebuke comes from the right: National Review argues Trump should rescind the ban entirely, contending it violates free-press principles and weakens his position against hostile reporters.
 
-The Colorado Sun's Mike Littwin frames the move as catastrophic overreach, comparing it to Trump's foreign policy decisions (Colorado Sun). But National Review—a stalwart conservative publication—breaks ranks, arguing that Trump should rescind the ban outright. The magazine contends it violates "the spirit of a free press" and that Trump would be better served confronting hostile reporters directly rather than silencing them (National Review).
+**Republicans argue** the ban is counterproductive. Rather than limiting media criticism through access restrictions, they say Trump should confront reporters directly—a tactic that has historically worked better for him. National Review's position reflects conservative concern that government-imposed press restrictions, even by a Republican president, set a dangerous precedent and undermine the First Amendment protections conservatives claim to champion.
 
-This split matters. Conservatives who champion limited government and constitutional restraint recognize that press restrictions, even against outlets they despise, set a dangerous precedent. When government—any government—picks winners and losers in media, it erodes the very freedoms that protect dissent and hold power accountable.
+**The left**, predictably, frames this as authoritarianism. Littwin's comparison to foreign policy failures suggests Democrats see the press ban as part of a broader pattern of executive overreach.
 
-For Colorado taxpayers and business owners, the principle cuts deeper: if a president can ban press outlets today, tomorrow's administration might ban outlets *you* rely on. Free speech and press freedom aren't partisan luxuries—they're guardrails against tyranny.
+For Colorado conservatives and taxpayers, the real issue is consistency: if you oppose regulatory overreach and government power grabs, you can't selectively endorse them when your preferred candidate is in charge. Free speech and press freedom aren't partisan conveniences.
 
-Watch whether Trump reverses course or doubles down on media restrictions in coming weeks.
+Watch whether Trump reverses course—and whether Colorado Republicans distance themselves from the ban or defend it.
