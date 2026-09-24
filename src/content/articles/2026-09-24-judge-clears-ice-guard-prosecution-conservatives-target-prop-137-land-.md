@@ -1,21 +1,26 @@
 ---
-title: Judge Clears ICE Guard Prosecution; Conservatives Target Prop 137 Land Grab
+title: Judge Clears ICE Guard Prosecution; Conservatives Target Prop 137 Land Tax
 description: >-
-  Colorado judge rules sufficient evidence exists to prosecute ex-ICE guard in
-  protest shooting. Conservatives warn Proposition 137 would funnel taxpayer
-  dollars to wealthy environmental NGOs.
-pubDate: '2026-09-24T06:16:53.697Z'
+  Colorado judge advances case against ex-ICE guard in protest shooting.
+  Conservative groups attack Proposition 137 as taxpayer subsidy for wealthy
+  environmental NGOs.
+pubDate: '2026-09-24T17:39:24.703Z'
 section: politics
 tags:
-  - colorado-politics
-  - proposition-137
+  - colorado-ballot
+  - government-spending
   - land-use
-  - taxpayer-spending
+  - taxpayers
 perspectives:
   - label: Conservatives
     summary: >-
-      Prop 137 is crony capitalism—public money enriching private environmental
-      nonprofits with ideological agendas, not transparent accountability.
+      Prop 137 funnels Colorado tax dollars to wealthy nonprofits like The
+      Nature Conservancy instead of letting markets and voluntary efforts drive
+      conservation.
+  - label: Proposition 137 Supporters
+    summary: >-
+      Land conservation requires dedicated public funding to protect Colorado's
+      natural resources and outdoor economy.
 sources:
   - title: >-
       Case against ex-ICE detention center guard who shot Colorado protester
@@ -30,12 +35,10 @@ sources:
 aiGenerated: true
 draft: false
 ---
-# Ex-ICE Guard Faces Trial; Conservatives Warn Against Prop 137 Land Grab
+# Ex-ICE Guard Faces Trial Over Protest Shooting; Prop 137 Draws Fire from Taxpayer Advocates
 
-A Colorado judge has ruled there is sufficient evidence to prosecute Brandon Booth, an ex-ICE detention center guard accused of shooting toward protesters who allegedly made inflammatory remarks about "race traitors" and threatened to locate guards' children, according to the Colorado Sun. The case underscores tensions surrounding immigration enforcement facilities in the state.
+A Colorado judge has cleared the way for prosecution of Brandon Booth, an ex-ICE detention center guard accused of shooting toward female protesters who confronted him about "race traitors" and threatened to locate guards' children, according to the Colorado Sun. The ruling found sufficient evidence to proceed with charges.
 
-Meanwhile, conservatives are mounting a forceful challenge to Proposition 137, a ballot measure that would funnel Colorado taxpayer dollars to wealthy environmental nonprofits—chiefly The Nature Conservancy, the initiative's primary sponsor. Complete Colorado's editorial board warns the measure amounts to a backdoor subsidy for special interests masquerading as conservation policy. Rather than letting market forces and private landowners manage Colorado's natural resources, Prop 137 would expand government spending and regulatory control over land use decisions that directly affect ranchers, farmers, and property owners across the state.
+Meanwhile, conservative taxpayer advocates are mounting a direct challenge to Proposition 137, Colorado's ballot measure that would dedicate state funding to land conservation. Complete Colorado reports that critics argue the initiative amounts to a taxpayer-financed subsidy for wealthy nonprofits—specifically naming The Nature Conservancy as the proposition's primary sponsor. Conservatives contend this represents government overreach: funneling public dollars to private environmental organizations rather than letting market forces and voluntary conservation efforts drive land stewardship.
 
-Republicans argue the measure represents exactly the kind of crony capitalism and progressive overreach Coloradans should reject: public money enriching private organizations with ideological agendas, not transparent accountability to voters.
-
-Watch whether Colorado voters reject Prop 137 in November—a bellwether for taxpayer appetite for green-agenda spending.
+The Prop 137 fight reflects a broader Colorado conservative concern: progressive ballot measures that expand government spending and redirect tax revenue to ideologically aligned groups under the guise of public benefit. Taxpayers should watch whether similar "conservation" measures gain traction in November and whether Republicans effectively communicate the cost-to-benefit ratio to voters tired of seeing their dollars flow to activist organizations.
