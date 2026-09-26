@@ -1,22 +1,16 @@
 ---
 title: California's AI Audit Rules Skip the Truth Requirement
 description: >-
-  California's new AI audit regulations lack any requirement that auditors
-  verify AI accuracy. Conservatives warn Colorado against copying flawed
-  regulatory theater.
-pubDate: '2026-09-26T16:50:05.070Z'
+  California's new AI audit regulations lack any requirement for auditors to
+  verify accuracy, exposing a flaw in progressive regulatory design that
+  Colorado should avoid.
+pubDate: '2026-09-26T18:40:48.263Z'
 section: national
 tags:
   - ai-regulation
   - california-policy
-  - colorado-tech
-  - regulatory-overreach
-perspectives:
-  - label: Conservatives
-    summary: >-
-      Regulations without truth requirements are regulatory theater that burdens
-      honest companies while protecting bad actors. Market competition and
-      liability law are better tools.
+  - business-compliance
+perspectives: []
 sources:
   - title: California just regulated AI audits — and forgot to require the truth
     url: >-
@@ -25,14 +19,14 @@ sources:
 aiGenerated: true
 draft: false
 ---
-# California's AI Audit Rules Miss the Mark—Colorado Should Learn From the Mistake
+# California's Half-Baked AI Audit Rules Show Why Progressive Regulation Fails
 
-California just handed down some of the nation's first artificial intelligence audit regulations, but they've already exposed a fundamental flaw: nothing requires auditors to verify that AI systems actually work as claimed.
+California's new artificial intelligence audit rules, enacted September 9, are a cautionary tale for Colorado and other states tempted to follow the Golden State's regulatory playbook.
 
-According to the *Washington Examiner*, the state's September 9 rules set standards for who can audit AI—a reasonable starting point. But the problem is glaring: the regulations lack any requirement that auditors prove the AI produces accurate results. That's like hiring an accountant who never has to check if the math is right.
+The state established some of the nation's first standards for AI auditors—a reasonable impulse. But here's the catch: the rules don't actually require auditors to verify that AI systems tell the truth. According to the *Washington Examiner*, an op-ed by a former public company audit board member notes that California "got more right than wrong" structurally, but the fatal flaw is the absence of any mandate for accuracy verification.
 
-Conservatives argue this typifies progressive regulation: bureaucratic theater that creates the appearance of oversight without enforcing accountability. Rules that don't demand truth are rules that protect bad actors while burdening honest companies with compliance costs.
+This is classic progressive regulation: create the appearance of oversight while leaving the substance hollow. Auditors can sign off on AI systems without proving they work reliably—a recipe for liability disasters and consumer harm.
 
-For Colorado, this matters. As AI adoption spreads across our tech sector, energy companies, and financial services, state policymakers will face pressure to copy California's approach. Colorado conservatives should resist feel-good regulations that impose costs without real safeguards. Better to let market competition and liability law police AI accuracy than create another regulatory maze that shields incompetence.
+**The Colorado angle:** As tech companies expand operations and Colorado considers its own AI governance, state lawmakers should reject California's model. Colorado businesses don't need feel-good regulations that create compliance costs without real accountability. Republicans should push for rules that actually require proof of performance, not just bureaucratic checkboxes.
 
-Watch whether Colorado legislators propose their own AI audit rules—and whether they'll have the sense to require auditors to actually verify the truth.
+Watch whether Colorado legislators propose their own AI audit standards—and whether they learn from California's mistake or repeat it.
