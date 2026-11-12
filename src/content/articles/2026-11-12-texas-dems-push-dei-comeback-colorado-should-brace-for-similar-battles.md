@@ -1,27 +1,26 @@
 ---
 title: Texas Dems Push DEI Comeback; Colorado Should Brace for Similar Battles
 description: >-
-  Texas Democrats introduce bills to repeal 2023 DEI ban at universities.
-  Colorado conservatives should watch for similar pressure on state agencies and
-  higher education.
-pubDate: '2026-11-12T15:29:29.554Z'
+  Texas Democrats introduce bills to repeal DEI university ban after election
+  wins. Colorado conservatives warn of similar ideological overreach in state
+  institutions.
+pubDate: '2026-11-12T19:42:17.076Z'
 section: national
 tags:
   - dei
   - education
-  - colorado-politics
+  - colorado-universities
   - progressive-overreach
 perspectives:
-  - label: Republicans
+  - label: Republicans/Conservatives
     summary: >-
-      DEI programs represent ideological overreach prioritizing identity
-      politics over merit; the 2023 ban reflected legitimate voter frustration
-      with wasteful, divisive mandates.
+      DEI programs discriminate based on race, undermine merit, and waste
+      resources. Texas repeal attempt proves the left won't abandon these
+      initiatives without voter pressure.
   - label: Democrats
     summary: >-
-      DEI initiatives promote equity and inclusion in higher education;
-      repealing the ban corrects a discriminatory policy that harms
-      underrepresented students.
+      DEI programs promote inclusion and address systemic inequities in higher
+      education. Repeal of such protections harms diversity and belonging.
 sources:
   - title: Texas Democrats put DEI back on agenda after sweeping to power
     url: >-
@@ -42,12 +41,10 @@ draft: false
 ---
 # Texas Democrats Double Down on DEI After Election Win—Colorado Should Take Note
 
-Texas Democrats are wasting no time: they've introduced bills to repeal the state's 2023 law banning DEI programs at universities, signaling an aggressive push to resurrect the controversial initiatives (Fox News). The move comes after Democrats gained ground in recent elections, emboldening the left to resurrect policies that faced fierce Republican opposition.
+Texas Democrats are wasting no time pushing radical social engineering back into universities after recent electoral gains, introducing bills to repeal the state's 2023 law banning DEI programs (Fox News). The move signals Democrats' commitment to identity politics over merit-based hiring and admissions—a warning for Colorado voters watching similar battles unfold in our own universities and state agencies.
 
-Republicans argue DEI programs represent ideological overreach that prioritizes identity politics over merit and educational quality. Conservatives say the 2023 ban reflected voter frustration with corporate and academic DEI mandates that many saw as divisive and wasteful. The GOP's counterargument: these programs don't solve real problems—they create them.
+Republicans argue DEI programs discriminate based on race and ideology, diverting resources from actual educational excellence. Conservatives say the Texas repeal attempt proves the left won't abandon these initiatives voluntarily, even after voters rejected them. The Colorado angle matters: our own universities and public institutions have expanded DEI bureaucracies significantly, and state lawmakers should watch whether Texas Democrats succeed in reversing common-sense reforms.
 
-Meanwhile, Democratic Rep. Ro Khanna is pushing back against warnings that Trump-era investigations could distract from his party's affordability agenda, insisting Democrats can pursue both simultaneously (Fox News). Conservatives are skeptical: they see this as Democrats trying to have it both ways—launching investigations while claiming to focus on kitchen-table issues.
+Meanwhile, Democratic operative Ro Khanna insists his party can simultaneously investigate Trump *and* tackle affordability—a claim conservatives dismiss as political theater masking an inability to deliver on kitchen-table issues (Fox News). The left's fixation on investigations over inflation relief underscores why voters punished them at the ballot box.
 
-**The Colorado angle:** Colorado universities and state agencies have embraced DEI spending and hiring frameworks. If Texas Democrats succeed in reversing their state's ban, expect pressure on Colorado's Democratic legislature to resist similar rollbacks and expand DEI commitments—all while taxpayers foot the bill.
-
-**Watch next:** Whether Colorado Republicans introduce their own DEI-limiting legislation and whether state Democrats move to entrench these programs before potential future GOP control.
+**Watch whether Colorado Democrats attempt similar DEI reversals or double down on progressive priorities despite voter skepticism.**
